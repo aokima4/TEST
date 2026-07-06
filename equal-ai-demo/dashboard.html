@@ -1,0 +1,423 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>受発注自動化 運用ダッシュボード ― 株式会社イコール様向け</title>
+<style>
+  :root{
+    --paper: #EEF0F2;
+    --panel: #FFFFFF;
+    --ink: #1B2027;
+    --steel: #4A5560;
+    --line: #C7CDD3;
+    --grid: rgba(27,32,39,0.05);
+    --accent: #BB4A17;
+    --accent-ink: #FFFFFF;
+    --good-bg: #E4F1EA;
+    --good-fg: #1F6644;
+    --warn-bg: #FBF0DC;
+    --warn-fg: #8A5D14;
+    --pending-bg: #E7E9EC;
+    --pending-fg: #4A5560;
+    --shadow: 0 1px 0 rgba(27,32,39,0.04);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper: #14171B; --panel: #1B2025; --ink: #E8EAED; --steel: #9AA4AF; --line: #30363D;
+      --grid: rgba(255,255,255,0.05); --accent: #FF8A54; --accent-ink: #1B1109;
+      --good-bg: #17301F; --good-fg: #79D9A6; --warn-bg: #332406; --warn-fg: #EBB65A;
+      --pending-bg: #23282D; --pending-fg: #9AA4AF; --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #14171B; --panel: #1B2025; --ink: #E8EAED; --steel: #9AA4AF; --line: #30363D;
+    --grid: rgba(255,255,255,0.05); --accent: #FF8A54; --accent-ink: #1B1109;
+    --good-bg: #17301F; --good-fg: #79D9A6; --warn-bg: #332406; --warn-fg: #EBB65A;
+    --pending-bg: #23282D; --pending-fg: #9AA4AF; --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+  :root[data-theme="light"]{
+    --paper: #EEF0F2; --panel: #FFFFFF; --ink: #1B2027; --steel: #4A5560; --line: #C7CDD3;
+    --grid: rgba(27,32,39,0.05); --accent: #BB4A17; --accent-ink: #FFFFFF;
+    --good-bg: #E4F1EA; --good-fg: #1F6644; --warn-bg: #FBF0DC; --warn-fg: #8A5D14;
+    --pending-bg: #E7E9EC; --pending-fg: #4A5560; --shadow: 0 1px 0 rgba(27,32,39,0.04);
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:
+      repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 32px),
+      var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .label{
+    font-family: "Roboto Condensed", "Arial Narrow", "Hiragino Sans", sans-serif;
+    text-transform: uppercase; letter-spacing: 0.14em; font-size: 11px; font-weight: 700; color: var(--steel);
+  }
+  .mono{ font-family: "JetBrains Mono", "SF Mono", "Roboto Mono", Consolas, monospace; font-variant-numeric: tabular-nums; }
+  a{ color: var(--accent); }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page{ max-width: 960px; margin: 0 auto; padding: 40px 24px 96px; }
+
+  .pagenav{ display:flex; gap:24px; margin-bottom:16px; }
+  .pagenav a{
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-size: 12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--steel); text-decoration:none; padding-bottom:4px; border-bottom:2px solid transparent;
+  }
+  .pagenav a:hover{ color: var(--ink); }
+  .pagenav a.active{ color: var(--ink); border-bottom-color: var(--accent); }
+
+  .frame{ position: relative; }
+  .tick{ position:absolute; width:12px; height:12px; pointer-events:none; }
+  .tick.tl{ top:-1px; left:-1px; border-top:2px solid var(--accent); border-left:2px solid var(--accent); }
+  .tick.tr{ top:-1px; right:-1px; border-top:2px solid var(--accent); border-right:2px solid var(--accent); }
+  .tick.bl{ bottom:-1px; left:-1px; border-bottom:2px solid var(--accent); border-left:2px solid var(--accent); }
+  .tick.br{ bottom:-1px; right:-1px; border-bottom:2px solid var(--accent); border-right:2px solid var(--accent); }
+
+  header.hero{ background: var(--panel); border: 1px solid var(--line); padding: 24px 28px 22px; box-shadow: var(--shadow); }
+  .hero-top{ display:flex; justify-content: space-between; align-items:flex-start; gap:16px; flex-wrap: wrap; }
+  .badge{
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif; font-size: 11px; font-weight:700;
+    letter-spacing:0.1em; text-transform:uppercase; color: var(--accent); border:1px solid var(--accent);
+    padding: 4px 8px; white-space: nowrap;
+  }
+  h1{ font-size: clamp(22px, 4vw, 28px); font-weight: 800; margin: 12px 0 6px; letter-spacing: -0.01em; text-wrap: balance; }
+  .subtitle{ color: var(--steel); font-size: 14.5px; margin: 0; max-width: 64ch; }
+
+  section{ margin-top: 36px; }
+  .section-head{ margin-bottom: 14px; }
+  .section-head .label{ display:block; margin-bottom: 6px; }
+  h2{ font-size: 19px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+  .section-note{ color: var(--steel); font-size: 13.5px; margin: 6px 0 0; max-width: 64ch; }
+
+  /* KPI row */
+  .kpi-row{ display:grid; grid-template-columns: repeat(auto-fit, minmax(190px,1fr)); gap:1px; background: var(--line); border: 1px solid var(--line); }
+  .kpi-tile{ background: var(--panel); padding: 18px 20px; display:flex; flex-direction:column; gap:6px; }
+  .kpi-tile .value{ font-size: 30px; font-weight: 800; letter-spacing: -0.01em; }
+  .kpi-tile .delta{ font-size: 12.5px; color: var(--steel); }
+  .kpi-tile .delta.good{ color: var(--good-fg); }
+  .kpi-tile .spark{ margin-top: 4px; height: 26px; }
+
+  /* Line chart */
+  .chart-card{ background: var(--panel); border: 1px solid var(--line); padding: 20px 24px 8px; }
+  .chart-wrap{ position: relative; }
+  .chart-svg{ width:100%; height:auto; display:block; overflow:visible; }
+  .chart-gridline{ stroke: var(--line); stroke-width:1; }
+  .chart-axis-label{ fill: var(--steel); font-size: 10px; font-family: "JetBrains Mono","SF Mono",monospace; }
+  .chart-area{ fill: var(--accent); opacity: 0.1; }
+  .chart-line{ fill:none; stroke: var(--accent); stroke-width:2; stroke-linecap:round; stroke-linejoin:round; }
+  .chart-dot{ fill: var(--accent); stroke: var(--panel); stroke-width:2; }
+  .chart-endlabel{ font-size: 13px; font-weight: 700; fill: var(--ink); font-family: "JetBrains Mono","SF Mono",monospace; }
+  .chart-hit{ fill: transparent; cursor: crosshair; }
+  .chart-hit:focus-visible{ outline: none; }
+  .crosshair{ stroke: var(--steel); stroke-width:1; stroke-dasharray: 2 3; opacity:0; pointer-events:none; }
+  .hover-dot{ fill: var(--accent); stroke: var(--panel); stroke-width:2; opacity:0; pointer-events:none; }
+  .tooltip{
+    position:absolute; pointer-events:none; background: var(--ink); color: var(--paper);
+    font-size: 12px; padding: 6px 10px; white-space:nowrap; opacity:0; transform: translate(-50%,-100%);
+    transition: opacity .1s ease; z-index: 5;
+  }
+  .tooltip .t-val{ font-weight:700; font-family:"JetBrains Mono","SF Mono",monospace; }
+  details.dataview{ margin: 10px 0 14px; font-size: 12.5px; color: var(--steel); }
+  details.dataview summary{ cursor:pointer; color: var(--accent); font-weight:600; }
+  details.dataview table{ margin-top:8px; border-collapse:collapse; font-size:12.5px; }
+  details.dataview td, details.dataview th{ padding:4px 12px 4px 0; text-align:left; }
+
+  /* Order table */
+  .table-wrap{ overflow-x:auto; }
+  table.orders{ width:100%; border-collapse: collapse; font-size: 13px; }
+  table.orders th{ text-align:left; font-weight:700; color: var(--steel); font-size:11.5px; padding: 8px 10px; border-bottom: 1px solid var(--line); white-space:nowrap; }
+  table.orders td{ padding: 9px 10px; border-bottom: 1px solid var(--line); vertical-align: top; white-space:nowrap; }
+  table.orders tbody tr:hover{ background: var(--paper); }
+  .chip{ display:inline-block; font-size: 11px; font-weight:700; padding: 2px 8px; white-space: nowrap; }
+  .chip.ok{ background: var(--good-bg); color: var(--good-fg); }
+  .chip.warn{ background: var(--warn-bg); color: var(--warn-fg); }
+  .chip.pending{ background: var(--pending-bg); color: var(--pending-fg); }
+  .table-foot{ font-size:12.5px; color: var(--steel); margin-top:10px; }
+
+  /* Reason bars */
+  .reason-row{ display:flex; align-items:center; gap: 12px; margin-top: 10px; font-size: 13px; }
+  .reason-row:first-of-type{ margin-top: 4px; }
+  .reason-label{ width: 150px; flex-shrink:0; }
+  .reason-track{ flex:1; background: var(--paper); height: 18px; border:1px solid var(--line); }
+  .reason-fill{ height: 100%; background: var(--warn-fg); }
+  .reason-val{ width: 30px; flex-shrink:0; text-align:right; }
+
+  footer{ margin-top: 44px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 12.5px; color: var(--steel); }
+  footer .closing{ font-size: 14.5px; color: var(--ink); font-weight:700; margin-bottom: 8px; }
+
+  @media (max-width: 640px){
+    table.orders{ font-size: 12px; }
+  }
+  @media (prefers-reduced-motion: reduce){
+    .tooltip{ transition: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <nav class="pagenav">
+    <a href="index.html">受注登録デモ</a>
+    <a href="dashboard.html" class="active">運用ダッシュボード</a>
+  </nav>
+
+  <header class="hero frame">
+    <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+    <div class="hero-top">
+      <span class="label">Operations View — Order Automation</span>
+      <span class="badge">DEMO — サンプルデータ</span>
+    </div>
+    <h1>受発注自動化 運用ダッシュボード</h1>
+    <p class="subtitle">AIが受注登録した結果を、現場の担当者が毎朝一目でモニタリングできるイメージです。「要確認」だけを見ればよい状態を目指します。</p>
+  </header>
+
+  <section id="kpi">
+    <div class="section-head">
+      <span class="label">01 — Today at a Glance</span>
+      <h2>本日のサマリー</h2>
+    </div>
+    <div class="kpi-row">
+      <div class="kpi-tile">
+        <span class="label">本日の受注件数</span>
+        <span class="value mono">18 件</span>
+        <span class="delta">前日比 +3件</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="label">自動登録率</span>
+        <span class="value mono">72%</span>
+        <span class="delta good">▲ 前日比 +4pt</span>
+        <svg class="spark" viewBox="0 0 100 26" preserveAspectRatio="none" aria-hidden="true">
+          <polyline points="2,20 34,10.5 66,6.6 98,2.9" fill="none" stroke="var(--line)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <polyline points="66,6.6 98,2.9" fill="none" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          <circle cx="98" cy="2.9" r="2.6" fill="var(--accent)"/>
+        </svg>
+      </div>
+      <div class="kpi-tile">
+        <span class="label">要確認・保留</span>
+        <span class="value mono">5 件</span>
+        <span class="delta">要対応</span>
+      </div>
+      <div class="kpi-tile">
+        <span class="label">削減時間（本日推定）</span>
+        <span class="value mono">約3.2h</span>
+        <span class="delta">手作業想定比</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="trend">
+    <div class="section-head">
+      <span class="label">02 — Engagement Progress</span>
+      <h2>自動登録率の推移（導入後・イメージ）</h2>
+      <p class="section-note">最初は現場の言い回しに合わせてプロンプトを調整しながら精度を上げていく想定です。数値にカーソルを合わせると週ごとの値を確認できます。</p>
+    </div>
+    <div class="chart-card frame">
+      <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+      <div class="chart-wrap" id="chartWrap">
+        <svg class="chart-svg" id="trendChart" viewBox="0 0 640 200" role="img" aria-label="自動登録率は1週目42%から4週目72%まで上昇">
+          <line class="chart-gridline" x1="40" y1="10" x2="620" y2="10"></line>
+          <line class="chart-gridline" x1="40" y1="85" x2="620" y2="85"></line>
+          <line class="chart-gridline" x1="40" y1="160" x2="620" y2="160"></line>
+          <text class="chart-axis-label" x="8" y="14">100%</text>
+          <text class="chart-axis-label" x="14" y="89">50%</text>
+          <text class="chart-axis-label" x="20" y="164">0%</text>
+
+          <path class="chart-area" id="areaPath" d=""></path>
+          <path class="chart-line" id="linePath" d=""></path>
+
+          <g id="pointsGroup"></g>
+          <line class="crosshair" id="crosshair" x1="0" y1="10" x2="0" y2="160"></line>
+          <circle class="hover-dot" id="hoverDot" r="6"></circle>
+
+          <g id="hitGroup"></g>
+        </svg>
+        <div class="tooltip" id="chartTooltip"><span id="ttLabel"></span>：<span class="t-val" id="ttVal"></span></div>
+      </div>
+      <details class="dataview">
+        <summary>データを表で見る</summary>
+        <table>
+          <thead><tr><th>週</th><th>自動登録率</th></tr></thead>
+          <tbody>
+            <tr><td>1週目</td><td class="mono">42%</td></tr>
+            <tr><td>2週目</td><td class="mono">56%</td></tr>
+            <tr><td>3週目</td><td class="mono">65%</td></tr>
+            <tr><td>4週目</td><td class="mono">72%</td></tr>
+          </tbody>
+        </table>
+      </details>
+    </div>
+  </section>
+
+  <section id="orders">
+    <div class="section-head">
+      <span class="label">03 — Order Feed</span>
+      <h2>本日の受注一覧</h2>
+      <p class="section-note">現場担当者は基本的に「要確認」「保留中」の行だけ開けばよく、自動登録済みの行は流し見で構いません。</p>
+    </div>
+    <div class="table-wrap">
+      <table class="orders">
+        <thead>
+          <tr><th>時刻</th><th>受注番号</th><th>発注元</th><th>品番</th><th>数量</th><th>ステータス</th><th>金額 / 検知内容</th></tr>
+        </thead>
+        <tbody>
+          <tr><td class="mono">08:52</td><td class="mono">SO-0706-041</td><td>〇〇工業 田中様</td><td class="mono">BRK-114</td><td class="mono">10 枚</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥6,000</td></tr>
+          <tr><td class="mono">09:15</td><td class="mono">SO-0706-042</td><td>□□鉄工所 中村様</td><td class="mono">FLG-092</td><td class="mono">25 個</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥18,400</td></tr>
+          <tr><td class="mono">09:40</td><td class="mono">SO-0706-043</td><td>△△製作所 佐藤様</td><td class="mono">BRK-108</td><td class="mono">15 枚</td><td><span class="chip warn">要確認</span></td><td>数量相違（見積比 +5）</td></tr>
+          <tr><td class="mono">10:05</td><td class="mono">SO-0706-044</td><td>##精密 山口様</td><td class="mono">SPC-221</td><td class="mono">8 個</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥9,800</td></tr>
+          <tr><td class="mono">10:22</td><td class="mono">SO-0706-045</td><td>客先不明</td><td class="mono">P-7</td><td class="mono">―</td><td><span class="chip warn">要確認</span></td><td>品番不一致</td></tr>
+          <tr><td class="mono">10:58</td><td class="mono">SO-0706-046</td><td>〇〇工業 田中様</td><td class="mono">BRK-114</td><td class="mono">20 枚</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥12,000</td></tr>
+          <tr><td class="mono">11:20</td><td class="mono">SO-0706-047</td><td>▽▽産業 木村様</td><td class="mono">ANG-330</td><td class="mono">30 本</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥21,000</td></tr>
+          <tr><td class="mono">11:47</td><td class="mono">SO-0706-048</td><td>◇◇機工 高橋様</td><td class="mono">SUS-501</td><td class="mono">12 枚</td><td><span class="chip pending">保留中</span></td><td>正式発注書未着</td></tr>
+          <tr><td class="mono">13:15</td><td class="mono">SO-0706-049</td><td>△△製作所 佐藤様</td><td class="mono">BRK-108</td><td class="mono">22 枚</td><td><span class="chip warn">要確認</span></td><td>数量相違（見積比 +7）</td></tr>
+          <tr><td class="mono">13:50</td><td class="mono">SO-0706-050</td><td>▽▽産業 木村様</td><td class="mono">ANG-330</td><td class="mono">40 本</td><td><span class="chip warn">要確認</span></td><td>納期相談（短納期希望）</td></tr>
+          <tr><td class="mono">14:30</td><td class="mono">SO-0706-051</td><td>〇〇工業 田中様</td><td class="mono">BRK-114</td><td class="mono">5 枚</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥3,000</td></tr>
+          <tr><td class="mono">15:10</td><td class="mono">SO-0706-052</td><td>□□鉄工所 中村様</td><td class="mono">FLG-092</td><td class="mono">18 個</td><td><span class="chip ok">自動登録済み</span></td><td class="mono">¥13,248</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="table-foot">本日18件中12件を抜粋表示（要確認・保留は全件表示、自動登録済みは抜粋）</p>
+  </section>
+
+  <section id="reasons">
+    <div class="section-head">
+      <span class="label">04 — Exception Breakdown</span>
+      <h2>要確認・保留の内訳（本日5件）</h2>
+    </div>
+    <div class="chart-card frame">
+      <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+      <div class="reason-row">
+        <span class="reason-label">数量相違</span>
+        <div class="reason-track"><div class="reason-fill" style="width:40%"></div></div>
+        <span class="reason-val mono">2</span>
+      </div>
+      <div class="reason-row">
+        <span class="reason-label">品番不一致</span>
+        <div class="reason-track"><div class="reason-fill" style="width:20%"></div></div>
+        <span class="reason-val mono">1</span>
+      </div>
+      <div class="reason-row">
+        <span class="reason-label">正式発注書未着</span>
+        <div class="reason-track"><div class="reason-fill" style="width:20%"></div></div>
+        <span class="reason-val mono">1</span>
+      </div>
+      <div class="reason-row">
+        <span class="reason-label">納期相談</span>
+        <div class="reason-track"><div class="reason-fill" style="width:20%"></div></div>
+        <span class="reason-val mono">1</span>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="closing">この画面自体も、伴走支援の中で御社の受注データに合わせて一緒に作っていきます。</p>
+    <p>本ダッシュボードはサンプルデータによるイメージです。実際の指標・しきい値は御社の業務に合わせて調整します。</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var weeks = [
+    { label: "1週目", value: 42 },
+    { label: "2週目", value: 56 },
+    { label: "3週目", value: 65 },
+    { label: "4週目", value: 72 }
+  ];
+
+  var x0 = 40, x1 = 620, yTop = 10, yBase = 160;
+  var n = weeks.length;
+  function xAt(i){ return x0 + (x1 - x0) * (i / (n - 1)); }
+  function yAt(v){ return yBase - (yBase - yTop) * (v / 100); }
+
+  var linePts = weeks.map(function(w,i){ return xAt(i) + "," + yAt(w.value); }).join(" ");
+  document.getElementById('linePath').setAttribute('d', 'M' + linePts.split(' ').join(' L'));
+
+  var areaD = 'M' + xAt(0) + ',' + yBase + ' L' + linePts.split(' ').join(' L') + ' L' + xAt(n-1) + ',' + yBase + ' Z';
+  document.getElementById('areaPath').setAttribute('d', areaD);
+
+  var pointsGroup = document.getElementById('pointsGroup');
+  var hitGroup = document.getElementById('hitGroup');
+  var crosshair = document.getElementById('crosshair');
+  var hoverDot = document.getElementById('hoverDot');
+  var tooltip = document.getElementById('chartTooltip');
+  var ttLabel = document.getElementById('ttLabel');
+  var ttVal = document.getElementById('ttVal');
+  var wrap = document.getElementById('chartWrap');
+  var svg = document.getElementById('trendChart');
+  var ns = 'http://www.w3.org/2000/svg';
+
+  weeks.forEach(function(w, i){
+    var isEnd = (i === 0 || i === n - 1);
+    var cx = xAt(i), cy = yAt(w.value);
+
+    var dot = document.createElementNS(ns, 'circle');
+    dot.setAttribute('cx', cx); dot.setAttribute('cy', cy); dot.setAttribute('r', 4);
+    dot.setAttribute('class', 'chart-dot');
+    pointsGroup.appendChild(dot);
+
+    if(isEnd){
+      var t = document.createElementNS(ns, 'text');
+      t.setAttribute('x', cx + (i === 0 ? 8 : -8));
+      t.setAttribute('y', cy - 12);
+      t.setAttribute('text-anchor', i === 0 ? 'start' : 'end');
+      t.setAttribute('class', 'chart-endlabel');
+      t.textContent = w.value + '%';
+      pointsGroup.appendChild(t);
+    }
+
+    var axisLabel = document.createElementNS(ns, 'text');
+    axisLabel.setAttribute('x', cx);
+    axisLabel.setAttribute('y', 182);
+    axisLabel.setAttribute('text-anchor', 'middle');
+    axisLabel.setAttribute('class', 'chart-axis-label');
+    axisLabel.textContent = w.label;
+    pointsGroup.appendChild(axisLabel);
+
+    var bandLeft = i === 0 ? x0 : (xAt(i-1) + cx) / 2;
+    var bandRight = i === n-1 ? x1 : (cx + xAt(i+1)) / 2;
+    var hit = document.createElementNS(ns, 'rect');
+    hit.setAttribute('x', bandLeft); hit.setAttribute('y', yTop);
+    hit.setAttribute('width', bandRight - bandLeft); hit.setAttribute('height', yBase - yTop);
+    hit.setAttribute('class', 'chart-hit');
+    hit.setAttribute('tabindex', '0');
+    hit.setAttribute('role', 'button');
+    hit.setAttribute('aria-label', w.label + '：自動登録率 ' + w.value + '%');
+
+    function activate(){
+      crosshair.setAttribute('x1', cx); crosshair.setAttribute('x2', cx);
+      crosshair.style.opacity = 1;
+      hoverDot.setAttribute('cx', cx); hoverDot.setAttribute('cy', cy);
+      hoverDot.style.opacity = 1;
+      ttLabel.textContent = w.label;
+      ttVal.textContent = w.value + '%';
+      var rect = svg.getBoundingClientRect();
+      var scale = rect.width / 640;
+      tooltip.style.left = (cx * scale) + 'px';
+      tooltip.style.top = (cy * scale - 10) + 'px';
+      tooltip.style.opacity = 1;
+    }
+    function deactivate(){
+      crosshair.style.opacity = 0;
+      hoverDot.style.opacity = 0;
+      tooltip.style.opacity = 0;
+    }
+
+    hit.addEventListener('pointerenter', activate);
+    hit.addEventListener('pointermove', activate);
+    hit.addEventListener('pointerleave', deactivate);
+    hit.addEventListener('focus', activate);
+    hit.addEventListener('blur', deactivate);
+    hitGroup.appendChild(hit);
+  });
+})();
+</script>
+</body>
+</html>

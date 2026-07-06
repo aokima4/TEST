@@ -12,7 +12,7 @@
     --steel: #4A5560;
     --line: #C7CDD3;
     --grid: rgba(27,32,39,0.05);
-    --accent: #C6541F;
+    --accent: #BB4A17;
     --accent-ink: #FFFFFF;
     --good-bg: #E4F1EA;
     --good-fg: #1F6644;
@@ -59,7 +59,7 @@
     --steel: #4A5560;
     --line: #C7CDD3;
     --grid: rgba(27,32,39,0.05);
-    --accent: #C6541F;
+    --accent: #BB4A17;
     --accent-ink: #FFFFFF;
     --good-bg: #E4F1EA;
     --good-fg: #1F6644;
@@ -100,6 +100,15 @@
     margin: 0 auto;
     padding: 48px 24px 96px;
   }
+
+  .pagenav{ display:flex; gap:24px; margin-bottom:16px; }
+  .pagenav a{
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-size: 12px; font-weight:700; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--steel); text-decoration:none; padding-bottom:4px; border-bottom:2px solid transparent;
+  }
+  .pagenav a:hover{ color: var(--ink); }
+  .pagenav a.active{ color: var(--ink); border-bottom-color: var(--accent); }
 
   .frame{ position: relative; }
   .tick{ position:absolute; width:12px; height:12px; pointer-events:none; }
@@ -269,6 +278,11 @@
 </head>
 <body>
 <div class="page">
+
+  <nav class="pagenav">
+    <a href="index.html" class="active">受注登録デモ</a>
+    <a href="dashboard.html">運用ダッシュボード</a>
+  </nav>
 
   <header class="hero frame">
     <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
