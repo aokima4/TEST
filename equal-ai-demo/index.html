@@ -277,11 +277,11 @@
       <span class="badge">DEMO — サンプルデータ</span>
     </div>
     <h1>生成AI伴走支援 導入デモ</h1>
-    <p class="subtitle">部品加工ECサイトの見積・問い合わせ対応を、現場の担当者が自分で使い倒せるAIに変えていく。今回はその入口として、実務フローの一部を疑似的に再現したデモをご用意しました。</p>
+    <p class="subtitle">部品加工ECサイトに届く発注書を、現場の担当者が自分で使い倒せるAIで受注登録につなげる。今回はその入口として、実務フローの一部を疑似的に再現したデモをご用意しました。</p>
     <dl class="meta-row">
       <div><dt class="label">宛先</dt><dd>株式会社イコール<br>代表取締役　鬼頭 完治 様</dd></div>
       <div><dt class="label">提案日</dt><dd>2026年7月6日</dd></div>
-      <div><dt class="label">対象領域</dt><dd>見積・問い合わせ自動化</dd></div>
+      <div><dt class="label">対象領域</dt><dd>発注書受付・受注登録の自動化</dd></div>
     </dl>
   </header>
 
@@ -292,7 +292,7 @@
     </div>
     <ul class="issues">
       <li>過去にRPAの自社導入を試みたが、定着せず断念した経験がある</li>
-      <li>ECサイト(部品加工)の見積・問い合わせ対応が現場のボトルネックになっている</li>
+      <li>ECサイト(部品加工)に届く発注書はお客様ごとにフォーマットがバラバラで、受注登録に時間がかかっている</li>
       <li>判断基準は「お金が返ってくるか」ではなく「実務で本当に使えるか」</li>
     </ul>
   </section>
@@ -300,21 +300,21 @@
   <section id="demo">
     <div class="section-head">
       <span class="label">02 — Live Walkthrough</span>
-      <h2>AI見積アシスタントを試す</h2>
-      <p class="section-note">お客様から届く問い合わせ文をAIが読み取り、見積の下書きと不足情報の確認事項を自動生成する想定です。3パターンの問い合わせで挙動を比較できます。</p>
+      <h2>AI受注登録アシスタントを試す</h2>
+      <p class="section-note">お客様から届く発注連絡をAIが読み取り、見積との整合性を確認したうえで受注登録・受注確認メールの下書きまで自動生成する想定です。3パターンの発注で挙動を比較できます。</p>
     </div>
 
     <div class="demo-panel frame">
       <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
 
-      <div class="case-tabs" role="tablist" aria-label="サンプル問い合わせを選択">
-        <button class="case-tab" role="tab" data-case="a" aria-selected="true">ケース1 ― クリアな問い合わせ</button>
-        <button class="case-tab" role="tab" data-case="b" aria-selected="false">ケース2 ― あいまいな問い合わせ</button>
-        <button class="case-tab" role="tab" data-case="c" aria-selected="false">ケース3 ― 図面添付前提</button>
+      <div class="case-tabs" role="tablist" aria-label="サンプル発注を選択">
+        <button class="case-tab" role="tab" data-case="a" aria-selected="true">ケース1 ― 整型フォーマットの発注</button>
+        <button class="case-tab" role="tab" data-case="b" aria-selected="false">ケース2 ― 数量変更の発注連絡</button>
+        <button class="case-tab" role="tab" data-case="c" aria-selected="false">ケース3 ― 品番が特定できない発注</button>
       </div>
 
       <div class="inbox-label">
-        <span class="label">受信した問い合わせ文</span>
+        <span class="label">受信した発注連絡</span>
       </div>
       <div class="inbox" id="inboxText" aria-live="polite"></div>
 
@@ -397,54 +397,50 @@
 (function(){
   var cases = {
     a: {
-      text: "お世話になっております。〇〇工業の田中です。\n以下の部品加工のお見積りをお願いします。\n\n材質: アルミ A5052\n板厚: t3.0mm\n寸法: 200×150mm\n数量: 10枚\n加工: 穴あけ φ6 × 4箇所\n納期: 今月中希望\n\nよろしくお願いいたします。",
+      text: "いつもお世話になっております。〇〇工業の田中です。\n下記の内容で発注いたします。\n\n発注番号: PO-20260701-003\n品番: BRK-114\n材質: アルミ A5052 t3.0\n数量: 10枚\n単価: ¥600/枚\n納期: 7/20\n支払条件: 月末締め翌月末払い\n\nお見積り(Q-0625-021)の内容と相違ございません。よろしくお願いいたします。",
       fields: [
-        {label:"材質", value:"アルミ A5052", status:"ok"},
-        {label:"板厚", value:"3.0 mm", status:"ok"},
-        {label:"外形寸法", value:"200 × 150 mm", status:"ok"},
+        {label:"発注元", value:"〇〇工業 田中様", status:"ok"},
+        {label:"発注番号", value:"PO-20260701-003", status:"ok"},
+        {label:"品番", value:"BRK-114", status:"ok"},
         {label:"数量", value:"10 枚", status:"ok"},
-        {label:"加工内容", value:"穴あけ加工 φ6 × 4箇所", status:"ok"},
-        {label:"希望納期", value:"今月中", status:"ok"}
+        {label:"単価", value:"¥600 / 枚", status:"ok"},
+        {label:"希望納期", value:"7/20", status:"ok"},
+        {label:"見積との整合性", value:"見積書 Q-0625-021 と一致", status:"ok"}
       ],
       followup: null,
       quote: {
-        items: [["材料費","¥1,200"],["加工費（穴あけ×4 ×10枚）","¥4,800"]],
-        total: "¥6,000（税別・目安）",
-        lead: "中3営業日"
+        items: [["品番","BRK-114"],["数量","10 枚"],["単価","¥600 / 枚"]],
+        totalLabel: "合計金額",
+        total: "¥6,000（税別）で受注登録完了",
+        leadLabel: "確定納期",
+        lead: "7/20"
       },
-      time: { manualLabel:"想定30分", manualPct:66, aiLabel:"約20秒 + レビュー約1分", aiPct:6 }
+      time: { manualLabel:"想定12分", manualPct:27, aiLabel:"約15秒 + 登録確認レビュー約1分", aiPct:5 }
     },
     b: {
-      text: "いつもの部品、追加で20個お願いします。\n図面は前回と同じでお願いします。\n急ぎだと助かります。",
+      text: "お世話になっております。△△製作所の佐藤です。\n先日いただいたお見積り(Q-0628-014)の件で発注します。\n数量は急遽15枚に増やしたいのですが、納期は変わらず今月末でお願いできますか。\n発注書は追って郵送します。",
       fields: [
-        {label:"材質", value:"不明", status:"warn"},
-        {label:"板厚", value:"不明", status:"warn"},
-        {label:"外形寸法", value:"不明", status:"warn"},
-        {label:"数量", value:"20 個", status:"ok"},
-        {label:"加工内容", value:"「前回図面と同じ」との指示のみ", status:"warn"},
-        {label:"希望納期", value:"急ぎ希望（具体日不明）", status:"warn"}
+        {label:"発注元", value:"△△製作所 佐藤様", status:"ok"},
+        {label:"参照見積番号", value:"Q-0628-014", status:"ok"},
+        {label:"数量", value:"15枚（見積時10枚から変更）", status:"warn"},
+        {label:"希望納期", value:"今月末据え置き希望", status:"warn"},
+        {label:"正式発注書", value:"未着（郵送予定）", status:"warn"}
       ],
-      followup: "ご連絡ありがとうございます。前回のご注文番号または図面番号を教えていただけますでしょうか。また「お急ぎ」とのことですが、ご希望の納品日はございますか？",
+      followup: "ご連絡ありがとうございます。数量変更(10→15枚)に伴い金額と納期を再計算いたします。今月末納品は通常より短納期となるため、△営業日程度の余裕を頂けますと助かります。正式な発注書が届き次第、受注確定のご連絡をいたします。",
       quote: null,
-      time: { manualLabel:"想定15分", manualPct:33, aiLabel:"確認文ドラフト約10秒 + レビュー約1分", aiPct:6 }
+      time: { manualLabel:"想定20分", manualPct:44, aiLabel:"差分検知・再計算ドラフト約15秒 + レビュー約1分", aiPct:6 }
     },
     c: {
-      text: "SUS304 t5、数量50個、表面処理は三価白色クロメートで。\n図面添付します。納期は8/20希望。",
+      text: "発注します。いつものアングル材、いつもの数で。\n品番はP-7でお願いします。",
       fields: [
-        {label:"材質", value:"SUS304", status:"ok"},
-        {label:"板厚", value:"5.0 mm", status:"ok"},
-        {label:"数量", value:"50 個", status:"ok"},
-        {label:"表面処理", value:"三価白色クロメート", status:"ok"},
-        {label:"図面", value:"添付あり（要目視確認）", status:"warn"},
-        {label:"希望納期", value:"8/20", status:"ok"}
+        {label:"発注元", value:"不明（署名なし・本文のみ）", status:"warn"},
+        {label:"品番表記", value:"「P-7」（社内マスタに該当なし）", status:"warn"},
+        {label:"数量", value:"「いつもの数」（具体数不明）", status:"warn"},
+        {label:"類似取引履歴", value:"BRK-114 の可能性あり（要突合）", status:"warn"}
       ],
-      followup: "図面を確認のうえ、加工可否と正式なお見積りを折り返しご連絡いたします。可能であれば公差指定箇所も教えていただけますでしょうか。",
-      quote: {
-        items: [["材料費（目安）","¥8,000 〜 ¥9,500"],["加工費（図面確認前・概算）","¥15,000 〜 ¥18,000"]],
-        total: "¥23,000 〜 ¥27,500（税別・速報レンジ）",
-        lead: "図面確認後に確定"
-      },
-      time: { manualLabel:"想定40分", manualPct:89, aiLabel:"速報レンジ提示 約20秒（図面確認は引き続き人が実施）", aiPct:6 }
+      followup: "品番『P-7』について、社内マスタとの対応が確認できませんでした。前回ご注文いただいた弊社品番(BRK-114)のことでお間違いないか、また数量も併せてご教示いただけますでしょうか。",
+      quote: null,
+      time: { manualLabel:"想定25分", manualPct:56, aiLabel:"候補品番の提示 約15秒（最終確認は人が実施）", aiPct:4 }
     }
   };
 
@@ -492,11 +488,11 @@
         return '<div>'+escapeHtml(i[0])+'</div><div class="mono amt">'+escapeHtml(i[1])+'</div>';
       }).join('');
       html += '<div class="quote-grid">'+items+
-        '<div class="total">合計目安</div><div class="mono amt total">'+escapeHtml(c.quote.total)+'</div>'+
-        '<div>想定リードタイム</div><div class="mono amt">'+escapeHtml(c.quote.lead)+'</div>'+
+        '<div class="total">'+escapeHtml(c.quote.totalLabel || '合計')+'</div><div class="mono amt total">'+escapeHtml(c.quote.total)+'</div>'+
+        '<div>'+escapeHtml(c.quote.leadLabel || '納期')+'</div><div class="mono amt">'+escapeHtml(c.quote.lead)+'</div>'+
         '</div>';
     } else {
-      html += '<div class="callout"><span class="label">見積ドラフト</span><div>必須情報が不足しているため見積生成を保留し、確認事項の送付を優先しています。</div></div>';
+      html += '<div class="callout"><span class="label">受注登録ステータス</span><div>見積との整合性確認、または不足情報へのご回答をいただくまで、受注登録を保留しています。</div></div>';
     }
 
     html += '<div style="margin-top:20px"><span class="label">対応時間の目安（手作業 vs AIドラフト）</span>';
