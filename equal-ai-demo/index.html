@@ -1,0 +1,524 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>生成AI伴走支援 導入デモ ― 株式会社イコール様向け</title>
+<style>
+  :root{
+    --paper: #EEF0F2;
+    --panel: #FFFFFF;
+    --ink: #1B2027;
+    --steel: #4A5560;
+    --line: #C7CDD3;
+    --grid: rgba(27,32,39,0.05);
+    --accent: #C6541F;
+    --accent-ink: #FFFFFF;
+    --good-bg: #E4F1EA;
+    --good-fg: #1F6644;
+    --warn-bg: #FBF0DC;
+    --warn-fg: #8A5D14;
+    --shadow: 0 1px 0 rgba(27,32,39,0.04);
+  }
+  @media (prefers-color-scheme: dark){
+    :root{
+      --paper: #14171B;
+      --panel: #1B2025;
+      --ink: #E8EAED;
+      --steel: #9AA4AF;
+      --line: #30363D;
+      --grid: rgba(255,255,255,0.05);
+      --accent: #FF8A54;
+      --accent-ink: #1B1109;
+      --good-bg: #17301F;
+      --good-fg: #79D9A6;
+      --warn-bg: #332406;
+      --warn-fg: #EBB65A;
+      --shadow: 0 1px 0 rgba(0,0,0,0.3);
+    }
+  }
+  :root[data-theme="dark"]{
+    --paper: #14171B;
+    --panel: #1B2025;
+    --ink: #E8EAED;
+    --steel: #9AA4AF;
+    --line: #30363D;
+    --grid: rgba(255,255,255,0.05);
+    --accent: #FF8A54;
+    --accent-ink: #1B1109;
+    --good-bg: #17301F;
+    --good-fg: #79D9A6;
+    --warn-bg: #332406;
+    --warn-fg: #EBB65A;
+    --shadow: 0 1px 0 rgba(0,0,0,0.3);
+  }
+  :root[data-theme="light"]{
+    --paper: #EEF0F2;
+    --panel: #FFFFFF;
+    --ink: #1B2027;
+    --steel: #4A5560;
+    --line: #C7CDD3;
+    --grid: rgba(27,32,39,0.05);
+    --accent: #C6541F;
+    --accent-ink: #FFFFFF;
+    --good-bg: #E4F1EA;
+    --good-fg: #1F6644;
+    --warn-bg: #FBF0DC;
+    --warn-fg: #8A5D14;
+    --shadow: 0 1px 0 rgba(27,32,39,0.04);
+  }
+
+  *{ box-sizing: border-box; }
+  html,body{ margin:0; padding:0; }
+  body{
+    background:
+      repeating-linear-gradient(0deg, var(--grid) 0 1px, transparent 1px 32px),
+      repeating-linear-gradient(90deg, var(--grid) 0 1px, transparent 1px 32px),
+      var(--paper);
+    color: var(--ink);
+    font-family: "Hiragino Sans", "Yu Gothic", "Noto Sans JP", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+  .label{
+    font-family: "Roboto Condensed", "Arial Narrow", "Hiragino Sans", sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--steel);
+  }
+  .mono{
+    font-family: "JetBrains Mono", "SF Mono", "Roboto Mono", Consolas, monospace;
+    font-variant-numeric: tabular-nums;
+  }
+  a{ color: var(--accent); }
+  :focus-visible{ outline: 2px solid var(--accent); outline-offset: 2px; }
+
+  .page{
+    max-width: 880px;
+    margin: 0 auto;
+    padding: 48px 24px 96px;
+  }
+
+  .frame{ position: relative; }
+  .tick{ position:absolute; width:12px; height:12px; pointer-events:none; }
+  .tick.tl{ top:-1px; left:-1px; border-top:2px solid var(--accent); border-left:2px solid var(--accent); }
+  .tick.tr{ top:-1px; right:-1px; border-top:2px solid var(--accent); border-right:2px solid var(--accent); }
+  .tick.bl{ bottom:-1px; left:-1px; border-bottom:2px solid var(--accent); border-left:2px solid var(--accent); }
+  .tick.br{ bottom:-1px; right:-1px; border-bottom:2px solid var(--accent); border-right:2px solid var(--accent); }
+
+  header.hero{
+    background: var(--panel);
+    border: 1px solid var(--line);
+    padding: 28px 28px 24px;
+    box-shadow: var(--shadow);
+  }
+  .hero-top{
+    display:flex; justify-content: space-between; align-items:flex-start; gap:16px;
+    flex-wrap: wrap;
+  }
+  .badge{
+    font-family: "Roboto Condensed", "Arial Narrow", sans-serif;
+    font-size: 11px; font-weight:700; letter-spacing:0.1em; text-transform:uppercase;
+    color: var(--accent); border:1px solid var(--accent); padding: 4px 8px;
+    white-space: nowrap;
+  }
+  h1{
+    font-size: clamp(24px, 4vw, 32px);
+    font-weight: 800;
+    margin: 14px 0 6px;
+    letter-spacing: -0.01em;
+    text-wrap: balance;
+  }
+  .subtitle{ color: var(--steel); font-size: 15px; margin: 0 0 20px; max-width: 60ch; }
+  .meta-row{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px,1fr));
+    gap: 12px 24px;
+    border-top: 1px solid var(--line);
+    padding-top: 16px;
+    font-size: 13px;
+  }
+  .meta-row dt{ margin:0 0 2px; }
+  .meta-row dd{ margin:0; font-weight:600; }
+
+  section{ margin-top: 40px; }
+  .section-head{ margin-bottom: 16px; }
+  .section-head .label{ display:block; margin-bottom: 6px; }
+  h2{ font-size: 20px; font-weight: 800; margin: 0; letter-spacing: -0.01em; }
+  .section-note{ color: var(--steel); font-size: 14px; margin: 6px 0 0; max-width: 62ch; }
+
+  .issues{
+    display:grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px,1fr));
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+  }
+  .issues li{
+    list-style:none; background: var(--panel); padding: 16px 18px; font-size: 14px;
+  }
+  .issues li::before{
+    content: "―"; color: var(--accent); margin-right: 6px;
+  }
+
+  .demo-panel{
+    background: var(--panel); border: 1px solid var(--line); padding: 24px;
+  }
+  .case-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom: 16px; }
+  .case-tab{
+    font-family: inherit; font-size: 13px; font-weight:600;
+    background: transparent; color: var(--steel); border: 1px solid var(--line);
+    padding: 8px 14px; cursor:pointer;
+  }
+  .case-tab[aria-selected="true"]{
+    background: var(--ink); color: var(--paper); border-color: var(--ink);
+  }
+  .case-tab:hover{ border-color: var(--accent); }
+
+  .inbox{
+    background: var(--paper); border: 1px solid var(--line); padding: 16px 18px;
+    font-size: 13.5px; white-space: pre-wrap; color: var(--ink);
+    max-height: 220px; overflow-y: auto;
+  }
+  .inbox-label{ display:flex; justify-content: space-between; align-items:center; margin-bottom:8px; }
+
+  .analyze-btn{
+    margin-top: 16px;
+    font-family: inherit; font-size: 14px; font-weight: 700;
+    background: var(--accent); color: var(--accent-ink); border: none;
+    padding: 12px 22px; cursor: pointer;
+  }
+  .analyze-btn:hover{ filter: brightness(1.06); }
+  .analyze-btn:disabled{ opacity: 0.6; cursor: default; }
+
+  .result{ margin-top: 24px; border-top: 1px solid var(--line); padding-top: 20px; }
+  .result-placeholder{ color: var(--steel); font-size: 14px; }
+  .result-placeholder::before{ content:"▸ "; color: var(--accent); }
+
+  .thinking{ color: var(--steel); font-size: 13px; }
+  .thinking .dots::after{
+    content:"…"; animation: dots 1.1s steps(4,end) infinite;
+  }
+  @media (prefers-reduced-motion: reduce){
+    .thinking .dots::after{ animation: none; content:"…"; }
+  }
+  @keyframes dots{ 0%{content:""} 25%{content:"."} 50%{content:".."} 75%{content:"..."} 100%{content:""} }
+
+  table.extract{ width:100%; border-collapse: collapse; font-size: 13.5px; }
+  table.extract th{ text-align:left; font-weight:700; color: var(--steel); font-size:12px; padding: 6px 10px; border-bottom: 1px solid var(--line); }
+  table.extract td{ padding: 8px 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .table-wrap{ overflow-x:auto; }
+
+  .chip{
+    display:inline-block; font-size: 11px; font-weight:700; padding: 2px 8px;
+    white-space: nowrap;
+  }
+  .chip.ok{ background: var(--good-bg); color: var(--good-fg); }
+  .chip.warn{ background: var(--warn-bg); color: var(--warn-fg); }
+
+  .callout{
+    margin-top: 18px; padding: 14px 16px; background: var(--paper);
+    border-left: 3px solid var(--accent); font-size: 13.5px;
+  }
+  .callout .label{ margin-bottom: 4px; }
+
+  .quote-grid{
+    margin-top: 18px; display:grid; grid-template-columns: 1fr auto; gap: 6px 16px;
+    font-size: 13.5px; max-width: 420px;
+  }
+  .quote-grid .total{ font-weight:800; border-top:1px solid var(--line); padding-top:8px; margin-top:4px; }
+  .quote-grid .amt{ text-align:right; }
+
+  .timebar-row{ display:flex; align-items:center; gap: 12px; margin-top: 8px; font-size: 12.5px; }
+  .timebar-row .tb-label{ width: 78px; flex-shrink:0; color: var(--steel); }
+  .timebar-track{ flex:1; background: var(--paper); height: 18px; position: relative; border:1px solid var(--line); }
+  .timebar-fill{ height: 100%; }
+  .timebar-fill.manual{ background: var(--steel); }
+  .timebar-fill.ai{ background: var(--accent); }
+  .tb-val{ width: 210px; flex-shrink:0; }
+
+  .compare-table{ width:100%; border-collapse: collapse; font-size: 13.5px; }
+  .compare-table th, .compare-table td{ border: 1px solid var(--line); padding: 10px 12px; text-align:left; vertical-align:top; }
+  .compare-table th{ background: var(--panel); font-size:12px; color:var(--steel); }
+  .compare-table td.rpa{ color: var(--steel); }
+
+  .roadmap{
+    display:grid; grid-template-columns: repeat(4, 1fr); gap: 1px;
+    background: var(--line); border: 1px solid var(--line); margin-top: 8px;
+  }
+  .phase{ background: var(--panel); padding: 16px; display:flex; flex-direction:column; gap:8px; }
+  .phase .month{ font-size: 11px; font-weight:700; letter-spacing:0.06em; color: var(--accent); }
+  .phase .bar{ height: 6px; background: var(--line); position:relative; }
+  .phase .bar::after{ content:""; position:absolute; inset:0; background: var(--accent); }
+  .phase h3{ font-size: 14px; margin: 2px 0 0; }
+  .phase p{ font-size: 12.5px; color: var(--steel); margin:0; }
+
+  footer{
+    margin-top: 48px; padding-top: 20px; border-top: 1px solid var(--line);
+    font-size: 12.5px; color: var(--steel);
+  }
+  footer .closing{ font-size: 15px; color: var(--ink); font-weight:700; margin-bottom: 10px; }
+
+  @media (max-width: 640px){
+    .roadmap{ grid-template-columns: 1fr; }
+    .quote-grid{ max-width: none; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header class="hero frame">
+    <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+    <div class="hero-top">
+      <span class="label">Proposal — Generative AI On-site Support</span>
+      <span class="badge">DEMO — サンプルデータ</span>
+    </div>
+    <h1>生成AI伴走支援 導入デモ</h1>
+    <p class="subtitle">部品加工ECサイトの見積・問い合わせ対応を、現場の担当者が自分で使い倒せるAIに変えていく。今回はその入口として、実務フローの一部を疑似的に再現したデモをご用意しました。</p>
+    <dl class="meta-row">
+      <div><dt class="label">宛先</dt><dd>株式会社イコール<br>代表取締役　鬼頭 完治 様</dd></div>
+      <div><dt class="label">提案日</dt><dd>2026年7月6日</dd></div>
+      <div><dt class="label">対象領域</dt><dd>見積・問い合わせ自動化</dd></div>
+    </dl>
+  </header>
+
+  <section id="issues">
+    <div class="section-head">
+      <span class="label">01 — Current Situation</span>
+      <h2>現状認識のすり合わせ</h2>
+    </div>
+    <ul class="issues">
+      <li>過去にRPAの自社導入を試みたが、定着せず断念した経験がある</li>
+      <li>ECサイト(部品加工)の見積・問い合わせ対応が現場のボトルネックになっている</li>
+      <li>判断基準は「お金が返ってくるか」ではなく「実務で本当に使えるか」</li>
+    </ul>
+  </section>
+
+  <section id="demo">
+    <div class="section-head">
+      <span class="label">02 — Live Walkthrough</span>
+      <h2>AI見積アシスタントを試す</h2>
+      <p class="section-note">お客様から届く問い合わせ文をAIが読み取り、見積の下書きと不足情報の確認事項を自動生成する想定です。3パターンの問い合わせで挙動を比較できます。</p>
+    </div>
+
+    <div class="demo-panel frame">
+      <span class="tick tl"></span><span class="tick tr"></span><span class="tick bl"></span><span class="tick br"></span>
+
+      <div class="case-tabs" role="tablist" aria-label="サンプル問い合わせを選択">
+        <button class="case-tab" role="tab" data-case="a" aria-selected="true">ケース1 ― クリアな問い合わせ</button>
+        <button class="case-tab" role="tab" data-case="b" aria-selected="false">ケース2 ― あいまいな問い合わせ</button>
+        <button class="case-tab" role="tab" data-case="c" aria-selected="false">ケース3 ― 図面添付前提</button>
+      </div>
+
+      <div class="inbox-label">
+        <span class="label">受信した問い合わせ文</span>
+      </div>
+      <div class="inbox" id="inboxText" aria-live="polite"></div>
+
+      <button class="analyze-btn" id="analyzeBtn">AIで解析する →</button>
+
+      <div class="result" id="result">
+        <p class="result-placeholder">解析結果はここに表示されます</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="compare">
+    <div class="section-head">
+      <span class="label">03 — Why Not RPA Again</span>
+      <h2>RPAと生成AI、何が違うのか</h2>
+      <p class="section-note">一度RPAで断念されているからこそ、同じ壁を繰り返さない設計が重要だと考えています。</p>
+    </div>
+    <div class="table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr><th>観点</th><th>RPA（これまでのご経験）</th><th>生成AI</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>入力形式</td><td class="rpa">決まったExcel・フォームのみ処理可能</td><td>自由文・表記ゆれもある程度読み取れる</td></tr>
+          <tr><td>フォーマット変更時</td><td class="rpa">修正が入ると停止し、再設定が必要</td><td>プロンプト・ルールの調整で追従しやすい</td></tr>
+          <tr><td>例外・不足情報</td><td class="rpa">人がすべて引き取って対応</td><td>何が足りないかをAIが判断し、確認文まで下書き</td></tr>
+          <tr><td>定着に必要なもの</td><td class="rpa">情報システム部門による継続保守</td><td>現場担当者自身がプロンプトを調整できる状態</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout">
+      <span class="label">Point</span>
+      <div>「動かなくなったら終わり」にしないために、最初から現場の方と一緒にプロンプトを育てていく前提で設計します。</div>
+    </div>
+  </section>
+
+  <section id="roadmap">
+    <div class="section-head">
+      <span class="label">04 — Engagement Plan</span>
+      <h2>伴走支援ロードマップ（目安 6ヶ月）</h2>
+      <p class="section-note">ゴールはツールの納品ではなく、担当者ご自身が使い倒せる状態になることです。</p>
+    </div>
+    <div class="roadmap">
+      <div class="phase">
+        <span class="month">1ヶ月目</span>
+        <div class="bar"></div>
+        <h3>現場ヒアリング</h3>
+        <p>実際の問い合わせ・見積データを一緒に棚卸しし、ユースケースを選定</p>
+      </div>
+      <div class="phase">
+        <span class="month">2ヶ月目</span>
+        <div class="bar"></div>
+        <h3>プロトタイプ構築</h3>
+        <p>御社の実データで試作し、現場担当者と一緒に精度を検証</p>
+      </div>
+      <div class="phase">
+        <span class="month">3〜4ヶ月目</span>
+        <div class="bar"></div>
+        <h3>現場実装・トレーニング</h3>
+        <p>担当者自身がプロンプト調整・運用判断をできるまで伴走</p>
+      </div>
+      <div class="phase">
+        <span class="month">5〜6ヶ月目〜</span>
+        <div class="bar"></div>
+        <h3>本番運用・内製化</h3>
+        <p>定着後は自走し、次のユースケース（社内ナレッジ対応等）へ展開</p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p class="closing">貴社の実データで、まずは小さく試してみませんか。</p>
+    <p>本デモはサンプルデータによるシミュレーションです。実データでの精度検証・チューニングは伴走支援の中で一緒に行います。</p>
+    <p>ご提案者：[ご担当者名] ／ [連絡先]</p>
+  </footer>
+
+</div>
+
+<script>
+(function(){
+  var cases = {
+    a: {
+      text: "お世話になっております。〇〇工業の田中です。\n以下の部品加工のお見積りをお願いします。\n\n材質: アルミ A5052\n板厚: t3.0mm\n寸法: 200×150mm\n数量: 10枚\n加工: 穴あけ φ6 × 4箇所\n納期: 今月中希望\n\nよろしくお願いいたします。",
+      fields: [
+        {label:"材質", value:"アルミ A5052", status:"ok"},
+        {label:"板厚", value:"3.0 mm", status:"ok"},
+        {label:"外形寸法", value:"200 × 150 mm", status:"ok"},
+        {label:"数量", value:"10 枚", status:"ok"},
+        {label:"加工内容", value:"穴あけ加工 φ6 × 4箇所", status:"ok"},
+        {label:"希望納期", value:"今月中", status:"ok"}
+      ],
+      followup: null,
+      quote: {
+        items: [["材料費","¥1,200"],["加工費（穴あけ×4 ×10枚）","¥4,800"]],
+        total: "¥6,000（税別・目安）",
+        lead: "中3営業日"
+      },
+      time: { manualLabel:"想定30分", manualPct:66, aiLabel:"約20秒 + レビュー約1分", aiPct:6 }
+    },
+    b: {
+      text: "いつもの部品、追加で20個お願いします。\n図面は前回と同じでお願いします。\n急ぎだと助かります。",
+      fields: [
+        {label:"材質", value:"不明", status:"warn"},
+        {label:"板厚", value:"不明", status:"warn"},
+        {label:"外形寸法", value:"不明", status:"warn"},
+        {label:"数量", value:"20 個", status:"ok"},
+        {label:"加工内容", value:"「前回図面と同じ」との指示のみ", status:"warn"},
+        {label:"希望納期", value:"急ぎ希望（具体日不明）", status:"warn"}
+      ],
+      followup: "ご連絡ありがとうございます。前回のご注文番号または図面番号を教えていただけますでしょうか。また「お急ぎ」とのことですが、ご希望の納品日はございますか？",
+      quote: null,
+      time: { manualLabel:"想定15分", manualPct:33, aiLabel:"確認文ドラフト約10秒 + レビュー約1分", aiPct:6 }
+    },
+    c: {
+      text: "SUS304 t5、数量50個、表面処理は三価白色クロメートで。\n図面添付します。納期は8/20希望。",
+      fields: [
+        {label:"材質", value:"SUS304", status:"ok"},
+        {label:"板厚", value:"5.0 mm", status:"ok"},
+        {label:"数量", value:"50 個", status:"ok"},
+        {label:"表面処理", value:"三価白色クロメート", status:"ok"},
+        {label:"図面", value:"添付あり（要目視確認）", status:"warn"},
+        {label:"希望納期", value:"8/20", status:"ok"}
+      ],
+      followup: "図面を確認のうえ、加工可否と正式なお見積りを折り返しご連絡いたします。可能であれば公差指定箇所も教えていただけますでしょうか。",
+      quote: {
+        items: [["材料費（目安）","¥8,000 〜 ¥9,500"],["加工費（図面確認前・概算）","¥15,000 〜 ¥18,000"]],
+        total: "¥23,000 〜 ¥27,500（税別・速報レンジ）",
+        lead: "図面確認後に確定"
+      },
+      time: { manualLabel:"想定40分", manualPct:89, aiLabel:"速報レンジ提示 約20秒（図面確認は引き続き人が実施）", aiPct:6 }
+    }
+  };
+
+  var inbox = document.getElementById('inboxText');
+  var result = document.getElementById('result');
+  var btn = document.getElementById('analyzeBtn');
+  var tabs = document.querySelectorAll('.case-tab');
+  var current = 'a';
+  var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function escapeHtml(s){
+    return s.replace(/[&<>"']/g, function(c){
+      return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
+    });
+  }
+
+  function showCase(key){
+    current = key;
+    tabs.forEach(function(t){ t.setAttribute('aria-selected', t.dataset.case === key ? 'true' : 'false'); });
+    inbox.textContent = cases[key].text;
+    result.innerHTML = '<p class="result-placeholder">解析結果はここに表示されます</p>';
+  }
+
+  tabs.forEach(function(t){
+    t.addEventListener('click', function(){ showCase(t.dataset.case); });
+  });
+
+  function buildResultHtml(c){
+    var rows = c.fields.map(function(f){
+      var chip = f.status === 'ok'
+        ? '<span class="chip ok">抽出済</span>'
+        : '<span class="chip warn">要確認</span>';
+      return '<tr><td>'+escapeHtml(f.label)+'</td><td class="mono">'+escapeHtml(f.value)+'</td><td>'+chip+'</td></tr>';
+    }).join('');
+
+    var html = '';
+    html += '<div class="table-wrap"><table class="extract"><thead><tr><th>抽出項目</th><th>値</th><th>状態</th></tr></thead><tbody>'+rows+'</tbody></table></div>';
+
+    if(c.followup){
+      html += '<div class="callout"><span class="label">AIが自動生成した確認事項（お客様への返信ドラフト）</span><div>'+escapeHtml(c.followup)+'</div></div>';
+    }
+
+    if(c.quote){
+      var items = c.quote.items.map(function(i){
+        return '<div>'+escapeHtml(i[0])+'</div><div class="mono amt">'+escapeHtml(i[1])+'</div>';
+      }).join('');
+      html += '<div class="quote-grid">'+items+
+        '<div class="total">合計目安</div><div class="mono amt total">'+escapeHtml(c.quote.total)+'</div>'+
+        '<div>想定リードタイム</div><div class="mono amt">'+escapeHtml(c.quote.lead)+'</div>'+
+        '</div>';
+    } else {
+      html += '<div class="callout"><span class="label">見積ドラフト</span><div>必須情報が不足しているため見積生成を保留し、確認事項の送付を優先しています。</div></div>';
+    }
+
+    html += '<div style="margin-top:20px"><span class="label">対応時間の目安（手作業 vs AIドラフト）</span>';
+    html += '<div class="timebar-row"><span class="tb-label">手作業</span><div class="timebar-track"><div class="timebar-fill manual" style="width:'+c.time.manualPct+'%"></div></div><span class="tb-val mono">'+escapeHtml(c.time.manualLabel)+'</span></div>';
+    html += '<div class="timebar-row"><span class="tb-label">AIドラフト</span><div class="timebar-track"><div class="timebar-fill ai" style="width:'+c.time.aiPct+'%"></div></div><span class="tb-val mono">'+escapeHtml(c.time.aiLabel)+'</span></div>';
+    html += '</div>';
+
+    return html;
+  }
+
+  btn.addEventListener('click', function(){
+    btn.disabled = true;
+    result.innerHTML = '<p class="thinking">AIが問い合わせ内容を解析しています<span class="dots"></span></p>';
+    var delay = reduceMotion ? 0 : 650;
+    setTimeout(function(){
+      result.innerHTML = buildResultHtml(cases[current]);
+      btn.disabled = false;
+    }, delay);
+  });
+
+  showCase('a');
+})();
+</script>
+</body>
+</html>
