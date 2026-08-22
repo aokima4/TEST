@@ -1,0 +1,909 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Next Career AI｜AIが進化するたび、私も次へ。</title>
+<meta name="description" content="あなたの経験 × AIで、次の仕事をつくる。Next Career AI「AI Business Producer Program」Founding Cohort 01（第0期）、12週間・10名限定で募集。">
+<meta property="og:title" content="Next Career AI｜AIが進化するたび、私も次へ。">
+<meta property="og:description" content="あなたの経験 × AIで、次の仕事をつくる。12週間・10名限定の実践型プログラム、第0期募集。">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans+JP:wght@400;500;700&display=swap">
+<style>
+:root{
+  --navy:#071B36;
+  --gold:#C79A46;
+  --gold-soft:#E4C786;
+  --ivory:#F8F5EF;
+  --charcoal:#1A1B1D;
+  --ink:#122442;
+  --muted:#54617a;
+  --ivory-on-navy:rgba(248,245,239,.78);
+  --line:rgba(7,27,54,.14);
+  --serif-en:"Cormorant Garamond",Georgia,"Times New Roman",serif;
+  --serif-jp:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif;
+  --sans:"Noto Sans JP","Hiragino Kaku Gothic ProN",Meiryo,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+br.sp{display:none}
+@media(max-width:640px){br.sp{display:inline}br.pc{display:none}}
+html{scroll-behavior:smooth}
+body{
+  background:var(--ivory);
+  color:var(--ink);
+  font-family:var(--sans);
+  font-size:16px;
+  line-height:2;
+  letter-spacing:.02em;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:inherit;text-decoration:none}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+.wrap{max-width:1060px;margin:0 auto;padding:0 24px}
+.narrow{max-width:660px;margin-left:auto;margin-right:auto}
+
+/* ---------- type ---------- */
+.en{font-family:var(--serif-en);letter-spacing:.16em}
+.eyebrow{
+  font-family:var(--serif-en);
+  font-weight:600;
+  font-size:13px;
+  letter-spacing:.32em;
+  text-transform:uppercase;
+  color:var(--gold);
+}
+h1,h2,h3{text-wrap:balance}
+.h-jp{
+  font-family:var(--serif-jp);
+  font-weight:600;
+  line-height:1.6;
+  letter-spacing:.06em;
+}
+section{padding:104px 0}
+.sec-head{text-align:center;margin-bottom:64px}
+.sec-head .eyebrow{display:block;margin-bottom:18px}
+.sec-head h2{font-size:clamp(24px,3.4vw,34px)}
+.rule{
+  width:56px;height:1px;background:var(--gold-soft);
+  margin:26px auto 0;border:0;
+}
+.lead{color:var(--muted)}
+
+/* ---------- buttons ---------- */
+.btn{
+  display:inline-block;
+  background:var(--gold);
+  color:#fff;
+  font-weight:700;
+  font-size:15px;
+  letter-spacing:.08em;
+  padding:18px 44px;
+  border-radius:2px;
+  transition:background .25s ease,transform .25s ease;
+}
+.btn:hover{background:#b3863a;transform:translateY(-1px)}
+.btn--ghost{
+  background:transparent;
+  color:var(--ivory);
+  border:1px solid var(--gold-soft);
+}
+.btn--ghost:hover{background:rgba(228,199,134,.12);transform:translateY(-1px)}
+.btn-note{margin-top:14px;font-size:12px;color:var(--muted);letter-spacing:.05em}
+
+/* ---------- header ---------- */
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(248,245,239,.92);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.header-in{
+  max-width:1160px;margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:16px;
+}
+.brand{display:flex;align-items:center;gap:12px}
+.brand svg{height:34px;width:auto}
+.brand-word{
+  font-family:var(--serif-en);font-weight:600;
+  font-size:15px;line-height:1.35;letter-spacing:.22em;
+  color:var(--navy);white-space:nowrap;
+}
+.brand-word .ai{color:var(--gold)}
+nav{display:flex;align-items:center;gap:28px}
+nav a.navlink{
+  font-size:13px;font-weight:500;letter-spacing:.08em;color:var(--ink);
+  padding:6px 0;border-bottom:1px solid transparent;
+  transition:border-color .2s ease,color .2s ease;
+}
+nav a.navlink:hover{color:var(--gold);border-bottom-color:var(--gold-soft)}
+.btn--nav{padding:11px 22px;font-size:13px}
+@media(max-width:860px){nav a.navlink{display:none}}
+
+/* ---------- hero ---------- */
+.hero{padding:120px 0 110px;text-align:center;position:relative}
+.hero .eyebrow{margin-bottom:30px;display:block}
+.hero-tagline{
+  font-size:clamp(30px,5.4vw,54px);
+  color:var(--navy);
+}
+.hero-brand{
+  margin-top:34px;
+  font-family:var(--serif-en);font-weight:600;
+  font-size:clamp(17px,2.4vw,23px);
+  letter-spacing:.42em;text-indent:.42em;
+  color:var(--navy);
+}
+.hero-brand .ai{color:var(--gold)}
+.hero-sub{
+  margin-top:10px;
+  font-size:15px;letter-spacing:.14em;color:var(--muted);
+}
+.hero-copy{margin:44px auto 0;max-width:620px;color:var(--muted);font-size:15.5px}
+.hero-copy strong{color:var(--ink)}
+.hero-mark{margin:0 auto 34px;width:84px}
+.facts{
+  margin:52px auto 0;max-width:760px;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px 12px;
+}
+.fact{
+  border:1px solid var(--line);
+  background:#fff;
+  font-size:13px;letter-spacing:.06em;color:var(--ink);
+  padding:9px 20px;border-radius:999px;
+}
+.fact b{color:var(--gold);font-weight:700}
+.hero-cta{margin-top:48px}
+
+/* ---------- narrative (problem) ---------- */
+.narrative{text-align:center}
+.narrative .h-jp{font-size:clamp(24px,3.6vw,36px);color:var(--navy)}
+.narrative p{margin-top:28px;color:var(--muted)}
+.narrative .voice{
+  font-family:var(--serif-jp);font-size:clamp(17px,2.2vw,20px);
+  color:var(--ink);line-height:2.2;
+}
+.punch{
+  margin-top:52px;
+  font-family:var(--serif-jp);font-weight:600;
+  font-size:clamp(21px,3vw,28px);color:var(--navy);line-height:1.9;
+}
+.punch em{font-style:normal;color:var(--gold)}
+
+/* ---------- experience x AI ---------- */
+.xgrid{
+  margin-top:56px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;
+}
+.xcard{
+  background:#fff;border:1px solid var(--line);
+  padding:26px 30px;
+  display:flex;align-items:baseline;gap:14px;
+}
+.xcard .from{font-weight:700;color:var(--navy);white-space:nowrap;font-size:15px}
+.xcard .arrow{color:var(--gold);font-family:var(--serif-en);font-size:18px}
+.xcard .to{color:var(--muted);font-size:14px;line-height:1.8}
+
+/* ---------- navy band ---------- */
+.band-navy{background:var(--navy);color:var(--ivory-on-navy)}
+.band-navy .eyebrow{color:var(--gold-soft)}
+.band-navy .h-jp{color:var(--ivory)}
+.band-navy .rule{background:rgba(228,199,134,.5)}
+.band-navy strong{color:var(--ivory)}
+.band-navy .accent{color:var(--gold-soft)}
+
+/* ---------- five forces ---------- */
+.forces{margin-top:8px;border-top:1px solid var(--line)}
+.force{
+  display:grid;grid-template-columns:250px 1fr;gap:34px;
+  padding:46px 8px;border-bottom:1px solid var(--line);
+}
+.force-key{display:flex;flex-direction:column;gap:6px}
+.force-key .no{
+  font-family:var(--serif-en);font-size:13px;font-weight:600;
+  letter-spacing:.3em;color:var(--gold);
+}
+.force-key .word{
+  font-family:var(--serif-en);font-weight:600;
+  font-size:34px;letter-spacing:.14em;color:var(--navy);line-height:1.1;
+}
+.force-key .jp{font-family:var(--serif-jp);font-weight:600;font-size:16px;color:var(--ink)}
+.force-body{color:var(--muted);font-size:15px}
+.force-body strong{color:var(--ink)}
+@media(max-width:720px){.force{grid-template-columns:1fr;gap:14px;padding:38px 4px}}
+
+/* ---------- curriculum ---------- */
+.weeks{margin-top:10px;position:relative;padding-left:34px}
+.weeks::before{
+  content:"";position:absolute;left:6px;top:8px;bottom:8px;
+  width:1px;background:var(--gold-soft);
+}
+.week{position:relative;padding:0 0 46px 22px}
+.week:last-child{padding-bottom:0}
+.week::before{
+  content:"";position:absolute;left:-32px;top:12px;
+  width:9px;height:9px;border-radius:50%;
+  background:var(--ivory);border:2px solid var(--gold);
+}
+.week .wk{
+  font-family:var(--serif-en);font-weight:600;font-size:13px;
+  letter-spacing:.28em;color:var(--gold);
+}
+.week h3{
+  font-family:var(--serif-jp);font-weight:600;font-size:19px;
+  color:var(--navy);margin:6px 0 10px;
+}
+.week p{color:var(--muted);font-size:14.5px;line-height:1.95}
+.deliv{
+  display:inline-block;margin-top:12px;
+  font-size:12px;letter-spacing:.06em;color:var(--navy);
+  background:#fff;border:1px solid var(--gold-soft);
+  padding:5px 14px;border-radius:2px;
+}
+.deliv b{color:var(--gold);font-weight:700;margin-right:6px}
+
+/* ---------- project ---------- */
+.panel{
+  background:#fff;border:1px solid var(--line);border-top:2px solid var(--gold);
+  padding:56px 52px;
+}
+.panel .h-jp{font-size:clamp(20px,2.6vw,26px);color:var(--navy)}
+.panel p{margin-top:20px;color:var(--muted)}
+.panel .result{
+  margin-top:30px;font-family:var(--serif-jp);font-weight:600;
+  font-size:clamp(17px,2.2vw,21px);color:var(--navy);line-height:2;
+}
+.notes{margin-top:26px;font-size:12px;color:var(--muted);line-height:1.9;letter-spacing:.03em}
+@media(max-width:640px){.panel{padding:40px 26px}}
+
+/* ---------- fit ---------- */
+.fit-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+@media(max-width:820px){.fit-grid{grid-template-columns:1fr}}
+.fit{background:#fff;border:1px solid var(--line);padding:44px 40px}
+.fit h3{
+  font-family:var(--serif-jp);font-weight:600;font-size:20px;
+  color:var(--navy);margin-bottom:24px;
+}
+.fit ul{list-style:none}
+.fit li{
+  position:relative;padding:9px 0 9px 30px;
+  font-size:14.5px;color:var(--ink);line-height:1.9;
+  border-bottom:1px dotted var(--line);
+}
+.fit li:last-child{border-bottom:0}
+.fit li::before{
+  position:absolute;left:2px;top:9px;
+  font-family:var(--serif-en);font-weight:700;
+}
+.fit--yes li::before{content:"◆";color:var(--gold);font-size:11px;top:13px}
+.fit--no li{color:var(--muted)}
+.fit--no li::before{content:"—";color:var(--muted)}
+.fit-note{margin-top:22px;font-size:13.5px;color:var(--muted);line-height:2}
+.fit-note strong{color:var(--ink)}
+
+/* ---------- outline (募集概要) ---------- */
+.outline{
+  border:1px solid rgba(228,199,134,.35);
+  padding:60px 56px;
+  background:rgba(248,245,239,.03);
+}
+.outline dl{display:grid;grid-template-columns:200px 1fr;row-gap:0}
+.outline dt,.outline dd{
+  padding:20px 0;border-bottom:1px solid rgba(228,199,134,.22);
+}
+.outline dt{
+  font-size:13px;letter-spacing:.22em;color:var(--gold-soft);
+  font-weight:500;
+}
+.outline dd{font-size:15px;color:var(--ivory);line-height:1.9}
+.outline dd small{display:block;color:var(--ivory-on-navy);font-size:12.5px;margin-top:4px}
+.price{
+  white-space:nowrap;
+  font-family:var(--serif-en);font-size:clamp(28px,4vw,38px);
+  font-weight:600;color:var(--gold-soft);letter-spacing:.06em;
+}
+.price small{font-family:var(--sans);font-size:14px;color:var(--ivory-on-navy);letter-spacing:.06em;margin-left:8px}
+@media(max-width:640px){
+  .outline{padding:40px 26px}
+  .outline dl{grid-template-columns:1fr}
+  .outline dt{padding-bottom:2px;border-bottom:0}
+  .outline dd{padding-top:2px}
+}
+
+/* ---------- faq ---------- */
+.faq{max-width:760px;margin:0 auto}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{
+  cursor:pointer;list-style:none;
+  display:flex;align-items:baseline;gap:18px;
+  padding:26px 8px;
+  font-weight:700;font-size:15.5px;color:var(--navy);
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary .q{
+  font-family:var(--serif-en);font-weight:600;color:var(--gold);
+  font-size:18px;flex-shrink:0;
+}
+.faq summary .toggle{margin-left:auto;color:var(--gold);font-family:var(--serif-en);font-size:20px;transition:transform .25s ease}
+.faq details[open] .toggle{transform:rotate(45deg)}
+.faq .a{
+  padding:0 8px 28px 44px;
+  color:var(--muted);font-size:14.5px;line-height:2;
+}
+
+/* ---------- closing / footer ---------- */
+.closing{text-align:center}
+.closing .tagline{
+  font-family:var(--serif-jp);font-weight:600;
+  font-size:clamp(26px,4.4vw,42px);color:var(--ivory);line-height:1.8;
+}
+.closing .brandline{
+  margin-top:36px;font-family:var(--serif-en);font-weight:600;
+  letter-spacing:.4em;text-indent:.4em;font-size:18px;color:var(--ivory);
+}
+.closing .brandline .ai{color:var(--gold-soft)}
+footer{background:var(--charcoal);color:rgba(248,245,239,.6);padding:56px 0}
+.foot-in{
+  max-width:1060px;margin:0 auto;padding:0 24px;
+  display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;
+}
+.foot-brand{display:flex;align-items:center;gap:12px}
+.foot-brand svg{height:26px;width:auto}
+.foot-word{font-family:var(--serif-en);font-weight:600;font-size:13px;letter-spacing:.24em;color:var(--ivory)}
+.foot-word .ai{color:var(--gold-soft)}
+.foot-tag{font-size:12px;letter-spacing:.08em}
+footer small{font-size:11.5px;letter-spacing:.08em}
+
+/* ---------- reveal ---------- */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .8s ease,transform .8s ease}
+.reveal.on{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  .reveal{opacity:1;transform:none;transition:none}
+  .btn,.btn--ghost{transition:none}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-in">
+    <a class="brand" href="#top" aria-label="Next Career AI">
+      <svg viewBox="0 0 132 120" role="img" aria-hidden="true">
+        <path fill="#071B36" d="M18 104 L40 104 L58 36 L36 36 Z"/>
+        <path fill="#071B36" d="M44 36 L62 36 L90 104 L72 104 Z"/>
+        <path fill="#071B36" d="M67 100 L85 109 L96 69 L78 59 Z"/>
+        <path fill="#C79A46" d="M78 59 L96 69 L107 47 L89 37 Z"/>
+        <path fill="#C79A46" d="M118 4 L114 51 L80 33 Z"/>
+      </svg>
+      <span class="brand-word">NEXT<br>CAREER <span class="ai">AI</span></span>
+    </a>
+    <nav aria-label="ページ内リンク">
+      <a class="navlink" href="#program">プログラム</a>
+      <a class="navlink" href="#forces">5つの力</a>
+      <a class="navlink" href="#curriculum">カリキュラム</a>
+      <a class="navlink" href="#outline">募集概要</a>
+      <a class="navlink" href="#faq">FAQ</a>
+      <a class="btn btn--nav" href="#entry">無料診断</a>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+
+  <!-- ========== HERO ========== -->
+  <section class="hero" aria-label="メインビジュアル">
+    <div class="wrap">
+      <div class="hero-mark">
+        <svg viewBox="0 0 132 120" role="img" aria-label="Next Career AI ロゴマーク">
+          <path fill="#071B36" d="M18 104 L40 104 L58 36 L36 36 Z"/>
+          <path fill="#071B36" d="M44 36 L62 36 L90 104 L72 104 Z"/>
+          <path fill="#071B36" d="M67 100 L85 109 L96 69 L78 59 Z"/>
+          <path fill="#C79A46" d="M78 59 L96 69 L107 47 L89 37 Z"/>
+          <path fill="#C79A46" d="M118 4 L114 51 L80 33 Z"/>
+        </svg>
+      </div>
+      <span class="eyebrow">AI Business Producer Program — Founding Cohort 01</span>
+      <h1 class="h-jp hero-tagline">AIが進化するたび、<br>私も次へ。</h1>
+      <p class="hero-brand">NEXT CAREER <span class="ai">AI</span></p>
+      <p class="hero-sub">AIを学ぶ。その先へ。</p>
+      <p class="hero-copy">
+        ChatGPTの使い方を覚えるだけではありません。<br>
+        <strong>Next Career AI</strong>は、これまで積み上げてきた経験にAIを掛け合わせ、<br class="pc">
+        顧客の課題を見つけ、AIで解決策を考え、提案し、<strong>仕事として動かせる力</strong>を身につける実践型プログラムです。
+      </p>
+      <ul class="facts" style="list-style:none">
+        <li class="fact">期間 <b>12週間</b></li>
+        <li class="fact"><b>10名</b>限定</li>
+        <li class="fact">実企業プロジェクトあり</li>
+        <li class="fact">オンライン中心</li>
+        <li class="fact">第0期特別価格 <b>248,000円</b>（税込）</li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn" href="#entry">無料｜私の「経験 × AI」を診断する</a>
+        <p class="btn-note">いきなり参加を決める必要はありません。まずは無料診断から。</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PROBLEM ========== -->
+  <section id="program" aria-label="課題提起">
+    <div class="wrap narrow narrative reveal">
+      <h2 class="h-jp">AIを勉強した。<br>でも、それをどう仕事にすればいい？</h2>
+      <hr class="rule">
+      <p class="voice" style="margin-top:44px">
+        ChatGPTを使っている。Geminiも触ってみた。<br>
+        画像生成もできる。資料だってAIで作れるようになった。<br>
+        でも、ふと考える。<br>
+        <strong>「で、これをどう仕事にするんだろう？」</strong>
+      </p>
+      <p>
+        AIについて詳しくなっても、それだけで仕事になるとは限りません。<br>
+        企業から「うちの会社でもAIを使いたいんだけど、何ができる？」と聞かれたとき。<br>
+        ChatGPTの機能を説明するだけでは、仕事にはならない。
+      </p>
+      <p>
+        必要なのは、<strong>企業の課題を理解し、AIでできることを考え、実現方法を設計し、<br class="pc">
+        相手に提案し、プロジェクトとして動かす力。</strong>
+      </p>
+      <p class="punch">
+        Next Career AIが育てたいのは、<br>
+        「AIに詳しい人」ではありません。<br>
+        <em>AIを使って、仕事をつくれる人です。</em>
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE x AI ========== -->
+  <section style="padding-top:0" aria-label="経験とAIの掛け合わせ">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Your Experience × AI</span>
+        <h2 class="h-jp">あなたは、ゼロから<br class="sp">AI人材になる必要はありません。</h2>
+        <hr class="rule">
+      </div>
+      <div class="narrow narrative reveal">
+        <p>
+          営業。経理。人事。IT。製造。マーケティング。接客。不動産。建築。マネジメント。<br>
+          あなたがこれまで積み重ねてきた経験は、AIが登場したからといって、なくなるものではありません。
+        </p>
+        <p class="punch" style="margin-top:34px;font-size:clamp(18px,2.4vw,23px)">
+          むしろ、<em>その経験こそが、AI時代の大きな武器になる。</em>
+        </p>
+      </div>
+      <div class="xgrid reveal">
+        <div class="xcard"><span class="from">営業経験 × AI</span><span class="arrow">→</span><span class="to">営業業務のAI改善支援</span></div>
+        <div class="xcard"><span class="from">経理経験 × AI</span><span class="arrow">→</span><span class="to">バックオフィスAI導入支援</span></div>
+        <div class="xcard"><span class="from">人事経験 × AI</span><span class="arrow">→</span><span class="to">採用・人事業務のAI活用支援</span></div>
+        <div class="xcard"><span class="from">製造経験 × AI</span><span class="arrow">→</span><span class="to">製造現場のAI・DX支援</span></div>
+        <div class="xcard"><span class="from">IT経験 × AI</span><span class="arrow">→</span><span class="to">AI導入ディレクション</span></div>
+      </div>
+      <div class="narrow narrative reveal" style="margin-top:56px">
+        <p>
+          あなたのキャリアを捨てて、新しい何者かになる必要はありません。<br>
+          <strong>今までの経験に、AIを掛け合わせる。</strong><br>
+          そこから、あなたの「次の仕事」をつくります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PHILOSOPHY (NAVY) ========== -->
+  <section class="band-navy" aria-label="Next Career AIの考え方">
+    <div class="wrap narrow narrative reveal">
+      <span class="eyebrow">Philosophy</span>
+      <h2 class="h-jp" style="margin-top:18px">AIは、これからも変わり続ける。</h2>
+      <hr class="rule">
+      <p style="margin-top:44px">
+        今日覚えたAIツールが、半年後には当たり前になっているかもしれません。<br>
+        新しいAIが登場し、できることが増え、仕事のやり方も変わっていく。<br>
+        だから私たちは、「このボタンを押してください」「このプロンプトを入力してください」だけを教えるスクールにはしたくありません。
+      </p>
+      <p>
+        本当に必要なのは、新しいAIが登場したときに、<br>
+        <strong>これは何に使えるのか？　誰のどんな課題を解決できるのか？<br>
+        どうすれば仕事として成立するのか？</strong><br>
+        を、自分で考えられる力。
+      </p>
+      <p class="punch" style="color:#F8F5EF">
+        AIが進化するたび、<span class="accent">自分も次へ進める人</span>になる。<br>
+        それが、Next Career AIです。
+      </p>
+    </div>
+  </section>
+
+  <!-- ========== FIVE FORCES ========== -->
+  <section id="forces" aria-label="身につける5つの力">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Five Capabilities</span>
+        <h2 class="h-jp">Next Career AIで身につける<br class="sp">5つの力</h2>
+        <hr class="rule">
+      </div>
+      <div class="forces">
+        <div class="force reveal">
+          <div class="force-key">
+            <span class="no">01</span>
+            <span class="word">FIND</span>
+            <span class="jp">課題を見つける力</span>
+          </div>
+          <p class="force-body">
+            「AIを導入したい」という言葉だけを聞くのではなく、企業が本当に困っていることは何なのか。
+            どこに時間がかかっているのか。どこでミスが起きているのか。何が属人化しているのか。
+            顧客へのヒアリングから、<strong>本当の課題</strong>を見つけます。
+          </p>
+        </div>
+        <div class="force reveal">
+          <div class="force-key">
+            <span class="no">02</span>
+            <span class="word">DESIGN</span>
+            <span class="jp">AIで解決策を設計する力</span>
+          </div>
+          <p class="force-body">
+            すべてをAIで解決する必要はありません。生成AI、SaaS、RPA、既存システム、Excel、人。
+            それぞれを組み合わせながら、<strong>その企業にとって本当に適切な解決方法</strong>を設計します。
+          </p>
+        </div>
+        <div class="force reveal">
+          <div class="force-key">
+            <span class="no">03</span>
+            <span class="word">DIRECT</span>
+            <span class="jp">AIと人を動かす力</span>
+          </div>
+          <p class="force-body">
+            自分ですべてを作れる必要はありません。大切なのは、何を作るのか。誰に任せるのか。
+            AIに何をさせるのか。どこを人間が判断するのか。を決められること。
+            AI時代に必要な<strong>ディレクション能力</strong>を身につけます。
+          </p>
+        </div>
+        <div class="force reveal">
+          <div class="force-key">
+            <span class="no">04</span>
+            <span class="word">PROPOSE</span>
+            <span class="jp">価値を伝える力</span>
+          </div>
+          <p class="force-body">
+            どれだけ優れたAI活用案でも、企業に価値が伝わらなければ導入されません。
+            課題、解決策、導入効果、費用、スケジュール、ROI。これらを整理し、
+            <strong>経営者や担当者が「やってみたい」と思える提案</strong>を作ります。
+          </p>
+        </div>
+        <div class="force reveal">
+          <div class="force-key">
+            <span class="no">05</span>
+            <span class="word">CREATE</span>
+            <span class="jp">仕事をつくる力</span>
+          </div>
+          <p class="force-body">
+            最終的には、「AIが使えます」ではなく、<strong>「私は○○業界の△△という課題をAIで解決できます」</strong>と言える状態を目指します。
+            あなた自身の経験を、AI時代の商品・サービスへ変えていきます。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CURRICULUM ========== -->
+  <section id="curriculum" style="padding-top:60px" aria-label="12週間のカリキュラム">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">12-Week Curriculum</span>
+        <h2 class="h-jp">12週間で、ここまで進みます。</h2>
+        <hr class="rule">
+      </div>
+      <div class="narrow">
+        <div class="weeks">
+          <div class="week reveal">
+            <span class="wk">WEEK 01</span>
+            <h3>AI時代の仕事を理解する</h3>
+            <p>生成AI、画像生成、動画生成、AIエージェント、自動化。まずはAIによって何が変わっているのかを理解し、同時に自分自身のキャリアを棚卸しします。</p>
+            <span class="deliv"><b>成果物</b>キャリア棚卸しシート</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 02</span>
+            <h3>AIを使い分ける</h3>
+            <p>ChatGPT、Gemini、Claude、NotebookLMなど。特定のツールを覚えることが目的ではなく、「この仕事なら何を使う？」を判断する力を身につけます。</p>
+            <span class="deliv"><b>成果物</b>AI活用実践課題</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 03</span>
+            <h3>顧客ヒアリング</h3>
+            <p>企業の話を聞き、本当の課題を見つける方法を学びます。現状業務、時間、コスト、担当者、ミス、属人化。AI導入以前の「課題発見」がテーマです。</p>
+            <span class="deliv"><b>成果物</b>ヒアリングシート</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 04</span>
+            <h3>業務を整理する</h3>
+            <p>As-Is / To-Beを整理し、何が問題なのか。なぜ問題なのか。どこを変えるべきなのか。を構造化します。</p>
+            <span class="deliv"><b>成果物</b>業務課題マップ</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 05</span>
+            <h3>AIソリューションを設計する</h3>
+            <p>発見した課題に対して、どんなAIやシステムを組み合わせるのかを考えます。</p>
+            <span class="deliv"><b>成果物</b>AI活用案3パターン</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 06</span>
+            <h3>ROIを考える</h3>
+            <p>AI導入によって、何時間削減できるのか。どのくらいコストが下がるのか。投資に見合うのか。経営者視点でAI導入を考えます。</p>
+            <span class="deliv"><b>成果物</b>AI導入効果試算</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 07</span>
+            <h3>自分の商品をつくる</h3>
+            <p>ここから全員違う道へ進みます。あなたの経験 × AIで、「私は誰の何を解決するのか」を決めます。</p>
+            <span class="deliv"><b>成果物</b>自分だけのAIサービス案</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 08</span>
+            <h3>価格とサービス内容を決める</h3>
+            <p>何を提供するのか。どこまで提供するのか。いくらで提供するのか。AI業務診断、導入支援、伴走支援など、自分の商品を設計します。</p>
+            <span class="deliv"><b>成果物</b>サービスメニュー</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 09</span>
+            <h3>提案書・見積をつくる</h3>
+            <p>企業へ提出できるレベルの提案書を作ります。課題、解決策、導入方法、スケジュール、金額、効果。</p>
+            <span class="deliv"><b>成果物</b>AI導入提案書・見積</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 10</span>
+            <h3>商談・営業</h3>
+            <p>どのように企業へアプローチするのか。何をヒアリングするのか。価格をどう伝えるのか。反対意見にどう答えるのか。実践形式で商談力を鍛えます。</p>
+            <span class="deliv"><b>成果物</b>商談ロールプレイ</span>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 11</span>
+            <h3>実企業プロジェクト</h3>
+            <p>実在する企業のAI課題に取り組みます。企業へのヒアリングから、課題整理、AI活用案、提案資料作成。講師・メンターのレビューを受けながら進めます。</p>
+          </div>
+          <div class="week reveal">
+            <span class="wk">WEEK 12</span>
+            <h3>AI Business Proposal Day</h3>
+            <p>実企業へのAI導入提案を行います。学んで終わりではありません。<strong>実際の企業に、自分たちが考えたAI活用案を提案する。</strong>ここが12週間のゴールです。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== REAL PROJECT ========== -->
+  <section style="padding-top:40px" aria-label="実企業プロジェクト">
+    <div class="wrap narrow reveal">
+      <div class="panel">
+        <span class="eyebrow">Real Company Project</span>
+        <h2 class="h-jp" style="margin-top:16px">架空の課題だけでは終わらない。<br>実企業プロジェクト</h2>
+        <p>
+          Next Career AIでは、実在する企業の課題に取り組む機会を設けます。
+          企業へのヒアリング。業務分析。AI活用案の設計。提案書作成。プレゼンテーション。
+          講師・メンターが内容を確認しながら、実務に近い形で進めます。
+        </p>
+        <p class="result">
+          だから修了時に、「AIについて勉強しました」だけではなく、<br>
+          「<strong style="color:#C79A46">実際の企業にAI導入提案をした経験があります</strong>」と言える状態を目指します。
+        </p>
+        <p class="notes">
+          ※実案件の受注や収入を保証するものではありません。<br>
+          ※企業プロジェクトの内容・実施形式は参加企業の状況により変更となる場合があります。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FIT ========== -->
+  <section style="padding-top:40px" aria-label="対象となる方">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Who It's For</span>
+        <h2 class="h-jp">こんな方に、おすすめします。</h2>
+        <hr class="rule">
+      </div>
+      <div class="fit-grid">
+        <div class="fit fit--yes reveal">
+          <h3>おすすめする方</h3>
+          <ul>
+            <li>AI時代に、このままのキャリアでいいのか少し不安を感じている</li>
+            <li>ChatGPTなどを使っているが、仕事へのつなげ方が分からない</li>
+            <li>これまでの社会人経験を次の仕事に生かしたい</li>
+            <li>副業や独立につながる新しい武器が欲しい</li>
+            <li>社内でAI活用を推進できる人材になりたい</li>
+            <li>顧客へAI活用を提案できるようになりたい</li>
+            <li>AIエンジニアではなく、AIを活用する側・動かす側になりたい</li>
+            <li>自分の市場価値をもう一段上げたい</li>
+          </ul>
+        </div>
+        <div class="fit fit--no reveal">
+          <h3>おすすめしない方</h3>
+          <ul>
+            <li>AIで短期間に楽して稼ぎたい</li>
+            <li>動画を見るだけでスキルを身につけたい</li>
+            <li>課題や実践には取り組みたくない</li>
+            <li>必ず案件を紹介してほしい</li>
+            <li>受講するだけで収入が保証されると思っている</li>
+          </ul>
+          <p class="fit-note">
+            Next Career AIは、「参加すれば簡単に稼げる」というプログラムではありません。
+            私たちが提供するのは、<strong>AI時代に自分自身で仕事をつくっていくための力と実践機会</strong>です。
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== OUTLINE (NAVY) ========== -->
+  <section id="outline" class="band-navy" aria-label="募集概要">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">Founding Cohort 01</span>
+        <h2 class="h-jp">第0期は、10名限定です。</h2>
+        <hr class="rule">
+        <p style="margin-top:30px;max-width:640px;margin-left:auto;margin-right:auto;font-size:15px">
+          完成された講座を一方的に受講していただくのではなく、皆さんからのフィードバックもいただきながら、
+          <strong>これからのAI時代に本当に必要な人材育成プログラムを一緒につくっていきたい</strong>と考えています。
+          そのため、第0期は少人数で実施します。
+        </p>
+      </div>
+      <div class="narrow reveal">
+        <div class="outline">
+          <dl>
+            <dt>プログラム名</dt>
+            <dd>Next Career AI<br>AI Business Producer Program</dd>
+            <dt>募集</dt>
+            <dd>Founding Cohort 01｜第0期</dd>
+            <dt>定員</dt>
+            <dd>10名</dd>
+            <dt>期間</dt>
+            <dd>12週間</dd>
+            <dt>形式</dt>
+            <dd>オンライン中心 ＋ 実践課題 ＋ 実企業プロジェクト</dd>
+            <dt>受講料</dt>
+            <dd>
+              <span class="price">248,000<small>円（税込）</small></span>
+              <small>分割払いについてもご相談いただけます。</small>
+            </dd>
+            <dt>参加方法</dt>
+            <dd>無料AIキャリア診断後、双方で参加の相性を確認したうえでご案内します。</dd>
+          </dl>
+        </div>
+      </div>
+      <div class="narrow narrative reveal" style="margin-top:80px">
+        <h2 class="h-jp" style="font-size:clamp(20px,2.8vw,26px)">なぜ、選考制なのか。</h2>
+        <p style="margin-top:26px;font-size:15px">
+          Next Career AIは、できるだけ多くの人に販売することを目的にしていません。
+          特に第0期で大切にしたいのは、<strong>一人ひとりが12週間後、本当に前へ進んでいること。</strong><br>
+          そのため、これまでの経験、今後目指したいこと、学習時間、取り組む意思などをお聞きした上で参加をご案内します。
+        </p>
+        <p style="font-size:15px">
+          AI初心者だから参加できない、ということではありません。むしろ重要なのは、<br>
+          <span class="accent" style="font-family:var(--serif-jp);font-weight:600;font-size:17px">「これまでの経験を、次のキャリアにつなげたい」</span><br>
+          という気持ちです。
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FREE DIAGNOSIS CTA ========== -->
+  <section id="entry" aria-label="無料AIキャリア診断">
+    <div class="wrap narrow narrative reveal">
+      <span class="eyebrow">Free Career Diagnosis</span>
+      <h2 class="h-jp" style="margin-top:18px">まずは、あなたの「経験 × AI」を<br>考えてみませんか？</h2>
+      <hr class="rule">
+      <p style="margin-top:40px">
+        いきなりスクールへの参加を決める必要はありません。<br>
+        まずは無料AIキャリア診断で、あなたがこれまでどんな経験を積んできたのか。
+        その経験にAIを掛け合わせると、どんな仕事が考えられるのか。一緒に整理します。
+      </p>
+      <p>
+        営業経験 × AIなら何ができる？　経理経験 × AIなら？　人事経験なら？　製造業なら？　ITなら？<br>
+        自分一人では気づかなかった、<strong>「あなたの経験だからこそできるAI時代の仕事」</strong>が見つかるかもしれません。
+      </p>
+      <div style="margin-top:44px">
+        <!-- TODO: 診断フォーム（Googleフォーム・LINE等）のURLに差し替えてください -->
+        <a class="btn" href="#entry">無料｜私の「経験 × AI」を診断する</a>
+        <p class="btn-note">所要時間の目安：30分程度｜オンラインで実施します</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FAQ ========== -->
+  <section id="faq" style="padding-top:20px" aria-label="よくある質問">
+    <div class="wrap">
+      <div class="sec-head reveal">
+        <span class="eyebrow">FAQ</span>
+        <h2 class="h-jp">よくある質問</h2>
+        <hr class="rule">
+      </div>
+      <div class="faq reveal">
+        <details>
+          <summary><span class="q">Q</span>AI初心者でも参加できますか？<span class="toggle">＋</span></summary>
+          <p class="a">はい。AIツールの高度な専門知識を前提にはしていません。ただし、講義を聞くだけではなく、自分でAIを触り、課題に取り組んでいただきます。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>プログラミング経験は必要ですか？<span class="toggle">＋</span></summary>
+          <p class="a">必須ではありません。Next Career AIが育成するのは、AIエンジニアではなく、企業課題を理解してAI活用を設計・提案・推進できる人材です。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>年齢制限はありますか？<span class="toggle">＋</span></summary>
+          <p class="a">明確な年齢制限は設けていません。特に、これまでの社会人経験をAI時代の新しい仕事につなげたい方を想定しています。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>副業目的でも参加できますか？<span class="toggle">＋</span></summary>
+          <p class="a">はい。副業、独立、社内でのキャリアアップなど、目指す方向は人によって異なって構いません。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>案件を必ず紹介してもらえますか？<span class="toggle">＋</span></summary>
+          <p class="a">案件獲得や収入を保証するプログラムではありません。一方で、実企業の課題に取り組む実践機会を通して、AI案件に必要なヒアリング・提案・ディレクション能力を身につけることを目指します。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>毎週どのくらい時間が必要ですか？<span class="toggle">＋</span></summary>
+          <p class="a">講義時間に加え、課題・実践を含めて週5時間程度を一つの目安としています。</p>
+        </details>
+        <details>
+          <summary><span class="q">Q</span>仕事をしながら受講できますか？<span class="toggle">＋</span></summary>
+          <p class="a">社会人の受講を前提に設計します。ただし実践型プログラムのため、一定の学習時間を確保していただく必要があります。</p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CLOSING (NAVY) ========== -->
+  <section class="band-navy closing" aria-label="メッセージ">
+    <div class="wrap narrow reveal">
+      <span class="eyebrow">Founding Cohort 01</span>
+      <h2 class="h-jp" style="margin-top:22px;font-size:clamp(21px,3vw,27px);color:#F8F5EF">
+        最初の10人と、<br>Next Career AIを始めます。
+      </h2>
+      <p style="margin-top:34px;font-size:15px">
+        AIによって、仕事はこれからも変わっていく。<br>
+        だからこそ、過去を捨ててゼロからやり直すのではなく、<strong>今まで積み上げてきた経験を使って、次へ進む。</strong><br>
+        「AIが怖いから勉強する」のではなく、AIの進化を、<strong>自分自身が次へ進む力に変える。</strong><br>
+        そんな人と一緒に、この場所をつくっていきたいと考えています。
+      </p>
+      <p class="tagline" style="margin-top:64px">AIが進化するたび、<br class="sp">私も次へ。</p>
+      <p class="brandline">NEXT CAREER <span class="ai">AI</span></p>
+      <div style="margin-top:56px">
+        <a class="btn" href="#entry">無料｜私の「経験 × AI」を診断する</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="foot-in">
+    <div class="foot-brand">
+      <svg viewBox="0 0 132 120" aria-hidden="true">
+        <path fill="#F8F5EF" d="M18 104 L40 104 L58 36 L36 36 Z"/>
+        <path fill="#F8F5EF" d="M44 36 L62 36 L90 104 L72 104 Z"/>
+        <path fill="#F8F5EF" d="M67 100 L85 109 L96 69 L78 59 Z"/>
+        <path fill="#E4C786" d="M78 59 L96 69 L107 47 L89 37 Z"/>
+        <path fill="#E4C786" d="M118 4 L114 51 L80 33 Z"/>
+      </svg>
+      <span class="foot-word">NEXT CAREER <span class="ai">AI</span></span>
+    </div>
+    <p class="foot-tag">AIが進化するたび、私も次へ。</p>
+    <small>&copy; 2026 Next Career AI</small>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var els = document.querySelectorAll(".reveal");
+  if (reduced || !("IntersectionObserver" in window)) {
+    els.forEach(function(el){ el.classList.add("on"); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
+    });
+  }, { threshold: 0.12 });
+  els.forEach(function(el){ io.observe(el); });
+})();
+</script>
+</body>
+</html>
