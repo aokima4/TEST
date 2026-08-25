@@ -21,7 +21,8 @@ npm run dev       # http://localhost:5173/ が開発サーバ
 npm run build:single    # dist/webcad.html が1ファイルで完結（サーバ不要・ダブルクリックで開ける）
 ```
 
-取引先へは `dist/webcad.html` を送るだけで図面ビューアとして使えます。
+取引先へは `dist/webcad.html` を送るだけで使えます（約200KB）。
+サーバも通信も不要で、ファイルをダブルクリックすればブラウザで開き、そのまま作図・DXF書き出しまでできます。
 
 ### 検収テストを走らせる
 
@@ -116,3 +117,4 @@ docs/samples/ サンプル図面の DXF / SVG / PDF / xcad 出力例
 | `npm run samples` | `docs/samples/` にDXF・SVG・PDF・xcadの出力例を生成し、PDF構造を検査 |
 | `npm run perf` | DXF読込・拘束ソルバの性能計測 |
 | `npm run smoke` | 実ブラウザでの操作テスト（Playwrightが必要） |
+| `node scripts/singlecheck.mjs` | 単一ファイル版が `file://` だけで動くことの確認 |

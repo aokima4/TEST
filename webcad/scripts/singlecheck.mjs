@@ -1,0 +1,25 @@
+import { chromium } from 'playwright';
+import path from 'node:path';
+const root = path.resolve(import.meta.dirname, '..');
+const b = await chromium.launch({ executablePath: '/opt/pw-browsers/chromium' });
+const p = await b.newPage({ viewport: { width: 1500, height: 900 } });
+const errs = [];
+p.on('pageerror', (e) => errs.push(e.message));
+p.on('console', (m) => { if (m.type() === 'error') errs.push(m.text()); });
+p.on('dialog', (d) => d.accept());
+await p.goto('file://' + path.join(root, 'dist/webcad.html'));
+await p.waitForTimeout(600);
+await p.locator('button.tb:text-is("サンプル")').click();
+await p.waitForTimeout(600);
+const state = await p.evaluate(() => ({ n: window.cad.doc.entities.length, name: window.cad.doc.name, fps: window.cad.fps }));
+// 作図もできるか
+const cmd = p.locator('#cmdline');
+await cmd.fill('L'); await cmd.press('Enter');
+await cmd.fill('0,0'); await cmd.press('Enter');
+await cmd.fill('@50<45'); await cmd.press('Enter');
+await p.keyboard.press('Escape');
+const after = await p.evaluate(() => window.cad.doc.entities.length);
+await p.screenshot({ path: path.join(root, 'docs/single-file.png') });
+console.log(`file:// で起動: ${state.name} / 図形${state.n}個 → 作図後${after}個`, errs.length ? 'エラー: ' + errs.join(' | ') : 'エラーなし');
+await b.close();
+if (errs.length || after !== state.n + 1) process.exitCode = 1;
