@@ -1,0 +1,661 @@
+{
+ "format": "xcad",
+ "fileVersion": 1,
+ "unit": "micrometer",
+ "angleUnit": "microdegree",
+ "app": "WebCAD 2D",
+ "savedAt": "2026-08-25T19:39:23.717Z",
+ "document": {
+  "fileVersion": 1,
+  "unit": "micrometer",
+  "angleUnit": "microdegree",
+  "name": "取付ブラケット",
+  "layers": [
+   {
+    "name": "外形線",
+    "color": "#e8e8e8",
+    "linetype": "CONTINUOUS",
+    "lineweightUm": 500,
+    "visible": true,
+    "locked": false,
+    "printable": true
+   },
+   {
+    "name": "中心線",
+    "color": "#ff5f5f",
+    "linetype": "CENTER",
+    "lineweightUm": 180,
+    "visible": true,
+    "locked": false,
+    "printable": true
+   },
+   {
+    "name": "寸法",
+    "color": "#59d0ff",
+    "linetype": "CONTINUOUS",
+    "lineweightUm": 180,
+    "visible": true,
+    "locked": false,
+    "printable": true
+   },
+   {
+    "name": "かくれ線",
+    "color": "#c9a227",
+    "linetype": "HIDDEN",
+    "lineweightUm": 250,
+    "visible": true,
+    "locked": false,
+    "printable": true
+   },
+   {
+    "name": "ハッチング",
+    "color": "#8a8f98",
+    "linetype": "CONTINUOUS",
+    "lineweightUm": 130,
+    "visible": true,
+    "locked": false,
+    "printable": true
+   },
+   {
+    "name": "補助線",
+    "color": "#8a8f98",
+    "linetype": "CONTINUOUS",
+    "lineweightUm": 130,
+    "visible": true,
+    "locked": false,
+    "printable": false
+   },
+   {
+    "name": "図面枠",
+    "color": "#e8e8e8",
+    "linetype": "CONTINUOUS",
+    "lineweightUm": 700,
+    "visible": true,
+    "locked": true,
+    "printable": true
+   }
+  ],
+  "currentLayer": "外形線",
+  "blocks": {},
+  "entities": [
+   {
+    "id": "e1",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "polyline",
+    "verts": [
+     {
+      "x": 70000,
+      "y": 120000,
+      "bulge": 0
+     },
+     {
+      "x": 170000,
+      "y": 120000,
+      "bulge": 414214
+     },
+     {
+      "x": 180000,
+      "y": 130000,
+      "bulge": 0
+     },
+     {
+      "x": 180000,
+      "y": 190000,
+      "bulge": 414214
+     },
+     {
+      "x": 170000,
+      "y": 200000,
+      "bulge": 0
+     },
+     {
+      "x": 70000,
+      "y": 200000,
+      "bulge": 414214
+     },
+     {
+      "x": 60000,
+      "y": 190000,
+      "bulge": 0
+     },
+     {
+      "x": 60000,
+      "y": 130000,
+      "bulge": 414214
+     }
+    ],
+    "closed": true
+   },
+   {
+    "id": "e2",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "circle",
+    "cx": 84000,
+    "cy": 160000,
+    "r": 4500
+   },
+   {
+    "id": "e3",
+    "layer": "中心線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 76000,
+    "y1": 160000,
+    "x2": 92000,
+    "y2": 160000
+   },
+   {
+    "id": "e4",
+    "layer": "中心線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 84000,
+    "y1": 152000,
+    "x2": 84000,
+    "y2": 168000
+   },
+   {
+    "id": "e5",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "circle",
+    "cx": 156000,
+    "cy": 160000,
+    "r": 4500
+   },
+   {
+    "id": "e6",
+    "layer": "中心線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 148000,
+    "y1": 160000,
+    "x2": 164000,
+    "y2": 160000
+   },
+   {
+    "id": "e7",
+    "layer": "中心線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 156000,
+    "y1": 152000,
+    "x2": 156000,
+    "y2": 168000
+   },
+   {
+    "id": "e8",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "arc",
+    "cx": 112000,
+    "cy": 160000,
+    "r": 6000,
+    "a1": 90000000,
+    "a2": 270000000
+   },
+   {
+    "id": "e9",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "arc",
+    "cx": 128000,
+    "cy": 160000,
+    "r": 6000,
+    "a1": 270000000,
+    "a2": 90000000
+   },
+   {
+    "id": "e10",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 112000,
+    "y1": 166000,
+    "x2": 128000,
+    "y2": 166000
+   },
+   {
+    "id": "e11",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 112000,
+    "y1": 154000,
+    "x2": 128000,
+    "y2": 154000
+   },
+   {
+    "id": "e12",
+    "layer": "中心線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "line",
+    "x1": 104000,
+    "y1": 160000,
+    "x2": 136000,
+    "y2": 160000
+   },
+   {
+    "id": "e13",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "dim",
+    "kind": "linear-h",
+    "p1": {
+     "x": 60000,
+     "y": 120000
+    },
+    "p2": {
+     "x": 180000,
+     "y": 120000
+    },
+    "p3": {
+     "x": 120000,
+     "y": 102000
+    },
+    "refs": [],
+    "textOverride": null,
+    "tol": {
+     "mode": "none"
+    },
+    "th": 3500,
+    "arrow": 3500,
+    "prefix": ""
+   },
+   {
+    "id": "e14",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "dim",
+    "kind": "linear-v",
+    "p1": {
+     "x": 180000,
+     "y": 120000
+    },
+    "p2": {
+     "x": 180000,
+     "y": 200000
+    },
+    "p3": {
+     "x": 198000,
+     "y": 160000
+    },
+    "refs": [],
+    "textOverride": null,
+    "tol": {
+     "mode": "none"
+    },
+    "th": 3500,
+    "arrow": 3500,
+    "prefix": ""
+   },
+   {
+    "id": "e15",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "dim",
+    "kind": "linear-h",
+    "p1": {
+     "x": 84000,
+     "y": 160000
+    },
+    "p2": {
+     "x": 156000,
+     "y": 160000
+    },
+    "p3": {
+     "x": 120000,
+     "y": 214000
+    },
+    "refs": [],
+    "textOverride": null,
+    "tol": {
+     "mode": "sym",
+     "sym": 100
+    },
+    "th": 3500,
+    "arrow": 3500,
+    "prefix": ""
+   },
+   {
+    "id": "e16",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "dim",
+    "kind": "diameter",
+    "p1": {
+     "x": 84000,
+     "y": 160000
+    },
+    "p2": {
+     "x": 88500,
+     "y": 160000
+    },
+    "p3": {
+     "x": 58000,
+     "y": 186000
+    },
+    "refs": [],
+    "textOverride": null,
+    "tol": {
+     "mode": "fit",
+     "fit": "H7"
+    },
+    "th": 3500,
+    "arrow": 3500,
+    "prefix": "φ"
+   },
+   {
+    "id": "e17",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "dim",
+    "kind": "linear-v",
+    "p1": {
+     "x": 60000,
+     "y": 120000
+    },
+    "p2": {
+     "x": 60000,
+     "y": 160000
+    },
+    "p3": {
+     "x": 44000,
+     "y": 140000
+    },
+    "refs": [],
+    "textOverride": null,
+    "tol": {
+     "mode": "none"
+    },
+    "th": 3500,
+    "arrow": 3500,
+    "prefix": ""
+   },
+   {
+    "id": "e18",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "gtol",
+    "x": 80000,
+    "y": 86000,
+    "h": 3500,
+    "symbol": "position",
+    "tolerance": "φ0.2",
+    "datums": [
+     "A",
+     "B"
+    ],
+    "leader": {
+     "x": 84000,
+     "y": 155500
+    }
+   },
+   {
+    "id": "e19",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "surf",
+    "x": 156000,
+    "y": 204000,
+    "h": 3000,
+    "kind": "remove",
+    "value": "Ra1.6",
+    "note": "",
+    "rot": 0
+   },
+   {
+    "id": "e20",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "leader",
+    "from": {
+     "x": 120000,
+     "y": 166000
+    },
+    "to": {
+     "x": 138000,
+     "y": 220000
+    },
+    "text": "長穴 12×28",
+    "h": 3500,
+    "arrow": 3500
+   },
+   {
+    "id": "e21",
+    "layer": "外形線",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "polyline",
+    "verts": [
+     {
+      "x": 240000,
+      "y": 120000,
+      "bulge": 0
+     },
+     {
+      "x": 246000,
+      "y": 120000,
+      "bulge": 0
+     },
+     {
+      "x": 246000,
+      "y": 200000,
+      "bulge": 0
+     },
+     {
+      "x": 240000,
+      "y": 200000,
+      "bulge": 0
+     }
+    ],
+    "closed": true
+   },
+   {
+    "id": "e22",
+    "layer": "ハッチング",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "hatch",
+    "boundary": [
+     "e21"
+    ],
+    "pattern": "ANSI31",
+    "angle": 45000000,
+    "spacing": 2500
+   },
+   {
+    "id": "e23",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "dim",
+    "kind": "linear-h",
+    "p1": {
+     "x": 240000,
+     "y": 120000
+    },
+    "p2": {
+     "x": 246000,
+     "y": 120000
+    },
+    "p3": {
+     "x": 243000,
+     "y": 102000
+    },
+    "refs": [],
+    "textOverride": null,
+    "tol": {
+     "mode": "none"
+    },
+    "th": 3500,
+    "arrow": 3500,
+    "prefix": "t"
+   },
+   {
+    "id": "e24",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "text",
+    "x": 236000,
+    "y": 212000,
+    "text": "断面 A-A",
+    "h": 5000,
+    "rot": 0,
+    "font": "sans-serif",
+    "halign": "left",
+    "valign": "base"
+   },
+   {
+    "id": "e25",
+    "layer": "寸法",
+    "color": null,
+    "linetype": null,
+    "lineweightUm": null,
+    "created": 1787686763694,
+    "updated": 1787686763694,
+    "type": "text",
+    "x": 60000,
+    "y": 234000,
+    "text": "材質 SS400 / 板厚 6 / 指示なき角部 C0.5",
+    "h": 4000,
+    "rot": 0,
+    "font": "sans-serif",
+    "halign": "left",
+    "valign": "base"
+   }
+  ],
+  "constraints": [],
+  "variables": [
+   {
+    "name": "板厚",
+    "expr": "6"
+   },
+   {
+    "name": "穴径",
+    "expr": "9"
+   },
+   {
+    "name": "穴ピッチ",
+    "expr": "穴径 * 8"
+   },
+   {
+    "name": "フチ距離",
+    "expr": "穴径 * 1.6"
+   }
+  ],
+  "sheet": {
+   "size": "A3",
+   "landscape": true,
+   "scaleNum": 1,
+   "scaleDen": 1,
+   "showFrame": true,
+   "title": {
+    "drawingNo": "BRK-1024",
+    "partName": "取付ブラケット",
+    "material": "SS400",
+    "projection": "第三角法",
+    "author": "設計部",
+    "date": "2026/8/25",
+    "revision": "A",
+    "company": "株式会社サンプル製作所"
+   }
+  },
+  "nextId": 125
+ }
+}

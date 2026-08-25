@@ -1,0 +1,24 @@
+{
+  "name": "webcad",
+  "version": "0.1.0",
+  "private": true,
+  "description": "ブラウザ版 2D CAD（機械部品・製造用）",
+  "type": "module",
+  "scripts": {
+    "dev": "node scripts/dev-server.mjs",
+    "build": "node scripts/build.mjs",
+    "build:single": "node scripts/build.mjs --single",
+    "typecheck": "tsc --noEmit",
+    "test": "node scripts/build.mjs --tests && node --test build/tests/acceptance.test.js build/tests/features.test.js",
+    "start": "npm run build && node scripts/dev-server.mjs --dist",
+    "smoke": "node scripts/smoke.mjs && node scripts/smoke2.mjs",
+    "samples": "node scripts/exportcheck.mjs && node scripts/pdfcheck.mjs",
+    "perf": "esbuild scripts/_perf-entry.ts --bundle --platform=node --format=esm --outfile=build/perf.mjs --log-level=warning && node build/perf.mjs"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "esbuild": "^0.25.0",
+    "playwright": "^1.62.1",
+    "typescript": "^5.7.0"
+  }
+}
