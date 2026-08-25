@@ -119,6 +119,23 @@ docs/samples/ サンプル図面の DXF / SVG / PDF / xcad 出力例
 | `npm run smoke` | 実ブラウザでの操作テスト（先に `npm i -D playwright` が必要） |
 | `node scripts/singlecheck.mjs` | 単一ファイル版が `file://` だけで動くことの確認 |
 
+## 公開URL（Vercel）
+
+Vercelの画面から取り込むと、固定URLで公開でき、以降はプッシュのたびに自動更新されます。
+
+1. https://vercel.com/new を開く
+2. GitHubの `aokima4/TEST` を **Import**
+3. **Root Directory** に `webcad` を指定（Edit を押してフォルダを選ぶ）
+4. Framework Preset は **Other** のまま（`webcad/vercel.json` がビルド設定を持っています）
+5. **Deploy**
+
+`main` にまだ `webcad/` が無い場合は、デプロイ後に
+**Settings → Git → Production Branch** を `claude/cad-app-web-wfwupb` に変更して再デプロイしてください。
+（PRをmainにマージすれば、この変更は不要です）
+
+ビルド時に型検査と検収テスト39項目が走り、失敗した場合はデプロイされません。
+公開されるのは `webcad/dist/` で、`/`（アプリ本体）と `/webcad.html`（単一ファイル配布版）が置かれます。
+
 ## 公開URL（Artifact版）
 
 `npm run build:artifact` で claude.ai の Artifact 用HTML（`dist/webcad.artifact.html`）を生成できます。
