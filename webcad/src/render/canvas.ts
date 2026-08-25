@@ -115,6 +115,9 @@ export function renderScene(
   const opt: DrawOptions = {
     scaleDen: doc.sheet.scaleDen / doc.sheet.scaleNum,
     overrideColor: (e) => {
+      // 呼び出し側の色指定（PNG・印刷のモノクロ化など）を最優先する
+      const forced = o.overrideColor?.(e);
+      if (forced) return forced;
       if (o.selection.has(e.id)) return THEME.select;
       if (o.hover === e.id) return THEME.hover;
       if (o.showDof && o.dofColors) {
@@ -128,7 +131,8 @@ export function renderScene(
   };
 
   let drawn = 0;
-  for (const e of o.extra) drawEntity(doc, e, painter, { ...opt, overrideColor: () => null });
+  // 図面枠も、呼び出し側の色指定（モノクロ化）には従わせる
+  for (const e of o.extra) drawEntity(doc, e, painter, { ...opt, overrideColor: (x) => o.overrideColor?.(x) ?? null });
   for (const e of doc.entities) {
     if (!ids.has(e.id)) continue;
     drawEntity(doc, e, painter, opt);

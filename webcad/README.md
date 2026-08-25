@@ -139,8 +139,15 @@ Vercelの画面から取り込むと、固定URLで公開でき、以降はプ�
 ## 公開URL（Artifact版）
 
 `npm run build:artifact` で claude.ai の Artifact 用HTML（`dist/webcad.artifact.html`）を生成できます。
-Artifact上ではページからの直接ダウンロードが制限されるため、
-ホスト側の保存機能（`claude.use('downloads')`）経由で保存します。
-DXFは拡張子が許可されていないため `.dxf.txt` として保存され、その旨を画面で案内します。
-拡張子の制限なくDXFを扱いたい場合は、通常のWebサーバ（Vercel等）へ配置するか、
-`dist/webcad.html`（単一ファイル版）を配布してください。
+
+埋め込み表示（iframe）ではページから直接ダウンロードできないため、書き出しは次の順に切り替わります。
+
+1. ホスト側の保存機能（`claude.use('downloads')`）が使えるならそれで保存
+   ※ただしこの機能を宣言したArtifactは「リンクを知っている全員」に公開できません
+2. 使えない場合は書き出し画面を表示
+   - DXF・SVG・CSVなどの文字形式 … 内容をコピーして各自で保存
+   - PNG … 画像を右クリックして保存
+   - PDF … プレビューから保存、または新しいタブで開く
+3. 通常のWebサーバ上（Vercel等）では、そのままファイルとしてダウンロード
+
+制限なくDXFを配りたい場合は、Vercelへ配置するか `dist/webcad.html`（単一ファイル版）を配布してください。

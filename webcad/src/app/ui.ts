@@ -54,6 +54,11 @@ function download(blob: Blob, filename: string): void {
 interface HostDownloads { save(r: { filename: string; data: Blob }): Promise<{ status: string }> }
 interface HostClaude { use(name: string): Promise<HostDownloads | null> }
 
+/** 埋め込み表示（iframe）の中で動いているか */
+function isEmbedded(): boolean {
+  try { return window.self !== window.top; } catch { return true; }
+}
+
 async function saveViaHost(blob: Blob, filename: string): Promise<void> {
   const host = (window as unknown as { claude?: HostClaude }).claude;
   if (host?.use) {
@@ -72,12 +77,100 @@ async function saveViaHost(blob: Blob, filename: string): Promise<void> {
             await dl.save({ filename: `${filename}.txt`, data: blob });
             alert(`この閲覧環境では「${filename}」の拡張子で保存できないため、末尾に .txt を付けて保存しました。\n保存後にファイル名から「.txt」を削除してください。`);
             return;
-          } catch { /* 下の従来方式へ */ }
+          } catch { /* 下の代替手段へ */ }
         }
       }
     }
   }
+  // 埋め込み表示ではページから直接ダウンロードできないため、
+  // 中身をその場で渡せる画面を出す
+  if (isEmbedded()) { await showSaveFallback(blob, filename); return; }
   legacyDownload(blob, filename);
+}
+
+const TEXT_EXT = ['dxf', 'svg', 'csv', 'json', 'xcad', 'txt'];
+
+/** ダウンロードが使えない環境での書き出し画面（コピー／画像として保存） */
+async function showSaveFallback(blob: Blob, filename: string): Promise<void> {
+  const ext = (filename.split('.').pop() ?? '').toLowerCase();
+  const isText = TEXT_EXT.includes(ext);
+  const overlay = h('div', { class: 'modalback' });
+  const close = (): void => overlay.remove();
+  overlay.addEventListener('click', (e) => { if (e.target === overlay) close(); });
+
+  const body = h('div', { class: 'modalbody' });
+  const box = h('div', { class: 'modal' },
+    h('div', { class: 'modalhead' },
+      h('div', {},
+        h('b', {}, filename),
+        h('div', { class: 'hint' }, `${(blob.size / 1024).toFixed(1)} KB`),
+      ),
+      h('button', { class: 'btn', onclick: close }, '閉じる'),
+    ),
+    body,
+  );
+
+  if (isText) {
+    const text = await blob.text();
+    const ta = h('textarea', { class: 'exporttext', readonly: true, spellcheck: false }) as HTMLTextAreaElement;
+    ta.value = text;
+    const status = h('span', { class: 'hint' }, '');
+    body.append(
+      h('p', { class: 'hint' },
+        'この画面はファイルを直接保存できないため、下の内容をコピーして、',
+        h('b', {}, filename),
+        ' という名前で保存してください。'),
+      ta,
+      h('div', { class: 'modalfoot' },
+        h('button', {
+          class: 'btn primary',
+          onclick: async () => {
+            const ok = await copyText(ta, text);
+            status.textContent = ok ? 'コピーしました' : 'コピーできませんでした。文字を選んで手動でコピーしてください。';
+          },
+        }, 'クリップボードにコピー'),
+        h('button', { class: 'btn', onclick: () => { ta.focus(); ta.select(); } }, 'すべて選択'),
+        status,
+      ),
+    );
+  } else {
+    const url = URL.createObjectURL(blob);
+    overlay.addEventListener('remove', () => URL.revokeObjectURL(url));
+    if (ext === 'png') {
+      body.append(
+        h('p', { class: 'hint' }, '画像を右クリック（長押し）して「画像を保存」を選んでください。'),
+        h('img', { class: 'exportimg', src: url, alt: filename }),
+      );
+    } else {
+      const frame = h('iframe', { class: 'exportframe', src: url, title: filename });
+      body.append(
+        h('p', { class: 'hint' }, 'この画面ではファイルを直接保存できません。下のプレビューの保存ボタン、または「新しいタブで開く」から保存してください。'),
+        frame,
+        h('div', { class: 'modalfoot' },
+          h('button', {
+            class: 'btn primary',
+            onclick: () => {
+              const w = window.open(url, '_blank');
+              if (!w) alert('新しいタブを開けませんでした。プレビュー内の保存ボタンを使うか、SVG形式で書き出してコピーしてください。');
+            },
+          }, '新しいタブで開く'),
+        ),
+      );
+    }
+  }
+  overlay.append(box);
+  document.body.append(overlay);
+}
+
+async function copyText(ta: HTMLTextAreaElement, text: string): Promise<boolean> {
+  try {
+    await navigator.clipboard.writeText(text);
+    return true;
+  } catch { /* 権限がない環境では下の方法にする */ }
+  try {
+    ta.focus(); ta.select();
+    return document.execCommand('copy');
+  } catch { return false; }
 }
 
 function legacyDownload(blob: Blob, filename: string): void {
