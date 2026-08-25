@@ -76,45 +76,56 @@ function* cmdPolyline(app: App): Generator<Req, void, any> {
   }
 }
 
+/**
+ * 円：既定は「中心→半径」。クリックだけで描けるようにし、
+ * 別の作図方法はキーワード（2P/3P/T）で切り替える。
+ */
 function* cmdCircle(app: App): Generator<Req, void, any> {
-  const mode = (yield K('円の作図方法', [
-    { key: 'C', label: '中心-半径' }, { key: '2', label: '直径2点' },
-    { key: '3', label: '円周3点' }, { key: 'T', label: '接接半' },
-  ])) as string;
-  if (mode === 'C') {
-    const c = (yield P('円の中心を指定')) as Pt;
-    if (!c) return;
-    const rp = (yield P('半径を指定（数値入力も可）', c, (p, painter) => circle(painter, c, dist(c, p)))) as Pt | null;
-    if (!rp) return;
-    const r = q(dist(c, rp));
-    if (r <= 0) return;
-    app.store.tx('円', () => { app.store.add(mkCircle(app.doc, c, r)); });
-  } else if (mode === '2') {
-    const a = (yield P('直径の1点目')) as Pt;
-    if (!a) return;
-    const b = (yield P('直径の2点目', a, (p, painter) => circle(painter, pt((a.x + p.x) / 2, (a.y + p.y) / 2), dist(a, p) / 2))) as Pt;
-    if (!b) return;
-    app.store.tx('円', () => { app.store.add(mkCircle(app.doc, pt((a.x + b.x) / 2, (a.y + b.y) / 2), q(dist(a, b) / 2))); });
-  } else if (mode === '3') {
-    const a = (yield P('円周上の1点目')) as Pt;
-    const b = (yield P('円周上の2点目', a)) as Pt;
-    const c = (yield P('円周上の3点目', b, (p, painter) => {
-      const cir = circleFrom3(a, b, p);
-      if (cir) circle(painter, cir.c, cir.r);
-    })) as Pt;
-    if (!a || !b || !c) return;
-    const cir = circleFrom3(a, b, c);
-    if (!cir) { app.setStatus('3点が一直線上にあるため円を作れません'); return; }
-    app.store.tx('円', () => { app.store.add(mkCircle(app.doc, cir.c, cir.r)); });
-  } else {
-    const e1 = (yield E('1つ目の接する図形を選択')) as { entity: Entity; point: Pt };
-    const e2 = (yield E('2つ目の接する図形を選択')) as { entity: Entity; point: Pt };
-    const r = (yield N('半径 (mm)')) as number;
-    if (!e1 || !e2 || !r) return;
-    const c = tangentTangentRadius(app, e1, e2, r);
-    if (!c) { app.setStatus('その半径では接する円を作れません'); return; }
-    app.store.tx('円（接接半）', () => { app.store.add(mkCircle(app.doc, c, r)); });
-  }
+  const first = (yield P('円の中心を指定［2P=直径2点 / 3P=円周3点 / T=接接半］', null, undefined,
+    ['2P', '3P', 'T'])) as (Pt & { keyword?: string }) | null;
+  if (!first) return;
+  const kw = (first as { keyword?: string }).keyword;
+  if (kw === '2P') { yield* circle2P(app); return; }
+  if (kw === '3P') { yield* circle3P(app); return; }
+  if (kw === 'T') { yield* circleTTR(app); return; }
+
+  const c = first as Pt;
+  const rp = (yield P('半径を指定（数値入力も可）', c, (p, painter) => circle(painter, c, dist(c, p)))) as Pt | null;
+  if (!rp) return;
+  const r = q(dist(c, rp));
+  if (r <= 0) { app.setStatus('半径が0のため円を作れません'); return; }
+  app.store.tx('円', () => { app.store.add(mkCircle(app.doc, c, r)); });
+}
+
+function* circle2P(app: App): Generator<Req, void, any> {
+  const a = (yield P('直径の1点目')) as Pt;
+  if (!a) return;
+  const b = (yield P('直径の2点目', a, (p, painter) => circle(painter, pt((a.x + p.x) / 2, (a.y + p.y) / 2), dist(a, p) / 2))) as Pt;
+  if (!b) return;
+  app.store.tx('円', () => { app.store.add(mkCircle(app.doc, pt((a.x + b.x) / 2, (a.y + b.y) / 2), q(dist(a, b) / 2))); });
+}
+
+function* circle3P(app: App): Generator<Req, void, any> {
+  const a = (yield P('円周上の1点目')) as Pt;
+  const b = (yield P('円周上の2点目', a)) as Pt;
+  const c = (yield P('円周上の3点目', b, (p, painter) => {
+    const cir = circleFrom3(a, b, p);
+    if (cir) circle(painter, cir.c, cir.r);
+  })) as Pt;
+  if (!a || !b || !c) return;
+  const cir = circleFrom3(a, b, c);
+  if (!cir) { app.setStatus('3点が一直線上にあるため円を作れません'); return; }
+  app.store.tx('円', () => { app.store.add(mkCircle(app.doc, cir.c, cir.r)); });
+}
+
+function* circleTTR(app: App): Generator<Req, void, any> {
+  const e1 = (yield E('1つ目の接する図形を選択')) as { entity: Entity; point: Pt };
+  const e2 = (yield E('2つ目の接する図形を選択')) as { entity: Entity; point: Pt };
+  const r = (yield N('半径 (mm)')) as number;
+  if (!e1 || !e2 || !r) return;
+  const c = tangentTangentRadius(app, e1, e2, r);
+  if (!c) { app.setStatus('その半径では接する円を作れません'); return; }
+  app.store.tx('円（接接半）', () => { app.store.add(mkCircle(app.doc, c, r)); });
 }
 
 function tangentTangentRadius(app: App, a: { entity: Entity; point: Pt }, b: { entity: Entity; point: Pt }, r: number): Pt | null {
@@ -157,31 +168,33 @@ function tangentTangentRadius(app: App, a: { entity: Entity; point: Pt }, b: { e
   return null;
 }
 
+/** 円弧：既定は「始点→通過点→終点」。C で「中心→始点→終点」に切り替える。 */
 function* cmdArc(app: App): Generator<Req, void, any> {
-  const mode = (yield K('円弧の作図方法', [
-    { key: '3', label: '3点' }, { key: 'C', label: '中心-始点-終点' },
-  ])) as string;
-  if (mode === '3') {
-    const a = (yield P('始点')) as Pt;
-    const b = (yield P('通過点', a)) as Pt;
-    const c = (yield P('終点', b, (p, painter) => {
-      const r = arcFrom3(a, b, p);
-      if (r) arcPv(painter, r.c, r.r, r.a1, r.a2);
-    })) as Pt;
-    if (!a || !b || !c) return;
-    const r = arcFrom3(a, b, c);
-    if (!r) { app.setStatus('3点が一直線上にあるため円弧を作れません'); return; }
-    app.store.tx('円弧', () => { app.store.add(mkArc(app.doc, r.c, r.r, r.a1, r.a2)); });
-  } else {
-    const c = (yield P('中心')) as Pt;
-    const s = (yield P('始点', c, (p, painter) => circle(painter, c, dist(c, p)))) as Pt;
-    if (!c || !s) return;
-    const r = q(dist(c, s));
-    const a1 = angleOf(c, s);
-    const e2 = (yield P('終点（反時計回り）', c, (p, painter) => arcPv(painter, c, r, a1, angleOf(c, p)))) as Pt;
-    if (!e2) return;
-    app.store.tx('円弧', () => { app.store.add(mkArc(app.doc, c, r, a1, angleOf(c, e2))); });
-  }
+  const first = (yield P('円弧の始点を指定［C=中心から描く］', null, undefined, ['C'])) as (Pt & { keyword?: string }) | null;
+  if (!first) return;
+  if ((first as { keyword?: string }).keyword === 'C') { yield* arcFromCenter(app); return; }
+
+  const a = first as Pt;
+  const b = (yield P('通過点', a)) as Pt;
+  const c = (yield P('終点', b, (p, painter) => {
+    const r = arcFrom3(a, b, p);
+    if (r) arcPv(painter, r.c, r.r, r.a1, r.a2);
+  })) as Pt;
+  if (!b || !c) return;
+  const r = arcFrom3(a, b, c);
+  if (!r) { app.setStatus('3点が一直線上にあるため円弧を作れません'); return; }
+  app.store.tx('円弧', () => { app.store.add(mkArc(app.doc, r.c, r.r, r.a1, r.a2)); });
+}
+
+function* arcFromCenter(app: App): Generator<Req, void, any> {
+  const c = (yield P('円弧の中心')) as Pt;
+  const s = (yield P('始点', c, (p, painter) => circle(painter, c, dist(c, p)))) as Pt;
+  if (!c || !s) return;
+  const r = q(dist(c, s));
+  const a1 = angleOf(c, s);
+  const e2 = (yield P('終点（反時計回り）', c, (p, painter) => arcPv(painter, c, r, a1, angleOf(c, p)))) as Pt;
+  if (!e2) return;
+  app.store.tx('円弧', () => { app.store.add(mkArc(app.doc, c, r, a1, angleOf(c, e2))); });
 }
 
 function* cmdRect(app: App): Generator<Req, void, any> {

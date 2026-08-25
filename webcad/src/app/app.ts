@@ -591,7 +591,7 @@ export class App {
     this.invalidate();
   }
 
-  private supplyFromClick(x: number, y: number): void {
+  private supplyFromClick(x: number, y: number, depth = 0): void {
     const r = this.cur;
     if (!r) return;
     if (r.kind === 'point') {
@@ -629,8 +629,35 @@ export class App {
         const d = dist(this.lastPoint, p);
         this.cur = null;
         this.pump(Math.round(d));
+        return;
       }
+      if (r.default !== undefined) { this.cur = null; this.pump(r.default); this.forwardClick(x, y, depth); }
       return;
+    }
+    // 選択肢や文字を待っている最中にクリックされたら、既定の選択肢で先へ進める。
+    // （クリックだけ操作していて、何も起きないという行き止まりを作らないため）
+    if (r.kind === 'keyword') {
+      const def = r.options[0];
+      this.setStatus(`${def.label}で進めます`);
+      this.cur = null;
+      this.pump(def.key);
+      this.forwardClick(x, y, depth);
+      return;
+    }
+    if (r.kind === 'text' && r.default !== undefined) {
+      this.cur = null;
+      this.pump(r.default);
+      this.forwardClick(x, y, depth);
+      return;
+    }
+  }
+
+  /** 既定値で進めたあと、同じクリックを次の入力要求へ渡す */
+  private forwardClick(x: number, y: number, depth: number): void {
+    if (depth >= 3) return;
+    const next = this.cur;
+    if (next && (next.kind === 'point' || next.kind === 'entity' || next.kind === 'entities')) {
+      this.supplyFromClick(x, y, depth + 1);
     }
   }
 
