@@ -39,7 +39,48 @@ export function h<K extends keyof HTMLElementTagNameMap>(
 
 const $ = (sel: string): HTMLElement => document.querySelector(sel) as HTMLElement;
 
+/**
+ * ファイルの書き出し。
+ * 通常のWebサーバ上では <a download> で保存する。
+ * claude.ai の Artifact など、ページからの直接ダウンロードが禁止されている環境では、
+ * ホスト側の保存機能（downloads capability）に渡す。
+ */
 function download(blob: Blob, filename: string): void {
+  void saveViaHost(blob, filename).catch((e: unknown) => {
+    console.warn('保存に失敗しました', e);
+  });
+}
+
+interface HostDownloads { save(r: { filename: string; data: Blob }): Promise<{ status: string }> }
+interface HostClaude { use(name: string): Promise<HostDownloads | null> }
+
+async function saveViaHost(blob: Blob, filename: string): Promise<void> {
+  const host = (window as unknown as { claude?: HostClaude }).claude;
+  if (host?.use) {
+    let dl: HostDownloads | null = null;
+    try { dl = await host.use('downloads'); } catch { dl = null; }
+    if (dl) {
+      try {
+        await dl.save({ filename, data: blob });
+        return;
+      } catch (err) {
+        const code = (err as { code?: string })?.code;
+        if (code === 'declined' || code === 'rate_limited') return;
+        // 拡張子が許可されていない環境（DXFなど）はテキストとして保存する
+        if (code === 'rejected_extension' || code === 'extension_not_enabled') {
+          try {
+            await dl.save({ filename: `${filename}.txt`, data: blob });
+            alert(`この閲覧環境では「${filename}」の拡張子で保存できないため、末尾に .txt を付けて保存しました。\n保存後にファイル名から「.txt」を削除してください。`);
+            return;
+          } catch { /* 下の従来方式へ */ }
+        }
+      }
+    }
+  }
+  legacyDownload(blob, filename);
+}
+
+function legacyDownload(blob: Blob, filename: string): void {
   const url = URL.createObjectURL(blob);
   const a = h('a', { href: url, download: filename });
   document.body.append(a);
@@ -871,7 +912,12 @@ export class UI {
       extra: app.frameEntities(), background: '#ffffff', monochrome: true,
     });
     const win = window.open('', '_blank');
-    if (!win) { alert('ポップアップがブロックされました。印刷を許可してください。'); return; }
+    if (!win) {
+      // 別ウィンドウを開けない環境（埋め込み表示など）ではPDFで書き出す
+      alert('この環境では印刷用ウィンドウを開けないため、PDFとして書き出します。\nPDFを開いて印刷してください（尺度1:1）。');
+      this.exportPdf();
+      return;
+    }
     win.document.write(`<!doctype html><html><head><meta charset="utf-8"><title>${app.doc.name}</title>
 <style>
   @page { size: ${wMm}mm ${hMm}mm; margin: 0; }

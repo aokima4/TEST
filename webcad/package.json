@@ -13,7 +13,8 @@
     "start": "npm run build && node scripts/dev-server.mjs --dist",
     "smoke": "node scripts/smoke.mjs && node scripts/smoke2.mjs",
     "samples": "node scripts/exportcheck.mjs && node scripts/pdfcheck.mjs",
-    "perf": "esbuild scripts/_perf-entry.ts --bundle --platform=node --format=esm --outfile=build/perf.mjs --log-level=warning && node build/perf.mjs"
+    "perf": "esbuild scripts/_perf-entry.ts --bundle --platform=node --format=esm --outfile=build/perf.mjs --log-level=warning && node build/perf.mjs",
+    "build:artifact": "node scripts/build.mjs --artifact"
   },
   "devDependencies": {
     "@types/node": "^22.10.0",

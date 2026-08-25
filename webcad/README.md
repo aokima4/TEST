@@ -118,3 +118,12 @@ docs/samples/ サンプル図面の DXF / SVG / PDF / xcad 出力例
 | `npm run perf` | DXF読込・拘束ソルバの性能計測 |
 | `npm run smoke` | 実ブラウザでの操作テスト（Playwrightが必要） |
 | `node scripts/singlecheck.mjs` | 単一ファイル版が `file://` だけで動くことの確認 |
+
+## 公開URL（Artifact版）
+
+`npm run build:artifact` で claude.ai の Artifact 用HTML（`dist/webcad.artifact.html`）を生成できます。
+Artifact上ではページからの直接ダウンロードが制限されるため、
+ホスト側の保存機能（`claude.use('downloads')`）経由で保存します。
+DXFは拡張子が許可されていないため `.dxf.txt` として保存され、その旨を画面で案内します。
+拡張子の制限なくDXFを扱いたい場合は、通常のWebサーバ（Vercel等）へ配置するか、
+`dist/webcad.html`（単一ファイル版）を配布してください。
