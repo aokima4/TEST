@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="420.000mm" height="297.000mm" viewBox="0 0 420.000 297.000">
+<title>取付ブラケット</title>
+<rect width="420.000" height="297.000" fill="#ffffff"/>
+<path d="M0 297 L420 297" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M420 297 L420 0" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M420 0 L0 0" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M0 0 L0 297" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 287 L410 287" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410 287 L410 10" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M410 10 L20 10" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M20 10 L20 287" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M215 292 L215 282" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M215 15 L215 5" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M15 148.5 L25 148.5" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M405 148.5 L415 148.5" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 287 L230 231" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 231 L410 231" fill="none" stroke="#000000" stroke-width="0.700" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 279 L410 279" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 271 L410 271" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 263 L410 263" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 255 L410 255" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 247 L320 247" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M230 239 L320 239" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M260 287 L260 231" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M320 287 L320 231" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M350 287 L350 247" fill="none" stroke="#000000" stroke-width="0.250" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="232.000" y="283.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">図番</text>
+<text x="254.000" y="283.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">BRK-1024</text>
+<text x="232.000" y="275.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">部品名</text>
+<text x="254.000" y="275.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">取付ブラケット</text>
+<text x="232.000" y="267.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">材質</text>
+<text x="254.000" y="267.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">SS400</text>
+<text x="232.000" y="259.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">尺度</text>
+<text x="254.000" y="259.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">1:1</text>
+<text x="232.000" y="251.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">投影法</text>
+<text x="254.000" y="251.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">第三角法</text>
+<text x="232.000" y="243.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">作成者</text>
+<text x="254.000" y="243.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">設計部</text>
+<text x="232.000" y="235.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">日付</text>
+<text x="254.000" y="235.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">2026/8/25</text>
+<text x="322.000" y="283.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">改訂</text>
+<text x="344.000" y="283.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">A</text>
+<text x="322.000" y="275.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">用紙</text>
+<text x="344.000" y="275.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">A3横</text>
+<text x="322.000" y="267.000" font-family="sans-serif" font-size="2.500" fill="#000000" text-anchor="start" dominant-baseline="central">単位</text>
+<text x="344.000" y="267.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="start" dominant-baseline="central">mm</text>
+<text x="322.000" y="239.000" font-family="sans-serif" font-size="5.000" fill="#000000" text-anchor="start" dominant-baseline="central">株式会社サンプル製作所</text>
+<path d="M70 177 L170 177 M170 177 A10 10 0 0 0 180 167 M180 167 L180 107 M180 107 A10 10 0 0 0 170 97 M170 97 L70 97 M70 97 A10 10 0 0 0 60 107 M60 107 L60 167 M60 167 A10 10 0 0 0 70 177" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M88.5 137 A4.5 4.5 0 0 0 84 132.5 A4.5 4.5 0 0 0 79.5 137 A4.5 4.5 0 0 0 84 141.5 A4.5 4.5 0 0 0 88.5 137" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M76 137 L92 137" fill="none" stroke="#000000" stroke-width="0.180" stroke-dasharray="10.000 1.500 2.000 1.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84 145 L84 129" fill="none" stroke="#000000" stroke-width="0.180" stroke-dasharray="10.000 1.500 2.000 1.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M160.5 137 A4.5 4.5 0 0 0 156 132.5 A4.5 4.5 0 0 0 151.5 137 A4.5 4.5 0 0 0 156 141.5 A4.5 4.5 0 0 0 160.5 137" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M148 137 L164 137" fill="none" stroke="#000000" stroke-width="0.180" stroke-dasharray="10.000 1.500 2.000 1.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M156 145 L156 129" fill="none" stroke="#000000" stroke-width="0.180" stroke-dasharray="10.000 1.500 2.000 1.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M112 131 A6 6 0 0 0 106 137 A6 6 0 0 0 112 143" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M128 143 A6 6 0 0 0 134 137 A6 6 0 0 0 128 131" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M112 131 L128 131" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M112 143 L128 143" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M104 137 L136 137" fill="none" stroke="#000000" stroke-width="0.180" stroke-dasharray="10.000 1.500 2.000 1.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 178 L60 197 M180 178 L180 197 M60 195 L180 195" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M60 195 L56.543 195.548 L56.543 194.452 Z Z" fill="#000000" stroke="none"/>
+<path d="M180 195 L183.457 194.452 L183.457 195.548 Z Z" fill="#000000" stroke="none"/>
+<text x="120.000" y="194.200" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="alphabetic">120</text>
+<path d="M181 177 L200 177 M181 97 L200 97 M198 177 L198 97" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M198 177 L198.548 180.457 L197.452 180.457 Z Z" fill="#000000" stroke="none"/>
+<path d="M198 97 L197.452 93.543 L198.548 93.543 Z Z" fill="#000000" stroke="none"/>
+<text x="197.200" y="137.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="alphabetic" transform="rotate(-90.0000 197.200 137.000)">80</text>
+<path d="M84 136 L84 81 M156 136 L156 81 M84 83 L156 83" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84 83 L80.543 83.548 L80.543 82.452 Z Z" fill="#000000" stroke="none"/>
+<path d="M156 83 L159.457 82.452 L159.457 83.548 Z Z" fill="#000000" stroke="none"/>
+<text x="120.000" y="82.200" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="alphabetic">72 ±0.1</text>
+<path d="M87.182 140.182 L58 111" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M80.818 133.818 L77.986 131.761 L78.761 130.986 Z Z" fill="#000000" stroke="none"/>
+<path d="M87.182 140.182 L90.014 142.239 L89.239 143.014 Z Z" fill="#000000" stroke="none"/>
+<text x="57.434" y="110.434" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="end" dominant-baseline="central" transform="rotate(-315.0000 57.434 110.434)">φ9 H7</text>
+<path d="M59 177 L42 177 M59 137 L42 137 M44 177 L44 137" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M44 177 L44.548 180.457 L43.452 180.457 Z Z" fill="#000000" stroke="none"/>
+<path d="M44 137 L43.452 133.543 L44.548 133.543 Z Z" fill="#000000" stroke="none"/>
+<text x="43.200" y="157.000" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="alphabetic" transform="rotate(-90.0000 43.200 157.000)">40</text>
+<path d="M80 211 L86.65 211 M86.65 211 L86.65 204.7 M86.65 204.7 L80 204.7 M80 204.7 L80 211 M86.65 211 L99.6 211 M99.6 211 L99.6 204.7 M99.6 204.7 L86.65 204.7 M86.65 204.7 L86.65 211 M99.6 211 L105.27 211 M105.27 211 L105.27 204.7 M105.27 204.7 L99.6 204.7 M99.6 204.7 L99.6 211 M105.27 211 L110.94 211 M110.94 211 L110.94 204.7 M110.94 204.7 L105.27 204.7 M105.27 204.7 L105.27 211 M80 207.85 L84 141.5" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M84 141.5 L83.661 138.016 L84.755 138.082 Z Z" fill="#000000" stroke="none"/>
+<text x="83.325" y="207.850" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="central">⌖</text>
+<text x="93.125" y="207.850" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="central">φ0.2</text>
+<text x="102.435" y="207.850" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="central">A</text>
+<text x="108.105" y="207.850" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="central">B</text>
+<path d="M153.39 88.5 L156 93 M156 93 L161.19 84 M153.39 88.5 L158.61 88.5 M161.19 84 L173.19 84" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<text x="162.300" y="83.400" font-family="sans-serif" font-size="3.000" fill="#000000" text-anchor="start" dominant-baseline="alphabetic">Ra1.6</text>
+<path d="M120 131 L138 77 M138 77 L152 77" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M120 131 L119.426 134.453 L118.387 134.106 Z Z" fill="#000000" stroke="none"/>
+<text x="145.000" y="75.950" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="alphabetic">長穴 12×28</text>
+<path d="M240 177 L246 177 M246 177 L246 97 M246 97 L240 97 M240 97 L240 177" fill="none" stroke="#000000" stroke-width="0.500" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M245.426 177 L246 176.426 M241.89 177 L246 172.89 M240 175.356 L246 169.356 M240 171.82 L246 165.82 M240 168.284 L246 162.284 M240 164.748 L246 158.748 M240 161.214 L246 155.214 M240 157.678 L246 151.678 M240 154.142 L246 148.142 M240 150.606 L246 144.606 M240 147.072 L246 141.072 M240 143.536 L246 137.536 M240 140 L246 134 M240 136.464 L246 130.464 M240 132.928 L246 126.928 M240 129.394 L246 123.394 M240 125.858 L246 119.858 M240 122.322 L246 116.322 M240 118.786 L246 112.786 M240 115.252 L246 109.252 M240 111.716 L246 105.716 M240 108.18 L246 102.18 M240 104.644 L246 98.644 M240 101.11 L244.11 97 M240 97.574 L240.574 97" fill="none" stroke="#000000" stroke-width="0.130" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 178 L240 197 M246 178 L246 197 M233 195 L253 195" fill="none" stroke="#000000" stroke-width="0.180" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M240 195 L243.457 194.452 L243.457 195.548 Z Z" fill="#000000" stroke="none"/>
+<path d="M246 195 L242.543 195.548 L242.543 194.452 Z Z" fill="#000000" stroke="none"/>
+<text x="243.000" y="194.200" font-family="sans-serif" font-size="3.500" fill="#000000" text-anchor="middle" dominant-baseline="alphabetic">t6</text>
+<text x="236.000" y="85.000" font-family="sans-serif" font-size="5.000" fill="#000000" text-anchor="start" dominant-baseline="alphabetic">断面 A-A</text>
+<text x="60.000" y="63.000" font-family="sans-serif" font-size="4.000" fill="#000000" text-anchor="start" dominant-baseline="alphabetic">材質 SS400 / 板厚 6 / 指示なき角部 C0.5</text>
+</svg>
