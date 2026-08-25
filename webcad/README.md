@@ -116,7 +116,7 @@ docs/samples/ サンプル図面の DXF / SVG / PDF / xcad 出力例
 | `npm run typecheck` | 型検査 |
 | `npm run samples` | `docs/samples/` にDXF・SVG・PDF・xcadの出力例を生成し、PDF構造を検査 |
 | `npm run perf` | DXF読込・拘束ソルバの性能計測 |
-| `npm run smoke` | 実ブラウザでの操作テスト（Playwrightが必要） |
+| `npm run smoke` | 実ブラウザでの操作テスト（先に `npm i -D playwright` が必要） |
 | `node scripts/singlecheck.mjs` | 単一ファイル版が `file://` だけで動くことの確認 |
 
 ## 公開URL（Artifact版）
