@@ -13,7 +13,7 @@
     var y = window.pageYOffset || document.documentElement.scrollTop;
     if (header) header.classList.toggle('is-scrolled', y > 40);
     if (sticky && hero) {
-      sticky.classList.toggle('is-visible', y > hero.offsetHeight * 0.6);
+      sticky.classList.toggle('is-visible', y > hero.offsetHeight * 0.92);
     }
   }
   window.addEventListener('scroll', onScroll, { passive: true });
@@ -38,6 +38,14 @@
         document.body.style.overflow = '';
       }
     });
+  }
+
+  /* --- 最終CTAが見えている間は、追従ボタンを引っ込める --- */
+  var joinSection = document.getElementById('join');
+  if (sticky && joinSection && 'IntersectionObserver' in window) {
+    new IntersectionObserver(function (entries) {
+      sticky.classList.toggle('is-hidden', entries[0].isIntersecting);
+    }, { threshold: 0.12 }).observe(joinSection);
   }
 
   /* --- スクロールで要素をふわっと表示 --- */
