@@ -58,10 +58,15 @@ p,li,dd{ text-wrap:pretty; }        /* 最終行が極端に短くなるのを�
 未対応ブラウザでは無視されるだけなので、書いて損はない。
 
 意味の切れ目で必ず改行したい箇所は、画面幅で出し分ける。
+**初期値の `display:none` とメディアクエリは必ずセットで書く**。
+片方だけだと、全画面で改行される／どの画面でも改行されない、のどちらかになる。
 
 ```css
-.sp-br{display:none}
+.sp-br{display:none}                              /* ← これを忘れない */
 @media (max-width:640px){.sp-br{display:inline}}
+```
+```html
+<span>AIとともに、<br class="sp-br">事業のその先へ。</span>
 ```
 
 `word-break:keep-all` は日本語では使わない。CJKでは「どこでも改行できる」性質を

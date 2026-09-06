@@ -31,7 +31,9 @@ const cssFiles = [...html.matchAll(/<link[^>]+href="([^"]+\.css)"[^>]*>/g)].map(
 const css = cssFiles
   .filter((f) => !/^https?:/.test(f))
   .map((f) => fs.readFileSync(path.join(root, f), 'utf8'))
-  .join('\n');
+  .join('\n')
+  /* @charset は <style> の中では無効。ブラウザは無視するが、剥がしておく */
+  .replace(/^\uFEFF?\s*@charset\s+["'][^"']+["']\s*;/gm, '');
 
 /* <script src="...js"> を中身に置き換える */
 const jsFiles = [...html.matchAll(/<script[^>]+src="([^"]+\.js)"[^>]*><\/script>/g)].map((m) => m[1]);

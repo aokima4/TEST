@@ -7,6 +7,14 @@ description: ブランドボード（色・フォント・ロゴ）と構成案�
 
 構成案とブランド素材から、そのまま公開できる静的ページを作る。依頼者は非エンジニアであることが多いので、成果物は「ファイルを置けば動く」形にし、説明は専門用語を避ける。
 
+同梱スクリプトは**このスキルのディレクトリからの絶対パス**で呼ぶ。作業ディレクトリは
+制作物側にあるので、`node "$SKILL"/scripts/…` と書くと動かない。以下では `$SKILL` を
+スキルのディレクトリとして書く。
+
+```bash
+SKILL=<このSKILL.mdがあるディレクトリ>
+```
+
 ## 進め方
 
 1. 素材をそろえる（Step 1）
@@ -34,8 +42,8 @@ description: ブランドボード（色・フォント・ロゴ）と構成案�
 チャットに貼られた画像はディスク上には存在しないが、**会話ログ(JSONL)にbase64で残っている**。「画像が届いていません、もう一度送ってください」と言う前に必ずこれを試す。同じ画像が何度も貼られることがあるので、行番号の大きいもの＝最後に貼られたものを採用する。
 
 ```bash
-node scripts/extract_chat_images.js --out ./extracted        # 全部
-node scripts/extract_chat_images.js --out ./extracted --last 3
+node "$SKILL"/scripts/extract_chat_images.js --out ./extracted        # 全部
+node "$SKILL"/scripts/extract_chat_images.js --out ./extracted --last 3
 ```
 
 出力の寸法を見て、どれがロゴ・どれが人物写真かを判断する。判断がつかないときは実際に画像を開いて確認する。**人物と名前の対応づけを推測で決めない**——順番から推測したときは、その推測を成果物の説明で明示して確認を求める。
@@ -49,16 +57,26 @@ node scripts/extract_chat_images.js --out ./extracted --last 3
 - ロゴの構成（縦組み・横組み・シンボルのみ）とタグライン
 - 世界観を表す言葉（清らか、凛と、など）→ 余白量や動きの強さの判断材料
 
+**ブランド色は「面」の色であって、必ずしも「文字」の色ではない。** 明るいオレンジや
+金は、白地に小さな文字で置くと薄くて読めない（コントラスト比が足りない）。
+ボタンの地色やロゴには支給値をそのまま使い、**小さい文字用には同系統の濃い派生色を
+別の変数として作る**。ブランドを崩さずに読みやすさを確保できる。
+
+```css
+--orange:#E8743B;        /* 面・ボタン・アイコン。支給値のまま */
+--orange-ink:#B84E1B;    /* 白地の小さい文字用。濃くした派生色 */
+```
+
 ### ロゴを使える形にする
 
 支給ロゴはたいてい白背景。そのまま濃色の上に置くと白い四角が出るうえ、ロゴの濃色部分が背景に沈んで読めなくなる。**濃い背景で使うなら反転版が要る**。
 
 ```bash
 # まず構造を調べる（縦にどこで区切れるか）
-node scripts/make_logo_variants.js --src logo.webp --analyze
+node "$SKILL"/scripts/make_logo_variants.js --src logo.webp --analyze
 
 # analyze の bands を見て、部位ごとに切り出す
-node scripts/make_logo_variants.js --src logo.webp --out assets/images \
+node "$SKILL"/scripts/make_logo_variants.js --src logo.webp --out assets/images \
   --crops "logo-mark:150-680:280,logo-wordmark:700-945:580,logo-stack:150-945:760"
 ```
 
@@ -69,8 +87,8 @@ node scripts/make_logo_variants.js --src logo.webp --out assets/images \
 表示される最大幅の約2倍まで縮める。それ以上は容量が増えるだけで画質は変わらない。
 
 ```bash
-node scripts/optimize_images.js --src photo.jpg --out assets/images/hero.jpg --width 1400
-node scripts/optimize_images.js --src photo.jpg --out assets/images/ogp.jpg --crop 1200x630 --focus 0.3
+node "$SKILL"/scripts/optimize_images.js --src photo.jpg --out assets/images/hero.jpg --width 1400
+node "$SKILL"/scripts/optimize_images.js --src photo.jpg --out assets/images/ogp.jpg --crop 1200x630 --focus 0.3
 ```
 
 素材が手元に無い段階でも組み始めてよい。`<img>` に実ファイル名を書き、後ろに仮のプレースホルダーを重ねておけば、**あとからファイルを置くだけで差し替わる**。依頼者に「このフォルダにこの名前で保存してください」と伝えられる形にしておくと、非エンジニアでも自分で写真を入れられる。
@@ -98,7 +116,7 @@ node scripts/optimize_images.js --src photo.jpg --out assets/images/ogp.jpg --cr
 **ここを飛ばすと必ず後で「スマホで崩れている」と言われる。** 目視だけでは足りないので機械検査と目視を両方やる。
 
 ```bash
-node scripts/audit_page.js --url file:///abs/path/index.html --shots ./shots
+node "$SKILL"/scripts/audit_page.js --url file:///abs/path/index.html --shots ./shots
 ```
 
 検出できるのは「画面外へのはみ出し」「JSエラー」「読み込めない画像」の3つ。残りは `--shots` で出たセクション画像を**実際に開いて見る**。
@@ -110,7 +128,13 @@ node scripts/audit_page.js --url file:///abs/path/index.html --shots ./shots
 3. **行末に1文字だけ残る改行** — `text-wrap:balance` と、意味の切れ目での明示的な改行で防ぐ
 4. **画面下の固定ボタン** — 最終CTAと二重に出る／その下に地色の帯が見える
 
-検証は 360 / 390 / 768 / 1440 px で行う。360pxは小型Android、390pxは標準的なiPhone、768pxはタブレット。
+検証は **360 / 390 / 430 / 768 / 1440 px** で行う（`audit_page.js` の既定値）。
+360pxは小型Android、390pxは標準的なiPhone、430pxは大型iPhone、768pxはタブレット。
+`--shots` は指定した幅ごとに画像を保存するので、目視は 390 と 1440 の2つに絞ると速い。
+
+```bash
+node "$SKILL"/scripts/audit_page.js --url file:///abs/path/index.html --shots ./shots --widths 390,1440
+```
 
 ---
 
@@ -127,10 +151,15 @@ node scripts/audit_page.js --url file:///abs/path/index.html --shots ./shots
 1ファイルにまとめてから公開する。画像もフォントも埋め込まれるので、リンク1本で誰でも見られる。
 
 ```bash
-node scripts/build_single_file.js --src ./index.html --out /tmp/page.html --artifact
+node "$SKILL"/scripts/build_single_file.js --src ./index.html --out /tmp/page.html --artifact
 ```
 
 `--artifact` を付けると `<!doctype>`〜`<body>` の外枠を外す（Artifact側が付けるため）。Artifactツールでこのファイルを公開する。
+
+このとき、**ページの `<title>` とArtifactの名前は別物**として考える。
+`<title>` は検索結果に出るので「ブランド名｜キャッチコピー」が適切だが、
+Artifactの名前は一覧で見分けるための短い名詞句（「就業規則セミナー告知」など）にする。
+説明を足した長い名前にはしない。
 
 同じファイルパスで再公開すればURLは変わらない。ただし**共有中のArtifactは、再公開しても共有相手には自動反映されない**ことがある。更新したら「共有設定の更新が必要かもしれない」と一言添える。
 
