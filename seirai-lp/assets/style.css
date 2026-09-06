@@ -113,9 +113,13 @@ h1,h2,h3,h4{
   box-shadow:0 1px 0 rgba(212,175,124,.28);
 }
 .header__inner{display:flex;align-items:center;justify-content:space-between;gap:24px}
-.header__logo{display:flex;align-items:center;gap:12px;color:var(--ivory)}
-.header__logo svg{height:38px;width:auto;transition:height .45s var(--ease)}
-.header.is-scrolled .header__logo svg{height:32px}
+.header__logo{font-size:29px;transition:font-size .45s var(--ease)}
+.header.is-scrolled .header__logo{font-size:25px}
+
+/* 横組みロゴ（シンボル＋ロゴタイプ）：font-sizeで全体の大きさを調整する */
+.logo-h{display:inline-flex;align-items:center;gap:.4em;line-height:1}
+.logo-h__mark{height:1.42em;width:auto}
+.logo-h__word{height:.86em;width:auto}
 
 .nav{display:flex;align-items:center;gap:clamp(14px,2vw,28px)}
 .nav a{
@@ -189,7 +193,7 @@ h1,h2,h3,h4{
   writing-mode:vertical-rl;font-family:var(--serif-jp);font-size:13px;letter-spacing:.5em;
   color:rgba(212,175,124,.75);z-index:3;
 }
-.hero__logo{width:min(420px,86%);margin-bottom:30px}
+.hero__logo{font-size:clamp(38px,5.4vw,60px);margin-bottom:30px}
 .hero h1{
   font-size:clamp(30px,5.4vw,60px);line-height:1.42;letter-spacing:.08em;margin-bottom:26px;
   text-shadow:0 2px 30px rgba(0,0,0,.35);
@@ -317,7 +321,7 @@ h1,h2,h3,h4{
     linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
   color:var(--ivory);text-align:center;overflow:hidden;
 }
-.story__logo{width:min(300px,62%);margin:0 auto 36px}
+.story__logo{width:min(330px,68%);height:auto;margin:0 auto 36px}
 .naming{display:flex;justify-content:center;gap:0;margin:44px auto 0;max-width:760px;flex-wrap:wrap}
 .naming__item{
   flex:1 1 200px;padding:26px 18px;border-left:1px solid rgba(212,175,124,.28);
@@ -452,7 +456,6 @@ h1,h2,h3,h4{
 .founder__msg .msg-label{font-family:var(--serif-en);font-size:11.5px;letter-spacing:.3em;color:var(--gold-deep);margin-bottom:16px}
 .founder__msg p{font-family:var(--serif-jp);font-size:15px;line-height:2.25;color:var(--navy);margin:0 0 1.1em}
 .founder__msg p:last-child{margin-bottom:0}
-.note{font-size:12px;color:#8A97A4;line-height:1.9;margin-top:18px;letter-spacing:.02em}
 
 /* 10 crossing */
 .cross__grid{display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(20px,3vw,44px);align-items:center;margin:52px 0}
@@ -593,7 +596,7 @@ table.compare tbody tr.price td{font-family:var(--serif-jp);font-size:clamp(15px
 }
 .cta__inner{position:relative;z-index:2}
 .cta__lead{font-family:var(--serif-jp);font-size:clamp(18px,2.8vw,28px);color:var(--gold-light);letter-spacing:.12em;margin-bottom:34px}
-.cta__logo{width:min(340px,74%);margin:0 auto 26px}
+.cta__logo{width:min(340px,76%);height:auto;margin:0 auto 26px}
 .cta__tag{font-family:var(--serif-en);letter-spacing:.34em;font-size:clamp(11px,1.5vw,14px);color:var(--mist-light);margin-bottom:40px}
 .cta__lines{display:flex;flex-direction:column;gap:8px;margin-bottom:46px;font-family:var(--serif-jp);font-size:clamp(16px,2.2vw,21px);color:var(--ivory)}
 .cta__buttons{display:flex;flex-direction:column;align-items:center;gap:18px}

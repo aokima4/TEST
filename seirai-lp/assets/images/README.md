@@ -22,3 +22,19 @@
 
 `founder-tanaka.jpg` は元データが 371×395 と小さめのため、大きな画面では
 やや粗く見える場合があります。より大きい元データがあれば差し替えをおすすめします。
+
+## ロゴ画像
+
+`logo-source.webp` が支給された正式ロゴの原本です。
+そこから `tools/make-logos.js` で、背景を透過させた以下のPNGを書き出しています。
+
+| ファイル名 | 内容 | 使う場面 |
+|---|---|---|
+| `logo-mark-ivory.png` | シンボルマークのみ（濃紺背景用） | ヘッダー・ファーストビュー |
+| `logo-wordmark-ivory.png` | SEIRAI＋BUSINESS × AI × COMMUNITY（濃紺背景用） | ヘッダー・ファーストビュー |
+| `logo-stack-ivory.png` | 縦組みロゴ（濃紺背景用） | ブランドストーリー・最終CTA |
+| `logo-full-ivory.png` | 縦組みロゴ＋タグライン（濃紺背景用） | 予備 |
+| `logo-mark.png` ほか（-ivoryなし） | 同じ内容の白背景用 | 名刺・資料など明るい背景で使うとき |
+
+濃紺背景用は、原本の紺色部分をアイボリーに置き換えて、暗い背景でも読めるようにしています。
+作り直したいときは `node tools/make-logos.js assets/images/logo-source.webp` を実行してください。

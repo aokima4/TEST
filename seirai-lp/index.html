@@ -19,46 +19,13 @@
 <body>
 
 <!-- ============================================================
-     SVG LOGO DEFINITIONS （ブランドボード再現ロゴ）
-     ============================================================ -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <defs>
-    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#E7CDA6"/><stop offset="45%" stop-color="#D4AF7C"/><stop offset="100%" stop-color="#B08D5B"/>
-    </linearGradient>
-    <g id="seiraiMark">
-      <path d="M84 24 C54 24 32 38 34 56 C36 74 74 74 76 90 C78 106 56 114 34 106"
-            fill="none" stroke="url(#goldGrad)" stroke-width="7.5" stroke-linecap="round"/>
-      <path d="M44 108 L74 30 L104 108" fill="none" stroke="currentColor" stroke-width="7.5"
-            stroke-linecap="round" stroke-linejoin="round"/>
-      <path d="M58 88 L90 88" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
-      <path d="M100 2 C102.5 15 109 21.5 122 24 C109 26.5 102.5 33 100 46 C97.5 33 91 26.5 78 24 C91 21.5 97.5 15 100 2 Z"
-            fill="url(#goldGrad)"/>
-    </g>
-  </defs>
-
-  <!-- 横組みロゴ -->
-  <symbol id="logoLockup" viewBox="0 0 560 130">
-    <use href="#seiraiMark" x="0" y="6"/>
-    <text x="150" y="76" font-family="'Cormorant Garamond',serif" font-size="66" font-weight="600" letter-spacing="8" fill="currentColor">SEIR<tspan fill="url(#goldGrad)">AI</tspan></text>
-    <text x="154" y="104" font-family="'Cormorant Garamond',serif" font-size="14" letter-spacing="5.6" fill="url(#goldGrad)">BUSINESS × AI × COMMUNITY</text>
-  </symbol>
-
-  <!-- 縦組みロゴ -->
-  <symbol id="logoStack" viewBox="0 0 360 240">
-    <use href="#seiraiMark" x="117" y="0"/>
-    <text x="180" y="196" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="66" font-weight="600" letter-spacing="9" fill="currentColor">SEIR<tspan fill="url(#goldGrad)">AI</tspan></text>
-    <text x="180" y="224" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13.5" letter-spacing="5.4" fill="url(#goldGrad)">BUSINESS × AI × COMMUNITY</text>
-  </symbol>
-</svg>
-
-<!-- ============================================================
      HEADER
      ============================================================ -->
 <header class="header" id="header">
   <div class="wrap wrap--wide header__inner">
-    <a href="#top" class="header__logo" aria-label="SEIRAI トップへ">
-      <svg viewBox="0 0 560 130" role="img" aria-label="SEIRAI"><use href="#logoLockup"/></svg>
+    <a href="#top" class="header__logo logo-h" aria-label="SEIRAI トップへ">
+      <img class="logo-h__mark" src="assets/images/logo-mark-ivory.png" alt="">
+      <img class="logo-h__word" src="assets/images/logo-wordmark-ivory.png" alt="SEIRAI BUSINESS × AI × COMMUNITY">
     </a>
     <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
       <span></span><span></span><span></span>
@@ -90,7 +57,10 @@
 
   <div class="wrap wrap--wide hero__inner">
     <div class="hero__text">
-      <svg class="hero__logo reveal" viewBox="0 0 560 130" role="img" aria-label="SEIRAI BUSINESS × AI × COMMUNITY" style="color:#FAF8F3"><use href="#logoLockup"/></svg>
+      <span class="hero__logo logo-h reveal">
+        <img class="logo-h__mark" src="assets/images/logo-mark-ivory.png" alt="">
+        <img class="logo-h__word" src="assets/images/logo-wordmark-ivory.png" alt="SEIRAI BUSINESS × AI × COMMUNITY">
+      </span>
       <p class="hero__tagline reveal" data-d="1">FOR HER NEXT.</p>
       <h1 class="reveal" data-d="1">
         <span class="br-block">凛と、しなやかに。</span>
@@ -221,7 +191,7 @@
 <section class="section story" id="story">
   <div class="wrap">
     <p class="label center-label reveal">04 &nbsp; BRAND STORY</p>
-    <svg class="story__logo reveal" viewBox="0 0 360 240" role="img" aria-label="SEIRAI" style="color:#FAF8F3"><use href="#logoStack"/></svg>
+    <img class="story__logo reveal" src="assets/images/logo-stack-ivory.png" alt="SEIRAI BUSINESS × AI × COMMUNITY">
 
     <div class="naming">
       <div class="naming__item reveal" data-d="1">
@@ -434,7 +404,6 @@
           <p>AIによって、女性経営者がもっと自由に挑戦できる。もっと事業に集中できる。今まで一人ではできなかったことができる。</p>
           <p>SEIRAIを、そんな可能性が生まれる場所にしたいと思っています。</p>
         </div>
-        <p class="note">※このメッセージはSEIRAI用に新しく編集したコピーで、SysMixサイトの文章をそのまま転載するものではありません。</p>
       </div>
     </article>
 
@@ -459,7 +428,6 @@
           <p>でも、その変化が可能性を狭めるものではなく、新しい選択肢を増やすきっかけになってほしい。</p>
           <p>SEIRAIで出会う人や情報、仕事が、誰かの「次の選択肢」になる。そんな循環をつくっていきたいと思っています。</p>
         </div>
-        <p class="note">※このメッセージはブリューエンの理念をSEIRAI向けに再編集したコピーです。</p>
       </div>
     </article>
   </div>
@@ -657,7 +625,7 @@
   <div class="cta__glow"></div>
   <div class="wrap cta__inner">
     <p class="cta__lead reveal">ともに、より清らかで、より遠くへ。</p>
-    <svg class="cta__logo reveal" data-d="1" viewBox="0 0 360 240" role="img" aria-label="SEIRAI" style="color:#FAF8F3"><use href="#logoStack"/></svg>
+    <img class="cta__logo reveal" data-d="1" src="assets/images/logo-stack-ivory.png" alt="SEIRAI BUSINESS × AI × COMMUNITY">
     <div class="cta__lines reveal" data-d="2">
       <span>AIを味方に。</span>
       <span>仲間を力に。</span>
