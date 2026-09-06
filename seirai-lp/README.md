@@ -62,3 +62,8 @@ seirai-lp/
 
 - レンタルサーバーに `seirai-lp` フォルダごとアップロード
 - または Netlify / Vercel などにフォルダをドラッグ＆ドロップ
+
+## 1ファイルにまとめて配布する
+
+`node build-single.js` を実行すると、CSS・JSを1つに埋め込んだ `seirai-lp-single.html` が生成されます。
+このファイルは単体でメール添付や共有ができ、公開URL（Artifact）の作成にも使っています。
