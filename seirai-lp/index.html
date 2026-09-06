@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SEIRAI｜凛と、しなやかに。AIとともに、事業のその先へ。</title>
+<meta name="description" content="SEIRAIは、AIを武器に事業を育てたい女性起業家・女性経営者のための実践型ビジネスコミュニティです。BUSINESS × AI × COMMUNITY。学び、つながり、一緒に価値をつくる。">
+<meta name="theme-color" content="#0B2545">
+<meta property="og:type" content="website">
+<meta property="og:title" content="SEIRAI｜凛と、しなやかに。AIとともに、事業のその先へ。">
+<meta property="og:description" content="AIを武器に事業を育てたい女性起業家・女性経営者のための実践型ビジネスコミュニティ。BUSINESS × AI × COMMUNITY">
+<meta property="og:image" content="assets/images/ogp.jpg">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+<!-- ============================================================
+     SVG LOGO DEFINITIONS （ブランドボード再現ロゴ）
+     ============================================================ -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <linearGradient id="goldGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#E7CDA6"/><stop offset="45%" stop-color="#D4AF7C"/><stop offset="100%" stop-color="#B08D5B"/>
+    </linearGradient>
+    <g id="seiraiMark">
+      <path d="M84 24 C54 24 32 38 34 56 C36 74 74 74 76 90 C78 106 56 114 34 106"
+            fill="none" stroke="url(#goldGrad)" stroke-width="7.5" stroke-linecap="round"/>
+      <path d="M44 108 L74 30 L104 108" fill="none" stroke="currentColor" stroke-width="7.5"
+            stroke-linecap="round" stroke-linejoin="round"/>
+      <path d="M58 88 L90 88" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>
+      <path d="M100 2 C102.5 15 109 21.5 122 24 C109 26.5 102.5 33 100 46 C97.5 33 91 26.5 78 24 C91 21.5 97.5 15 100 2 Z"
+            fill="url(#goldGrad)"/>
+    </g>
+  </defs>
+
+  <!-- 横組みロゴ -->
+  <symbol id="logoLockup" viewBox="0 0 560 130">
+    <use href="#seiraiMark" x="0" y="6"/>
+    <text x="150" y="76" font-family="'Cormorant Garamond',serif" font-size="66" font-weight="600" letter-spacing="8" fill="currentColor">SEIR<tspan fill="url(#goldGrad)">AI</tspan></text>
+    <text x="154" y="104" font-family="'Cormorant Garamond',serif" font-size="14" letter-spacing="5.6" fill="url(#goldGrad)">BUSINESS × AI × COMMUNITY</text>
+  </symbol>
+
+  <!-- 縦組みロゴ -->
+  <symbol id="logoStack" viewBox="0 0 360 240">
+    <use href="#seiraiMark" x="117" y="0"/>
+    <text x="180" y="196" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="66" font-weight="600" letter-spacing="9" fill="currentColor">SEIR<tspan fill="url(#goldGrad)">AI</tspan></text>
+    <text x="180" y="224" text-anchor="middle" font-family="'Cormorant Garamond',serif" font-size="13.5" letter-spacing="5.4" fill="url(#goldGrad)">BUSINESS × AI × COMMUNITY</text>
+  </symbol>
+</svg>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="header" id="header">
+  <div class="wrap wrap--wide header__inner">
+    <a href="#top" class="header__logo" aria-label="SEIRAI トップへ">
+      <svg viewBox="0 0 560 130" role="img" aria-label="SEIRAI"><use href="#logoLockup"/></svg>
+    </a>
+    <button class="burger" id="burger" aria-label="メニューを開く" aria-expanded="false" aria-controls="nav">
+      <span></span><span></span><span></span>
+    </button>
+    <nav class="nav" id="nav">
+      <a href="#about">SEIRAIとは</a>
+      <a href="#story">ブランド</a>
+      <a href="#service">できること</a>
+      <a href="#accelerator">集中プログラム</a>
+      <a href="#founders">2人の代表</a>
+      <a href="#membership">料金</a>
+      <a href="#join" class="btn btn--gold btn--sm">SEIRAIに参加する</a>
+    </nav>
+  </div>
+</header>
+
+<!-- ============================================================
+     01 ファーストビュー
+     ============================================================ -->
+<section class="hero" id="top">
+  <div class="hero__glow"></div>
+  <svg class="hero__river" viewBox="0 0 1440 420" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0,300 C280,240 420,340 720,300 C1020,260 1180,340 1440,290 L1440,420 L0,420 Z" fill="rgba(23,58,99,.55)"/>
+    <path d="M0,340 C300,290 460,380 760,340 C1060,300 1220,380 1440,330 L1440,420 L0,420 Z" fill="rgba(6,23,41,.6)"/>
+    <path d="M0,296 C280,236 420,336 720,296 C1020,256 1180,336 1440,286" fill="none" stroke="rgba(212,175,124,.35)" stroke-width="1"/>
+  </svg>
+
+  <p class="hero__vertical">ともに、より清らかで、より遠くへ。</p>
+
+  <div class="wrap wrap--wide hero__inner">
+    <div class="hero__text">
+      <svg class="hero__logo reveal" viewBox="0 0 560 130" role="img" aria-label="SEIRAI BUSINESS × AI × COMMUNITY" style="color:#FAF8F3"><use href="#logoLockup"/></svg>
+      <p class="hero__tagline reveal" data-d="1">FOR HER NEXT.</p>
+      <h1 class="reveal" data-d="1">
+        <span class="br-block">凛と、しなやかに。</span>
+        <span class="br-block">AIとともに、事業のその先へ。</span>
+      </h1>
+      <p class="hero__sub reveal" data-d="2">
+        一人で頑張る経営から、<br>
+        学び、つながり、互いの力を掛け合わせる経営へ。<br><br>
+        SEIRAIは、AIを武器に事業を育てたい女性起業家・女性経営者のための<strong>実践型ビジネスコミュニティ</strong>です。
+      </p>
+      <div class="hero__cta reveal" data-d="3">
+        <a href="#join" class="btn btn--gold btn--lg">SEIRAIに参加する</a>
+        <a href="#about" class="btn btn--ghost btn--lg">まずはSEIRAIの活動を見る</a>
+      </div>
+    </div>
+
+    <div class="hero__visual reveal" data-d="2">
+      <div class="hero__photo photo">
+        <img src="assets/images/founders-hero.jpg" alt="SEIRAI 代表 青木真弓と田中結子" loading="eager" onerror="this.style.display='none'">
+        <div class="photo__ph">FOUNDERS<small>assets/images/founders-hero.jpg<br>（2人が並んだ写真）</small></div>
+      </div>
+      <span class="hero__photo-frame"></span>
+    </div>
+  </div>
+
+  <div class="hero__scroll"><span>SCROLL</span><i></i></div>
+</section>
+
+<!-- ============================================================
+     02 SEIRAIが目指すもの
+     ============================================================ -->
+<section class="section vision" id="about">
+  <div class="wrap">
+    <p class="label reveal">01 &nbsp; OUR VISION</p>
+    <div class="vision__grid">
+      <div>
+        <h2 class="h-lead reveal">
+          女性が事業を続けることに、<br>もっと選択肢があっていい。
+        </h2>
+        <span class="gold-line reveal"></span>
+        <p class="lede reveal" data-d="1">
+          年齢でも、会社の規模でもなく、<br>「次へ進みたい」という意思から始まる場所。
+        </p>
+      </div>
+      <div class="vision__card reveal" data-d="1">
+        <div class="vision__voice">
+          <p>起業した。<br>自分の力で仕事をつくった。<br>少しずつお客様も増えてきた。</p>
+          <p>でも、事業が大きくなるほど、</p>
+          <p>
+            <span class="q">「これからどう伸ばそう？」</span>
+            <span class="q">「このまま一人でやり続けるの？」</span>
+            <span class="q">「AIって、自分の事業にどう使うの？」</span>
+          </p>
+          <p>そんな新しい悩みも増えていきます。</p>
+          <p>そして経営者になると、意外と、<br><strong style="color:var(--navy)">本音で事業の相談をできる相手が少ない。</strong></p>
+        </div>
+        <p class="vision__strong">
+          SEIRAIは、そんな女性たちが、<br>
+          <span class="accent">学び、相談し、刺激し合い、協業し、</span><br>
+          ともに次へ進む場所です。
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 Problem
+     ============================================================ -->
+<section class="section problem">
+  <div class="wrap">
+    <p class="label center-label reveal">02 &nbsp; PROBLEM</p>
+    <h2 class="h-lead center reveal">こんなことを<br class="sp-br">感じていませんか？</h2>
+    <ul class="checklist reveal" data-d="1">
+      <li>AIがすごいことは分かる。でも、自分の事業への使い方が分からない</li>
+      <li>SNSや集客に時間を取られすぎている</li>
+      <li>一人で経営判断をすることに疲れるときがある</li>
+      <li>もっと売上を伸ばしたいけれど、次の打ち手が見えない</li>
+      <li>新しい商品や事業をつくりたい</li>
+      <li>同じように挑戦している女性経営者とつながりたい</li>
+      <li>名刺交換だけで終わる交流会には、もうあまり興味がない</li>
+      <li>学ぶだけではなく、実際に事業を前へ進めたい</li>
+    </ul>
+    <p class="problem__punch reveal">
+      SEIRAIは、<br><em>「交流するだけ」</em>のコミュニティでは<br class="sp-br">ありません。
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 SEIRAIとは（3つの軸）
+     ============================================================ -->
+<section class="section section--navy" id="pillars">
+  <div class="wrap">
+    <p class="label center-label reveal">03 &nbsp; WHAT IS SEIRAI</p>
+    <h2 class="h-lead center reveal" style="font-family:var(--serif-en);letter-spacing:.18em">BUSINESS × AI × COMMUNITY</h2>
+    <p class="lede center reveal" data-d="1" style="margin-top:20px">SEIRAIには、3つの軸があります。</p>
+
+    <div class="pillars">
+      <article class="pillar reveal" data-d="1">
+        <span class="pillar__num">01</span>
+        <p class="pillar__en">BUSINESS</p>
+        <h3>事業を育てる。</h3>
+        <p>集客、営業、商品、価格、経営、ブランディング。</p>
+        <p>「女性だから」ではなく、<strong>一人の経営者として事業を強くする。</strong></p>
+      </article>
+      <article class="pillar reveal" data-d="2">
+        <span class="pillar__num">02</span>
+        <p class="pillar__en">AI</p>
+        <h3>AIを、経営の武器にする。</h3>
+        <p>AIツールを覚えることが目的ではありません。</p>
+        <p><strong>「自分の事業のどこにAIを使えばいいか」</strong>を考え、集客、営業、商品開発、業務効率化、新規事業などへ実装していきます。</p>
+      </article>
+      <article class="pillar reveal" data-d="3">
+        <span class="pillar__num">03</span>
+        <p class="pillar__en">COMMUNITY</p>
+        <h3>一人では行けない場所へ、ともに。</h3>
+        <p>相談する。紹介する。一緒に事業をつくる。時には仕事をお願いする。</p>
+        <p>SEIRAIでは、<strong>「知り合いを増やす」より、「一緒に仕事ができる関係をつくる」</strong>ことを大切にします。</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 ブランドストーリー
+     ============================================================ -->
+<section class="section story" id="story">
+  <div class="wrap">
+    <p class="label center-label reveal">04 &nbsp; BRAND STORY</p>
+    <svg class="story__logo reveal" viewBox="0 0 360 240" role="img" aria-label="SEIRAI" style="color:#FAF8F3"><use href="#logoStack"/></svg>
+
+    <div class="naming">
+      <div class="naming__item reveal" data-d="1">
+        <p class="naming__key">SEI</p>
+        <p class="naming__desc">清。清流。<br>凛とした透明感。</p>
+      </div>
+      <div class="naming__item reveal" data-d="2">
+        <p class="naming__key">AI</p>
+        <p class="naming__desc">Artificial Intelligence.<br>新しい力。</p>
+      </div>
+      <div class="naming__item reveal" data-d="3">
+        <p class="naming__key">RAI</p>
+        <p class="naming__desc">来。<br>これから訪れる未来。</p>
+      </div>
+    </div>
+
+    <p class="story__text reveal">
+      清流の地から、<br>
+      AIという新しい力を味方につけ、<br>
+      一人ひとりが自分らしく、凛と未来へ進んでいく。<br><br>
+      そんな想いから、<span class="accent">SEIRAI</span> と名付けました。
+    </p>
+
+    <p class="story__copy reveal" data-d="1">ともに、より清らかで、より遠くへ。</p>
+    <p class="story__copy-en reveal" data-d="2">A CLEARER TOMORROW, TOGETHER.</p>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 SEIRAIでできること
+     ============================================================ -->
+<section class="section" id="service">
+  <div class="wrap">
+    <p class="label center-label reveal">05 &nbsp; WHAT YOU CAN DO</p>
+    <h2 class="h-lead center reveal">SEIRAIでできること</h2>
+
+    <div class="services">
+      <article class="service reveal" data-d="1">
+        <div class="service__head">
+          <span class="service__no">01</span>
+          <span class="service__name">SEIRAI SESSION</span>
+        </div>
+        <p class="service__jp">学ぶ</p>
+        <ul class="tags">
+          <li>AI</li><li>経営</li><li>営業</li><li>マーケティング</li>
+          <li>ブランディング</li><li>資金</li><li>人材</li><li>新規事業</li>
+        </ul>
+        <p>定期的に、女性起業家が次へ進むためのテーマを取り上げます。</p>
+        <p>単発で「勉強になった」で終わる内容ではなく、<strong>明日から自分の事業で使えること</strong>を基準にします。</p>
+      </article>
+
+      <article class="service reveal" data-d="2">
+        <div class="service__head">
+          <span class="service__no">02</span>
+          <span class="service__name">SEIRAI MEET</span>
+        </div>
+        <p class="service__jp">つながる</p>
+        <p>女性経営者同士の交流・対話。ただし、単なる名刺交換会にはしません。</p>
+        <p>「今何をしているか」だけではなく、<strong>「今、何に困っているのか」「何を一緒にできるのか」</strong>まで共有します。</p>
+      </article>
+
+      <article class="service reveal" data-d="1">
+        <div class="service__head">
+          <span class="service__no">03</span>
+          <span class="service__name">SEIRAI CONNECT</span>
+        </div>
+        <p class="service__jp">仕事を生み出す</p>
+        <ul class="tags">
+          <li>紹介</li><li>発注</li><li>協業</li><li>コラボイベント</li><li>新商品</li><li>新規事業</li>
+        </ul>
+        <p>メンバー間で実際に仕事が生まれることを後押しします。</p>
+      </article>
+
+      <article class="service reveal" data-d="2">
+        <div class="service__head">
+          <span class="service__no">04</span>
+          <span class="service__name">SEIRAI AI UPDATE</span>
+        </div>
+        <p class="service__jp">AIの変化を追い続ける</p>
+        <p>AIは毎月のように変わります。だからSEIRAIでは、「一度勉強して終わり」にしません。</p>
+        <p><strong>新しいAI、新しい活用法、新しいビジネス事例</strong>を継続的に共有します。</p>
+      </article>
+
+      <p class="service__punch reveal">
+        つながるだけではなく、<br><span class="accent">一緒に価値をつくる。</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     07 ブリッジ
+     ============================================================ -->
+<section class="bridge">
+  <div class="wrap">
+    <p class="bridge__eyebrow reveal">FOR THOSE WHO GO FURTHER</p>
+    <h2 class="reveal" data-d="1">
+      そして、本気で事業を変えたい人へ。<br><br>
+      SEIRAIには、さらに深く学びたいメンバーのための<br>
+      <span class="accent">集中プログラム</span>があります。
+    </h2>
+    <div class="bridge__arrow reveal" data-d="2"></div>
+  </div>
+</section>
+
+<!-- ============================================================
+     08 3か月集中プログラム
+     ============================================================ -->
+<section class="section accel" id="accelerator">
+  <div class="wrap">
+    <p class="label reveal">06 &nbsp; 3 MONTHS INTENSIVE PROGRAM</p>
+    <h2 class="accel__title-en reveal">SEIRAI<br>AI Business Accelerator</h2>
+    <p class="accel__lead reveal" data-d="1">
+      学ぶだけで終わらない。<br>
+      3か月で、自分の事業にAIを実装する。
+    </p>
+    <p class="lede reveal" data-d="1" style="max-width:40em">
+      SEIRAIメンバーの中で、「AIを本格的に事業へ取り入れたい」「売上や集客をもう一段伸ばしたい」「自社の事業を一度しっかり見直したい」という方のための集中プログラムです。
+    </p>
+
+    <dl class="accel__facts reveal" data-d="2">
+      <div class="accel__fact"><dt>PERIOD</dt><dd>3<small>か月</small></dd></div>
+      <div class="accel__fact"><dt>TUITION</dt><dd>200,000<small>円</small></dd></div>
+      <div class="accel__fact"><dt>FOR</dt><dd style="font-size:clamp(15px,2vw,19px);line-height:1.8">SEIRAIメンバー限定</dd></div>
+    </dl>
+
+    <div class="months">
+      <div class="month reveal" data-d="1">
+        <p class="month__no">MONTH 01</p>
+        <h4>AI × BUSINESS DESIGN</h4>
+        <p>事業を見直す</p>
+      </div>
+      <div class="month reveal" data-d="2">
+        <p class="month__no">MONTH 02</p>
+        <h4>AI × SALES &amp; MARKETING</h4>
+        <p>売れる仕組みをつくる</p>
+      </div>
+      <div class="month reveal" data-d="3">
+        <p class="month__no">MONTH 03</p>
+        <h4>AI × OPERATION &amp; GROWTH</h4>
+        <p>経営を仕組みにする</p>
+      </div>
+    </div>
+
+    <p class="label reveal" style="margin-top:64px">3か月で目指す成果</p>
+    <ul class="outcomes reveal" data-d="1">
+      <li>自社AI活用マップ</li>
+      <li>新商品・新サービス</li>
+      <li>SNS・集客戦略</li>
+      <li>LP・営業資料</li>
+      <li>営業設計</li>
+      <li>業務効率化</li>
+      <li>AI自動化</li>
+      <li>90日経営計画</li>
+    </ul>
+
+    <p class="accel__punch reveal">
+      「AIを勉強しました」ではなく、<br>
+      <span class="accent">「AIで事業が変わりました」へ。</span>
+    </p>
+    <p class="center reveal" data-d="1" style="margin-top:40px">
+      <a href="#join" class="btn btn--ghost btn--lg">SEIRAIメンバー限定プログラムについて詳しく見る</a>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     09 2人の代表
+     ============================================================ -->
+<section class="section" id="founders">
+  <div class="wrap">
+    <p class="label reveal">07 &nbsp; TWO FOUNDERS</p>
+
+    <div class="founders__hero">
+      <div class="reveal">
+        <div class="photo" style="aspect-ratio:5/4">
+          <img src="assets/images/founders-hero.jpg" alt="SEIRAI 代表 青木真弓と田中結子" loading="lazy" onerror="this.style.display='none'">
+          <div class="photo__ph">TWO FOUNDERS<small>assets/images/founders-hero.jpg<br>（2人が並んだ写真）</small></div>
+        </div>
+      </div>
+      <div class="reveal" data-d="1">
+        <h2>
+          <span>テクノロジーで可能性を広げる人。</span>
+          <span>仕組みを変えて、選択肢を増やす人。</span>
+        </h2>
+        <span class="gold-line"></span>
+        <p class="lede">その2人が出会って、SEIRAIが生まれました。</p>
+      </div>
+    </div>
+
+    <!-- 青木 真弓 -->
+    <article class="founder">
+      <div class="founder__photo reveal">
+        <div class="photo">
+          <img src="assets/images/founder-aoki.jpg" alt="青木 真弓" loading="lazy" onerror="this.style.display='none'">
+          <div class="photo__ph">MAYUMI AOKI<small>assets/images/founder-aoki.jpg</small></div>
+        </div>
+      </div>
+      <div class="founder__body reveal" data-d="1">
+        <h3 class="founder__name">青木 真弓<small>MAYUMI AOKI</small></h3>
+        <p class="founder__role">株式会社SysMix 代表取締役</p>
+        <p>SysMixは、<strong>「テクノロジー × クリエイティブ × 女性の力で、日本のITをアップデートする」</strong>を掲げています。</p>
+        <p>20年間ITの現場に立つ中で青木が感じてきたのは、テクノロジーは効率化だけのためにあるのではない、ということ。</p>
+        <p>システムやAIを使うことで、働く人がもっと自由になれる。企業がもっと成長できる。そして女性がライフステージに左右されず、自分の能力を発揮できる社会をつくれる。</p>
+        <p>SysMixは、そうした<strong>「人に寄り添うIT」</strong>を目指しています。</p>
+
+        <div class="founder__msg">
+          <p class="msg-label">MESSAGE</p>
+          <p>AIを覚えることがゴールではありません。</p>
+          <p>AIによって、女性経営者がもっと自由に挑戦できる。もっと事業に集中できる。今まで一人ではできなかったことができる。</p>
+          <p>SEIRAIを、そんな可能性が生まれる場所にしたいと思っています。</p>
+        </div>
+        <p class="note">※このメッセージはSEIRAI用に新しく編集したコピーで、SysMixサイトの文章をそのまま転載するものではありません。</p>
+      </div>
+    </article>
+
+    <!-- 田中 結子 -->
+    <article class="founder">
+      <div class="founder__photo reveal">
+        <div class="photo">
+          <img src="assets/images/founder-tanaka.jpg" alt="田中 結子" loading="lazy" onerror="this.style.display='none'">
+          <div class="photo__ph">YUKO TANAKA<small>assets/images/founder-tanaka.jpg</small></div>
+        </div>
+      </div>
+      <div class="founder__body reveal" data-d="1">
+        <h3 class="founder__name">田中 結子<small>YUKO TANAKA</small></h3>
+        <p class="founder__role">ブリューエン株式会社 代表取締役CEO</p>
+        <p>ブリューエンが目指しているのは、<strong>性別、地域、国籍、ライフステージといった属性によって、人の可能性が制限されない社会。</strong></p>
+        <p>田中自身も、結婚や転勤によるキャリアの変化を経験し、その後フリーランス、役員秘書、経営企画、海外事業開発、経営者というキャリアを歩んできました。</p>
+        <p>だからこそ、「女性だから」「地方だから」「家庭があるから」という理由で、本来持っている能力や選択肢を諦めなくていい社会をつくることを目指しています。</p>
+
+        <div class="founder__msg">
+          <p class="msg-label">MESSAGE</p>
+          <p>人生や事業には、何度も転機があります。</p>
+          <p>でも、その変化が可能性を狭めるものではなく、新しい選択肢を増やすきっかけになってほしい。</p>
+          <p>SEIRAIで出会う人や情報、仕事が、誰かの「次の選択肢」になる。そんな循環をつくっていきたいと思っています。</p>
+        </div>
+        <p class="note">※このメッセージはブリューエンの理念をSEIRAI向けに再編集したコピーです。</p>
+      </div>
+    </article>
+  </div>
+</section>
+
+<!-- ============================================================
+     10 2人の想いが交わる場所
+     ============================================================ -->
+<section class="section section--navy">
+  <div class="wrap">
+    <p class="label center-label reveal">08 &nbsp; TECHNOLOGY × CHOICE</p>
+    <h2 class="h-lead center reveal">2人の想いが交わる場所</h2>
+
+    <div class="cross__grid">
+      <div class="cross__card reveal" data-d="1">
+        <p class="cross__who">MAYUMI AOKI</p>
+        <p>テクノロジーによって、<br>人の可能性を広げる。</p>
+      </div>
+      <div class="cross__x reveal" data-d="2">×</div>
+      <div class="cross__card reveal" data-d="3">
+        <p class="cross__who">YUKO TANAKA</p>
+        <p>誰もが、自分の未来を<br>自分で選べる社会をつくる。</p>
+      </div>
+    </div>
+
+    <p class="lede center reveal" style="margin-bottom:52px">
+      違う道を歩いてきた二人ですが、目指している場所はとても似ています。
+    </p>
+
+    <div class="cross__stack reveal" data-d="1">
+      <span><b>AIを学ぶ。</b>だけではない。</span>
+      <span><b>経営を学ぶ。</b>だけでもない。</span>
+      <span><b>仲間をつくる。</b>だけでもない。</span>
+    </div>
+
+    <p class="cross__final reveal" data-d="2">
+      女性が「次の選択肢」を<br>自分でつくれる場所をつくる。
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     11 どんな女性に来てほしいか
+     ============================================================ -->
+<section class="section" id="forwhom">
+  <div class="wrap">
+    <p class="label center-label reveal">09 &nbsp; FOR WHOM</p>
+    <h2 class="h-lead center reveal">SEIRAIは、<br class="sp-br">こんな方のための場所です。</h2>
+
+    <ul class="forwhom reveal" data-d="1">
+      <li><i>01</i>すでに事業を持っている</li>
+      <li><i>02</i>これからもっと事業を伸ばしたい</li>
+      <li><i>03</i>AIを経営に取り入れたい</li>
+      <li><i>04</i>一人で経営を抱え込みたくない</li>
+      <li><i>05</i>新しい人や考え方に出会いたい</li>
+      <li><i>06</i>自分の得意を誰かの力にしたい</li>
+      <li><i>07</i>女性起業家同士で仕事を生み出したい</li>
+      <li><i>08</i>地域から新しいことに挑戦したい</li>
+      <li><i>09</i>「まだまだここから」と思っている</li>
+    </ul>
+
+    <p class="problem__punch reveal" style="margin-top:clamp(44px,6vw,72px)">
+      年齢でも、会社の規模でもなく、<br><em>「次へ進みたい」</em>という意思を大切にします。
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     12 SEIRAIで生まれてほしいこと
+     ============================================================ -->
+<section class="section section--navy">
+  <div class="wrap">
+    <p class="label center-label reveal">10 &nbsp; WHAT HAPPENS HERE</p>
+    <h2 class="h-lead center reveal">SEIRAIで生まれてほしいこと</h2>
+
+    <div class="values">
+      <div class="value reveal" data-d="1"><p class="value__en">LEARN</p><p>新しいことを学ぶ。</p></div>
+      <div class="value reveal" data-d="2"><p class="value__en">CHANGE</p><p>自分の事業を変える。</p></div>
+      <div class="value reveal" data-d="3"><p class="value__en">CONNECT</p><p>仲間とつながる。</p></div>
+      <div class="value reveal" data-d="1"><p class="value__en">COLLABORATE</p><p>一緒に仕事をする。</p></div>
+      <div class="value reveal" data-d="2"><p class="value__en">CHALLENGE</p><p>新しいことに挑戦する。</p></div>
+      <div class="value reveal" data-d="3"><p class="value__en">GROW</p><p>事業も、自分も成長する。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     13 Community Membership
+     ============================================================ -->
+<section class="section section--ivory" id="membership">
+  <div class="wrap">
+    <p class="label center-label reveal">11 &nbsp; COMMUNITY MEMBERSHIP</p>
+    <h2 class="h-lead center reveal">まずは、SEIRAIの一員に。</h2>
+
+    <div class="plan reveal" data-d="1">
+      <p class="plan__name">SEIRAI COMMUNITY</p>
+      <p class="plan__price">月額 5,500<small>円（税込）</small></p>
+      <p class="plan__note">※価格は予定です。募集開始時に確定いたします。</p>
+      <ul class="plan__list">
+        <li>定期セミナー（SEIRAI SESSION）</li>
+        <li>SEIRAI MEET（交流・対話の場）</li>
+        <li>オンラインコミュニティ</li>
+        <li>AI最新情報のアップデート</li>
+        <li>メンバー紹介</li>
+        <li>ビジネスマッチング</li>
+        <li>メンバー限定企画</li>
+        <li>Accelerator 優先案内</li>
+      </ul>
+    </div>
+
+    <div class="founding reveal" data-d="2">
+      <p class="founding__label">FOUNDING MEMBERS</p>
+      <h3>創設メンバー限定募集</h3>
+      <p>
+        第0期は<strong>初年度特別価格</strong>でご案内します。<br>
+        ただ「安いから入る」ではなく、<br>
+        <strong>最初の仲間として、SEIRAIの文化を一緒につくる人</strong>を募集します。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     14 料金比較
+     ============================================================ -->
+<section class="section">
+  <div class="wrap">
+    <p class="label center-label reveal">12 &nbsp; COMPARISON</p>
+    <h2 class="h-lead center reveal">2つの関わり方</h2>
+
+    <div class="table-wrap reveal" data-d="1">
+      <table class="compare">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">SEIRAI Community</th>
+            <th scope="col">AI Business Accelerator</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">目的</th><td>継続的な学び・交流・協業</td><td>3か月で事業を集中的に変える</td></tr>
+          <tr><th scope="row">期間</th><td>継続</td><td>3か月</td></tr>
+          <tr><th scope="row">セミナー</th><td><span class="mark-c">○</span></td><td><span class="mark-d">◎</span></td></tr>
+          <tr><th scope="row">AI最新情報</th><td><span class="mark-c">○</span></td><td><span class="mark-d">◎</span></td></tr>
+          <tr><th scope="row">コミュニティ</th><td><span class="mark-d">◎</span></td><td><span class="mark-d">◎</span></td></tr>
+          <tr><th scope="row">個別伴走</th><td><span class="mark-t">△</span></td><td><span class="mark-d">◎</span></td></tr>
+          <tr><th scope="row">実践課題</th><td><span class="mark-c">○</span></td><td><span class="mark-d">◎</span></td></tr>
+          <tr><th scope="row">事業設計</th><td><span class="mark-t">△</span></td><td><span class="mark-d">◎</span></td></tr>
+          <tr class="price"><th scope="row">料金</th><td>月額 5,500円（想定）</td><td>200,000円</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="flow reveal" data-d="1">
+      <div class="flow__step"><small>STEP 01</small>まずSEIRAIに入る</div>
+      <span class="flow__arrow">▶</span>
+      <div class="flow__step"><small>STEP 02</small>必要な人はAcceleratorへ</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     15 最後のメッセージ
+     ============================================================ -->
+<section class="section finale">
+  <div class="finale__bg">
+    <div class="photo">
+      <img src="assets/images/founders-hero.jpg" alt="" loading="lazy" onerror="this.style.display='none'">
+      <div class="photo__ph"></div>
+    </div>
+  </div>
+  <div class="wrap finale__inner">
+    <p class="label center-label reveal">13 &nbsp; MESSAGE</p>
+    <h2 class="reveal">
+      <span>女性だからできない、ではなく。</span>
+      <span class="accent">女性だからこそ、できることもある。</span>
+    </h2>
+    <div class="finale__body reveal" data-d="1">
+      <p>地方だから。<br>家庭があるから。<br>一人だから。<br>ITが得意じゃないから。</p>
+      <p>そんな理由で、可能性を小さくする必要はない。</p>
+      <p>AIという新しい力。<br>これまで培ってきた経験。<br>そして、ともに挑戦できる仲間。</p>
+      <p>それらを掛け合わせれば、<br>一人では見えなかった景色まで行けるかもしれない。</p>
+    </div>
+    <p class="finale__closing reveal" data-d="2">
+      <span>SEIRAIは、女性が自分の意思で次の未来を選び、</span>
+      <span>その未来を事業として形にしていく場所です。</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================
+     16 最終CTA
+     ============================================================ -->
+<section class="section cta" id="join">
+  <div class="cta__glow"></div>
+  <div class="wrap cta__inner">
+    <p class="cta__lead reveal">ともに、より清らかで、より遠くへ。</p>
+    <svg class="cta__logo reveal" data-d="1" viewBox="0 0 360 240" role="img" aria-label="SEIRAI" style="color:#FAF8F3"><use href="#logoStack"/></svg>
+    <div class="cta__lines reveal" data-d="2">
+      <span>AIを味方に。</span>
+      <span>仲間を力に。</span>
+      <span>凛と、自分の未来へ。</span>
+    </div>
+    <div class="cta__buttons reveal" data-d="3">
+      <a href="#" class="btn btn--gold btn--lg" data-cta="join">SEIRAIに参加する</a>
+      <a href="#" class="btn btn--ghost" data-cta="event">まずは説明会・体験イベントに参加する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <p class="footer__brand">SEIRAI<small>BUSINESS × AI × COMMUNITY</small></p>
+    <div class="footer__meta">
+      <p>運営：株式会社SysMix ／ ブリューエン株式会社</p>
+      <p>&copy; SEIRAI. ともに、より清らかで、より遠くへ。</p>
+    </div>
+  </div>
+</footer>
+
+<!-- スマホ用 追従CTA -->
+<div class="sticky-cta" id="stickyCta">
+  <a href="#join" class="btn btn--gold">SEIRAIに参加する</a>
+</div>
+
+<script src="assets/main.js" defer></script>
+</body>
+</html>
