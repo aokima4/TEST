@@ -34,7 +34,7 @@
 
 *,*::before,*::after{box-sizing:border-box}
 
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;background:var(--ivory)}
 
 body{
   margin:0;
@@ -611,10 +611,15 @@ table.compare tbody tr.price td{font-family:var(--serif-jp);font-size:clamp(15px
 /* Sticky mobile CTA */
 .sticky-cta{
   position:fixed;left:0;right:0;bottom:0;z-index:90;display:none;
-  padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+  padding:12px 16px calc(12px + env(safe-area-inset-bottom,0px));
   background:rgba(11,37,69,.96);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);
   border-top:1px solid rgba(212,175,124,.35);
   transform:translateY(110%);transition:transform .5s var(--ease);
+}
+/* iPhoneのホームバー領域など、下に隙間ができても背景が続くようにする */
+.sticky-cta::after{
+  content:"";position:absolute;left:0;right:0;top:100%;height:140px;
+  background:rgba(11,37,69,.96);pointer-events:none;
 }
 .sticky-cta.is-visible{transform:translateY(0)}
 .sticky-cta .btn{width:100%}
