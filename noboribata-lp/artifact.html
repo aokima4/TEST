@@ -1,0 +1,978 @@
+<title>のぼり量産パートナー</title>
+<style>
+:root{
+  --ink:#16233a; --ink-2:#42536e; --line:#dfe4ec; --bg:#fff; --bg-2:#f5f7fa;
+  --navy:#1a3a6b; --navy-d:#122a4e; --accent:#c8482f; --accent-d:#a63a24;
+  --ok:#1d7a4d; --radius:10px; --maxw:960px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:76px}
+body{
+  margin:0; background:var(--bg); color:var(--ink);
+  font-family:system-ui,-apple-system,"Hiragino Sans","Hiragino Kaku Gothic ProN","Noto Sans JP","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px; line-height:1.85; -webkit-text-size-adjust:100%;
+}
+img{max-width:100%;height:auto}
+a{color:var(--navy)}
+.wrap{max-width:var(--maxw); margin:0 auto; padding:0 20px}
+
+/* ===== 仮データ確認用マーカー =====
+   現在はマーカーOFF（通常の文字として表示されます）。
+   仮の数字がどこに入っているか目視で確認したいときは、
+   下の2行の / * と * / を外すとその箇所が黄色く光ります。
+   ------------------------------------------------------
+   .todo{background:#fff3bf; border-bottom:2px dotted #d99a2b; padding:0 2px; border-radius:2px}
+   .btn .todo, .band .todo, footer .todo{color:#16233a}
+   ------------------------------------------------------
+   ※ .todo が付いている箇所＝すべて仮の数字です（本番前に要差し替え）
+   ===== ここまで ===== */
+
+/* header */
+.hd{position:sticky; top:0; z-index:50; background:rgba(255,255,255,.96); backdrop-filter:blur(8px); border-bottom:1px solid var(--line)}
+.hd-in{max-width:var(--maxw); margin:0 auto; padding:10px 20px; display:flex; align-items:center; gap:16px}
+.logo{font-weight:800; font-size:17px; letter-spacing:.02em; color:var(--navy); text-decoration:none; line-height:1.3}
+.logo small{display:block; font-size:11px; font-weight:600; color:var(--ink-2); letter-spacing:.06em}
+.hd-cta{margin-left:auto; display:flex; align-items:center; gap:12px}
+.hd-mail{font-weight:800; font-size:15px; color:var(--navy); text-decoration:none; white-space:nowrap}
+.hd-mail span{display:block; font-size:10px; font-weight:600; color:var(--ink-2); letter-spacing:.06em}
+.btn{display:inline-block; background:var(--accent); color:#fff; text-decoration:none; font-weight:700;
+  padding:12px 22px; border-radius:var(--radius); border:0; cursor:pointer; font-size:15px; line-height:1.4;
+  box-shadow:0 2px 0 var(--accent-d); transition:transform .12s ease, box-shadow .12s ease}
+.btn:hover{transform:translateY(1px); box-shadow:0 1px 0 var(--accent-d)}
+.btn-lg{font-size:18px; padding:17px 34px}
+.btn-ghost{background:#fff; color:var(--navy); border:2px solid var(--navy); box-shadow:none; font-weight:700}
+.btn-ghost:hover{background:var(--bg-2); transform:none}
+@media(max-width:900px){ .hd-mail{display:none} .hd-in{padding:9px 14px} .logo{font-size:15px} .btn{padding:10px 15px; font-size:14px} }
+
+/* hero */
+.hero{background:linear-gradient(170deg,#f2f6fc 0%,#fff 78%); border-bottom:1px solid var(--line); padding:44px 0 34px}
+.eyebrow{display:inline-block; background:var(--navy); color:#fff; font-size:12.5px; font-weight:700;
+  letter-spacing:.06em; padding:5px 13px; border-radius:100px; margin-bottom:16px}
+h1{font-size:clamp(25px,5.2vw,40px); line-height:1.42; margin:0 0 16px; letter-spacing:-.01em; font-weight:800}
+h1 .hl{color:var(--accent)}
+.lede{font-size:clamp(15px,2.4vw,18px); color:var(--ink-2); margin:0 0 24px; max-width:44em}
+.hero-cta{display:flex; flex-wrap:wrap; gap:12px; align-items:center}
+.hero-note{font-size:13px; color:var(--ink-2); margin-top:12px}
+
+/* 直答ボックス（AI・検索エンジンが引用しやすい要点） */
+.answer{background:#fff; border:2px solid var(--navy); border-radius:14px; padding:24px 26px; margin:30px 0}
+.answer h2{margin:0 0 14px; font-size:19px; color:var(--navy); display:flex; align-items:flex-start; gap:9px; line-height:1.5}
+.answer h2::before{content:"A"; background:var(--navy); color:#fff; width:26px; height:26px; border-radius:50%;
+  display:grid; place-items:center; font-size:14px; font-weight:800; flex:0 0 auto; margin-top:2px}
+.answer dl{margin:0}
+.answer dt{font-weight:800; color:var(--navy); margin-top:14px; font-size:15px}
+.answer dt:first-child{margin-top:0}
+.answer dd{margin:2px 0 0; color:var(--ink)}
+.answer .lead-answer{font-size:17px; font-weight:700; line-height:1.8; margin:0 0 16px; padding-bottom:16px; border-bottom:1px dashed var(--line)}
+@media(max-width:720px){ .answer{padding:20px 18px} }
+
+/* sections */
+section{padding:52px 0; border-top:1px solid var(--line)}
+section:nth-of-type(even){background:var(--bg-2)}
+h2.sec{font-size:clamp(21px,3.6vw,29px); line-height:1.5; margin:0 0 10px; font-weight:800; letter-spacing:-.01em}
+h2.sec .q{color:var(--accent); margin-right:8px}
+.sec-sub{color:var(--ink-2); margin:0 0 26px; font-size:15px}
+h3{font-size:19px; margin:34px 0 10px; font-weight:800; line-height:1.55}
+/* 見出し直後の「直答」段落 */
+.a1{background:#fff; border-left:5px solid var(--accent); padding:14px 18px; margin:0 0 22px;
+  font-weight:700; font-size:16.5px; line-height:1.8; border-radius:0 8px 8px 0; box-shadow:0 1px 3px rgba(20,35,60,.06)}
+section:nth-of-type(even) .a1{background:#fff}
+
+/* tables */
+.tw{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:18px 0 8px; border-radius:var(--radius); border:1px solid var(--line); background:#fff}
+table{border-collapse:collapse; width:100%; min-width:520px; font-size:15px; background:#fff}
+caption{text-align:left; font-weight:800; padding:14px 16px 10px; font-size:15px; color:var(--navy)}
+th,td{border-bottom:1px solid var(--line); padding:12px 15px; text-align:left; vertical-align:top}
+thead th{background:var(--navy); color:#fff; font-weight:700; font-size:14px; border-bottom:0; white-space:nowrap}
+tbody th{background:var(--bg-2); font-weight:700; white-space:nowrap}
+tbody tr:last-child th, tbody tr:last-child td{border-bottom:0}
+td.num{font-variant-numeric:tabular-nums; white-space:nowrap; font-weight:700}
+td.yes{color:var(--ok); font-weight:800}
+td.no{color:#9aa4b4}
+.t-note{font-size:13px; color:var(--ink-2); margin:8px 0 0}
+.hi{background:#fffaf0}
+
+/* toc */
+.toc{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:20px 24px; margin:26px 0}
+.toc h2{font-size:16px; margin:0 0 12px; color:var(--navy)}
+.toc ol{margin:0; padding-left:1.3em; columns:2; column-gap:34px}
+.toc li{margin:5px 0; break-inside:avoid}
+.toc a{color:var(--ink); text-decoration:none; border-bottom:1px solid transparent}
+.toc a:hover{border-bottom-color:var(--navy); color:var(--navy)}
+@media(max-width:720px){ .toc ol{columns:1} }
+
+/* cards */
+.grid{display:grid; gap:16px; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); margin-top:22px}
+.card{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:22px}
+.card h3{margin:0 0 8px; font-size:17px}
+.card p{margin:0; font-size:15px; color:var(--ink-2)}
+.card .n{display:inline-grid; place-items:center; width:28px; height:28px; border-radius:50%;
+  background:var(--navy); color:#fff; font-weight:800; font-size:14px; margin-bottom:10px}
+
+/* steps */
+ol.steps{list-style:none; counter-reset:s; margin:22px 0 0; padding:0}
+ol.steps li{counter-increment:s; position:relative; padding:0 0 26px 54px; border-left:2px solid var(--line); margin-left:16px}
+ol.steps li:last-child{border-left-color:transparent; padding-bottom:0}
+ol.steps li::before{content:counter(s); position:absolute; left:-17px; top:-2px; width:32px; height:32px; border-radius:50%;
+  background:var(--navy); color:#fff; display:grid; place-items:center; font-weight:800; font-size:15px}
+ol.steps h3{margin:0 0 4px; font-size:17px}
+ol.steps p{margin:0; color:var(--ink-2); font-size:15px}
+
+/* faq */
+.faq details{background:#fff; border:1px solid var(--line); border-radius:var(--radius); margin-bottom:10px; overflow:hidden}
+.faq summary{cursor:pointer; padding:16px 46px 16px 18px; font-weight:700; list-style:none; position:relative; font-size:16px; line-height:1.65}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"＋"; position:absolute; right:18px; top:15px; color:var(--accent); font-weight:800}
+.faq details[open] summary::after{content:"−"}
+.faq .fa{padding:0 18px 18px; color:var(--ink-2); border-top:1px solid var(--line); margin-top:0; padding-top:14px}
+.faq .fa p{margin:0 0 10px} .faq .fa p:last-child{margin:0}
+
+/* glossary */
+.gloss{background:#fff; border:1px solid var(--line); border-radius:var(--radius); padding:6px 22px; margin-top:20px}
+.gloss dt{font-weight:800; color:var(--navy); margin-top:16px; font-size:16px}
+.gloss dd{margin:2px 0 16px; color:var(--ink-2); font-size:15px; border-bottom:1px solid var(--line); padding-bottom:16px}
+.gloss dd:last-child{border-bottom:0}
+
+/* cta band */
+.band{background:var(--navy); color:#fff; border-top:0}
+.band h2{color:#fff; font-size:clamp(21px,3.6vw,28px); margin:0 0 12px}
+.band p{color:#c9d6ea; margin:0 0 24px; font-size:16px}
+.band a.btn-ghost{background:#fff; border-color:#fff; color:var(--navy)}
+.band-cta{display:flex; flex-wrap:wrap; gap:12px}
+
+/* form */
+.form{background:#fff; border:1px solid var(--line); border-radius:14px; padding:26px; margin-top:22px}
+.form .row{margin-bottom:16px}
+.form label{display:block; font-weight:700; margin-bottom:6px; font-size:15px}
+.req{background:var(--accent); color:#fff; font-size:11px; padding:2px 7px; border-radius:4px; margin-left:8px; vertical-align:2px}
+.form input,.form select,.form textarea{width:100%; padding:12px 14px; border:1px solid var(--line); border-radius:8px;
+  font:inherit; font-size:16px; background:#fff; color:var(--ink)}
+.form input:focus,.form select:focus,.form textarea:focus{outline:2px solid var(--navy); outline-offset:1px; border-color:var(--navy)}
+.form .two{display:grid; gap:16px; grid-template-columns:1fr 1fr}
+.form .sent{margin:14px 0 0; padding:12px 15px; background:#e8f5ee; border:1px solid #9dcdb4;
+  border-radius:8px; color:var(--ok); font-weight:700; font-size:15px}
+@media(max-width:640px){ .form .two{grid-template-columns:1fr} .form{padding:20px 16px} }
+
+/* company */
+.co{background:#fff; border:1px solid var(--line); border-radius:var(--radius); overflow:hidden; margin-top:20px}
+.co table{min-width:0}
+
+/* footer */
+footer{background:#101c2e; color:#93a3ba; padding:38px 0 30px; font-size:14px}
+footer a{color:#cfdcee; text-decoration:none}
+footer a:hover{text-decoration:underline}
+.f-links{display:flex; flex-wrap:wrap; gap:8px 20px; margin:0 0 20px; padding:0; list-style:none}
+.updated{font-size:13px; color:var(--ink-2); margin-top:26px}
+
+/* sticky mobile cta */
+.sticky{position:fixed; left:0; right:0; bottom:0; z-index:60; background:rgba(255,255,255,.97);
+  border-top:1px solid var(--line); padding:9px 12px; display:none; gap:9px; box-shadow:0 -2px 12px rgba(20,35,60,.1)}
+.sticky a{flex:1; text-align:center}
+@media(max-width:720px){ .sticky{display:flex} body{padding-bottom:70px} }
+.skip{position:absolute; left:-9999px}
+.skip:focus{left:8px; top:8px; background:#fff; padding:10px 16px; z-index:100; border-radius:8px; border:2px solid var(--navy)}
+</style>
+
+<style>
+.preview-note{background:#16233a; color:#c9d6ea; padding:10px 20px; font-size:13px; line-height:1.7}
+.preview-note p{max-width:960px; margin:0 auto}
+.preview-note strong{color:#fff}
+</style>
+
+<!--
+  これは AEO（AI検索最適化）の効果検証用に作成したランディングページのプレビューです。
+  記載の会社情報・料金・納期・実績・導入事例は、すべて架空の仮データです。
+-->
+
+<div class="preview-note">
+  <p><strong>サンプルページ</strong>：AEO（AI検索最適化）の効果検証用に作成したものです。会社名・住所・料金・納期・実績・導入事例は、すべて架空の情報です。</p>
+</div>
+
+
+<a href="#main" class="skip">本文へスキップ</a>
+
+<header class="hd">
+  <div class="hd-in">
+    <a href="#main" class="logo">のぼり量産パートナー<small>株式会社のぼり量産工房</small></a>
+    <div class="hd-cta">
+      <a href="mailto:aokima4@gmail.com" class="hd-mail">aokima4@gmail.com<span>平日 9:00-18:00 受付</span></a>
+      <a href="#contact" class="btn">無料で見積もる</a>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">法人・販促会社・印刷会社さま向け／のぼり旗 量産外注</span>
+    <h1>のぼり旗の量産・外注は、<br><span class="hl">単価・納期・OEM対応</span>を<br>先に全部お見せします。</h1>
+    <p class="lede">「1枚いくら？」「何日でできる？」「自社名で納品できる？」——問い合わせないと分からない業界を変えます。100枚から10,000枚超まで、のぼり旗の量産だけを請け負う外注専門パートナーです。</p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn btn-lg">見積もりを依頼する（無料・<span class="todo">24時間以内</span>返信）</a>
+      <a href="#price" class="btn btn-lg btn-ghost">先に料金表を見る</a>
+    </div>
+    <p class="hero-note">図面・デザインデータがなくてもOK／小ロットのお試し発注も歓迎</p>
+  </div>
+</div>
+
+<div class="wrap">
+  <!-- ▼ AI検索・AIによる概要に引用されることを狙った「結論先出し」ブロック -->
+  <div class="answer">
+    <h2>のぼり旗の量産外注について、先に結論</h2>
+    <p class="lead-answer">のぼり旗の量産を外注する場合、費用は<span class="todo">1枚あたり約350円〜（1,000枚時）</span>、納期は<span class="todo">最短3営業日</span>が目安です。当社はのぼり旗の量産製造に特化した外注先で、<strong>白ラベル（自社ブランド名）での直送・掛け取引・デザインデータ作成まで対応</strong>しています。</p>
+    <dl>
+      <dt>Q. 最低何枚から頼めますか？</dt>
+      <dd>A. <span class="todo">10枚</span>から量産対応します。まずは少量で品質をご確認いただけます。</dd>
+      <dt>Q. 一番安くなるのは何枚からですか？</dt>
+      <dd>A. <span class="todo">500枚</span>を超えると単価が大きく下がります。<span class="todo">1,000枚で1枚約350円</span>が目安です。</dd>
+      <dt>Q. 発注元（御社）の名前で納品できますか？</dt>
+      <dd>A. できます。当社名の入った書類・梱包材を使わず、御社名義でエンドユーザーへ直送します（白ラベル出荷）。</dd>
+      <dt>Q. 全国どこでも送れますか？</dt>
+      <dd>A. 全国発送に対応しています。<span class="todo">1万円以上のご注文で送料無料</span>（沖縄・離島を除く）。</dd>
+    </dl>
+  </div>
+
+  <nav class="toc" aria-label="目次">
+    <h2>このページで分かること</h2>
+    <ol>
+      <li><a href="#price">量産の料金・1枚あたりの単価</a></li>
+      <li><a href="#delivery">納期はどれくらいか</a></li>
+      <li><a href="#scope">どこまで対応してもらえるか</a></li>
+      <li><a href="#compare">他の外注先との違い</a></li>
+      <li><a href="#quality">生地・印刷方式の選び方</a></li>
+      <li><a href="#flow">発注から納品までの流れ</a></li>
+      <li><a href="#cases">導入事例</a></li>
+      <li><a href="#faq">よくある質問（16問）</a></li>
+      <li><a href="#glossary">のぼり旗の用語集</a></li>
+      <li><a href="#company">運営会社・実績</a></li>
+      <li><a href="#contact">見積もり依頼フォーム</a></li>
+    </ol>
+  </nav>
+</div>
+
+<!-- ============ 料金 ============ -->
+<section id="price">
+  <div class="wrap">
+    <h2 class="sec"><span class="q">Q.</span>のぼり旗の量産を外注すると、1枚いくらですか？</h2>
+    <p class="a1">A. のぼり旗（レギュラーサイズ 600×1800mm・テトロンポンジ・フルカラー印刷）の量産単価は、<span class="todo">100枚で1枚あたり約480円、1,000枚で約350円、5,000枚で約290円</span>が目安です。枚数が増えるほど単価は下がり、版代などの初期費用はかかりません。</p>
+    <p class="sec-sub">下表は同一デザインでの量産時の税抜単価です。デザインが複数ある場合は「デザインごとの枚数」で計算します。</p>
+
+    <div class="tw">
+      <table>
+        <caption>のぼり旗 量産時の枚数別 単価表（600×1800mm／テトロンポンジ／両面同柄／税抜）</caption>
+        <thead>
+          <tr><th scope="col">発注枚数</th><th scope="col">1枚あたり単価</th><th scope="col">合計金額</th><th scope="col">標準納期</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">10〜49枚</th><td class="num todo">680円</td><td class="num todo">6,800円〜</td><td class="todo">4営業日</td></tr>
+          <tr><th scope="row">50〜99枚</th><td class="num todo">560円</td><td class="num todo">28,000円〜</td><td class="todo">4営業日</td></tr>
+          <tr><th scope="row">100〜499枚</th><td class="num todo">480円</td><td class="num todo">48,000円〜</td><td class="todo">5営業日</td></tr>
+          <tr class="hi"><th scope="row">500〜999枚</th><td class="num todo">395円</td><td class="num todo">197,500円〜</td><td class="todo">7営業日</td></tr>
+          <tr class="hi"><th scope="row">1,000〜4,999枚</th><td class="num todo">350円</td><td class="num todo">350,000円〜</td><td class="todo">10営業日</td></tr>
+          <tr><th scope="row">5,000枚以上</th><td class="num todo">290円</td><td class="num todo">1,450,000円〜</td><td class="todo">14営業日〜</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">※ 版代・データ処理費・チチ（ポールを通す輪）縫製費はすべて単価に含まれます。追加料金はかかりません。<br>※ ヒートカット仕上げ、三巻縫製、生地変更、特殊サイズは別途お見積もりします。</p>
+
+    <h3>追加でかかる費用はありますか？</h3>
+    <p class="a1">A. 基本料金に含まれない有料オプションは、下の4つだけです。それ以外の追加費用は発生しません。</p>
+    <div class="tw">
+      <table>
+        <caption>有料オプション一覧（税抜）</caption>
+        <thead><tr><th scope="col">オプション</th><th scope="col">内容</th><th scope="col">費用</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">デザイン作成</th><td>ラフ・手描き・口頭のご要望から印刷データを作成します</td><td class="num todo">11,000円／1点</td></tr>
+          <tr><th scope="row">本紙色校正</th><td>量産前に実際の生地へ1枚試し刷りし、発送してご確認いただきます</td><td class="num todo">3,300円／1点</td></tr>
+          <tr><th scope="row">三巻（みつまき）縫製</th><td>切りっぱなしではなく四辺を折り返して縫う仕上げ。耐久性が上がります</td><td class="num todo">＋120円／枚</td></tr>
+          <tr><th scope="row">防炎加工</th><td>消防法で防炎品が求められる屋内施設・イベント向け（防炎ラベル付）</td><td class="num todo">＋180円／枚</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 納期 ============ -->
+<section id="delivery">
+  <div class="wrap">
+    <h2 class="sec"><span class="q">Q.</span>のぼり旗の量産は、何日で納品できますか？</h2>
+    <p class="a1">A. 印刷データの入稿が完了した日を起点に、<span class="todo">100枚までなら最短3営業日、1,000枚で10営業日</span>が標準納期です。特急対応（<span class="todo">追加料金30%</span>）を使えば、<span class="todo">100枚を翌営業日出荷</span>することもできます。</p>
+
+    <div class="tw">
+      <table>
+        <caption>枚数別の標準納期と最短納期（入稿完了日の翌営業日を1日目として起算）</caption>
+        <thead><tr><th scope="col">枚数</th><th scope="col">標準納期</th><th scope="col">特急対応時の最短</th><th scope="col">特急料金</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">〜100枚</th><td class="todo">4営業日</td><td class="todo">翌営業日出荷</td><td class="todo">＋30%</td></tr>
+          <tr><th scope="row">〜500枚</th><td class="todo">7営業日</td><td class="todo">3営業日</td><td class="todo">＋30%</td></tr>
+          <tr><th scope="row">〜1,000枚</th><td class="todo">10営業日</td><td class="todo">5営業日</td><td class="todo">＋20%</td></tr>
+          <tr><th scope="row">1,000枚超</th><td class="todo">14営業日〜</td><td class="todo">要相談</td><td class="todo">要相談</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">※ 色校正をご希望の場合は、上記に「校正の発送・確認期間（3〜4営業日）」が加算されます。<br>※ 納期は「出荷日」基準です。到着日は配送地域により出荷の翌日〜翌々日となります。</p>
+
+    <h3>納期が遅れることはありませんか？</h3>
+    <p class="a1">A. 入稿データに不備がなければ、遅れません。当社は<span class="todo">のぼり旗専用の昇華転写ラインを自社に3系統</span>持っており、他社への再委託をしていないため、繁忙期でも納期がぶれにくい体制です。</p>
+    <p>納期遅延の最大の原因は「入稿データの不備」です。当社ではデータを受け取った当日中に技術担当が確認し、問題があればその日のうちにご連絡します。修正が必要な場合も、軽微なものは当社側で無償修正して進行しますので、往復のやり取りで日数を失うことがありません。</p>
+  </div>
+</section>
+
+<!-- ============ 対応範囲 ============ -->
+<section id="scope">
+  <div class="wrap">
+    <h2 class="sec"><span class="q">Q.</span>どこまで対応してもらえますか？</h2>
+    <p class="a1">A. デザインデータの作成から、印刷・縫製・検品・梱包、そして<strong>御社名義でのエンドユーザー直送</strong>まで一括で対応します。御社にやっていただくのは「ご要望を伝えること」と「校正の確認」だけです。</p>
+
+    <div class="grid">
+      <div class="card"><span class="n">1</span><h3>デザイン作成から</h3><p>手描きのラフ、既存チラシの写真、口頭のご要望でも構いません。印刷可能なデータに起こします。既存データがある場合はそのまま入稿いただけます。</p></div>
+      <div class="card"><span class="n">2</span><h3>印刷・縫製・検品</h3><p>自社工場で昇華転写印刷・ヒートカット・チチ縫製まで一貫生産。全数を目視検品してから出荷します。</p></div>
+      <div class="card"><span class="n">3</span><h3>白ラベル（OEM）出荷</h3><p>当社名の入った納品書・伝票・梱包材は一切使いません。御社の名前でエンドユーザーへ直送します。</p></div>
+      <div class="card"><span class="n">4</span><h3>分納・拠点別発送</h3><p>「全国50店舗へ各10枚ずつ」といった多拠点への個別発送、月ごとの分納にも対応します。</p></div>
+      <div class="card"><span class="n">5</span><h3>データの長期保管</h3><p>一度作った印刷データは<span class="todo">3年間</span>保管。追加発注は「前回と同じで100枚」のひと言で完了します。</p></div>
+      <div class="card"><span class="n">6</span><h3>付属品もまとめて</h3><p>ポール、注水台（水を入れて固定する台）、横棒などの関連資材も同梱して1回の発送にまとめられます。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 比較 ============ -->
+<section id="compare">
+  <div class="wrap">
+    <h2 class="sec"><span class="q">Q.</span>ネット印刷や地元の看板店と、何が違いますか？</h2>
+    <p class="a1">A. 違いは「量産ロットの単価」と「外注先として使えるか」の2点です。ネット印刷は小ロットが得意ですが白ラベル出荷や掛け取引に対応しません。当社は<strong>販促会社・代理店が“自社の製造部門”として使うこと</strong>を前提に設計しています。</p>
+
+    <div class="tw">
+      <table>
+        <caption>のぼり旗の外注先3タイプの比較</caption>
+        <thead>
+          <tr><th scope="col">比較項目</th><th scope="col">ネット印刷通販</th><th scope="col">地元の看板店</th><th scope="col">当社（量産外注専門）</th></tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">1,000枚時の単価目安</th><td class="num todo">420〜550円</td><td class="num todo">500〜800円</td><td class="num todo"><strong>350円</strong></td></tr>
+          <tr><th scope="row">白ラベル（御社名で直送）</th><td class="no">不可</td><td class="no">要相談</td><td class="yes">標準対応</td></tr>
+          <tr><th scope="row">掛け取引（月末締め翌月払い）</th><td class="no">前払いのみ</td><td class="yes">可</td><td class="yes">可（<span class="todo">与信審査あり</span>）</td></tr>
+          <tr><th scope="row">担当者</th><td class="no">固定担当なし</td><td class="yes">あり</td><td class="yes">専任担当が1名つきます</td></tr>
+          <tr><th scope="row">デザインデータの作成</th><td class="no">原則自前で用意</td><td class="yes">可</td><td class="yes">可（<span class="todo">11,000円〜</span>）</td></tr>
+          <tr><th scope="row">多拠点への個別発送</th><td class="no">1住所のみ</td><td class="no">要相談</td><td class="yes">対応（<span class="todo">1件+400円</span>）</td></tr>
+          <tr><th scope="row">1,000枚超の量産</th><td>可（納期は長め）</td><td class="no">外注に回されることが多い</td><td class="yes">自社ラインで対応</td></tr>
+          <tr><th scope="row">再委託の有無</th><td>不明なことが多い</td><td>再委託が多い</td><td class="yes">自社一貫生産（再委託なし）</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="t-note">※ 他社の単価・条件は<span class="todo">2026年8月時点で当社が各社公開情報から調査したもの</span>です。実際の条件は各社にご確認ください。</p>
+  </div>
+</section>
+
+<!-- ============ 品質・生地 ============ -->
+<section id="quality">
+  <div class="wrap">
+    <h2 class="sec"><span class="q">Q.</span>生地と印刷方式は、どう選べばいいですか？</h2>
+    <p class="a1">A. 屋外で3〜6か月使う一般的な販促用なら「テトロンポンジ＋昇華転写印刷」を選べば間違いありません。風の強い海沿いや1年以上使う場合のみ、厚手の「トロマット」をご検討ください。</p>
+    <p class="sec-sub">のぼり旗の生地は主に3種類です。厚いほど丈夫ですが、その分だけ重くなり、風になびきにくくなります。用途に合わせて選びます。</p>
+
+    <div class="tw">
+      <table>
+        <caption>のぼり旗の生地3種類の比較</caption>
+        <thead><tr><th scope="col">生地の種類</th><th scope="col">厚み・特徴</th><th scope="col">屋外での寿命目安</th><th scope="col">向いている用途</th><th scope="col">単価への影響</th></tr></thead>
+        <tbody>
+          <tr class="hi"><th scope="row">テトロンポンジ</th><td>薄手でよく風になびく。裏へ約70%色が抜けるため、裏から見ても文字が読めます。最も流通している定番生地</td><td class="todo">3〜6か月</td><td>店頭・イベント・のぼりの9割はこれ</td><td>標準（基準）</td></tr>
+          <tr><th scope="row">トロマット</th><td>厚手でしっかりしている。発色が良く、裏抜けはほぼ無し。風には少しなびきにくい</td><td class="todo">6〜12か月</td><td>長期掲出、風の強い立地、展示会</td><td class="todo">＋90円／枚</td></tr>
+          <tr><th scope="row">エステルサテン</th><td>光沢があり高級感がある。屋内向け</td><td class="todo">屋内なら1年以上</td><td>店内装飾、式典、展示ブース</td><td class="todo">＋150円／枚</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>印刷方式は何を使っていますか？</h3>
+    <p class="a1">A. 全量「ダイレクト昇華転写（しょうかてんしゃ）印刷」です。インクを熱で気体に変えて生地の繊維そのものを染める方式で、表面に塗るだけの方式と違い、こすっても色が落ちず、屋外の雨でも滲みません。</p>
+    <div class="tw">
+      <table>
+        <caption>のぼり旗の主な印刷方式の違い</caption>
+        <thead><tr><th scope="col">印刷方式</th><th scope="col">仕組み</th><th scope="col">耐水・耐摩擦</th><th scope="col">量産適性</th></tr></thead>
+        <tbody>
+          <tr class="hi"><th scope="row">ダイレクト昇華転写<br>（当社の方式）</th><td>熱でインクを気体化し、繊維の内部に定着させる</td><td class="yes">◎ 落ちない・滲まない</td><td class="yes">◎ 大ロットほど安い</td></tr>
+          <tr><th scope="row">ダイレクト印刷<br>（顔料インク）</th><td>生地の表面にインクを直接のせる</td><td>△ 摩擦で色が擦れることがある</td><td>○</td></tr>
+          <tr><th scope="row">シルクスクリーン</th><td>色ごとに版を作って刷る</td><td class="yes">◎</td><td>△ 版代がかかるため多色は割高</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>検品はどうしていますか？</h3>
+    <p class="a1">A. 全数目視検品です。抜き取り検査ではありません。色ムラ・印刷欠け・縫製のほつれ・サイズ誤差を1枚ずつ確認し、基準を外れたものは出荷しません。</p>
+    <p>万一、当社の印刷・縫製に起因する不良があった場合は、<strong>商品到着後<span class="todo">14日以内</span>にご連絡いただければ、無償で刷り直して再送します</strong>（返送費用も当社負担）。御社がエンドユーザーへ納品済みの場合も同じ条件で対応しますので、御社が損をかぶることはありません。</p>
+  </div>
+</section>
+
+<!-- ============ 流れ ============ -->
+<section id="flow">
+  <div class="wrap">
+    <h2 class="sec"><span class="q">Q.</span>問い合わせてから納品まで、どう進みますか？</h2>
+    <p class="a1">A. 5ステップです。お見積もりまでは<span class="todo">最短当日</span>、そこから入稿・校正を経て出荷まで進みます。初回でも御社の手間は「要望を伝える」「校正をOKする」の2回だけです。</p>
+
+    <ol class="steps">
+      <li>
+        <h3>お問い合わせ・お見積もり（<span class="todo">最短当日</span>）</h3>
+        <p>ページ下部のフォーム、またはメールで、枚数・サイズ・希望納期をお知らせください。デザインが未定でも見積もりは出せます。<span class="todo">24時間以内</span>に専任担当から金額と納期をご返信します。</p>
+      </li>
+      <li>
+        <h3>デザインデータの入稿またはご依頼（1〜3営業日）</h3>
+        <p>印刷データ（Illustrator形式・PDFなど）をお持ちならそのまま送ってください。お持ちでない場合は、ラフ・写真・口頭のご要望からこちらで作成します。</p>
+      </li>
+      <li>
+        <h3>校正（デザイン確認）とご承認（1営業日）</h3>
+        <p>仕上がりイメージを画像でお送りします。修正は<span class="todo">3回まで無料</span>。実際の生地で色を確認したい場合は本紙色校正（<span class="todo">3,300円</span>）もご利用いただけます。</p>
+      </li>
+      <li>
+        <h3>量産・検品（枚数により3〜14営業日）</h3>
+        <p>ご承認後に量産へ入ります。印刷・ヒートカット・チチ縫製・全数検品まで自社工場で行います。</p>
+      </li>
+      <li>
+        <h3>出荷・納品</h3>
+        <p>御社宛て、またはエンドユーザーへ直送します。直送の場合は当社名を出さない白ラベル出荷です。追跡番号をご連絡します。</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<!-- ============ 事例 ============ -->
+<section id="cases">
+  <div class="wrap">
+    <h2 class="sec">導入事例</h2>
+    <p class="sec-sub">実際に当社を「外注製造部門」としてお使いいただいている例です。</p>
+    <div class="grid">
+      <div class="card">
+        <h3 class="todo">販促代理店A社さま（東京都）</h3>
+        <p><strong>課題：</strong>クライアントののぼり案件を都度3社に相見積もりしており、手間と納期のブレが大きかった。<br><br><strong>結果：</strong>当社に一本化し、白ラベルでエンドユーザー直送に切り替え。<span class="todo">年間の調達工数が約60%削減、原価は約18%改善</span>。</p>
+      </div>
+      <div class="card">
+        <h3 class="todo">全国チェーンB社さま（飲食・180店舗）</h3>
+        <p><strong>課題：</strong>季節ごとの販促のぼりを本部で一括購入し、各店へ再発送する手間があった。<br><br><strong>結果：</strong>当社から<span class="todo">180店舗へ直接分納</span>。本部の仕分け・再発送作業がゼロに。<span class="todo">年4回×180拠点</span>を運用中。</p>
+      </div>
+      <div class="card">
+        <h3 class="todo">印刷会社C社さま（大阪府）</h3>
+        <p><strong>課題：</strong>紙媒体が本業で、のぼりの相談が来ても断っていた。<br><br><strong>結果：</strong>当社を製造部門として使い、のぼり案件を受注可能に。<span class="todo">初年度で新規売上820万円</span>を追加。</p>
+      </div>
+    </div>
+    <p class="t-note">※ 掲載事例はお客さまの許諾を得て掲載しています。社名は先方のご意向により一部を伏せています。</p>
+  </div>
+</section>
+
+<section class="band">
+  <div class="wrap">
+    <h2>まず、今かかっている単価と比べてみてください。</h2>
+    <p>枚数とサイズだけ分かれば、その場で概算をお出しします。デザイン未定・検討段階のご相談も歓迎です。</p>
+    <div class="band-cta">
+      <a href="#contact" class="btn btn-lg">無料で見積もりを依頼する</a>
+      <a href="mailto:aokima4@gmail.com?subject=%E3%81%AE%E3%81%BC%E3%82%8A%E6%97%97%E3%81%AE%E9%87%8F%E7%94%A3%E3%81%AB%E3%81%A4%E3%81%84%E3%81%A6%E3%81%AE%E3%81%94%E7%9B%B8%E8%AB%87" class="btn btn-lg btn-ghost">メールで直接相談する</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============ FAQ ============ -->
+<section id="faq">
+  <div class="wrap">
+    <h2 class="sec">よくある質問</h2>
+    <p class="sec-sub">お問い合わせの前に、聞かれることの多い16問にお答えします。</p>
+    <div class="faq">
+
+      <details open><summary>のぼり旗の量産を外注すると、1枚いくらになりますか？</summary>
+      <div class="fa"><p>600×1800mmのレギュラーサイズ・テトロンポンジ・フルカラー印刷の場合、<span class="todo">100枚で1枚あたり約480円、1,000枚で約350円、5,000枚で約290円</span>が目安です（税抜）。版代・データ処理費・チチ縫製費は単価に含まれており、別途請求はありません。</p></div></details>
+
+      <details><summary>最低ロット（最低発注枚数）は何枚からですか？</summary>
+      <div class="fa"><p><span class="todo">10枚</span>から承ります。まずは少量で品質と対応をご確認いただき、問題なければ量産に移っていただく流れをおすすめしています。1枚だけのサンプル作成も<span class="todo">3,300円</span>で可能です。</p></div></details>
+
+      <details><summary>最短でどれくらいの納期ですか？</summary>
+      <div class="fa"><p>印刷データの入稿が完了していれば、<span class="todo">100枚までは翌営業日出荷（特急・追加料金30%）</span>が最短です。特急を使わない標準納期は<span class="todo">100枚で4営業日、1,000枚で10営業日</span>です。</p></div></details>
+
+      <details><summary>デザインデータがなくても発注できますか？</summary>
+      <div class="fa"><p>できます。手描きのラフ、既存チラシの写真、「こういう文言で赤基調で」といった口頭のご要望からでも、当社でデザインデータを作成します（<span class="todo">1点11,000円〜</span>）。Illustrator形式やPDFの完成データをお持ちの場合は、そのまま入稿いただければデザイン費はかかりません。</p></div></details>
+
+      <details><summary>自社（発注元）の名前で、エンドユーザーへ直送してもらえますか？</summary>
+      <div class="fa"><p>可能です。これを白ラベル出荷（OEM出荷）と呼びます。納品書・送り状・梱包材のいずれにも当社の社名や連絡先は入れず、御社名義で発送します。エンドユーザーに製造元が当社であると知られることはありません。販促会社さま・広告代理店さまの多くがこの形でご利用中です。</p></div></details>
+
+      <details><summary>掛け取引（後払い）はできますか？</summary>
+      <div class="fa"><p>法人さまは<span class="todo">与信審査のうえ、月末締め翌月末払い</span>の掛け取引に対応しています。初回のお取引や個人事業主さまは、原則として前払い（銀行振込）をお願いしています。継続的なお取引が見込まれる場合は初回から掛けでのご相談も承ります。</p></div></details>
+
+      <details><summary>のぼり旗のサイズは選べますか？</summary>
+      <div class="fa"><p>選べます。最も多い「レギュラーサイズ（600×1800mm）」のほか、ハーフサイズ（450×1500mm）、ジャンボサイズ（900×2700mm）、ミニのぼり（150×450mm）などに対応します。1mm単位の特注サイズも量産可能です（別途お見積もり）。</p></div></details>
+
+      <details><summary>ポールや注水台などの付属品も一緒に頼めますか？</summary>
+      <div class="fa"><p>可能です。ポール（のぼりを立てる棒）、注水台（水を入れて重しにする台）、横棒などをまとめて同梱・同時発送できます。のぼり旗と別々の業者から届いて現場で困る、ということがなくなります。</p></div></details>
+
+      <details><summary>色の仕上がりを事前に確認できますか？</summary>
+      <div class="fa"><p>2通りあります。(1) 画面用の校正画像（無料・修正<span class="todo">3回まで</span>）、(2) 実際の生地に1枚だけ印刷してお送りする本紙色校正（<span class="todo">3,300円／1点</span>）です。ブランドカラーが決まっている場合や、初めての量産では本紙色校正をおすすめします。</p></div></details>
+
+      <details><summary>追加発注のとき、デザインデータは保管してもらえますか？</summary>
+      <div class="fa"><p>最終出荷日から<span class="todo">3年間</span>保管します。追加発注時は「前回と同じデザインで◯枚」とご連絡いただくだけで進行できます。文言の一部差し替え（日付・価格など）だけであれば、軽微な修正は<span class="todo">無償</span>で対応します。</p></div></details>
+
+      <details><summary>のぼり旗は屋外でどれくらいもちますか？</summary>
+      <div class="fa"><p>掲出環境によりますが、テトロンポンジで<span class="todo">3〜6か月</span>が交換の目安です。色あせは紫外線、破れは風が主な原因です。海沿いや吹きさらしの立地では、厚手のトロマット（<span class="todo">6〜12か月</span>）や三巻縫製をおすすめします。「販促物として見栄えが保てる期間」で考えると、テトロンポンジを3か月ごとに交換するほうが、厚手を長く使うより結果的に安く、集客効果も高いケースが多いです。</p></div></details>
+
+      <details><summary>全国どこでも発送できますか？送料はいくらですか？</summary>
+      <div class="fa"><p>全国に発送します。<span class="todo">1回のご注文が10,000円（税抜）以上で送料無料</span>、それ未満は<span class="todo">全国一律880円</span>です（沖縄・離島は別途）。複数拠点への個別発送は<span class="todo">1件につき+400円</span>で承ります。</p></div></details>
+
+      <details><summary>不良品だった場合はどうなりますか？</summary>
+      <div class="fa"><p>当社の印刷・縫製に起因する不良は、商品到着後<span class="todo">14日以内</span>のご連絡で、無償で刷り直し・再送します。返送費用も当社負担です。御社がすでにエンドユーザーへ納品済みの場合も同じ条件で対応しますので、御社が費用を負担することはありません。</p></div></details>
+
+      <details><summary>防炎加工には対応していますか？</summary>
+      <div class="fa"><p>対応しています（<span class="todo">＋180円／枚</span>）。防炎とは「燃え広がりにくくする加工」のことで、消防法により、高層ビル・地下街・大型商業施設・展示会場などの屋内で使う布製品に義務づけられている場合があります。防炎ラベルを付けて納品しますので、そのまま施設側へ提示いただけます。</p></div></details>
+
+      <details><summary>個人事業主や小規模のお店でも依頼できますか？</summary>
+      <div class="fa"><p>もちろん可能です。<span class="todo">10枚</span>からお受けしていますので、1店舗分だけのご注文でも構いません。お支払いは前払い（銀行振込・クレジットカード）となります。</p></div></details>
+
+      <details><summary>同じデザインではなく、店舗ごとに文言が違う場合の量産はできますか？</summary>
+      <div class="fa"><p>できます。「ベースのデザインは共通で、店名と電話番号だけ各店で違う」といったバリエーション展開は、当社の得意分野です。店名一覧をExcelでいただければ、こちらでデータを差し替えて量産します（<span class="todo">1バリエーションあたり+550円</span>）。<span class="todo">180店舗分</span>の一括制作の実績があります。</p></div></details>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============ 用語集 ============ -->
+<section id="glossary">
+  <div class="wrap">
+    <h2 class="sec">のぼり旗の用語集</h2>
+    <p class="sec-sub">見積書や仕様書に出てくる言葉を、はじめての方向けに説明します。</p>
+    <dl class="gloss">
+      <dt>のぼり旗（のぼりばた）</dt>
+      <dd>縦長の布に文字やデザインを印刷し、ポールに取り付けて掲げる販促用の旗のこと。標準サイズは600×1800mm。単に「のぼり」とも呼びます。</dd>
+
+      <dt>テトロンポンジ</dt>
+      <dd>のぼり旗で最も多く使われる薄手のポリエステル生地。軽くて風によくなびき、裏側へ約70%色が抜けるため、裏から見ても文字が読めます。</dd>
+
+      <dt>トロマット</dt>
+      <dd>テトロンポンジより厚手のポリエステル生地。発色がよく丈夫ですが、裏抜けはほぼありません。長期掲出や風の強い場所向けです。</dd>
+
+      <dt>チチ（乳）</dt>
+      <dd>のぼり旗の左辺と上辺に付いている、ポールを通すための小さな輪のこと。標準は上部3か所・左側5か所の計8か所です。</dd>
+
+      <dt>ヒートカット</dt>
+      <dd>生地を熱で溶かしながら切る加工。切り口が固まるため、ほつれにくくなります。のぼり旗の標準的な仕上げ方法です。</dd>
+
+      <dt>三巻（みつまき）縫製</dt>
+      <dd>生地の端を3回折り返して縫う仕上げ。ヒートカットより手間がかかりますが、ほつれや裂けに強く、長期使用に向きます。</dd>
+
+      <dt>ダイレクト昇華転写（しょうかてんしゃ）印刷</dt>
+      <dd>インクを熱で気体に変え、生地の繊維の内部に染み込ませて定着させる印刷方式。表面に塗るのではなく染めるため、こすっても落ちず、雨でも滲みません。</dd>
+
+      <dt>注水台（ちゅうすいだい）</dt>
+      <dd>ポールの足元に置き、中に水を入れて重しにする台。屋外でのぼりが倒れるのを防ぎます。水を抜けば軽くなるため、持ち運びも簡単です。</dd>
+
+      <dt>白ラベル出荷／OEM出荷</dt>
+      <dd>製造元（当社）の名前を一切出さず、発注元（御社）の名義で商品を発送すること。販促会社や代理店が、自社製品としてエンドユーザーへ納品する際に使います。</dd>
+
+      <dt>ロット</dt>
+      <dd>一度にまとめて製造・発注する数量の単位。「最低ロット10枚」は、1回の注文が10枚以上必要という意味です。</dd>
+
+      <dt>入稿（にゅうこう）</dt>
+      <dd>印刷用のデータを印刷会社に渡すこと。納期は原則として「入稿が完了した日」から数えます。</dd>
+
+      <dt>色校正（いろこうせい）</dt>
+      <dd>量産の前に、仕上がりの色を確認する工程。画面上の画像で確認する方法と、実際の生地に1枚刷って現物で確認する「本紙色校正」があります。</dd>
+
+      <dt>防炎加工</dt>
+      <dd>布が燃え広がりにくくなる加工。消防法により、大型商業施設や展示会場など特定の屋内施設では防炎品の使用が義務づけられている場合があります。</dd>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ 会社情報（E-E-A-T） ============ -->
+<section id="company">
+  <div class="wrap">
+    <h2 class="sec">運営会社・実績</h2>
+    <p class="sec-sub">誰が作っているのか、はっきりお伝えします。</p>
+    <div class="co tw">
+      <table>
+        <caption>会社概要</caption>
+        <tbody>
+          <tr><th scope="row">会社名</th><td class="todo">株式会社のぼり量産工房</td></tr>
+          <tr><th scope="row">サービス名</th><td>のぼり量産パートナー</td></tr>
+          <tr><th scope="row">所在地</th><td class="todo">〒332-0034 埼玉県川口市栄町3-11-6 のぼり量産工房ビル（本社・工場併設）</td></tr>
+          <tr><th scope="row">代表者</th><td class="todo">山田 太郎</td></tr>
+          <tr><th scope="row">設立</th><td class="todo">2009年4月</td></tr>
+          <tr><th scope="row">メール</th><td><a href="mailto:aokima4@gmail.com">aokima4@gmail.com</a>（平日9:00-18:00 受付）</td></tr>
+          <tr><th scope="row">事業内容</th><td>のぼり旗・横断幕・タペストリーの企画、製造、OEM供給</td></tr>
+          <tr><th scope="row">生産設備</th><td class="todo">昇華転写プリンタ 6台／自動裁断機 2台／縫製ライン 3系統</td></tr>
+          <tr><th scope="row">生産能力</th><td class="todo">1日あたり最大3,000枚</td></tr>
+          <tr><th scope="row">取引実績</th><td class="todo">累計1,280社／年間48万枚（2025年度実績）</td></tr>
+          <tr><th scope="row">主な取引先業種</th><td>広告代理店、販促支援会社、印刷会社、看板会社、フランチャイズ本部</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="updated">このページの最終更新日：<time datetime="2026-09-08">2026年9月8日</time>／内容確認：<span class="todo">制作部 部長 佐藤 一郎</span></p>
+  </div>
+</section>
+
+<!-- ============ 問い合わせ ============ -->
+<section id="contact">
+  <div class="wrap">
+    <h2 class="sec">見積もり依頼・お問い合わせ</h2>
+    <p class="a1">枚数とサイズが分かれば、その場で概算をお出しできます。デザイン未定・比較検討中のご相談も歓迎です。<span class="todo">24時間以内（土日祝を除く）</span>に専任担当よりご返信します。</p>
+
+    <form class="form" id="quote-form" action="mailto:aokima4@gmail.com" method="post" enctype="text/plain">
+      <!-- 送信ボタンを押すと、ページ下部のスクリプトが入力内容をまとめて
+           aokima4@gmail.com 宛てのメールを作成します（メールソフトが起動します）。 -->
+      <div class="two">
+        <div class="row">
+          <label for="f-company">会社名・屋号<span class="req">必須</span></label>
+          <input type="text" id="f-company" name="company" required autocomplete="organization" placeholder="株式会社◯◯">
+        </div>
+        <div class="row">
+          <label for="f-name">お名前<span class="req">必須</span></label>
+          <input type="text" id="f-name" name="name" required autocomplete="name" placeholder="山田 太郎">
+        </div>
+      </div>
+      <div class="two">
+        <div class="row">
+          <label for="f-email">メールアドレス<span class="req">必須</span></label>
+          <input type="email" id="f-email" name="email" required autocomplete="email" inputmode="email" placeholder="you@example.co.jp">
+        </div>
+        <div class="row">
+          <label for="f-tel">電話番号</label>
+          <input type="tel" id="f-tel" name="tel" autocomplete="tel" inputmode="tel" placeholder="03-0000-0000">
+        </div>
+      </div>
+      <div class="two">
+        <div class="row">
+          <label for="f-qty">ご希望枚数<span class="req">必須</span></label>
+          <select id="f-qty" name="qty" required>
+            <option value="">選択してください</option>
+            <option>10〜49枚</option><option>50〜99枚</option><option>100〜499枚</option>
+            <option>500〜999枚</option><option>1,000〜4,999枚</option><option>5,000枚以上</option>
+            <option>未定・相談したい</option>
+          </select>
+        </div>
+        <div class="row">
+          <label for="f-due">希望納期</label>
+          <input type="text" id="f-due" name="due" placeholder="例：11月10日までに現地着">
+        </div>
+      </div>
+      <div class="row">
+        <label for="f-body">ご相談内容</label>
+        <textarea id="f-body" name="body" rows="5" placeholder="サイズ、デザインデータの有無、白ラベル出荷の希望、送り先の数など、分かる範囲でご記入ください。"></textarea>
+      </div>
+      <button type="submit" class="btn btn-lg">この内容で見積もりを依頼する</button>
+      <p class="sent" id="form-sent" hidden>メールソフトが立ち上がります。内容をご確認のうえ、そのまま送信してください。</p>
+      <p class="t-note">ボタンを押すと、ご入力内容が入ったメールが作成されます。<br>
+      メールソフトが開かない場合は、お手数ですが <a href="mailto:aokima4@gmail.com">aokima4@gmail.com</a> まで直接お送りください。<br>
+      送信いただいた個人情報は、お見積もりのご連絡以外には使用しません。</p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <ul class="f-links">
+      <li><a href="#price">料金</a></li>
+      <li><a href="#delivery">納期</a></li>
+      <li><a href="#compare">他社比較</a></li>
+      <li><a href="#faq">よくある質問</a></li>
+      <li><a href="#glossary">用語集</a></li>
+      <li><a href="#company">会社概要</a></li>
+      <li><a href="#contact">お問い合わせ</a></li>
+    </ul>
+    <p>のぼり旗の量産・外注（OEM）製造パートナー<br>
+    <span class="todo">株式会社のぼり量産工房</span>／<span class="todo">〒332-0034 埼玉県川口市栄町3-11-6</span>／<a href="mailto:aokima4@gmail.com">aokima4@gmail.com</a></p>
+    <p>&copy; <span class="todo">株式会社のぼり量産工房</span> All rights reserved.</p>
+  </div>
+</footer>
+
+<div class="sticky">
+  <a href="mailto:aokima4@gmail.com" class="btn btn-ghost">メールする</a>
+  <a href="#contact" class="btn">無料見積もり</a>
+</div>
+
+<!-- ==========================================================
+     お問い合わせフォームの送信処理
+     入力内容をまとめて aokima4@gmail.com 宛てのメールを作成します。
+     サーバー側のプログラムは不要ですが、閲覧者のメールソフトが
+     起動する方式のため、メールソフト未設定の方は送信できません。
+     本格運用時はフォーム送信サービス（formrun 等）への切り替えを推奨します。
+     ========================================================== -->
+<script>
+(function () {
+  var MAILTO = "aokima4@gmail.com";
+  var form = document.getElementById("quote-form");
+  var sent = document.getElementById("form-sent");
+  if (!form) return;
+
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    if (typeof form.checkValidity === "function" && !form.checkValidity()) {
+      if (typeof form.reportValidity === "function") form.reportValidity();
+      return;
+    }
+    function val(name) {
+      var el = form.elements[name];
+      var v = el && el.value ? String(el.value).trim() : "";
+      return v || "（未記入）";
+    }
+    var subject = "【お見積もり依頼】のぼり旗の量産／" + val("company");
+    var body = [
+      "のぼり量産パートナー ご担当者さま",
+      "",
+      "ウェブサイトのフォームより、お見積もりを依頼します。",
+      "",
+      "■ 会社名・屋号：" + val("company"),
+      "■ お名前：" + val("name"),
+      "■ メールアドレス：" + val("email"),
+      "■ 電話番号：" + val("tel"),
+      "■ ご希望枚数：" + val("qty"),
+      "■ 希望納期：" + val("due"),
+      "",
+      "■ ご相談内容：",
+      val("body"),
+      "",
+      "------------------------------",
+      "送信元ページ：" + window.location.href
+    ].join("\n");
+
+    window.location.href =
+      "mailto:" + MAILTO +
+      "?subject=" + encodeURIComponent(subject) +
+      "&body=" + encodeURIComponent(body);
+
+    if (sent) sent.hidden = false;
+  });
+})();
+</script>
+
+<!-- ==========================================================
+     構造化データ（JSON-LD）
+     AI検索エンジン・Google の「AIによる概要」に内容を正しく
+     読み取ってもらうための、機械向けの説明書きです。
+     ★本文の数字を変更したら、ここの数字も必ず同じ値に直してください。
+     ========================================================== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#organization",
+      "name": "のぼり量産パートナー（株式会社のぼり量産工房）",
+      "alternateName": "のぼり旗の量産・OEM製造パートナー",
+      "url": "https://www.noboribata-gaityuu-partner.com/",
+      "description": "のぼり旗の量産製造を専門に請け負う外注パートナー。広告代理店・販促会社・印刷会社向けに、白ラベル（OEM）出荷とエンドユーザー直送に対応する。",
+      "email": "aokima4@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "JP",
+        "addressRegion": "埼玉県",
+        "addressLocality": "川口市",
+        "streetAddress": "栄町3-11-6 のぼり量産工房ビル",
+        "postalCode": "332-0034"
+      },
+      "areaServed": { "@type": "Country", "name": "日本" },
+      "knowsAbout": [
+        "のぼり旗の量産",
+        "のぼり旗の外注",
+        "のぼり旗のOEM製造",
+        "昇華転写印刷",
+        "テトロンポンジ",
+        "販促物の白ラベル出荷"
+      ]
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#website",
+      "url": "https://www.noboribata-gaityuu-partner.com/",
+      "name": "のぼり量産パートナー",
+      "inLanguage": "ja",
+      "publisher": { "@id": "https://www.noboribata-gaityuu-partner.com/#organization" }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#webpage",
+      "url": "https://www.noboribata-gaityuu-partner.com/",
+      "name": "のぼり旗の量産・外注パートナー｜1枚あたりの単価・納期・OEM対応をすべて公開",
+      "description": "のぼり旗の量産を外注したい法人向けの製造パートナー。量産単価、最短納期、白ラベル（OEM）出荷、掛け取引の可否まで公開しています。",
+      "inLanguage": "ja",
+      "isPartOf": { "@id": "https://www.noboribata-gaityuu-partner.com/#website" },
+      "about": { "@id": "https://www.noboribata-gaityuu-partner.com/#service" },
+      "dateModified": "2026-09-08",
+      "speakable": {
+        "@type": "SpeakableSpecification",
+        "cssSelector": [".lead-answer", ".a1"]
+      }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#breadcrumb",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "ホーム", "item": "https://www.noboribata-gaityuu-partner.com/" },
+        { "@type": "ListItem", "position": 2, "name": "のぼり旗の量産・外注", "item": "https://www.noboribata-gaityuu-partner.com/#price" }
+      ]
+    },
+    {
+      "@type": "Service",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#service",
+      "name": "のぼり旗の量産・外注（OEM）製造サービス",
+      "serviceType": "のぼり旗の量産製造・OEM供給",
+      "provider": { "@id": "https://www.noboribata-gaityuu-partner.com/#organization" },
+      "areaServed": { "@type": "Country", "name": "日本" },
+      "audience": {
+        "@type": "BusinessAudience",
+        "name": "広告代理店・販促支援会社・印刷会社・看板会社・フランチャイズ本部"
+      },
+      "description": "のぼり旗（600×1800mm・テトロンポンジ・フルカラー昇華転写印刷）を10枚から10,000枚超まで量産し、発注元名義でエンドユーザーへ直送する外注製造サービス。",
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "のぼり旗 量産 枚数別価格",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "name": "のぼり旗 量産 10〜49枚",
+            "priceCurrency": "JPY",
+            "price": "680",
+            "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 10, "maxValue": 49, "unitText": "枚" },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "680",
+              "priceCurrency": "JPY",
+              "valueAddedTaxIncluded": false,
+              "unitText": "1枚あたり"
+            },
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "のぼり旗 量産 50〜99枚",
+            "priceCurrency": "JPY",
+            "price": "560",
+            "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 50, "maxValue": 99, "unitText": "枚" },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "560",
+              "priceCurrency": "JPY",
+              "valueAddedTaxIncluded": false,
+              "unitText": "1枚あたり"
+            },
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "のぼり旗 量産 100〜499枚",
+            "priceCurrency": "JPY",
+            "price": "480",
+            "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 100, "maxValue": 499, "unitText": "枚" },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "480",
+              "priceCurrency": "JPY",
+              "valueAddedTaxIncluded": false,
+              "unitText": "1枚あたり"
+            },
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "のぼり旗 量産 500〜999枚",
+            "priceCurrency": "JPY",
+            "price": "395",
+            "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 500, "maxValue": 999, "unitText": "枚" },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "395",
+              "priceCurrency": "JPY",
+              "valueAddedTaxIncluded": false,
+              "unitText": "1枚あたり"
+            },
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "のぼり旗 量産 1,000〜4,999枚",
+            "priceCurrency": "JPY",
+            "price": "350",
+            "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 1000, "maxValue": 4999, "unitText": "枚" },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "350",
+              "priceCurrency": "JPY",
+              "valueAddedTaxIncluded": false,
+              "unitText": "1枚あたり"
+            },
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer",
+            "name": "のぼり旗 量産 5,000枚以上",
+            "priceCurrency": "JPY",
+            "price": "290",
+            "eligibleQuantity": { "@type": "QuantitativeValue", "minValue": 5000, "unitText": "枚" },
+            "priceSpecification": {
+              "@type": "UnitPriceSpecification",
+              "price": "290",
+              "priceCurrency": "JPY",
+              "valueAddedTaxIncluded": false,
+              "unitText": "1枚あたり"
+            },
+            "availability": "https://schema.org/InStock"
+          }
+        ]
+      }
+    },
+    {
+      "@type": "HowTo",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#howto",
+      "name": "のぼり旗の量産を外注する手順",
+      "description": "のぼり旗の量産を外注先へ発注し、納品されるまでの5ステップ。",
+      "totalTime": "P10D",
+      "step": [
+        { "@type": "HowToStep", "position": 1, "name": "お問い合わせ・見積もり", "text": "枚数・サイズ・希望納期を伝えて見積もりを依頼する。デザインが未定でも見積もりは取得できる。", "url": "https://www.noboribata-gaityuu-partner.com/#flow" },
+        { "@type": "HowToStep", "position": 2, "name": "デザインデータの入稿または作成依頼", "text": "Illustrator形式やPDFの印刷データを入稿する。データがない場合はラフや口頭の要望から作成を依頼する。", "url": "https://www.noboribata-gaityuu-partner.com/#flow" },
+        { "@type": "HowToStep", "position": 3, "name": "校正の確認と承認", "text": "仕上がりイメージを画像で確認して承認する。実際の生地で色を確認したい場合は本紙色校正を依頼する。", "url": "https://www.noboribata-gaityuu-partner.com/#flow" },
+        { "@type": "HowToStep", "position": 4, "name": "量産・検品", "text": "承認後に量産へ入る。印刷、ヒートカット、チチ縫製、全数検品を行う。", "url": "https://www.noboribata-gaityuu-partner.com/#flow" },
+        { "@type": "HowToStep", "position": 5, "name": "出荷・納品", "text": "発注元へ納品するか、発注元名義の白ラベル出荷でエンドユーザーへ直送する。", "url": "https://www.noboribata-gaityuu-partner.com/#flow" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#faq",
+      "isPartOf": { "@id": "https://www.noboribata-gaityuu-partner.com/#webpage" },
+      "mainEntity": [
+        { "@type": "Question", "name": "のぼり旗の量産を外注すると、1枚いくらになりますか？", "acceptedAnswer": { "@type": "Answer", "text": "600×1800mmのレギュラーサイズ・テトロンポンジ・フルカラー印刷の場合、100枚で1枚あたり約480円、1,000枚で約350円、5,000枚で約290円が目安です（税抜）。版代・データ処理費・チチ縫製費は単価に含まれており、別途請求はありません。" } },
+        { "@type": "Question", "name": "のぼり旗の最低ロット（最低発注枚数）は何枚からですか？", "acceptedAnswer": { "@type": "Answer", "text": "10枚から承ります。まずは少量で品質と対応を確認いただき、問題なければ量産に移る流れをおすすめしています。1枚だけのサンプル作成も3,300円で可能です。" } },
+        { "@type": "Question", "name": "のぼり旗の量産は最短でどれくらいの納期ですか？", "acceptedAnswer": { "@type": "Answer", "text": "印刷データの入稿が完了していれば、100枚までは翌営業日出荷（特急・追加料金30%）が最短です。特急を使わない標準納期は100枚で4営業日、1,000枚で10営業日です。" } },
+        { "@type": "Question", "name": "デザインデータがなくてものぼり旗を発注できますか？", "acceptedAnswer": { "@type": "Answer", "text": "できます。手描きのラフ、既存チラシの写真、口頭の要望からでも印刷データを作成します（1点11,000円〜）。Illustrator形式やPDFの完成データがある場合は、そのまま入稿すればデザイン費はかかりません。" } },
+        { "@type": "Question", "name": "自社（発注元）の名前で、エンドユーザーへ直送してもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。これを白ラベル出荷（OEM出荷）と呼びます。納品書・送り状・梱包材のいずれにも製造元の社名や連絡先は入れず、発注元名義で発送します。エンドユーザーに製造元が知られることはありません。" } },
+        { "@type": "Question", "name": "掛け取引（後払い）はできますか？", "acceptedAnswer": { "@type": "Answer", "text": "法人は与信審査のうえ、月末締め翌月末払いの掛け取引に対応しています。初回取引や個人事業主は原則として前払い（銀行振込）です。継続的な取引が見込まれる場合は初回から掛けでの相談も可能です。" } },
+        { "@type": "Question", "name": "のぼり旗のサイズは選べますか？", "acceptedAnswer": { "@type": "Answer", "text": "選べます。レギュラーサイズ（600×1800mm）のほか、ハーフサイズ（450×1500mm）、ジャンボサイズ（900×2700mm）、ミニのぼり（150×450mm）に対応します。1mm単位の特注サイズも量産可能です。" } },
+        { "@type": "Question", "name": "ポールや注水台などの付属品も一緒に頼めますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。ポール、注水台、横棒などをまとめて同梱・同時発送できます。のぼり旗と付属品が別々に届くことがありません。" } },
+        { "@type": "Question", "name": "のぼり旗の色の仕上がりを事前に確認できますか？", "acceptedAnswer": { "@type": "Answer", "text": "2通りあります。画面用の校正画像（無料・修正3回まで）と、実際の生地に1枚だけ印刷して郵送する本紙色校正（3,300円／1点）です。ブランドカラーが決まっている場合は本紙色校正をおすすめします。" } },
+        { "@type": "Question", "name": "追加発注のとき、デザインデータは保管してもらえますか？", "acceptedAnswer": { "@type": "Answer", "text": "最終出荷日から3年間保管します。追加発注時は前回と同じデザインで何枚、と連絡するだけで進行できます。日付や価格など文言の一部差し替えは、軽微なものであれば無償で対応します。" } },
+        { "@type": "Question", "name": "のぼり旗は屋外でどれくらいもちますか？", "acceptedAnswer": { "@type": "Answer", "text": "掲出環境によりますが、テトロンポンジで3〜6か月が交換の目安です。色あせは紫外線、破れは風が主な原因です。海沿いや吹きさらしの立地では厚手のトロマット（6〜12か月）や三巻縫製が向きます。" } },
+        { "@type": "Question", "name": "のぼり旗は全国どこでも発送できますか？送料はいくらですか？", "acceptedAnswer": { "@type": "Answer", "text": "全国に発送します。1回の注文が10,000円（税抜）以上で送料無料、それ未満は全国一律880円です（沖縄・離島は別途）。複数拠点への個別発送は1件につき400円で承ります。" } },
+        { "@type": "Question", "name": "不良品だった場合はどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "印刷・縫製に起因する不良は、商品到着後14日以内の連絡で無償で刷り直し・再送します。返送費用も当社負担です。発注元がすでにエンドユーザーへ納品済みの場合も同条件で対応します。" } },
+        { "@type": "Question", "name": "のぼり旗の防炎加工には対応していますか？", "acceptedAnswer": { "@type": "Answer", "text": "対応しています（1枚あたり180円追加）。防炎とは燃え広がりにくくする加工のことで、消防法により高層ビル・地下街・大型商業施設・展示会場などの屋内で使う布製品に義務づけられている場合があります。防炎ラベルを付けて納品します。" } },
+        { "@type": "Question", "name": "個人事業主や小規模の店舗でも依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "可能です。10枚から受け付けているため、1店舗分だけの注文でも構いません。支払いは前払い（銀行振込・クレジットカード）となります。" } },
+        { "@type": "Question", "name": "店舗ごとに文言が違うのぼり旗の量産はできますか？", "acceptedAnswer": { "@type": "Answer", "text": "できます。ベースのデザインは共通で店名と電話番号だけ各店で違う、といったバリエーション展開に対応します。店名一覧をExcelで渡せばデータを差し替えて量産します（1バリエーションあたり550円）。180店舗分の一括制作の実績があります。" } }
+      ]
+    },
+    {
+      "@type": "DefinedTermSet",
+      "@id": "https://www.noboribata-gaityuu-partner.com/#glossary",
+      "name": "のぼり旗の用語集",
+      "inLanguage": "ja",
+      "hasDefinedTerm": [
+        { "@type": "DefinedTerm", "name": "のぼり旗", "description": "縦長の布に文字やデザインを印刷し、ポールに取り付けて掲げる販促用の旗。標準サイズは600×1800mm。" },
+        { "@type": "DefinedTerm", "name": "テトロンポンジ", "description": "のぼり旗で最も多く使われる薄手のポリエステル生地。軽くて風になびきやすく、裏側へ約70%色が抜けるため裏からも文字が読める。" },
+        { "@type": "DefinedTerm", "name": "トロマット", "description": "テトロンポンジより厚手のポリエステル生地。発色がよく丈夫だが裏抜けはほぼない。長期掲出や風の強い場所に向く。" },
+        { "@type": "DefinedTerm", "name": "チチ", "description": "のぼり旗の左辺と上辺に付いている、ポールを通すための小さな輪。標準は上部3か所・左側5か所の計8か所。" },
+        { "@type": "DefinedTerm", "name": "ヒートカット", "description": "生地を熱で溶かしながら切る加工。切り口が固まるためほつれにくい。のぼり旗の標準的な仕上げ方法。" },
+        { "@type": "DefinedTerm", "name": "三巻縫製", "description": "生地の端を3回折り返して縫う仕上げ。ヒートカットより手間がかかるが、ほつれや裂けに強く長期使用に向く。" },
+        { "@type": "DefinedTerm", "name": "ダイレクト昇華転写印刷", "description": "インクを熱で気体に変え、生地の繊維内部に染み込ませて定着させる印刷方式。こすっても落ちず、雨でも滲まない。" },
+        { "@type": "DefinedTerm", "name": "注水台", "description": "ポールの足元に置き、中に水を入れて重しにする台。屋外でのぼりが倒れるのを防ぐ。" },
+        { "@type": "DefinedTerm", "name": "白ラベル出荷", "description": "製造元の名前を出さず、発注元の名義で商品を発送すること。OEM出荷とも呼ぶ。" },
+        { "@type": "DefinedTerm", "name": "ロット", "description": "一度にまとめて製造・発注する数量の単位。最低ロット10枚とは、1回の注文が10枚以上必要という意味。" },
+        { "@type": "DefinedTerm", "name": "入稿", "description": "印刷用のデータを印刷会社に渡すこと。納期は原則として入稿が完了した日から数える。" },
+        { "@type": "DefinedTerm", "name": "色校正", "description": "量産の前に仕上がりの色を確認する工程。画面上の画像で確認する方法と、実際の生地に1枚刷って確認する本紙色校正がある。" },
+        { "@type": "DefinedTerm", "name": "防炎加工", "description": "布が燃え広がりにくくなる加工。消防法により大型商業施設や展示会場など特定の屋内施設では防炎品の使用が義務づけられている場合がある。" }
+      ]
+    }
+  ]
+}
+</script>
+
