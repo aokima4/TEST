@@ -9,7 +9,7 @@
   1. サイト内に書かれた本番ドメインを、指定した公開先URLに置き換える
      （canonical・sitemap・構造化データのURLがずれていると、
        検索エンジンが「本物は別の場所にある」と判断して検証用URLを登録しません）
-  2. 「これは検証用のサンプルです」という帯をページ上部に差し込む
+  2. 「これは検証用のサンプルです」という注意書きを（画面には出ない形で）差し込む
   3. 編集者向けのメモ（HTML/CSSのコメント、仮データの目印 class="todo"）を
      取り除く。閲覧者には何の影響もない情報なので、公開版には入れない。
 """
@@ -17,16 +17,15 @@ import re, sys, os, shutil
 
 REAL = "https://www.noboribata-gaityuu-partner.com"
 
-BANNER_CSS = """
-.sample-note{background:#16233a;color:#c9d6ea;padding:10px 20px;font-size:13px;line-height:1.7}
-.sample-note p{max-width:960px;margin:0 auto}
-.sample-note strong{color:#fff}
+# 画面には出ないが、ページのソースを見た人には分かる形の注意書き。
+# 表示されないので、閲覧者の読み心地にも、AIの読み取りにも影響しません。
+SAMPLE_NOTE = """<!--
+  このページは AEO（AI検索最適化）の効果検証用に作成したサンプルです。
+  会社名・代表者名・住所・メールアドレス・料金・納期・実績・導入事例は、
+  すべて架空の情報であり、実在の企業・サービスではありません。
+-->
 """
 
-BANNER_HTML = """<div class="sample-note">
-  <p><strong>サンプルページ</strong>：AEO（AI検索最適化）の効果検証用に作成したページです。会社名・代表者名・住所・メールアドレス・料金・納期・実績・導入事例は、すべて架空の情報であり、実在の企業・サービスではありません。</p>
-</div>
-"""
 
 def strip_editor_notes(html):
     """編集者向けのメモを取り除く（公開版には不要）。"""
@@ -52,8 +51,7 @@ def main():
         text = open(os.path.join(src, name), encoding="utf-8").read().replace(REAL, base)
         if name == "index.html":
             text = strip_editor_notes(text)
-            text = text.replace("</style>\n</head>", BANNER_CSS + "</style>\n</head>", 1)
-            text = text.replace("<body>\n", "<body>\n" + BANNER_HTML, 1)
+            text = text.replace("<!DOCTYPE html>\n", "<!DOCTYPE html>\n" + SAMPLE_NOTE, 1)
         open(os.path.join(out, name), "w", encoding="utf-8").write(text)
         print(f"  {name}")
     print(f"\n{base} 向けのファイルを {out}/ に書き出しました。")
