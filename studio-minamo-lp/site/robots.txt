@@ -1,6 +1,7 @@
 # robots.txt — パーソナルジム スタジオ ミナモ
 # https://studio-minamo.vercel.app/
-# ※ 公開ドメインが決まったら studio-minamo.jp を実際のドメインに置き換えてください。
+# ※ 独自ドメインを取得した場合は、本ファイル・sitemap.xml・llms.txt・index.html 内の
+#   studio-minamo.vercel.app をそのドメインに置き換えてください。
 
 # ------------------------------------------------------------
 # 1. 一般の検索エンジン（Google・Bing など）
