@@ -1,0 +1,918 @@
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="パーソナルジムの集客LPを、AIを使ったことがない人でも2時間半で1本作り終えるための手順書。">
+<title>Claudeで作るパーソナルジムLP</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&family=JetBrains+Mono:wght@400;500;700&display=swap">
+<style>
+:root{
+  --paper:#F1F2EE; --surface:#FBFBF9; --surface2:#E6E9E2;
+  --ink:#17211D; --ink2:#4B554F; --ink3:#7B857E;
+  --line:#D2D7CE; --line2:#BCC3B8;
+  --accent:#1F5A46; --accent2:#2F7A5E; --accentSoft:#E1ECE5; --onAccent:#FFFFFF;
+  --warn:#8E3A26; --warnSoft:#F4E5DF; --warnLine:#DFC0B4;
+  --code-bg:#1B2521; --code-ink:#DCE4DF; --code-line:#31403A;
+  --shadow:0 1px 2px rgba(23,33,29,.05), 0 8px 24px -16px rgba(23,33,29,.35);
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#111614; --surface:#181E1B; --surface2:#212926;
+    --ink:#E7EBE7; --ink2:#AAB3AD; --ink3:#7D867F;
+    --line:#2A332F; --line2:#3A443F;
+    --accent:#72C29E; --accent2:#8FD3B4; --accentSoft:#1A2721; --onAccent:#0D1411;
+    --warn:#E1927C; --warnSoft:#2A1D18; --warnLine:#4A322A;
+    --code-bg:#0D1210; --code-ink:#D6DED9; --code-line:#26302B;
+    --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#111614; --surface:#181E1B; --surface2:#212926;
+  --ink:#E7EBE7; --ink2:#AAB3AD; --ink3:#7D867F;
+  --line:#2A332F; --line2:#3A443F;
+  --accent:#72C29E; --accent2:#8FD3B4; --accentSoft:#1A2721; --onAccent:#0D1411;
+  --warn:#E1927C; --warnSoft:#2A1D18; --warnLine:#4A322A;
+  --code-bg:#0D1210; --code-ink:#D6DED9; --code-line:#26302B;
+  --shadow:0 1px 2px rgba(0,0,0,.4), 0 10px 30px -18px rgba(0,0,0,.8);
+}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth; scroll-padding-top:20px}
+@media (prefers-reduced-motion: reduce){ html{scroll-behavior:auto} *{animation:none!important; transition:none!important} }
+
+body{
+  margin:0; background:var(--paper); color:var(--ink);
+  font-family:"Zen Kaku Gothic New","Hiragino Kaku Gothic ProN","Yu Gothic",Meiryo,sans-serif;
+  font-size:16px; line-height:1.9; letter-spacing:.01em;
+  -webkit-font-smoothing:antialiased;
+}
+h1,h2,h3,h4{font-family:"Shippori Mincho","Hiragino Mincho ProN","Yu Mincho",serif; text-wrap:balance; margin:0; line-height:1.45; font-weight:600}
+p{margin:0}
+a{color:var(--accent); text-underline-offset:3px}
+a:focus-visible, button:focus-visible, input:focus-visible, summary:focus-visible{
+  outline:2px solid var(--accent); outline-offset:2px; border-radius:2px;
+}
+.mono{font-family:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace; font-variant-numeric:tabular-nums}
+
+/* ---------- shell ---------- */
+.wrap{max-width:1160px; margin:0 auto; padding:0 22px}
+.shell{display:grid; grid-template-columns:220px minmax(0,1fr); gap:58px; align-items:start; padding-bottom:96px}
+@media (max-width:1000px){ .shell{grid-template-columns:1fr; gap:0} }
+.col{min-width:0; max-width:74ch}
+
+/* ---------- masthead ---------- */
+.masthead{border-bottom:1px solid var(--line); background:var(--surface)}
+.mast-inner{padding:52px 0 44px}
+.eyebrow{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.22em; text-transform:uppercase; color:var(--ink3)}
+h1{font-size:clamp(30px,5.4vw,50px); font-weight:700; margin:16px 0 0; letter-spacing:.01em}
+.lede{margin-top:20px; max-width:62ch; color:var(--ink2); font-size:16.5px}
+.mast-meta{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px}
+.chip{
+  display:inline-flex; align-items:center; gap:8px; padding:6px 12px;
+  border:1px solid var(--line2); border-radius:999px; font-size:13px; color:var(--ink2); background:var(--paper);
+}
+.chip b{font-family:"JetBrains Mono",monospace; color:var(--ink); font-weight:500}
+
+/* ---------- sidebar ---------- */
+.rail{position:sticky; top:24px; padding-top:44px}
+@media (max-width:1000px){ .rail{position:static; padding:24px 0 0} }
+.rail-title{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.18em; color:var(--ink3); text-transform:uppercase; padding-bottom:12px; border-bottom:1px solid var(--line)}
+.rail ol{list-style:none; margin:0; padding:6px 0 0; counter-reset:none}
+.rail a{
+  display:grid; grid-template-columns:30px 1fr; gap:8px; align-items:baseline;
+  padding:7px 0; color:var(--ink2); text-decoration:none; font-size:14px; line-height:1.5;
+  border-bottom:1px solid transparent;
+}
+.rail a:hover{color:var(--ink)}
+.rail a .n{font-family:"JetBrains Mono",monospace; font-size:11px; color:var(--ink3)}
+.rail a[aria-current="true"]{color:var(--accent); font-weight:700}
+.rail a[aria-current="true"] .n{color:var(--accent)}
+.rail-note{margin-top:20px; padding-top:16px; border-top:1px solid var(--line); font-size:12.5px; color:var(--ink3); line-height:1.75}
+
+/* ---------- sections ---------- */
+section{padding-top:64px}
+section:first-of-type{padding-top:44px}
+.step-head{display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; padding-bottom:6px}
+.step-n{
+  font-family:"JetBrains Mono",monospace; font-size:12px; font-weight:700; letter-spacing:.12em;
+  color:var(--onAccent); background:var(--accent); padding:4px 9px; border-radius:3px;
+}
+.step-time{font-family:"JetBrains Mono",monospace; font-size:12px; color:var(--ink3)}
+h2{font-size:clamp(22px,3.4vw,29px); font-weight:700; margin:10px 0 0}
+h3{font-size:18px; margin:36px 0 0; font-weight:600}
+h4{font-size:15.5px; margin:24px 0 0; font-weight:600; font-family:"Zen Kaku Gothic New",sans-serif}
+section > p, section > .block > p{margin-top:16px}
+.sub{color:var(--ink2); font-size:15px}
+hr.rule{border:0; border-top:1px solid var(--line); margin:56px 0 0}
+
+/* ---------- answer-first lead ---------- */
+.verdict{
+  margin-top:24px; padding:22px 24px; background:var(--surface); border:1px solid var(--line);
+  border-left:3px solid var(--accent); border-radius:0 6px 6px 0;
+}
+.verdict .label{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.18em; color:var(--accent); text-transform:uppercase}
+.verdict p{margin-top:10px; font-size:16.5px}
+.verdict strong{font-weight:700; background-image:linear-gradient(transparent 66%, var(--accentSoft) 0);
+  -webkit-box-decoration-break:clone; box-decoration-break:clone; padding-bottom:1px}
+
+/* ---------- lists ---------- */
+ul.plain{list-style:none; margin:16px 0 0; padding:0; display:flex; flex-direction:column; gap:10px}
+ul.plain > li{position:relative; padding-left:20px; font-size:15.5px}
+ul.plain > li::before{
+  content:""; position:absolute; left:2px; top:.78em;
+  width:6px; height:6px; border-radius:50%; background:var(--accent);
+}
+ol.numbered{margin:16px 0 0; padding-left:0; list-style:none; counter-reset:s; display:flex; flex-direction:column; gap:16px}
+ol.numbered > li{counter-increment:s; position:relative; padding-left:38px; font-size:15.5px}
+ol.numbered > li::before{
+  content:counter(s); position:absolute; left:0; top:.36em;
+  font-family:"JetBrains Mono",monospace; font-size:12px; font-weight:700;
+  color:var(--ink3); border:1px solid var(--line2); border-radius:50%;
+  width:22px; height:22px; display:grid; place-items:center;
+}
+ol.numbered > li .sub{display:block; margin-top:2px}
+
+/* ---------- checklist ---------- */
+.checklist{margin:18px 0 0; display:flex; flex-direction:column; gap:0; border:1px solid var(--line); border-radius:6px; overflow:hidden; background:var(--surface)}
+.checklist label{
+  display:grid; grid-template-columns:20px 1fr; gap:12px; align-items:start;
+  padding:13px 16px; border-bottom:1px solid var(--line); cursor:pointer; font-size:15px;
+}
+.checklist label:last-child{border-bottom:0}
+.checklist input{margin:.42em 0 0; width:15px; height:15px; accent-color:var(--accent)}
+.checklist input:checked + span{color:var(--ink3); text-decoration:line-through}
+.checklist span small{display:block; color:var(--ink3); font-size:13px; text-decoration:none; line-height:1.7}
+
+/* ---------- cards ---------- */
+.grid2{display:grid; grid-template-columns:repeat(auto-fit,minmax(248px,1fr)); gap:16px; margin-top:20px}
+.card{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:20px}
+.card .k{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:var(--ink3)}
+.card h4{margin:8px 0 0}
+.card p{margin-top:10px; font-size:14.5px; color:var(--ink2)}
+.card.bad{border-color:var(--warnLine); background:var(--warnSoft)}
+.card.bad .k{color:var(--warn)}
+.card.good{border-color:var(--accent); background:var(--accentSoft)}
+.card.good .k{color:var(--accent)}
+.card .quote{font-family:"JetBrains Mono",monospace; font-size:13.5px; margin-top:12px; color:var(--ink); line-height:1.8}
+
+/* ---------- table ---------- */
+.tablewrap{overflow-x:auto; margin-top:20px; border:1px solid var(--line); border-radius:6px; background:var(--surface)}
+table{border-collapse:collapse; width:100%; min-width:460px; font-size:14.5px}
+th,td{text-align:left; padding:13px 16px; border-bottom:1px solid var(--line); vertical-align:top}
+thead th{font-size:12px; letter-spacing:.08em; color:var(--ink3); font-weight:500; background:var(--surface2)}
+tbody tr:last-child td{border-bottom:0}
+td.to{font-weight:700; color:var(--accent)}
+td .why{display:block; color:var(--ink3); font-size:13px; margin-top:4px}
+
+/* ---------- terms ---------- */
+.terms{margin-top:20px; border-top:1px solid var(--line)}
+.terms > div{display:grid; grid-template-columns:170px 1fr; gap:20px; padding:15px 0; border-bottom:1px solid var(--line)}
+@media (max-width:600px){ .terms > div{grid-template-columns:1fr; gap:4px} }
+.terms dt, .terms .t{font-weight:700; font-size:15px}
+.terms .t em{display:block; font-style:normal; font-family:"JetBrains Mono",monospace; font-size:11.5px; color:var(--ink3); font-weight:400; margin-top:2px}
+.terms .d{font-size:14.5px; color:var(--ink2)}
+
+/* ---------- callout ---------- */
+.callout{margin-top:22px; padding:18px 20px; border:1px solid var(--warnLine); background:var(--warnSoft); border-radius:6px}
+.callout .ct{font-weight:700; color:var(--warn); font-size:14.5px; display:flex; align-items:center; gap:8px}
+.callout .ct::before{content:""; width:9px; height:9px; background:var(--warn); transform:rotate(45deg)}
+.callout p{margin-top:10px; font-size:14.5px; color:var(--ink2)}
+.callout p strong{color:var(--ink)}
+.note{margin-top:20px; padding:16px 18px; background:var(--surface2); border-radius:6px; font-size:14px; color:var(--ink2)}
+.note b{color:var(--ink)}
+
+/* ---------- code / prompt ---------- */
+.codeblock{margin-top:20px; border-radius:8px; overflow:hidden; border:1px solid var(--code-line); background:var(--code-bg); box-shadow:var(--shadow)}
+.codebar{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:10px 12px 10px 16px; border-bottom:1px solid var(--code-line)}
+.codebar .cl{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.14em; text-transform:uppercase; color:#8FA69B}
+.copybtn{
+  font-family:"JetBrains Mono",monospace; font-size:11.5px; letter-spacing:.06em;
+  color:var(--code-ink); background:transparent; border:1px solid var(--code-line);
+  padding:6px 12px; border-radius:4px; cursor:pointer; transition:background .15s, border-color .15s;
+}
+.copybtn:hover{background:#243029; border-color:#4A5C53}
+.copybtn[data-done="1"]{color:#8FD3B4; border-color:#3C6B57}
+pre{
+  margin:0; padding:18px 16px; overflow-x:auto; color:var(--code-ink);
+  font-family:"JetBrains Mono",ui-monospace,monospace; font-size:12.5px; line-height:1.95;
+  white-space:pre-wrap; word-break:break-word; tab-size:2;
+}
+pre .fill{color:#8FD3B4}
+
+/* ---------- builder ---------- */
+.builder{margin-top:22px; border:1px solid var(--line); border-radius:8px; background:var(--surface); overflow:hidden}
+.builder-head{padding:16px 20px; border-bottom:1px solid var(--line); background:var(--surface2)}
+.builder-head .k{font-family:"JetBrains Mono",monospace; font-size:11px; letter-spacing:.16em; text-transform:uppercase; color:var(--ink3)}
+.builder-head h4{margin-top:6px}
+.builder-head p{margin-top:8px; font-size:13.5px; color:var(--ink2)}
+.fields{display:grid; grid-template-columns:repeat(auto-fit,minmax(190px,1fr)); gap:14px 18px; padding:20px}
+.field{display:flex; flex-direction:column; gap:6px; min-width:0}
+.field label{font-size:12.5px; color:var(--ink2); font-weight:500}
+.field input{
+  font:inherit; font-size:14.5px; color:var(--ink); background:var(--paper);
+  border:1px solid var(--line2); border-radius:4px; padding:9px 11px; width:100%;
+}
+.field input::placeholder{color:var(--ink3)}
+.field.wide{grid-column:1/-1}
+
+/* ---------- faq ---------- */
+details.faq{border:1px solid var(--line); border-radius:6px; background:var(--surface); margin-top:10px}
+details.faq summary{padding:15px 18px; cursor:pointer; font-weight:500; font-size:15px; list-style:none; display:flex; justify-content:space-between; gap:14px; align-items:baseline}
+details.faq summary::-webkit-details-marker{display:none}
+details.faq summary::after{content:"＋"; font-family:"JetBrains Mono",monospace; color:var(--ink3); font-size:13px}
+details.faq[open] summary::after{content:"−"}
+details.faq .body{padding:0 18px 18px; font-size:14.5px; color:var(--ink2)}
+details.faq .body p + p{margin-top:12px}
+
+/* ---------- footer ---------- */
+footer{border-top:1px solid var(--line); background:var(--surface); margin-top:20px}
+footer .wrap{padding-top:36px; padding-bottom:56px}
+footer p{font-size:13.5px; color:var(--ink3); max-width:70ch}
+footer p + p{margin-top:12px}
+</style>
+</head>
+<body>
+<header class="masthead">
+  <div class="wrap mast-inner">
+    <div class="eyebrow">手順書 / パーソナルジム向け</div>
+    <h1>Claudeで作る<br>パーソナルジムLP</h1>
+    <p class="lede">
+      このページは、<strong>AI（Claude）を使ったことがない人</strong>が、上から順番に読んで手を動かすだけで、
+      集客用のランディングページ（LP）を1本つくり終えるための手順書です。
+      プログラミングの知識は要りません。文章を書く力だけで進みます。
+    </p>
+    <div class="mast-meta">
+      <span class="chip">全<b>7</b>工程</span>
+      <span class="chip">所要時間 合計<b>約2時間20分</b></span>
+      <span class="chip">必要なもの <b>PCとネット環境</b></span>
+      <span class="chip">写真 <b>後回しでOK</b></span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap shell">
+
+  <nav class="rail" aria-label="工程の目次">
+    <div class="rail-title">工程</div>
+    <ol>
+      <li><a href="#s0"><span class="n">00</span><span>はじめに</span></a></li>
+      <li><a href="#s1"><span class="n">01</span><span>道具と材料をそろえる</span></a></li>
+      <li><a href="#s2"><span class="n">02</span><span>勝負を決める2つの原則</span></a></li>
+      <li><a href="#s3"><span class="n">03</span><span>聞かれる質問を書き出す</span></a></li>
+      <li><a href="#s4"><span class="n">04</span><span>ページの構成を決める</span></a></li>
+      <li><a href="#s5"><span class="n">05</span><span>デザインを作らせる</span></a></li>
+      <li><a href="#s6"><span class="n">06</span><span>AIに読ませる仕上げ</span></a></li>
+      <li><a href="#s7"><span class="n">07</span><span>公開前の法務チェック</span></a></li>
+      <li><a href="#g"><span class="n">付</span><span>用語集</span></a></li>
+      <li><a href="#q"><span class="n">付</span><span>つまずいたとき</span></a></li>
+    </ol>
+    <p class="rail-note">工程01から順番に。<br>途中で閉じても、入力した内容はこのブラウザに残ります。</p>
+  </nav>
+
+  <main class="col">
+
+  <!-- ================= 00 ================= -->
+  <section id="s0">
+    <div class="step-head">
+      <span class="step-n">00</span>
+      <span class="step-time">読むだけ / 5分</span>
+    </div>
+    <h2>この手順書で、何ができあがるか</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>できあがるのは、<strong>「無料カウンセリングの申し込み」を取るための1枚のWebページ</strong>と、
+      そのページを<strong>ChatGPTやClaudeなどのAIが引用できる状態</strong>にするための裏側の設定です。
+      作業は文章を書くだけ。コードは書きません。</p>
+    </div>
+
+    <p>いま、見込み客の探し方が変わりました。「駅名＋パーソナルジム」で検索して10件を見比べる人だけでなく、
+    <b>AIに「この駅でおすすめのパーソナルジムは？」と聞いて、返ってきた3件だけを見る人</b>が増えています。
+    このとき、AIは「答えに使える情報が書いてあるページ」しか候補に挙げません。この手順書は、その候補に入るための作り方です。</p>
+
+    <h3>進め方は3つだけ</h3>
+    <ol class="numbered">
+      <li><b>自分の店の情報を決める（工程01〜04）</b><br><span class="sub">紙とペンでもできます。ここが一番大事で、一番時間がかかります。</span></li>
+      <li><b>AIにデザインを作らせる（工程05）</b><br><span class="sub">このページの中にある「プロンプト作成フォーム」に入力すると、貼り付ける文章が自動でできます。</span></li>
+      <li><b>AIに仕上げをさせて、公開前に確認する（工程06〜07）</b><br><span class="sub">決まった指示文をコピーして貼るだけです。</span></li>
+    </ol>
+
+    <div class="note">
+      <b>プロンプトとは：</b>AIに出す「指示文」のことです。話し言葉で書いて大丈夫ですが、
+      指示が具体的なほど結果が良くなります。この手順書では、その指示文をこちらで用意してあります。
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 01 ================= -->
+  <section id="s1">
+    <div class="step-head">
+      <span class="step-n">01</span>
+      <span class="step-time">準備 / 20分</span>
+    </div>
+    <h2>道具と材料をそろえる</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>使う道具は<strong>2つだけ</strong>。材料（自店の情報）は<strong>7項目</strong>。
+      材料が揃っていないと工程05で必ず止まるので、ここで全部埋めてください。</p>
+    </div>
+
+    <h3>使う道具は2つ</h3>
+    <div class="grid2">
+      <div class="card">
+        <div class="k">道具 1 / 見た目をつくる</div>
+        <h4>Claude Design</h4>
+        <p>「こういうページが欲しい」と文章で伝えると、Webページの見た目を作ってくれるサービスです。
+        Webサイト上で動くので、インストールは不要です。<br>
+        <a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a></p>
+      </div>
+      <div class="card">
+        <div class="k">道具 2 / 中身を仕上げる</div>
+        <h4>Claude Code</h4>
+        <p>できあがった見た目を、<b>本物のWebページのファイル</b>に仕上げてくれる道具です。
+        工程06で「AIに読ませる情報」を追加してもらうために使います。制作会社に依頼する場合は、
+        工程06の指示文をそのまま渡せば同じことができます。</p>
+      </div>
+    </div>
+
+    <div class="note">
+      <b>Claude（クロード）とは：</b>ChatGPTと同じ「対話型AI」の一種で、Anthropic社が提供しています。
+      文章を書くのが得意で、Webページのデザインやコードも作れます。無料でも試せますが、
+      ページ制作は処理が重いので有料プラン（月額20ドル前後）を推奨します。
+    </div>
+
+    <h3>そろえる材料 7項目</h3>
+    <p class="sub">チェックを入れながら確認してください。空欄のまま先に進まないでください。</p>
+    <div class="checklist" id="prep">
+      <label><input type="checkbox"><span>店名・最寄駅・駅からの徒歩分数<small>「〇〇駅 徒歩5分」まで確定させる。ビル名と階数も。</small></span></label>
+      <label><input type="checkbox"><span>料金の「回数 × 期間 × 総額」の3点セット<small>例：16回・2ヶ月・総額29.8万円。ここが最重要です（工程02）。</small></span></label>
+      <label><input type="checkbox"><span>入会金と、その他にかかる費用の有無<small>「追加費用なし」と言い切れるかどうかを確認。水代・ウェア代も含めて。</small></span></label>
+      <label><input type="checkbox"><span>体験・カウンセリングの価格（無料か、有料ならいくらか）<small>ここがゴール地点になります。</small></span></label>
+      <label><input type="checkbox"><span>トレーナー全員の「実名・保有資格・指導実績・顔写真」<small>写真は後日でOK。ただし実名と資格は必須です（工程02）。</small></span></label>
+      <label><input type="checkbox"><span>中途解約の条件と、返金の規定<small>契約書から書き写してください。工程07で専門家に確認します。</small></span></label>
+      <label><input type="checkbox"><span>営業時間・定休日・電話番号・運営会社名<small>会社名と住所は正式表記で。</small></span></label>
+    </div>
+
+    <div class="callout">
+      <div class="ct">写真がなくても、ここで止まらないでください</div>
+      <p>撮影待ちでLP制作が半年止まる、というのがよくある失敗です。工程05のプロンプトには
+      <b>「写真は未撮影なので配置場所だけ指定してください」</b>と書いてあります。
+      枠だけ作って、後から写真を入れれば大丈夫です。</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 02 ================= -->
+  <section id="s2">
+    <div class="step-head">
+      <span class="step-n">02</span>
+      <span class="step-time">方針決め / 15分</span>
+    </div>
+    <h2>勝負を決める2つの原則</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p><strong>① 総額を書く。② トレーナーが誰かを書く。</strong>
+      この2点だけで、他のパーソナルジムとほぼ差がつきます。デザインの良し悪しより先に、ここを決めてください。</p>
+    </div>
+
+    <h3>原則①　「月々9,800円〜」は、AIに無視されます</h3>
+    <p>業界で非常に多いのが「月々9,800円〜」だけを載せたLPです。人間なら「まあ後で聞けばいいか」と思いますが、
+    AIは違います。<b>「2ヶ月16回で総額いくら？」という質問に答えられないので、この店を候補から外します。</b>
+    見込み客はAIに必ず「相場はいくら？」と聞くので、隠すほど不利になります。</p>
+
+    <div class="grid2">
+      <div class="card bad">
+        <div class="k">これだと引用されない</div>
+        <p class="quote">月々9,800円〜<br>今なら入会金無料！</p>
+        <p>総額が計算できない。AIは「答えに使えない情報」として扱います。</p>
+      </div>
+      <div class="card good">
+        <div class="k">これなら候補に入る</div>
+        <p class="quote">16回・2ヶ月<br>総額298,000円<br>（入会金込み・追加費用なし）</p>
+        <p>比較の質問が来るたびに、候補として挙がるようになります。</p>
+      </div>
+    </div>
+
+    <h3>原則②　パーソナルは「誰に教わるか」を買う商売です</h3>
+    <p>AIも同じ見方をします。<b>実名・保有資格・指導実績・顔写真</b>が載っているLPと、
+    「経験豊富なプロトレーナー」としか書いていないLPでは、扱いがまったく変わります。
+    後者は<b>裏が取れないので引用されません</b>。「この駅で、女性トレーナーがいるパーソナルジムは？」という質問に、
+    AIが自信を持って答えられるかどうかが分かれ目です。</p>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>書き方</th><th>AIの扱い</th></tr></thead>
+        <tbody>
+          <tr><td>経験豊富なプロトレーナーが指導</td><td>検証できないため、引用されない<span class="why">誰のことか特定できない</span></td></tr>
+          <tr><td class="to">山田太郎／NSCA-CPT保有／指導実績1,200名／写真あり</td><td>そのまま引用される<span class="why">名前・資格・実績が事実として使える</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="note">
+      <b>AEO（エーイーオー）とは：</b>Answer Engine Optimization の略で、
+      <b>「AIの答えの中に自分の店を出すための対策」</b>のことです。
+      これまでの検索順位対策（SEO）のAI版だと考えてください。この手順書は全体がAEO対策になっています。
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 03 ================= -->
+  <section id="s3">
+    <div class="step-head">
+      <span class="step-n">03</span>
+      <span class="step-time">書き出し / 15分</span>
+    </div>
+    <h2>聞かれる質問を書き出す</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>パーソナルジムで聞かれるのは、設備の話ではなく<strong>「高い買い物への不安」</strong>です。
+      下の9項目に、自分の店の答えを用意してください。これがそのままLPの「よくある質問」になります。</p>
+    </div>
+
+    <p>セルフ型ジム（24時間ジムなど）とは、聞かれ方がまったく違います。
+    月7,000円のジムと、総額30万円のジムでは、見込み客の心配ごとが別物だからです。</p>
+
+    <div class="checklist" id="qs">
+      <label><input type="checkbox"><span>総額はいくら？　分割払いはできる？　追加費用はある？</span></label>
+      <label><input type="checkbox"><span>効果が出なかったら返金してもらえる？</span></label>
+      <label><input type="checkbox"><span>途中で辞めたらお金は戻る？</span></label>
+      <label><input type="checkbox"><span>トレーナーは指名できる？　女性トレーナーはいる？</span></label>
+      <label><input type="checkbox"><span>食事指導はきつい？　お酒はダメ？　糖質は完全禁止？</span></label>
+      <label><input type="checkbox"><span>運動未経験の40代でもついていける？</span></label>
+      <label><input type="checkbox"><span>卒業したあと、リバウンドしない？</span></label>
+      <label><input type="checkbox"><span>手ぶらで行ける？　シャワー・ウェア・シューズは？</span></label>
+      <label><input type="checkbox"><span><b>【駅名】パーソナルジム　おすすめ／相場／安い</b><small>これは検索・AI質問そのもの。ここで候補に入れるかが勝負です。</small></span></label>
+    </div>
+
+    <div class="callout">
+      <div class="ct">解約条件と返金規定は、必ず書いてください</div>
+      <p>「不利な情報だから隠したい」と思われるかもしれませんが、逆です。
+      <b>高額商材で客が一番不安なのはそこなので、書いてある店が信頼されます。</b>
+      AIも「解約条件が明記されている＝誠実な事業者」として扱う傾向があります。
+      ただし文面は、公開前に専門家の確認を（工程07）。</p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 04 ================= -->
+  <section id="s4">
+    <div class="step-head">
+      <span class="step-n">04</span>
+      <span class="step-time">構成決め / 15分</span>
+    </div>
+    <h2>ページの構成を決める</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>一般的なジムのLPから、<strong>3か所を差し替えます。</strong>
+      設備自慢をやめて、トレーナーの紹介にページの一番いい場所を使ってください。</p>
+    </div>
+
+    <div class="tablewrap">
+      <table>
+        <thead><tr><th>よくあるジムのLP</th><th>パーソナルジムでは</th></tr></thead>
+        <tbody>
+          <tr><td>設備・マシン一覧</td><td class="to">トレーナー紹介<span class="why">実名・資格・実績・顔写真を1人ずつ</span></td></tr>
+          <tr><td>月額料金表</td><td class="to">総額料金表<span class="why">回数 × 期間 × 総額の3点セット</span></td></tr>
+          <tr><td>1日の流れ</td><td class="to">卒業までの流れ<span class="why">カウンセリング → 初回 → 中間 → 卒業後フォロー</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>セクションはこの順番で並べます</h3>
+    <ol class="numbered">
+      <li><b>ヒーロー（一番上の大きな部分）</b><br><span class="sub">見出しの下に必ず1文の説明を置きます。「〇〇は、〇〇駅 徒歩5分のパーソナルジムです。16回・2ヶ月で総額29.8万円、追加費用はありません」。AIはこの1文をそのまま引用します。</span></li>
+      <li><b>迷っている人への共感</b><br><span class="sub">3つの不安に短く答える。</span></li>
+      <li><b>トレーナー紹介</b><br><span class="sub">ここをページで一番印象に残る部分にします。</span></li>
+      <li><b>料金表</b><br><span class="sub">回数・期間・総額を並べ、追加費用の有無を明記。</span></li>
+      <li><b>卒業までの流れ</b></li>
+      <li><b>よくある質問（12問）</b><br><span class="sub">見出しは質問文そのまま。解約条件・返金規定・食事指導の内容を必ず含める。</span></li>
+      <li><b>アクセス・営業時間</b><br><span class="sub">地図の場所を確保しておく。</span></li>
+      <li><b>店舗情報</b><br><span class="sub">店名・住所・電話番号・運営会社。</span></li>
+    </ol>
+
+    <div class="note">
+      <b>なぜ「見出しの下に1文の説明」なのか：</b>
+      AIはページを読むとき、キャッチコピーではなく<b>「事実が書かれた文」</b>を探します。
+      「理想の身体へ。」だけでは何の情報にもなりません。1文に、店名・場所・料金を入れてください。
+    </div>
+  </section>
+
+  <hr class="rule">
+  <!-- ================= 05 ================= -->
+  <section id="s5">
+    <div class="step-head">
+      <span class="step-n">05</span>
+      <span class="step-time">制作 / 40分</span>
+    </div>
+    <h2>デザインを作らせる</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>下のフォームに自店の情報を入れると、<strong>貼り付けるだけの指示文が自動でできます。</strong>
+      それを <a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a> で
+      「プロトタイプ」を選んで貼り付ければ、数分でLPの見た目ができあがります。</p>
+    </div>
+
+    <h3>操作の手順</h3>
+    <ol class="numbered">
+      <li><a href="https://claude.ai/design" target="_blank" rel="noopener">claude.ai/design</a> を開き、ログインします。</li>
+      <li>作るものを選ぶ画面で <b>「プロトタイプ」</b> を選びます。<span class="sub">（試作品、という意味です。まず形を作る、と考えてください）</span></li>
+      <li>下のフォームを埋めて、<b>「指示文をコピー」</b>ボタンを押します。</li>
+      <li>Claudeの入力欄に貼り付けて送信。数分待つと、ページが表示されます。</li>
+      <li>気に入らない部分があれば、そのまま日本語で直しを頼みます（下に言い方の例があります）。</li>
+    </ol>
+
+    <div class="builder">
+      <div class="builder-head">
+        <div class="k">入力フォーム</div>
+        <h4>あなたの店の情報を入れてください</h4>
+        <p>初期値は記入例です。上書きしてください。入力内容はこのブラウザにだけ保存され、どこにも送信されません。</p>
+      </div>
+      <div class="fields">
+        <div class="field"><label for="f_shop">店名</label><input id="f_shop" data-k="shop" value="スタジオ ミナモ"></div>
+        <div class="field"><label for="f_station">最寄駅</label><input id="f_station" data-k="station" value="西荻窪"></div>
+        <div class="field"><label for="f_walk">駅から徒歩（分）</label><input id="f_walk" data-k="walk" value="4"></div>
+        <div class="field"><label for="f_times">回数</label><input id="f_times" data-k="times" value="16"></div>
+        <div class="field"><label for="f_months">期間（ヶ月）</label><input id="f_months" data-k="months" value="2"></div>
+        <div class="field"><label for="f_total">総額（円）</label><input id="f_total" data-k="total" value="298,000"></div>
+        <div class="field"><label for="f_entry">入会金（円）</label><input id="f_entry" data-k="entry" value="0"></div>
+        <div class="field"><label for="f_trial">体験・カウンセリング</label><input id="f_trial" data-k="trial" value="無料"></div>
+        <div class="field"><label for="f_tr">トレーナー人数</label><input id="f_tr" data-k="tr" value="3"></div>
+        <div class="field"><label for="f_trw">うち女性</label><input id="f_trw" data-k="trw" value="2"></div>
+        <div class="field"><label for="f_age">ターゲット年齢</label><input id="f_age" data-k="age" value="45"></div>
+        <div class="field wide"><label for="f_strong">一番の強み（1行で）</label><input id="f_strong" data-k="strong" value="運動が苦手な人だけを受け入れる。完走率92%"></div>
+        <div class="field wide"><label for="f_mood">色と構造の発想もと（世界観）</label><input id="f_mood" data-k="mood" value="朝の自然光と白木、観葉植物のある静かな部屋"></div>
+      </div>
+    </div>
+
+    <div class="codeblock">
+      <div class="codebar">
+        <span class="cl">Claude Design に貼り付ける指示文</span>
+        <button class="copybtn" type="button" data-copy="#promptOut">指示文をコピー</button>
+      </div>
+      <pre id="promptOut"></pre>
+    </div>
+
+    <div class="callout">
+      <div class="ct">指示文の中で「やらないこと」を指定している理由</div>
+      <p>上の指示文には、<b>「腹筋が割れたビフォーアフター写真で煽らないでください」</b>と書いてあります。
+      運動が苦手な人が身構えてしまい、逆効果だからです。また、AIが作りがちな「見るからにAI製の見た目」
+      （クリーム色の背景＋テラコッタ色、同じ角丸カードの並列、矢印つきのボタン文言など）も明示的に禁止しています。
+      これを書かないと、他店と同じ顔のLPができあがります。</p>
+    </div>
+
+    <h3>気に入らないときの、直しの頼み方</h3>
+    <p class="sub">遠慮せず、話し言葉で伝えて大丈夫です。「もっと良くして」ではなく、<b>不満の内容を具体的に</b>言うのがコツです。</p>
+    <ul class="plain">
+      <li>「トレーナー紹介が小さすぎます。ここをページで一番大きく、写真も大きくしてください」</li>
+      <li>「全体的に色が派手です。彩度を落として、余白をもっと広く取ってください」</li>
+      <li>「料金表が分かりにくいです。回数・期間・総額の3つが一目で分かる形に変えてください」</li>
+      <li>「スマホで見たときに、予約ボタンが画面下に固定されていません。固定してください」</li>
+    </ul>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 06 ================= -->
+  <section id="s6">
+    <div class="step-head">
+      <span class="step-n">06</span>
+      <span class="step-time">仕上げ / 20分</span>
+    </div>
+    <h2>AIに読ませる仕上げ</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>見た目が完成したら、<strong>下の指示文をそのままコピーして渡すだけ</strong>です。
+      ここで「AIが読み取れる形の情報」をページの裏側に埋め込みます。<strong>この工程を飛ばすと、
+      工程02でやったことが半分しか効きません。</strong></p>
+    </div>
+
+    <p>Claude Design でデザインが固まったら、コード（Webページのファイル）を書き出します。
+    そのまま Claude Code に渡すか、制作会社に依頼する場合はこの文章をそのまま転送してください。
+    <b>専門用語が多く見えますが、意味を理解する必要はありません。コピーして渡すだけで通じます。</b></p>
+
+    <div class="codeblock">
+      <div class="codebar">
+        <span class="cl">Claude Code（または制作会社）への引き継ぎ指示</span>
+        <button class="copybtn" type="button" data-copy="#handoffOut">指示文をコピー</button>
+      </div>
+      <pre id="handoffOut">このLPに構造化データ（JSON-LD）を追加してください。HealthClub を主体に、営業時間（openingHoursSpecification）、住所・電話、料金プランを Offer（総額・通貨・提供期間を含む）で記述してください。トレーナー紹介の各人を Person 型にし、name・jobTitle・保有資格（hasCredential）を含め、HealthClub の employee として紐づけてください。FAQPage も別途追加してください。
+
+あわせて robots.txt・llms.txt・sitemap.xml を生成し、AIクローラー（GPTBot、OAI-SearchBot、ClaudeBot、Claude-SearchBot、PerplexityBot）を許可設定にしてください。</pre>
+    </div>
+
+    <h3>いま何を頼んだのか（読まなくても進めます）</h3>
+    <div class="terms">
+      <div><div class="t">構造化データ<em>JSON-LD</em></div><div class="d">ページの裏側に貼る「AI向けの要約メモ」。見た目には出ません。人間には文章に見えるものを、AIには「これは料金、これは住所」と機械が分かる形で伝えます。</div></div>
+      <div><div class="t">HealthClub / Offer</div><div class="d">それぞれ「フィットネス施設です」「これが料金プランです」という決まった書き方の名前です。総額と期間をここに入れるので、工程02の①がここで効きます。</div></div>
+      <div><div class="t">Person型<em>ここが最重要</em></div><div class="d">トレーナー1人ずつを「人物」として登録します。名前・肩書・保有資格をセットで書くので、「この駅で女性トレーナーがいるジムは？」という質問に、AIが自信を持って答えられるようになります。工程02の②がここで効きます。</div></div>
+      <div><div class="t">FAQPage</div><div class="d">工程03で書き出した質問と答えを「よくある質問」としてAIに認識させます。</div></div>
+      <div><div class="t">robots.txt<em>ロボッツ・テキスト</em></div><div class="d">「どのロボットにページを見せるか」を書いた紙。ここでAIの巡回ロボットを<b>許可</b>します。放置すると、AIに読まれないままになることがあります。</div></div>
+      <div><div class="t">llms.txt<em>エルエルエムズ・テキスト</em></div><div class="d">AI向けに、サイトの要点をまとめた案内文です。比較的新しい仕組みですが、置いておいて損はありません。</div></div>
+      <div><div class="t">sitemap.xml<em>サイトマップ</em></div><div class="d">サイトの目次。検索エンジンやAIが、ページを見落とさないようにするためのものです。</div></div>
+    </div>
+
+    <div class="note">
+      <b>公開の仕方：</b>できあがったファイルは、いま使っているホームページの業者さんに渡せば公開してもらえます。
+      自分で公開する場合は、Vercel や Netlify といった無料〜低額のサービスにファイルを置く方法があります。
+      Claude Code に「このページを公開したい」と伝えれば、手順を案内してくれます。
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 07 ================= -->
+  <section id="s7">
+    <div class="step-head">
+      <span class="step-n">07</span>
+      <span class="step-time">確認 / 30分</span>
+    </div>
+    <h2>公開前の法務チェック</h2>
+
+    <div class="verdict">
+      <div class="label">結論</div>
+      <p>公開ボタンを押す前に、<strong>4点だけ確認してください。</strong>
+      パーソナルジムは、LPの文言そのものが実際に紛争の材料になっている業種です。
+      特に<strong>「今日だけ割引」と「月々〇〇円〜」は使わない</strong>のが安全です。</p>
+    </div>
+
+    <p class="sub">以下は法律の専門家による助言ではありません。最終判断は必ず弁護士等にご確認ください。
+    ここでは「実際に争点になった論点」をお伝えします。</p>
+
+    <div class="checklist" id="legal">
+      <label><input type="checkbox"><span><b>「今日だけ割引」「本日入会で入会金無料」を書いていない</b><small>「今日じゃないと適用されない」という勧誘や、締め切りを煽る表示が、景品表示法上の不当表示に当たらないかが検討された事案があります。締め切り煽りは、そのまま契約の効力を争われる材料になります。</small></span></label>
+      <label><input type="checkbox"><span><b>「月々〇〇円〜」だけの表記になっていない</b><small>総額が分からない書き方は、上記の事案でも論点になっています。AEO的にも不利、法務的にもリスク。総額表記に一本化するのが、両方にとっての答えです。</small></span></label>
+      <label><input type="checkbox"><span><b>中途解約・返金の条項を、専門家に見てもらった</b><small>エステや語学教室は特定商取引法の「特定継続的役務提供」に該当し、中途解約権や解約料の上限が法律で定められています。パーソナルトレーニングが含まれるかは論点で、東京都の紛争処理事例では現時点では指定対象に当たらないと判断された一方、委員会は行政に指定の検討を求めています。また「購入後の返金はできない」といった条項は、消費者契約法9条（平均的損害を超える部分は無効）の観点で争われています。</small></span></label>
+      <label><input type="checkbox"><span><b>「−10kg保証」など、体重の数字を大きく見せる表現を使っていない</b><small>景品表示法のリスクがあるうえ、極端な食事制限を連想させて見込み客を選んでしまいます。代わりに「運動が苦手な人が3ヶ月通い続けられた」という<b>継続率</b>を出してください。いま刺さりますし、AIにも引用されやすい指標です。</small></span></label>
+    </div>
+
+    <div class="callout">
+      <div class="ct">言い換えの具体例</div>
+      <p>
+      「今なら入会金無料！本日限り」　→　<b>「入会金は0円です（常時）。総額298,000円のほかに費用はかかりません」</b><br>
+      「月々9,800円〜」　→　<b>「16回・2ヶ月　総額298,000円（分割は月々〇〇円から、手数料〇%）」</b><br>
+      「−10kg達成！」　→　<b>「運動経験のない方の3ヶ月継続率92%（2025年実績・対象〇名）」</b>
+      </p>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= 用語集 ================= -->
+  <section id="g">
+    <div class="step-head">
+      <span class="step-n">付録</span>
+      <span class="step-time">辞書として使ってください</span>
+    </div>
+    <h2>用語集</h2>
+    <p class="sub">この手順書に出てくる言葉だけをまとめました。</p>
+    <div class="terms">
+      <div><div class="t">LP<em>ランディングページ</em></div><div class="d">申し込みを取ることだけを目的にした、縦に長い1枚のWebページ。ホームページとは別に作ります。</div></div>
+      <div><div class="t">Claude<em>クロード</em></div><div class="d">Anthropic社の対話型AI。ChatGPTの仲間で、文章とデザイン、コード作成が得意です。</div></div>
+      <div><div class="t">プロンプト</div><div class="d">AIへの指示文。話し言葉でよく、具体的なほど結果が良くなります。</div></div>
+      <div><div class="t">プロトタイプ</div><div class="d">試作品。まず形を作って、そこから直していく進め方です。</div></div>
+      <div><div class="t">AEO</div><div class="d">AIの答えの中に自店を出すための対策。検索順位対策（SEO）のAI版。</div></div>
+      <div><div class="t">構造化データ</div><div class="d">ページの裏側に置く、AI向けの要約メモ。見た目には出ません。</div></div>
+      <div><div class="t">クローラー</div><div class="d">Webページを見て回るロボット。GPTBotやClaudeBotなど、AI各社のものがあります。</div></div>
+      <div><div class="t">ヒーロー</div><div class="d">ページを開いて最初に見える、一番大きな部分のこと。</div></div>
+      <div><div class="t">CTA<em>シーティーエー</em></div><div class="d">「無料カウンセリングを予約する」などの申し込みボタンのこと。</div></div>
+    </div>
+  </section>
+
+  <hr class="rule">
+
+  <!-- ================= FAQ ================= -->
+  <section id="q">
+    <div class="step-head">
+      <span class="step-n">付録</span>
+      <span class="step-time">つまずいたとき</span>
+    </div>
+    <h2>よくあるつまずき</h2>
+
+    <details class="faq"><summary>AIが出してきたデザインが、思っていたものと全然違う</summary>
+      <div class="body"><p>やり直しではなく、<b>そのまま直しを頼んでください</b>。「作り直して」と言うと、また違うものが出てきます。
+      「トレーナー紹介をもっと大きく」「色を落ち着かせて」のように、<b>不満のある場所と、どうしてほしいかを1つずつ</b>伝えるのが早道です。</p></div>
+    </details>
+
+    <details class="faq"><summary>総額を出すと高く見えて、問い合わせが減りませんか</summary>
+      <div class="body"><p>減るのは「総額を知ったら来なかった人」です。その人は、体験に来ても契約しません。
+      総額を書くと、<b>問い合わせ数は減っても、成約率と現場の負担が改善する</b>ことが多いです。
+      加えて、AIの比較質問で候補に入るようになるため、中期では露出が増えます。</p></div>
+    </details>
+
+    <details class="faq"><summary>トレーナーの実名や顔写真を出したくない（退職リスクが心配）</summary>
+      <div class="body"><p>気持ちは分かりますが、<b>パーソナルジムでここを伏せるのは、商品を隠して売るのと同じ</b>です。
+      どうしても難しい場合は、最低でも「保有資格・指導年数・指導実績人数」だけは実数で出してください。
+      退職時は、その人のセクションを差し替えれば済みます（工程06の Person 型は1人ずつ独立しています）。</p></div>
+    </details>
+
+    <details class="faq"><summary>写真がまだ1枚もありません</summary>
+      <div class="body"><p>進めて大丈夫です。工程05の指示文に「写真は未撮影なので配置場所だけ指定してください」と入っています。
+      枠だけ作って公開し、撮影後に差し替えてください。<b>公開が遅れることのほうが、はるかに損失が大きいです。</b></p></div>
+    </details>
+
+    <details class="faq"><summary>制作会社に頼んでいます。この手順書は使えますか</summary>
+      <div class="body"><p>使えます。工程01〜04（材料と構成）をそのまま発注書として渡し、
+      工程06の指示文を「これも実装してください」と添えてください。
+      構造化データやllms.txtは、対応していない制作会社もあるので、<b>着手前に確認</b>してください。</p></div>
+    </details>
+
+    <details class="faq"><summary>作ったあと、何を見れば効果が分かりますか</summary>
+      <div class="body"><p>3つだけ見てください。<b>①カウンセリング申込数　②申込〜来店率　③「どこで知りましたか」の回答</b>。
+      ③に「AIに聞いた」「ChatGPTで見た」が出始めたら、この手順書の狙いが効いています。
+      公開から2〜3ヶ月は、AIに読み込まれるまでの時間がかかります。</p></div>
+    </details>
+
+    <details class="faq"><summary>他店に真似されませんか</summary>
+      <div class="body"><p>真似できるのは書式だけです。<b>総額とトレーナーの実績は、その店の中身そのもの</b>なので、
+      真似した時点で相手も同じ土俵に立つことになります。むしろ、ほとんどの店は総額の公開に踏み切れません。
+      そこが当面の差になります。</p></div>
+    </details>
+  </section>
+
+  </main>
+</div>
+
+<footer>
+  <div class="wrap">
+    <p><b>この手順書について。</b>パーソナルジムの集客LPを、AI（Claude）を使って自分で作るための手順書です。
+    工程01から順に進めれば、およそ2時間半で1本仕上がります。</p>
+    <p>工程07の法務に関する記述は、実際に争点となった論点の紹介であり、法律の専門家による助言ではありません。
+    公開前に、解約規定と価格表示について弁護士等の確認を受けてください。</p>
+  </div>
+</footer>
+<script>
+(function () {
+  var STORE = "gym-lp-guide-v1";
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+
+  /* ---------- persistence (best effort) ---------- */
+  function load() {
+    try { return JSON.parse(localStorage.getItem(STORE) || "{}") || {}; }
+    catch (e) { return {}; }
+  }
+  function save(data) {
+    try { localStorage.setItem(STORE, JSON.stringify(data)); } catch (e) { /* private mode: ignore */ }
+  }
+  var state = load();
+
+  /* ---------- prompt builder ---------- */
+  var inputs = $$(".fields input[data-k]");
+  function values() {
+    var v = {};
+    inputs.forEach(function (el) { v[el.dataset.k] = (el.value || "").trim() || "（未記入）"; });
+    return v;
+  }
+  function buildPrompt() {
+    var v = values();
+    return [
+"パーソナルジムの集客ランディングページを、プロトタイプとして作ってください。",
+"",
+"【店舗】",
+"店名：" + v.shop + "／" + v.station + "駅 徒歩" + v.walk + "分",
+"料金：" + v.times + "回・" + v.months + "ヶ月で総額" + v.total + "円（入会金" + v.entry + "円、追加費用なし）",
+"体験・カウンセリング：" + v.trial,
+"一番の強み：" + v.strong,
+"トレーナー：" + v.tr + "名／うち女性" + v.trw + "名",
+"",
+"【誰に見せるか】",
+v.age + "歳前後、運動経験がほとんどない人。",
+"「高いし、続かなかったら無駄になる」と迷って何ヶ月も検討している。",
+"ゴールは「無料カウンセリングに申し込む」の1点。",
+"",
+"【トーン】",
+"腹筋の割れたビフォーアフター写真で煽る、ありがちなパーソナルジムの",
+"見た目にはしないでください。運動が苦手な人が身構えてしまいます。",
+"「静かで、清潔で、ちゃんと話を聞いてくれそう」な印象を優先。",
+"色と構造は「" + v.mood + "」から発想してください。",
+"",
+"よくあるAI生成っぽい見た目は避けてください。具体的には、",
+"クリーム色の背景＋テラコッタ色のアクセント、同じ角丸カードの並列、",
+"全部大文字の小見出し、矢印「→」付きのボタン文言、",
+"黒背景に蛍光色1色のアクセント。",
+"",
+"【セクションの順番】",
+"① ヒーロー：見出しの下に必ず1文の説明を置く",
+"   「" + v.shop + "は、" + v.station + "駅 徒歩" + v.walk + "分のパーソナルジムです。",
+"    " + v.times + "回・" + v.months + "ヶ月で総額" + v.total + "円、追加費用はありません。」",
+"   無料カウンセリング予約ボタンを添える",
+"② 迷っている人への共感（3つの不安に短く答える）",
+"③ トレーナー紹介：写真・実名・保有資格・指導実績を1人ずつ",
+"   ここをページで一番印象に残る部分にしてください",
+"④ 料金表：回数・期間・総額を並べる。追加費用の有無を明記",
+"⑤ 卒業までの流れ（カウンセリング→初回→中間→卒業後フォロー）",
+"⑥ よくある質問（12問。見出しは質問文そのまま。",
+"   解約条件・返金規定・食事指導の内容を必ず含める）",
+"⑦ アクセス・営業時間（地図の場所を確保）",
+"⑧ 店舗情報（店名・住所・電話番号・運営会社）",
+"",
+"【制約】",
+"スマホ表示を最優先。写真は未撮影なので配置場所だけ指定してください。",
+"カウンセリング予約ボタンは、スクロール中も画面下に固定してください。",
+"体重の数字や「−○kg」を大きく見せる表現は使わないでください。",
+"「今日だけ」「本日限り」など期限を煽る文言は入れないでください。"
+    ].join("\n");
+  }
+  var out = $("#promptOut");
+  function render() { if (out) { out.textContent = buildPrompt(); } }
+
+  inputs.forEach(function (el) {
+    if (state.fields && typeof state.fields[el.dataset.k] === "string") { el.value = state.fields[el.dataset.k]; }
+    el.addEventListener("input", function () {
+      state.fields = state.fields || {};
+      state.fields[el.dataset.k] = el.value;
+      save(state);
+      render();
+    });
+  });
+  render();
+
+  /* ---------- checklists ---------- */
+  $$(".checklist").forEach(function (list) {
+    var id = list.id;
+    $$("input[type=checkbox]", list).forEach(function (box, i) {
+      var key = id + ":" + i;
+      if (state.checks && state.checks[key]) { box.checked = true; }
+      box.addEventListener("change", function () {
+        state.checks = state.checks || {};
+        state.checks[key] = box.checked;
+        save(state);
+      });
+    });
+  });
+
+  /* ---------- copy buttons ---------- */
+  function copyText(text) {
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      return navigator.clipboard.writeText(text);
+    }
+    return new Promise(function (resolve, reject) {
+      try {
+        var ta = document.createElement("textarea");
+        ta.value = text;
+        ta.setAttribute("readonly", "");
+        ta.style.position = "fixed";
+        ta.style.opacity = "0";
+        document.body.appendChild(ta);
+        ta.select();
+        var ok = document.execCommand("copy");
+        document.body.removeChild(ta);
+        ok ? resolve() : reject();
+      } catch (e) { reject(e); }
+    });
+  }
+  $$(".copybtn").forEach(function (btn) {
+    var original = btn.textContent;
+    btn.addEventListener("click", function () {
+      var target = $(btn.dataset.copy);
+      if (!target) { return; }
+      copyText(target.textContent).then(function () {
+        btn.textContent = "コピーしました";
+        btn.dataset.done = "1";
+      }).catch(function () {
+        btn.textContent = "手動で選択してください";
+        var range = document.createRange();
+        range.selectNodeContents(target);
+        var sel = window.getSelection();
+        sel.removeAllRanges();
+        sel.addRange(range);
+      });
+      setTimeout(function () { btn.textContent = original; btn.removeAttribute("data-done"); }, 2400);
+    });
+  });
+
+  /* ---------- rail highlight ---------- */
+  var links = {};
+  $$(".rail a").forEach(function (a) { links[a.getAttribute("href").slice(1)] = a; });
+  var sections = $$("main section");
+  if ("IntersectionObserver" in window && sections.length) {
+    var seen = {};
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { seen[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0; });
+      var best = null, bestRatio = 0;
+      Object.keys(seen).forEach(function (k) { if (seen[k] > bestRatio) { bestRatio = seen[k]; best = k; } });
+      Object.keys(links).forEach(function (k) {
+        if (k === best) { links[k].setAttribute("aria-current", "true"); }
+        else { links[k].removeAttribute("aria-current"); }
+      });
+    }, { rootMargin: "-10% 0px -60% 0px", threshold: [0, 0.15, 0.4, 0.8] });
+    sections.forEach(function (s) { io.observe(s); });
+  }
+})();
+</script>
+</body>
+</html>
