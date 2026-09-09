@@ -47,7 +47,13 @@ def main():
     src = os.path.dirname(os.path.abspath(__file__))
     os.makedirs(out, exist_ok=True)
 
-    for name in ("index.html", "robots.txt", "sitemap.xml", "llms.txt"):
+    # Google Search Console の所有権確認ファイル（google...html）も必ず一緒に配る。
+    # これが欠けると「所有権が確認できません」と言われ、登録が外れてしまう。
+    names = ["index.html", "robots.txt", "sitemap.xml", "llms.txt"]
+    names += sorted(f for f in os.listdir(src)
+                    if f.startswith("google") and f.endswith(".html"))
+
+    for name in names:
         text = open(os.path.join(src, name), encoding="utf-8").read().replace(REAL, base)
         if name == "index.html":
             text = strip_editor_notes(text)

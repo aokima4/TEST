@@ -1,0 +1,79 @@
+# ===================================================================
+# robots.txt  ／ のぼり旗 外注パートナー
+# AI検索エンジン（ChatGPT・Claude・Perplexity・GoogleのAI概要など）に
+# 「このサイトを読んで回答に使ってよい」と明示的に許可する設定です。
+# ※ 何も書かないと「拒否」と判断するAIもあるため、明示が重要です。
+# ===================================================================
+
+# --- 通常の検索エンジン ---
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# --- OpenAI（ChatGPT）---
+User-agent: GPTBot
+Allow: /
+
+User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+# --- Anthropic（Claude）---
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-SearchBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: anthropic-ai
+Allow: /
+
+# --- Perplexity ---
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: Perplexity-User
+Allow: /
+
+# --- Google のAI学習・AI概要向け ---
+User-agent: Google-Extended
+Allow: /
+
+# --- Apple Intelligence ---
+User-agent: Applebot
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+# --- その他のAIクローラー ---
+User-agent: meta-externalagent
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: DuckAssistBot
+Allow: /
+
+User-agent: CCBot
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: YouBot
+Allow: /
+
+# --- 上記以外のすべて ---
+User-agent: *
+Allow: /
+
+Sitemap: https://nobori-aeo.vercel.app/sitemap.xml

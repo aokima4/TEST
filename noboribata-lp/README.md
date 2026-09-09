@@ -17,6 +17,19 @@ AEOの効果検証用に、Vercel で公開しています。AIのクローラ�
 公開ページの上部には「これはサンプルで、会社情報はすべて架空」という帯を入れてあります。
 実在の会社と誤解されないための表示です。
 
+### 公開のしくみ（GitHub連携）
+
+`dist/` フォルダの中身が、そのまま https://nobori-aeo.vercel.app/ に公開されます。
+このブランチに push すると Vercel が自動で更新します。手作業のアップロードは不要です。
+
+**Vercel側の設定（初回だけ必要）**
+
+| 場所 | 設定内容 |
+|---|---|
+| Settings → Git → Production Branch | `claude/nobori-aeo-optimization-k4awd8` |
+| Settings → Build and Deployment → Root Directory | `noboribata-lp/dist` |
+| Framework Preset | Other |
+
 ### 公開ファイルの作り方
 
 このフォルダのファイルは、本来のドメイン（noboribata-gaityuu-partner.com）用に書かれています。
@@ -26,19 +39,26 @@ AEOの効果検証用に、Vercel で公開しています。AIのクローラ�
 python3 build-deploy.py https://nobori-aeo.vercel.app dist
 ```
 
+元ファイル（`index.html` など）を直したら、必ずこのコマンドを実行して `dist/` を作り直し、
+コミットして push してください。push した内容がそのまま公開されます。
+
 URL の書き換え（canonical・sitemap・構造化データ）と、サンプル表示の帯の追加を自動で行います。
 **これをやらずにそのまま置くと、検索エンジンが「本物は別の場所にある」と判断して、
 検証用URLを登録してくれません。**
 
-### ⚠️ 公開ページが消えないための注意
+### ⚠️ ファイルは必ず5つセットで
 
-Vercel のプロジェクト `nobori-aeo` は GitHub リポジトリとつながっており、
-`claude/andpad-app-analysis-hfogsz` ブランチが「本番ブランチ」に設定されています。
-**そのブランチに何かを push すると、Vercel が自動で上書きしてしまい、
-このページが消えます。**
+公開先には常に次の5ファイルが必要です。1つでも欠けると、その機能が失われます。
 
-防ぐには、Vercel の管理画面で
-**Settings → Git → Disconnect（連携を解除）** しておくのが確実です。
+| ファイル | 欠けるとどうなるか |
+|---|---|
+| `index.html` | ページ自体が表示されない |
+| `robots.txt` | AIクローラーへの許可が伝わらない |
+| `sitemap.xml` | 検索エンジンへの登録が遅れる |
+| `llms.txt` | AI向けの要点まとめが読まれない |
+| `googled4a0ce84d6dc4e50.html` | **Search Consoleの所有権確認が外れる** |
+
+`build-deploy.py` はこの5つをまとめて出力します。`dist/` の中身を手で消さないでください。
 
 ---
 
