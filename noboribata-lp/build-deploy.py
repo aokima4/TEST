@@ -10,6 +10,8 @@
      （canonical・sitemap・構造化データのURLがずれていると、
        検索エンジンが「本物は別の場所にある」と判断して検証用URLを登録しません）
   2. 「これは検証用のサンプルです」という帯をページ上部に差し込む
+  3. 編集者向けのメモ（HTML/CSSのコメント、仮データの目印 class="todo"）を
+     取り除く。閲覧者には何の影響もない情報なので、公開版には入れない。
 """
 import re, sys, os, shutil
 
@@ -26,6 +28,19 @@ BANNER_HTML = """<div class="sample-note">
 </div>
 """
 
+def strip_editor_notes(html):
+    """編集者向けのメモを取り除く（公開版には不要）。"""
+    # 仮データの目印（画面上は見た目が変わらないタグ）を外す
+    html = re.sub(r'<span class="todo">(.*?)</span>', r"\1", html, flags=re.S)
+    html = re.sub(r'(<[^>]*?class="[^"]*?)\s*\btodo\b\s*([^"]*?")', r"\1\2", html)
+    html = re.sub(r'\s*class=""', "", html)
+    # HTML コメントと CSS コメント
+    html = re.sub(r"<!--.*?-->\n?", "", html, flags=re.S)
+    html = re.sub(r"/\*.*?\*/\n?", "", html, flags=re.S)
+    # コメント除去で生まれた3行以上の空行を詰める
+    return re.sub(r"\n{3,}", "\n\n", html)
+
+
 def main():
     if len(sys.argv) != 3:
         sys.exit(__doc__)
@@ -36,6 +51,7 @@ def main():
     for name in ("index.html", "robots.txt", "sitemap.xml", "llms.txt"):
         text = open(os.path.join(src, name), encoding="utf-8").read().replace(REAL, base)
         if name == "index.html":
+            text = strip_editor_notes(text)
             text = text.replace("</style>\n</head>", BANNER_CSS + "</style>\n</head>", 1)
             text = text.replace("<body>\n", "<body>\n" + BANNER_HTML, 1)
         open(os.path.join(out, name), "w", encoding="utf-8").write(text)

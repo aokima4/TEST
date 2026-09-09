@@ -1,5 +1,47 @@
 # のぼり量産パートナー ／ AEO対策LP（効果検証用・仮データ入り）
 
+## 公開中の検証用URL
+
+**https://nobori-aeo.vercel.app/**
+
+AEOの効果検証用に、Vercel で公開しています。AIのクローラー（情報収集プログラム）が
+実際に読みに来られるURLなので、ここで効果を測れます。
+
+| ファイル | URL |
+|---|---|
+| ページ本体 | https://nobori-aeo.vercel.app/ |
+| AIクローラーへの許可設定 | https://nobori-aeo.vercel.app/robots.txt |
+| AI向けの要点まとめ | https://nobori-aeo.vercel.app/llms.txt |
+| 検索エンジン向けの地図 | https://nobori-aeo.vercel.app/sitemap.xml |
+
+公開ページの上部には「これはサンプルで、会社情報はすべて架空」という帯を入れてあります。
+実在の会社と誤解されないための表示です。
+
+### 公開ファイルの作り方
+
+このフォルダのファイルは、本来のドメイン（noboribata-gaityuu-partner.com）用に書かれています。
+別のURLで公開するときは、次のコマンドで作り直してください。
+
+```
+python3 build-deploy.py https://nobori-aeo.vercel.app dist
+```
+
+URL の書き換え（canonical・sitemap・構造化データ）と、サンプル表示の帯の追加を自動で行います。
+**これをやらずにそのまま置くと、検索エンジンが「本物は別の場所にある」と判断して、
+検証用URLを登録してくれません。**
+
+### ⚠️ 公開ページが消えないための注意
+
+Vercel のプロジェクト `nobori-aeo` は GitHub リポジトリとつながっており、
+`claude/andpad-app-analysis-hfogsz` ブランチが「本番ブランチ」に設定されています。
+**そのブランチに何かを push すると、Vercel が自動で上書きしてしまい、
+このページが消えます。**
+
+防ぐには、Vercel の管理画面で
+**Settings → Git → Disconnect（連携を解除）** しておくのが確実です。
+
+---
+
 ## 結論：このまま公開して、AEOの効果を測れます
 
 黄色いマーカーは全部消し、**会社情報・料金・納期・実績まですべて仮の情報で埋めました。**
@@ -240,8 +282,9 @@ formrun、Googleフォーム、HubSpotなどの無料サービスを使うと、
 
 ### 手順1：公開直後（初日）にやること
 
-1. 4ファイルをサーバーにアップロード
-2. **Google Search Console** に登録し、`sitemap.xml` を送信（無料）
+1. ~~4ファイルをサーバーにアップロード~~ → **完了**（https://nobori-aeo.vercel.app/）
+2. **Google Search Console** に `https://nobori-aeo.vercel.app/` を登録し、
+   `sitemap.xml` を送信（無料）
 3. **URL検査 → インデックス登録をリクエスト**（これをしないと数週間放置されます）
 4. **構造化データのテスト**
    <https://search.google.com/test/rich-results> にURLを入れ、
