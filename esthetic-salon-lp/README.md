@@ -38,6 +38,7 @@ esthetic-salon-lp/
 | ファイル | 使用箇所 | 差し替える実写のイメージ |
 |---|---|---|
 | `hero-owner.svg` | ファーストビュー | 女性サロンオーナーがPCとスマホを使うシーン（横1600px以上） |
+| `flow-journey.svg` | 集客導線セクション | ロゴ→HP→Instagram→予約→口コミ→来店 の流れを表した横位置ビジュアル（横1600px以上） |
 | `future-01-instagram.svg` | 導入後の未来 01 | スマホでサロンのInstagramを見る手元 |
 | `future-02-line.svg` | 導入後の未来 02 | 公式LINEの画面を見るオーナー |
 | `future-03-branding.svg` | 導入後の未来 03 | ロゴ入り名刺・メニュー表などのフラットレイ |

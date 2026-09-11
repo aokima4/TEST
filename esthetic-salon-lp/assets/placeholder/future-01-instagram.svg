@@ -14,16 +14,29 @@
   <radialGradient id="vig" cx="0.5" cy="0.44" r="0.78">
     <stop offset="0.46" stop-color="#4A3B28" stop-opacity="0"/><stop offset="1" stop-color="#5A4830" stop-opacity="0.24"/>
   </radialGradient>
+
+  <linearGradient id="floorFall" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7A5A2E" stop-opacity="0"/><stop offset="1" stop-color="#7A5A2E" stop-opacity="0.15"/>
+  </linearGradient>
+  <radialGradient id="bloomW" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFE7B6" stop-opacity="0.85"/><stop offset="1" stop-color="#FFE7B6" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vigW" cx="0.46" cy="0.4" r="0.82">
+    <stop offset="0.42" stop-color="#4A3418" stop-opacity="0"/><stop offset="1" stop-color="#4A3418" stop-opacity="0.3"/>
+  </radialGradient>
+  <filter id="grainW" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
+  </filter>
 </defs>
 <rect width="800" height="600" fill="url(#g1)"/><rect width="800" height="600" fill="url(#s1)"/>
 <!-- 背景のやわらかい影 -->
 <ellipse cx="400" cy="530" rx="290" ry="56" fill="#E2D5C2" opacity="0.45"/>
 <g filter="url(#bgblur)">
 <!-- 葉（左上） -->
-<g stroke="#9CA992" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9">
+<g stroke="#5F7347" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9">
   <path d="M-10 96 C70 96 118 66 160 30"/><path d="M-10 150 C64 158 112 138 152 110"/>
 </g>
-<g fill="#AEB9A2" opacity=".9">
+<g fill="#7E9463" opacity=".9">
   <ellipse cx="58" cy="74" rx="30" ry="14" transform="rotate(-26 58 74)"/>
   <ellipse cx="132" cy="44" rx="26" ry="12" transform="rotate(-34 132 44)"/>
   <ellipse cx="52" cy="160" rx="28" ry="13" transform="rotate(14 52 160)"/>
@@ -79,6 +92,11 @@
   <ellipse cx="440" cy="440" rx="24" ry="20" fill="url(#sk1)" transform="rotate(-38 440 440)"/>
   <path d="M428 424 C436 432 440 442 436 452" stroke="#DCB69C" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/>
 </g>
-<rect width="800" height="600" fill="url(#vig)"/>
-<rect width="800" height="600" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
+
+<!-- 暖色グレードと仕上げ -->
+<ellipse cx="160" cy="72" rx="496" ry="372" fill="url(#bloomW)" opacity="0.24"/>
+<rect width="800" height="600" fill="#C98F3A" opacity="0.08" style="mix-blend-mode:multiply"/>
+<rect x="0" y="491" width="800" height="108" fill="url(#floorFall)"/>
+<rect width="800" height="600" fill="url(#vigW)"/>
+<rect width="800" height="600" filter="url(#grainW)" opacity="0.055" style="mix-blend-mode:overlay"/>
 </svg>

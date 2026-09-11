@@ -1,256 +1,341 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1340" width="1600" height="1340" role="img" aria-label="サロンオーナーの女性が、大理石のカウンターでノートパソコンとスマートフォンを使っている様子">
 <defs>
-  <linearGradient id="bg" x1="0.1" y1="0" x2="0.4" y2="1">
-    <stop offset="0" stop-color="#FCF9F5"/><stop offset="0.5" stop-color="#F3ECE2"/><stop offset="1" stop-color="#EADFD0"/>
+  <!-- ===== 空間の光 ===== -->
+  <linearGradient id="wall" x1="0.05" y1="0" x2="0.75" y2="1">
+    <stop offset="0"    stop-color="#FBF1E1"/>
+    <stop offset="0.42" stop-color="#F2E2C9"/>
+    <stop offset="1"    stop-color="#DFC7A4"/>
   </linearGradient>
-  <radialGradient id="sun" cx="0.2" cy="0.08" r="0.62">
-    <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+  <radialGradient id="keylight" cx="0.14" cy="0.05" r="0.72">
+    <stop offset="0"   stop-color="#FFFBF2" stop-opacity="0.96"/>
+    <stop offset="0.5" stop-color="#FFF2D9" stop-opacity="0.45"/>
+    <stop offset="1"   stop-color="#FFF2D9" stop-opacity="0"/>
   </radialGradient>
-  <linearGradient id="mirror" x1="0.2" y1="0" x2="0.8" y2="1">
-    <stop offset="0" stop-color="#FFFDFA"/><stop offset="0.55" stop-color="#F4EBDD"/><stop offset="1" stop-color="#E8DAC6"/>
-  </linearGradient>
-  <linearGradient id="counter" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#FFFFFF"/><stop offset="0.3" stop-color="#FBF7F2"/><stop offset="1" stop-color="#EFE7DB"/>
-  </linearGradient>
-  <linearGradient id="blazer" x1="0.1" y1="0" x2="0.9" y2="1">
-    <stop offset="0" stop-color="#F0E7DA"/><stop offset="1" stop-color="#DDCEB8"/>
-  </linearGradient>
-  <linearGradient id="sleeveL" x1="0" y1="0" x2="1" y2="0.6">
-    <stop offset="0" stop-color="#E9DECE"/><stop offset="1" stop-color="#DCCCB5"/>
-  </linearGradient>
-  <linearGradient id="lap" x1="0.2" y1="0" x2="0.9" y2="1">
-    <stop offset="0" stop-color="#EDE8DE"/><stop offset="1" stop-color="#D2CBBD"/>
-  </linearGradient>
-  <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
-    <stop offset="0" stop-color="#F7E9CC" stop-opacity="0.75"/><stop offset="1" stop-color="#F7E9CC" stop-opacity="0"/>
-  </linearGradient>
-  <linearGradient id="skin" x1="0.2" y1="0" x2="0.9" y2="1">
-    <stop offset="0" stop-color="#EFD6C2"/><stop offset="1" stop-color="#E3C3AB"/>
+  <radialGradient id="bloom" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0"    stop-color="#FFE7B6" stop-opacity="0.9"/>
+    <stop offset="0.45" stop-color="#FFDFA4" stop-opacity="0.34"/>
+    <stop offset="1"    stop-color="#FFDFA4" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="mirrorFace" cx="0.32" cy="0.26" r="0.86">
+    <stop offset="0"   stop-color="#FFF8EA"/>
+    <stop offset="0.6" stop-color="#F6E6C9"/>
+    <stop offset="1"   stop-color="#E4CDA6"/>
+  </radialGradient>
+  <linearGradient id="slat" x1="0" y1="0" x2="1" y2="0.2">
+    <stop offset="0" stop-color="#D3B383"/><stop offset="0.5" stop-color="#C09A67"/><stop offset="1" stop-color="#A9844F"/>
   </linearGradient>
 
-  <!-- 写真的な奥行き（背景ボケ） -->
-  <filter id="bgblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
-    <feGaussianBlur stdDeviation="9"/>
+  <!-- ===== 大理石 ===== -->
+  <linearGradient id="marble" x1="0.1" y1="0" x2="0.55" y2="1">
+    <stop offset="0"    stop-color="#FDF6E9"/>
+    <stop offset="0.3"  stop-color="#F6EAD6"/>
+    <stop offset="0.72" stop-color="#E9D7B9"/>
+    <stop offset="1"    stop-color="#D8C09B"/>
+  </linearGradient>
+  <linearGradient id="edgeLight" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+  </linearGradient>
+
+  <!-- ===== 人物の陰影 ===== -->
+  <linearGradient id="skin" x1="0.12" y1="0.05" x2="0.9" y2="0.95">
+    <stop offset="0"    stop-color="#F6DCC3"/>
+    <stop offset="0.48" stop-color="#EBCBAE"/>
+    <stop offset="1"    stop-color="#D2A785"/>
+  </linearGradient>
+  <linearGradient id="skinArm" x1="0" y1="0" x2="1" y2="0.6">
+    <stop offset="0" stop-color="#F3D7BD"/><stop offset="1" stop-color="#D6AC8B"/>
+  </linearGradient>
+  <linearGradient id="blazer" x1="0.1" y1="0" x2="0.85" y2="1">
+    <stop offset="0"    stop-color="#F4E9D7"/>
+    <stop offset="0.45" stop-color="#E2D1B6"/>
+    <stop offset="1"    stop-color="#BCA482"/>
+  </linearGradient>
+  <linearGradient id="lapel" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#FBF4E8"/><stop offset="1" stop-color="#E3D4BA"/>
+  </linearGradient>
+  <linearGradient id="inner" x1="0.2" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#EADCC6"/><stop offset="1" stop-color="#CDB795"/>
+  </linearGradient>
+  <linearGradient id="hairG" x1="0.15" y1="0.05" x2="0.85" y2="1">
+    <stop offset="0" stop-color="#6B4E37"/><stop offset="0.5" stop-color="#503A28"/><stop offset="1" stop-color="#3B2A1D"/>
+  </linearGradient>
+
+  <!-- ===== 什器 ===== -->
+  <linearGradient id="laptopLid" x1="0.15" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#F2EADA"/><stop offset="0.5" stop-color="#DCD1BB"/><stop offset="1" stop-color="#B8AB90"/>
+  </linearGradient>
+  <linearGradient id="glassBottle" x1="0" y1="0" x2="1" y2="0.3">
+    <stop offset="0" stop-color="#FFFCF6" stop-opacity="0.97"/><stop offset="0.55" stop-color="#F4EADA" stop-opacity="0.9"/><stop offset="1" stop-color="#E2D2B9" stop-opacity="0.95"/>
+  </linearGradient>
+  <linearGradient id="goldMetal" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#EBD3A4"/><stop offset="0.4" stop-color="#C9A86E"/><stop offset="0.72" stop-color="#B08E52"/><stop offset="1" stop-color="#DCC190"/>
+  </linearGradient>
+  <linearGradient id="leafG" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#7E9463"/><stop offset="1" stop-color="#5A6E42"/>
+  </linearGradient>
+
+  <!-- ===== フィルタ ===== -->
+  <filter id="farBlur" x="-14%" y="-14%" width="128%" height="128%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="11"/></filter>
+  <filter id="midBlur" x="-14%" y="-14%" width="128%" height="128%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="5"/></filter>
+  <filter id="castShadow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+    <feDropShadow dx="14" dy="22" stdDeviation="24" flood-color="#6E5433" flood-opacity="0.3"/>
   </filter>
-  <filter id="midblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
-    <feGaussianBlur stdDeviation="4"/>
+  <filter id="propShadow" x="-40%" y="-40%" width="180%" height="180%" color-interpolation-filters="sRGB">
+    <feDropShadow dx="8" dy="12" stdDeviation="12" flood-color="#7A5E3B" flood-opacity="0.26"/>
   </filter>
-  <!-- 粒状感（フィルムグレイン） -->
   <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
-    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
-    <feColorMatrix type="saturate" values="0"/>
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
   </filter>
-  <!-- やわらかい落ち影 -->
-  <filter id="softshadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
-    <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#6B5942" flood-opacity="0.16"/>
-  </filter>
-  <!-- 暖色のグロー -->
-  <radialGradient id="warmglow" cx="0.5" cy="0.5" r="0.5">
-    <stop offset="0" stop-color="#FFE6B4" stop-opacity="0.62"/><stop offset="1" stop-color="#FFE6B4" stop-opacity="0"/>
+  <radialGradient id="vignette" cx="0.44" cy="0.4" r="0.82">
+    <stop offset="0.42" stop-color="#4A3418" stop-opacity="0"/><stop offset="1" stop-color="#4A3418" stop-opacity="0.34"/>
   </radialGradient>
-  <radialGradient id="vig" cx="0.5" cy="0.44" r="0.78">
-    <stop offset="0.46" stop-color="#4A3B28" stop-opacity="0"/><stop offset="1" stop-color="#5A4830" stop-opacity="0.26"/>
-  </radialGradient>
+  <linearGradient id="floorFall" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7A5A2E" stop-opacity="0"/><stop offset="1" stop-color="#7A5A2E" stop-opacity="0.16"/>
+  </linearGradient>
 </defs>
 
-<!-- ===== 背景 ===== -->
-<rect width="1600" height="1340" fill="url(#bg)"/>
-<rect width="1600" height="1340" fill="url(#sun)"/>
+<!-- ============ 背景の壁と光 ============ -->
+<rect width="1600" height="1340" fill="url(#wall)"/>
+<rect width="1600" height="1340" fill="url(#keylight)"/>
 
-<g filter="url(#bgblur)">
-<!-- 右奥：木のルーバー壁 -->
-<g opacity="0.45">
-  <rect x="1150" y="-40" width="500" height="1030" fill="#E7DAC7"/>
-  <g stroke="#D6C4A9" stroke-width="4">
-    <line x1="1192" y1="0" x2="1192" y2="990"/><line x1="1244" y1="0" x2="1244" y2="990"/>
-    <line x1="1296" y1="0" x2="1296" y2="990"/><line x1="1348" y1="0" x2="1348" y2="990"/>
-    <line x1="1400" y1="0" x2="1400" y2="990"/><line x1="1452" y1="0" x2="1452" y2="990"/>
-    <line x1="1504" y1="0" x2="1504" y2="990"/><line x1="1556" y1="0" x2="1556" y2="990"/>
+<!-- ============ 遠景（ボケ） ============ -->
+<g filter="url(#farBlur)">
+  <!-- 木のルーバー壁 -->
+  <rect x="1120" y="-40" width="530" height="1060" fill="url(#slat)" opacity="0.92"/>
+  <g stroke="#8E6C3C" stroke-width="6" opacity="0.62">
+    <line x1="1166" y1="-40" x2="1166" y2="1020"/><line x1="1222" y1="-40" x2="1222" y2="1020"/>
+    <line x1="1278" y1="-40" x2="1278" y2="1020"/><line x1="1334" y1="-40" x2="1334" y2="1020"/>
+    <line x1="1390" y1="-40" x2="1390" y2="1020"/><line x1="1446" y1="-40" x2="1446" y2="1020"/>
+    <line x1="1502" y1="-40" x2="1502" y2="1020"/><line x1="1558" y1="-40" x2="1558" y2="1020"/>
   </g>
-</g>
 
-<!-- ===== 背景：丸ミラーと間接照明 ===== -->
-<circle cx="326" cy="436" r="268" fill="#F6E9D2" opacity="0.45"/>
-<circle cx="326" cy="436" r="236" fill="url(#mirror)"/>
-<path d="M326 200 A236 236 0 0 1 562 436" fill="none" stroke="#FFFFFF" stroke-width="16" opacity="0.75" stroke-linecap="round"/>
-<circle cx="326" cy="436" r="236" fill="none" stroke="#C7AB80" stroke-width="6"/>
+  <!-- 背面のバックライト付き丸ミラー -->
+  <circle cx="330" cy="392" r="300" fill="url(#bloom)"/>
+  <circle cx="330" cy="392" r="242" fill="url(#mirrorFace)"/>
+  <circle cx="330" cy="392" r="242" fill="none" stroke="#FFE9BE" stroke-width="16" opacity="0.85"/>
+  <circle cx="330" cy="392" r="250" fill="none" stroke="#B08E52" stroke-width="11"/>
+  <path d="M330 150 A242 242 0 0 1 572 392" fill="none" stroke="#FFFDF6" stroke-width="18" opacity="0.7" stroke-linecap="round"/>
 
-<!-- 壁のアートフレーム -->
-<g opacity="0.55">
-  <rect x="982" y="206" width="152" height="198" fill="none" stroke="#CBB893" stroke-width="4"/>
-  <path d="M1006 370 C1036 302 1058 326 1082 288 C1100 260 1110 326 1110 370 Z" fill="#DCCDB6"/>
-  <circle cx="1030" cy="264" r="16" fill="#E4D6BE"/>
-</g>
-
-<!-- ===== 右：シェルフと美容ボトル ===== -->
-<g>
-  <rect x="1196" y="356" width="360" height="8" rx="4" fill="#D5C1A0"/>
-  <rect x="1196" y="600" width="360" height="8" rx="4" fill="#D5C1A0"/>
-  <g fill="#FAF4EA" stroke="#DED0B6" stroke-width="2.5">
-    <rect x="1226" y="268" width="44" height="88" rx="9"/>
-    <rect x="1292" y="292" width="34" height="64" rx="8"/>
-    <rect x="1348" y="256" width="48" height="100" rx="10"/>
-    <rect x="1418" y="288" width="32" height="68" rx="8"/>
-    <rect x="1472" y="272" width="42" height="84" rx="9"/>
-    <rect x="1234" y="520" width="38" height="80" rx="9"/>
-    <rect x="1292" y="534" width="48" height="66" rx="9"/>
-    <rect x="1360" y="510" width="34" height="90" rx="8"/>
-    <rect x="1414" y="532" width="46" height="68" rx="9"/>
-    <rect x="1480" y="516" width="32" height="84" rx="8"/>
-  </g>
-  <g fill="#C4A87C">
-    <rect x="1234" y="256" width="28" height="14" rx="5"/><rect x="1358" y="244" width="28" height="14" rx="5"/>
-    <rect x="1480" y="260" width="26" height="13" rx="5"/><rect x="1368" y="498" width="20" height="13" rx="5"/>
-    <rect x="1300" y="522" width="30" height="13" rx="5"/>
-  </g>
-  <!-- 棚のグリーン -->
+  <!-- 間接照明つき什器シェルフ -->
   <g>
-    <path d="M1536 356 h60 v-1 z" fill="none"/>
-    <rect x="1524" y="300" width="58" height="56" rx="10" fill="#EDE2D0"/>
-    <g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round">
-      <path d="M1553 300 C1553 254 1530 234 1512 216"/><path d="M1553 300 C1553 262 1576 240 1596 222"/>
+    <rect x="1156" y="322" width="430" height="14" rx="7" fill="#C8A87A"/>
+    <rect x="1156" y="336" width="430" height="9" fill="#FFE9BE" opacity="0.95"/>
+    <rect x="1156" y="336" width="430" height="60" fill="url(#bloom)" opacity="0.7"/>
+    <rect x="1156" y="596" width="430" height="14" rx="7" fill="#C8A87A"/>
+    <rect x="1156" y="610" width="430" height="9" fill="#FFE9BE" opacity="0.95"/>
+    <rect x="1156" y="610" width="430" height="60" fill="url(#bloom)" opacity="0.7"/>
+    <g fill="url(#glassBottle)" stroke="#D9C4A2" stroke-width="3">
+      <rect x="1186" y="222" width="50" height="100" rx="11"/><rect x="1254" y="248" width="38" height="74" rx="9"/>
+      <rect x="1312" y="206" width="54" height="116" rx="12"/><rect x="1386" y="242" width="36" height="80" rx="9"/>
+      <rect x="1442" y="224" width="48" height="98" rx="11"/><rect x="1510" y="252" width="40" height="70" rx="10"/>
+      <rect x="1188" y="496" width="44" height="100" rx="11"/><rect x="1250" y="516" width="54" height="80" rx="11"/>
+      <rect x="1322" y="486" width="38" height="110" rx="9"/><rect x="1380" y="512" width="50" height="84" rx="11"/>
+      <rect x="1448" y="498" width="36" height="98" rx="9"/><rect x="1502" y="520" width="46" height="76" rx="11"/>
     </g>
-    <ellipse cx="1508" cy="210" rx="26" ry="13" fill="#A9B59D" transform="rotate(-40 1508 210)"/>
-    <ellipse cx="1598" cy="218" rx="26" ry="13" fill="#A9B59D" transform="rotate(38 1598 218)"/>
-    <ellipse cx="1552" cy="242" rx="24" ry="12" fill="#A9B59D"/>
+    <g fill="url(#goldMetal)">
+      <rect x="1194" y="208" width="34" height="18" rx="6"/><rect x="1322" y="192" width="34" height="18" rx="6"/>
+      <rect x="1450" y="210" width="32" height="17" rx="6"/><rect x="1330" y="472" width="22" height="16" rx="5"/>
+      <rect x="1258" y="502" width="38" height="16" rx="5"/><rect x="1392" y="498" width="26" height="16" rx="5"/>
+    </g>
+  </g>
+
+  <!-- 施術ベッドとタオル -->
+  <g>
+    <rect x="1150" y="726" width="470" height="130" rx="30" fill="#FBF4E7"/>
+    <rect x="1150" y="726" width="470" height="46" rx="23" fill="#FFFFFF"/>
+    <rect x="1178" y="686" width="150" height="52" rx="26" fill="#F4E9D6"/>
+    <g><circle cx="1432" cy="700" r="32" fill="#FFFDF7"/><circle cx="1432" cy="700" r="14" fill="#F0E2CC"/>
+       <circle cx="1496" cy="700" r="32" fill="#FAF3E5"/><circle cx="1496" cy="700" r="14" fill="#F0E2CC"/></g>
+    <rect x="1150" y="844" width="470" height="34" fill="#DEC7A4"/>
+  </g>
+
+  <!-- オリーブの木 -->
+  <g>
+    <path d="M1000 880 h108 l-16 132 h-76 z" fill="#E7D4B4"/>
+    <g stroke="#5F7347" stroke-width="9" fill="none" stroke-linecap="round">
+      <path d="M1054 880 C1054 738 1004 668 958 612"/>
+      <path d="M1054 880 C1054 758 1108 696 1154 648"/>
+      <path d="M1054 880 C1054 776 1054 704 1054 638"/>
+    </g>
+    <g fill="url(#leafG)">
+      <ellipse cx="948" cy="598" rx="42" ry="20" transform="rotate(-40 948 598)"/>
+      <ellipse cx="1166" cy="634" rx="42" ry="20" transform="rotate(38 1166 634)"/>
+      <ellipse cx="1054" cy="622" rx="36" ry="17" transform="rotate(-4 1054 622)"/>
+      <ellipse cx="996" cy="694" rx="36" ry="17" transform="rotate(-26 996 694)"/>
+      <ellipse cx="1116" cy="712" rx="36" ry="17" transform="rotate(24 1116 712)"/>
+      <ellipse cx="1054" cy="752" rx="32" ry="15"/>
+      <ellipse cx="982" cy="778" rx="30" ry="14" transform="rotate(-18 982 778)"/>
+      <ellipse cx="1128" cy="792" rx="30" ry="14" transform="rotate(18 1128 792)"/>
+    </g>
   </g>
 </g>
 
-</g>
-<!-- ===== 女性（サロンオーナー） ===== -->
+<!-- ============ 中景の光のにじみ ============ -->
+<ellipse cx="330" cy="392" rx="360" ry="330" fill="url(#bloom)" opacity="0.5"/>
+<ellipse cx="1370" cy="360" rx="330" ry="240" fill="url(#bloom)" opacity="0.34"/>
+
+<!-- ============ 人物 ============ -->
 <g>
-  <!-- お団子ヘア（後ろ） -->
-  <circle cx="598" cy="424" r="50" fill="#5C483A"/>
-  <path d="M598 380 A50 50 0 0 1 640 400" fill="none" stroke="#7C6552" stroke-width="9" stroke-linecap="round"/>
+  <!-- 背後の陰（被写体の分離） -->
+  <ellipse cx="700" cy="690" rx="300" ry="330" fill="#8A6636" opacity="0.16" filter="url(#farBlur)"/>
+  <!-- 落ち影 -->
+  <ellipse cx="700" cy="946" rx="250" ry="42" fill="#7A5828" opacity="0.2" filter="url(#midBlur)"/>
+
+  <!-- お団子ヘア -->
+  <circle cx="596" cy="416" r="52" fill="url(#hairG)"/>
+  <path d="M596 364 A52 52 0 0 1 644 396" fill="none" stroke="#8A6444" stroke-width="11" stroke-linecap="round" opacity="0.85"/>
+
   <!-- 首 -->
-  <path d="M660 526 h60 v104 h-60 z" fill="#D9B79E"/>
+  <path d="M656 520 C656 572 660 606 668 632 h52 C728 606 732 572 732 520 Z" fill="#D9AF8D"/>
+  <path d="M656 524 C678 566 712 566 732 524 Z" fill="#C79B78" opacity="0.6"/>
+
   <!-- 上腕（胴の後ろ） -->
-  <path d="M586 720 C556 806 560 884 590 926" stroke="url(#sleeveL)" stroke-width="82" fill="none" stroke-linecap="round"/>
-  <path d="M800 720 C844 778 864 818 872 852" stroke="url(#sleeveL)" stroke-width="82" fill="none" stroke-linecap="round"/>
-  <!-- 肩・胴（ジャケット本体） -->
-  <path d="M546 962 C546 800 578 702 636 664 L690 636 L744 664 C802 702 834 800 834 962 Z" fill="url(#blazer)"/>
-  <!-- インナー（キャミソール） -->
-  <path d="M652 656 C666 722 690 772 690 816 C690 772 714 722 728 656 Z" fill="#E3D6C2"/>
-  <!-- 襟（ノッチドラペル） -->
-  <path d="M626 678 L660 650 L690 816 L646 752 Z" fill="#F6EFE4"/>
-  <path d="M754 678 L720 650 L690 816 L734 752 Z" fill="#F6EFE4"/>
-  <path d="M626 678 L660 650 L690 816 L646 752 Z" fill="none" stroke="#E0D2BB" stroke-width="2.5"/>
-  <path d="M754 678 L720 650 L690 816 L734 752 Z" fill="none" stroke="#E0D2BB" stroke-width="2.5"/>
-  <!-- 右前腕（カウンターに置く・胴の前） -->
-  <path d="M596 892 C654 918 706 926 756 922" stroke="url(#skin)" stroke-width="52" fill="none" stroke-linecap="round"/>
-  <ellipse cx="778" cy="921" rx="34" ry="25" fill="url(#skin)"/>
-  <path d="M756 938 C772 944 792 942 806 934" stroke="#DDB9A0" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <path d="M584 722 C552 806 556 882 588 926" stroke="url(#blazer)" stroke-width="86" fill="none" stroke-linecap="round"/>
+  <path d="M802 722 C848 780 868 820 876 856" stroke="url(#blazer)" stroke-width="86" fill="none" stroke-linecap="round"/>
+
+  <!-- 胴（ジャケット） -->
+  <path d="M542 966 C542 798 576 700 636 662 L692 634 L748 662 C808 700 842 798 842 966 Z" fill="url(#blazer)"/>
+  <!-- リムライト（左上からの光） -->
+  <path d="M542 966 C542 798 576 700 636 662 L668 646" fill="none" stroke="#FFF6E6" stroke-width="7" opacity="0.75" stroke-linecap="round"/>
+
+  <!-- インナー -->
+  <path d="M652 654 C666 720 692 772 692 818 C692 772 718 720 732 654 Z" fill="url(#inner)"/>
+  <!-- 襟 -->
+  <path d="M624 678 L660 648 L692 818 L646 752 Z" fill="url(#lapel)"/>
+  <path d="M760 678 L724 648 L692 818 L738 752 Z" fill="url(#lapel)"/>
+  <path d="M624 678 L660 648 L692 818 L646 752 Z" fill="none" stroke="#CDB897" stroke-width="2.5" opacity="0.7"/>
+  <path d="M760 678 L724 648 L692 818 L738 752 Z" fill="none" stroke="#CDB897" stroke-width="2.5" opacity="0.7"/>
+
+  <!-- 右前腕（カウンターに） -->
+  <path d="M594 892 C652 918 706 926 756 922" stroke="url(#skinArm)" stroke-width="54" fill="none" stroke-linecap="round"/>
+  <ellipse cx="780" cy="921" rx="35" ry="26" fill="url(#skinArm)"/>
+  <path d="M756 938 C774 944 796 941 810 932" stroke="#C99A76" stroke-width="4" fill="none" stroke-linecap="round" opacity="0.8"/>
+
   <!-- 左前腕（スマホを持つ） -->
-  <path d="M874 848 C874 760 872 660 870 602" stroke="url(#skin)" stroke-width="52" fill="none" stroke-linecap="round"/>
-  <path d="M857 700 A28 22 0 0 0 891 700" fill="none" stroke="#C4A87C" stroke-width="6"/>
-  <ellipse cx="868" cy="574" rx="35" ry="29" fill="url(#skin)"/>
+  <path d="M878 848 C878 758 876 658 874 600" stroke="url(#skinArm)" stroke-width="54" fill="none" stroke-linecap="round"/>
+  <path d="M860 698 A29 23 0 0 0 896 698" fill="none" stroke="url(#goldMetal)" stroke-width="7"/>
+  <ellipse cx="872" cy="572" rx="36" ry="30" fill="url(#skinArm)"/>
+
+  <!-- 耳とピアス -->
+  <ellipse cx="758" cy="474" rx="14" ry="21" fill="#DCB392"/>
+  <circle cx="759" cy="504" r="13" fill="none" stroke="url(#goldMetal)" stroke-width="6"/>
+
   <!-- 顔 -->
-  <ellipse cx="690" cy="466" rx="69" ry="85" fill="url(#skin)"/>
-  <!-- 耳＋フープピアス -->
-  <ellipse cx="758" cy="478" rx="13" ry="19" fill="#E3C3AB"/>
-  <circle cx="759" cy="506" r="12" fill="none" stroke="#C4A87C" stroke-width="5"/>
-  <!-- 前髪・髪 -->
-  <path d="M620 476 C612 392 644 350 694 350 C748 350 766 396 762 460 C752 428 732 402 696 398 C656 394 630 430 620 476 Z" fill="#5C483A"/>
-  <path d="M624 468 C634 428 658 400 694 400 C716 400 734 408 746 422 C722 408 690 410 666 426 C646 439 632 452 624 468 Z" fill="#7C6552" opacity="0.55"/>
-  <!-- 後れ毛 -->
-  <path d="M626 462 C616 520 620 560 630 588" stroke="#5C483A" stroke-width="10" fill="none" stroke-linecap="round"/>
-  <!-- 表情（やわらかい微笑み） -->
-  <g stroke="#6E5748" fill="none" stroke-linecap="round">
-    <path d="M646 438 Q664 428 682 436" stroke-width="5"/>
-    <path d="M700 436 Q718 428 734 438" stroke-width="5"/>
-    <path d="M650 466 Q664 478 678 466" stroke-width="4.5"/>
-    <path d="M702 466 Q716 478 730 466" stroke-width="4.5"/>
+  <ellipse cx="692" cy="462" rx="70" ry="86" fill="url(#skin)"/>
+  <!-- 頬の光 -->
+  <ellipse cx="666" cy="450" rx="34" ry="42" fill="#FFF1DF" opacity="0.32"/>
+
+  <!-- 髪 -->
+  <path d="M620 474 C612 386 646 342 696 342 C752 342 770 390 766 456 C756 422 736 396 700 392 C660 388 632 426 620 474 Z" fill="url(#hairG)"/>
+  <path d="M700 342 C740 346 762 376 766 424 C750 388 726 368 694 366 Z" fill="#8A6444" opacity="0.4"/>
+  <path d="M624 468 C614 528 618 568 628 596" stroke="#503A28" stroke-width="11" fill="none" stroke-linecap="round"/>
+
+  <!-- 表情 -->
+  <g stroke="#6A4E38" fill="none" stroke-linecap="round">
+    <path d="M648 434 Q666 424 684 432" stroke-width="5.5"/>
+    <path d="M702 432 Q720 424 736 434" stroke-width="5.5"/>
+    <path d="M652 462 Q666 475 680 462" stroke-width="5"/>
+    <path d="M704 462 Q718 475 732 462" stroke-width="5"/>
   </g>
-  <path d="M678 512 Q692 524 706 511" stroke="#C98F89" stroke-width="5" fill="none" stroke-linecap="round"/>
-  <ellipse cx="652" cy="492" rx="17" ry="9" fill="#D8998F" opacity="0.3"/>
-  <ellipse cx="730" cy="492" rx="17" ry="9" fill="#D8998F" opacity="0.3"/>
+  <path d="M680 509 Q694 521 708 508" stroke="#C48078" stroke-width="5.5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="654" cy="489" rx="18" ry="9" fill="#D18A7E" opacity="0.34"/>
+  <ellipse cx="732" cy="489" rx="18" ry="9" fill="#D18A7E" opacity="0.34"/>
 </g>
 
 <!-- スマートフォン -->
-<g transform="rotate(-10 878 452)">
-  <rect x="818" y="340" width="120" height="226" rx="19" fill="#F8F4EE" stroke="#D6D0C6" stroke-width="3"/>
-  <rect x="829" y="355" width="98" height="184" rx="10" fill="#FFFFFF"/>
-  <rect x="838" y="366" width="80" height="60" rx="7" fill="#F0E4D3"/>
-  <circle cx="878" cy="396" r="15" fill="#E0CDB2"/>
-  <rect x="838" y="436" width="80" height="8" rx="4" fill="#E8DDCB"/>
-  <rect x="838" y="452" width="56" height="8" rx="4" fill="#EEE5D7"/>
-  <rect x="838" y="478" width="80" height="28" rx="14" fill="#B59A70"/>
-  <rect x="860" y="347" width="36" height="6" rx="3" fill="#DCD6CC"/>
+<g transform="rotate(-10 880 450)" filter="url(#propShadow)">
+  <rect x="820" y="338" width="122" height="228" rx="20" fill="#FBF7F0" stroke="#CFC5B4" stroke-width="3"/>
+  <rect x="831" y="353" width="100" height="186" rx="11" fill="#FFFFFF"/>
+  <rect x="840" y="364" width="82" height="62" rx="8" fill="#F3E4CD"/>
+  <circle cx="881" cy="395" r="16" fill="#DDC49E"/>
+  <rect x="840" y="436" width="82" height="8" rx="4" fill="#E9DCC4"/>
+  <rect x="840" y="452" width="58" height="8" rx="4" fill="#EFE6D4"/>
+  <rect x="840" y="478" width="82" height="29" rx="14.5" fill="url(#goldMetal)"/>
+  <rect x="862" y="345" width="38" height="6" rx="3" fill="#D8CEBC"/>
 </g>
 
-<!-- ===== カウンター（大理石） ===== -->
-<path d="M0 950 H1600 V1340 H0 Z" fill="url(#counter)"/>
-<path d="M0 950 H1600 V966 H0 Z" fill="#FFFFFF"/>
-<g stroke="#E4DACA" stroke-width="2.5" fill="none" opacity="0.7" stroke-linecap="round">
-  <path d="M80 1076 C230 1044 300 1128 448 1100"/>
-  <path d="M940 1024 C1064 1058 1172 1010 1300 1042"/>
-  <path d="M300 1246 C430 1216 520 1276 660 1252"/>
+<!-- ============ カウンター（大理石） ============ -->
+<path d="M0 946 H1600 V1340 H0 Z" fill="url(#marble)"/>
+<rect x="0" y="946" width="1600" height="26" fill="url(#edgeLight)"/>
+<!-- 石目 -->
+<g fill="none" stroke="#C9B08A" stroke-linecap="round" opacity="0.7">
+  <path d="M60 1070 C220 1030 300 1122 470 1088 C600 1062 660 1134 800 1108" stroke-width="3"/>
+  <path d="M900 1010 C1030 1052 1140 1000 1270 1038 C1370 1068 1450 1018 1590 1052" stroke-width="2.5"/>
+  <path d="M260 1236 C400 1200 500 1268 660 1240" stroke-width="2.5"/>
+  <path d="M1020 1210 C1150 1250 1290 1194 1440 1232" stroke-width="3"/>
+  <path d="M140 1160 C300 1118 390 1210 540 1178" stroke-width="9" stroke="#F0E3CB" opacity="0.85"/>
+  <path d="M1000 1126 C1150 1164 1290 1110 1460 1148" stroke-width="8" stroke="#F0E3CB" opacity="0.8"/>
 </g>
-<g stroke="#F0E7D9" stroke-width="9" fill="none" opacity="0.8" stroke-linecap="round">
-  <path d="M140 1164 C300 1126 380 1212 536 1182"/>
-  <path d="M1020 1130 C1160 1164 1300 1114 1450 1150"/>
+<!-- 天板の映り込み -->
+<rect x="0" y="946" width="1600" height="150" fill="url(#bloom)" opacity="0.3"/>
+
+<!-- ============ ノートPC ============ -->
+<g filter="url(#castShadow)">
+  <path d="M1046 946 L1442 946 L1404 706 L1084 706 Z" fill="url(#laptopLid)"/>
+  <path d="M1046 946 L1442 946 L1404 706 L1084 706 Z" fill="none" stroke="#A99B7E" stroke-width="4"/>
+  <path d="M1098 726 L1390 726 L1420 930 L1068 930 Z" fill="#FFF8EA" opacity="0.42"/>
+  <circle cx="1244" cy="826" r="27" fill="none" stroke="#A99B7E" stroke-width="3"/>
+  <path d="M1014 946 H1474 L1492 984 C1492 996 1480 1004 1464 1004 H1024 C1008 1004 996 996 996 984 Z" fill="#E3D8C0"/>
+  <path d="M1014 946 H1474 L1484 966 H1004 Z" fill="#C2B392"/>
+  <rect x="1186" y="980" width="116" height="9" rx="4.5" fill="#C4BAA6"/>
 </g>
 
-<!-- ===== ノートPC ===== -->
-<g>
-  <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="url(#lap)" filter="url(#softshadow)"/>
-  <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="none" stroke="#BEB8AE" stroke-width="4"/>
-  <path d="M1106 736 L1386 736 L1416 934 L1076 934 Z" fill="#F0ECE5" opacity="0.45"/>
-  <circle cx="1245" cy="832" r="26" fill="none" stroke="#BEB8AE" stroke-width="3"/>
-  <path d="M1022 950 H1466 L1482 986 C1482 996 1472 1004 1458 1004 H1030 C1016 1004 1006 996 1006 986 Z" fill="#DEDAD3"/>
-  <path d="M1022 950 H1466 L1474 968 H1014 Z" fill="#C9C4BB"/>
-  <rect x="1190" y="980" width="110" height="8" rx="4" fill="#C9C4BB"/>
-</g>
-
-<!-- ===== コーヒーカップ ===== -->
-<g>
-  <ellipse cx="330" cy="1166" rx="98" ry="26" fill="#F1E9DC" opacity="0.9"/>
-  <path d="M262 1044 C262 1122 288 1156 330 1156 C372 1156 398 1122 398 1044 Z" fill="#FFFFFF"/>
-  <ellipse cx="330" cy="1044" rx="68" ry="21" fill="#F7F1E7"/>
-  <ellipse cx="330" cy="1044" rx="51" ry="14" fill="#C7A57A"/>
-  <ellipse cx="316" cy="1040" rx="18" ry="6" fill="#DCC3A0" opacity="0.8"/>
-  <path d="M398 1066 C438 1062 442 1114 400 1114" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round"/>
-</g>
-
-<!-- ===== ノート＆ペン ===== -->
-<g transform="rotate(-5 700 1234)">
-  <rect x="536" y="1172" width="330" height="128" rx="8" fill="#FFFFFF"/>
-  <rect x="536" y="1172" width="330" height="128" rx="8" fill="none" stroke="#E9E1D4" stroke-width="3"/>
-  <g stroke="#EBE3D6" stroke-width="4" stroke-linecap="round">
-    <line x1="572" y1="1212" x2="828" y2="1212"/><line x1="572" y1="1242" x2="828" y2="1242"/><line x1="572" y1="1272" x2="756" y2="1272"/>
+<!-- ============ 前景の小物 ============ -->
+<!-- 白い花 -->
+<g filter="url(#propShadow)">
+  <path d="M84 1082 C84 1196 110 1250 160 1250 C210 1250 236 1196 236 1082 Z" fill="#FDFAF4" opacity="0.95"/>
+  <path d="M84 1082 h152" stroke="#E6D7BC" stroke-width="5"/>
+  <path d="M96 1092 C100 1180 120 1226 160 1232" fill="none" stroke="#FFFFFF" stroke-width="10" opacity="0.6"/>
+  <g stroke="#5F7347" stroke-width="6" fill="none" stroke-linecap="round">
+    <path d="M160 1082 C160 998 126 954 96 918"/><path d="M160 1082 C160 1008 194 964 228 930"/><path d="M160 1082 C160 1014 160 968 160 910"/>
   </g>
-  <rect x="610" y="1148" width="230" height="14" rx="7" fill="#C4A87C"/>
-  <circle cx="616" cy="1155" r="8" fill="#8E7752"/>
+  <ellipse cx="118" cy="998" rx="32" ry="15" fill="url(#leafG)" transform="rotate(-36 118 998)"/>
+  <ellipse cx="212" cy="1006" rx="32" ry="15" fill="url(#leafG)" transform="rotate(32 212 1006)"/>
+  <circle cx="94" cy="918" r="36" fill="#FFFBF3"/><circle cx="94" cy="918" r="17" fill="#F2E6D2"/>
+  <circle cx="230" cy="928" r="31" fill="#FBF0EC"/><circle cx="230" cy="928" r="14" fill="#E8CEC9"/>
+  <circle cx="160" cy="900" r="40" fill="#FFFFFF"/><circle cx="160" cy="900" r="19" fill="#F7ECDB"/>
+  <circle cx="160" cy="900" r="48" fill="url(#bloom)" opacity="0.5"/>
 </g>
 
-<!-- ===== 花（左手前） ===== -->
-<g>
-  <path d="M88 1086 C88 1194 112 1244 160 1244 C208 1244 232 1194 232 1086 Z" fill="#F8F3EC" opacity="0.96"/>
-  <path d="M88 1086 h144" stroke="#E8DECD" stroke-width="4"/>
-  <g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round">
-    <path d="M160 1086 C160 1006 128 964 100 930"/>
-    <path d="M160 1086 C160 1014 192 972 224 940"/>
-    <path d="M160 1086 C160 1020 160 976 160 920"/>
+<!-- コーヒー -->
+<g filter="url(#propShadow)">
+  <path d="M258 1044 C258 1126 286 1162 330 1162 C374 1162 402 1126 402 1044 Z" fill="#FFFDF9"/>
+  <ellipse cx="330" cy="1044" rx="72" ry="22" fill="#FBF5EA"/>
+  <ellipse cx="330" cy="1044" rx="54" ry="15" fill="#B98C55"/>
+  <ellipse cx="314" cy="1039" rx="20" ry="7" fill="#DCBA8B" opacity="0.85"/>
+  <path d="M402 1068 C444 1064 448 1120 404 1120" fill="none" stroke="#FFFDF9" stroke-width="16" stroke-linecap="round"/>
+  <ellipse cx="330" cy="1174" rx="96" ry="22" fill="#EFE2CB" opacity="0.85"/>
+</g>
+
+<!-- ノートとゴールドのペン -->
+<g transform="rotate(-5 700 1238)" filter="url(#propShadow)">
+  <rect x="532" y="1176" width="336" height="130" rx="8" fill="#FFFDF9"/>
+  <rect x="532" y="1176" width="336" height="130" rx="8" fill="none" stroke="#E8DCC5" stroke-width="3"/>
+  <g stroke="#EBDFC8" stroke-width="4" stroke-linecap="round">
+    <line x1="570" y1="1216" x2="830" y2="1216"/><line x1="570" y1="1246" x2="830" y2="1246"/><line x1="570" y1="1276" x2="760" y2="1276"/>
   </g>
-  <ellipse cx="120" cy="1004" rx="30" ry="14" fill="#A9B59D" transform="rotate(-36 120 1004)"/>
-  <ellipse cx="210" cy="1012" rx="30" ry="14" fill="#A9B59D" transform="rotate(32 210 1012)"/>
-  <circle cx="98" cy="922" r="33" fill="#F8F3EC"/><circle cx="98" cy="922" r="16" fill="#EEE3D4"/>
-  <circle cx="228" cy="932" r="29" fill="#F5EBE9"/><circle cx="228" cy="932" r="14" fill="#E2CBC8"/>
-  <circle cx="160" cy="906" r="37" fill="#FFFCF8"/><circle cx="160" cy="906" r="18" fill="#F1E7DA"/>
+  <rect x="608" y="1150" width="236" height="15" rx="7.5" fill="url(#goldMetal)"/>
+  <circle cx="614" cy="1158" r="9" fill="#8E7040"/>
 </g>
 
-<!-- ===== 美容アイテム（右手前） ===== -->
-<g>
-  <rect x="1452" y="1064" width="82" height="152" rx="17" fill="#FCF8F2" stroke="#E6DDCD" stroke-width="3"/>
-  <rect x="1470" y="1032" width="46" height="36" rx="9" fill="#C4A87C"/>
-  <rect x="1344" y="1112" width="64" height="104" rx="15" fill="#F5EEE4" stroke="#E6DDCD" stroke-width="3"/>
-  <rect x="1358" y="1086" width="36" height="28" rx="7" fill="#D6C3A5"/>
+<!-- ゴールドトレーと化粧品 -->
+<g filter="url(#propShadow)">
+  <ellipse cx="1444" cy="1214" rx="152" ry="44" fill="url(#goldMetal)"/>
+  <ellipse cx="1444" cy="1206" rx="136" ry="38" fill="#F6E9CC"/>
+  <ellipse cx="1444" cy="1206" rx="136" ry="38" fill="none" stroke="#C9A86E" stroke-width="3"/>
+  <rect x="1470" y="1054" width="86" height="156" rx="18" fill="url(#glassBottle)" stroke="#D9C4A2" stroke-width="3"/>
+  <rect x="1488" y="1020" width="50" height="38" rx="10" fill="url(#goldMetal)"/>
+  <rect x="1352" y="1100" width="66" height="110" rx="16" fill="url(#glassBottle)" stroke="#D9C4A2" stroke-width="3"/>
+  <rect x="1366" y="1074" width="38" height="30" rx="8" fill="url(#goldMetal)"/>
+  <ellipse cx="1436" cy="1186" rx="46" ry="16" fill="#EADAB8" opacity="0.7"/>
 </g>
 
-<!-- 前景の光 -->
-<rect x="0" y="950" width="1600" height="130" fill="url(#glow)" opacity="0.45"/>
-
-<!-- 写真的な仕上げ：光・周辺減光・粒状感 -->
-<rect width="1600" height="1340" fill="url(#vig)"/>
-<rect width="1600" height="1340" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
+<!-- ============ 仕上げ：光・周辺減光・粒状感 ============ -->
+<ellipse cx="220" cy="130" rx="520" ry="380" fill="url(#bloom)" opacity="0.24"/>
+<!-- 全体の暖色グレード -->
+<rect width="1600" height="1340" fill="#C98F3A" opacity="0.07" style="mix-blend-mode:multiply"/>
+<!-- 下端を落として重心をつくる -->
+<rect x="0" y="1130" width="1600" height="210" fill="url(#floorFall)"/>
+<rect width="1600" height="1340" fill="url(#vignette)"/>
+<rect width="1600" height="1340" filter="url(#grain)" opacity="0.055" style="mix-blend-mode:overlay"/>
 </svg>

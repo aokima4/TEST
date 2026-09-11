@@ -2,6 +2,19 @@
 <defs>
   <linearGradient id="og" x1="0.1" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#FDFAF6"/><stop offset="0.55" stop-color="#F4EDE3"/><stop offset="1" stop-color="#E8DCCB"/></linearGradient>
   <radialGradient id="ogs" cx="0.18" cy="0.08" r="0.7"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+
+  <linearGradient id="floorFall" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7A5A2E" stop-opacity="0"/><stop offset="1" stop-color="#7A5A2E" stop-opacity="0.15"/>
+  </linearGradient>
+  <radialGradient id="bloomW" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFE7B6" stop-opacity="0.85"/><stop offset="1" stop-color="#FFE7B6" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vigW" cx="0.46" cy="0.4" r="0.82">
+    <stop offset="0.42" stop-color="#4A3418" stop-opacity="0"/><stop offset="1" stop-color="#4A3418" stop-opacity="0.3"/>
+  </radialGradient>
+  <filter id="grainW" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
+  </filter>
 </defs>
 <rect width="1200" height="630" fill="url(#og)"/><rect width="1200" height="630" fill="url(#ogs)"/>
 <!-- 右：サロンのモチーフ -->
@@ -16,9 +29,9 @@
     <rect x="1106" y="332" width="34" height="60" rx="8"/>
   </g>
   <g fill="#C4A87C"><rect x="922" y="320" width="24" height="12" rx="4"/><rect x="1018" y="312" width="24" height="12" rx="4"/></g>
-  <g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round">
+  <g stroke="#5F7347" stroke-width="5" fill="none" stroke-linecap="round">
     <path d="M876 560 C876 486 848 452 824 424"/><path d="M876 560 C876 498 906 466 934 440"/></g>
-  <g fill="#AEB9A2"><ellipse cx="818" cy="416" rx="28" ry="13" transform="rotate(-40 818 416)"/><ellipse cx="940" cy="432" rx="28" ry="13" transform="rotate(38 940 432)"/><ellipse cx="876" cy="440" rx="24" ry="12"/></g>
+  <g fill="#7E9463"><ellipse cx="818" cy="416" rx="28" ry="13" transform="rotate(-40 818 416)"/><ellipse cx="940" cy="432" rx="28" ry="13" transform="rotate(38 940 432)"/><ellipse cx="876" cy="440" rx="24" ry="12"/></g>
   <path d="M846 560 h62 l-9 62 h-44 z" fill="#EDE3D3"/>
 </g>
 <!-- 左：テキスト -->
@@ -32,4 +45,11 @@
   <rect x="86" y="546" width="330" height="54" rx="27" fill="#393532"/>
   <text x="251" y="580" font-family="'Noto Sans JP',sans-serif" font-size="20" letter-spacing="2" fill="#FFF9F0" text-anchor="middle">無料で開業相談をする</text>
 </g>
+
+<!-- 暖色グレードと仕上げ -->
+<ellipse cx="240" cy="75" rx="744" ry="390" fill="url(#bloomW)" opacity="0.24"/>
+<rect width="1200" height="630" fill="#C98F3A" opacity="0.08" style="mix-blend-mode:multiply"/>
+<rect x="0" y="516" width="1200" height="113" fill="url(#floorFall)"/>
+<rect width="1200" height="630" fill="url(#vigW)"/>
+<rect width="1200" height="630" filter="url(#grainW)" opacity="0.055" style="mix-blend-mode:overlay"/>
 </svg>

@@ -436,6 +436,12 @@ ul{margin:0;padding:0;list-style:none}
 /* ============================================================
    08. SECTION 04 : 集客導線フロー
    ============================================================ */
+/* 導線のイメージビジュアル */
+.journey-visual{margin:0 0 clamp(32px,4.5vw,56px)}
+.journey-visual .ph{aspect-ratio:16/9;border-radius:2px}
+.journey-visual figcaption{
+  margin-top:14px;text-align:center;font-size:12.5px;letter-spacing:.06em;color:var(--muted);
+}
 .flow{
   display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:stretch;
   margin-top:clamp(36px,5vw,56px);
@@ -1075,6 +1081,19 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
       <p class="eyebrow">Customer Journey</p>
       <h2 class="h2">“作る”だけではありません。<br>お客様が予約するまでをつなぎます。</h2>
     </div>
+
+    <!-- 使用画像：
+         ロゴ→ホームページ→Instagram→予約→口コミ→来店 の流れを、
+         段状の石の台に置いたアイテムと矢印で表現した横位置ビジュアル。
+         ベージュ／テラコッタ／自然光。横1600px以上推奨。
+         推奨ファイル名：assets/flow-journey.jpg -->
+    <figure class="journey-visual fade">
+      <div class="ph ph-zoom">
+        <img src="assets/placeholder/flow-journey.svg" width="1600" height="900" loading="lazy"
+             alt="ロゴ、ホームページ、Instagram、予約カレンダー、口コミの星、来店するお客様が順につながっている様子">
+      </div>
+      <figcaption>ロゴづくりから、お客様が来店して口コミを書いてくださるまで。ひと続きの流れとして設計します。</figcaption>
+    </figure>
 
     <!-- 導線フロー（上段：接点／下段：顧客心理） -->
     <div class="flow fade" data-d="1">

@@ -1,0 +1,254 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 900" width="1600" height="900" role="img" aria-label="ロゴ、ホームページ、Instagram、予約カレンダー、口コミの星、来店するお客様が段状の石の台に並び、銅色の矢印でつながっている様子">
+<defs>
+  <linearGradient id="jw" x1="0.1" y1="0" x2="0.7" y2="1">
+    <stop offset="0" stop-color="#F4E6D0"/><stop offset="0.55" stop-color="#E9D5B9"/><stop offset="1" stop-color="#DCC5A3"/>
+  </linearGradient>
+  <linearGradient id="terra" x1="0" y1="0" x2="1" y2="0.6">
+    <stop offset="0" stop-color="#C3866A"/><stop offset="0.5" stop-color="#B0704F"/><stop offset="1" stop-color="#95583B"/>
+  </linearGradient>
+  <linearGradient id="archG" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#F8DEBB"/><stop offset="0.55" stop-color="#E9BA8D"/><stop offset="1" stop-color="#CF9366"/>
+  </linearGradient>
+  <linearGradient id="stoneTop" x1="0" y1="0" x2="0.55" y2="1">
+    <stop offset="0" stop-color="#F9F1E2"/><stop offset="1" stop-color="#EBDDC5"/>
+  </linearGradient>
+  <linearGradient id="stoneFace" x1="0" y1="0" x2="0.8" y2="0.5">
+    <stop offset="0" stop-color="#EADCC4"/><stop offset="0.55" stop-color="#DECBAC"/><stop offset="1" stop-color="#C9B48D"/>
+  </linearGradient>
+  <linearGradient id="copper" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#DBA071"/><stop offset="0.5" stop-color="#B87A4E"/><stop offset="1" stop-color="#985E37"/>
+  </linearGradient>
+  <linearGradient id="cream" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#FEFAF1"/><stop offset="1" stop-color="#F1E5CF"/>
+  </linearGradient>
+  <linearGradient id="olive" x1="0" y1="0" x2="1" y2="1">
+    <stop offset="0" stop-color="#84996A"/><stop offset="1" stop-color="#566A3E"/>
+  </linearGradient>
+  <linearGradient id="dress" x1="0" y1="0" x2="1" y2="0.5">
+    <stop offset="0" stop-color="#EEDEC4"/><stop offset="1" stop-color="#C6AC87"/>
+  </linearGradient>
+  <filter id="jsoft" x="-45%" y="-45%" width="190%" height="190%" color-interpolation-filters="sRGB">
+    <feDropShadow dx="18" dy="16" stdDeviation="16" flood-color="#7C5734" flood-opacity="0.3"/>
+  </filter>
+  <filter id="jblur2" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="6"/></filter>
+  <filter id="jgrain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <radialGradient id="jvig" cx="0.42" cy="0.36" r="0.86">
+    <stop offset="0.44" stop-color="#4A3418" stop-opacity="0"/><stop offset="1" stop-color="#4A3418" stop-opacity="0.3"/>
+  </radialGradient>
+  <radialGradient id="jsun" cx="0.14" cy="0.02" r="0.72">
+    <stop offset="0" stop-color="#FFF9EA" stop-opacity="0.95"/><stop offset="1" stop-color="#FFF9EA" stop-opacity="0"/>
+  </radialGradient>
+</defs>
+
+<!-- ============ 壁 ============ -->
+<rect width="1600" height="900" fill="url(#jw)"/>
+<rect width="1600" height="900" fill="url(#jsun)"/>
+
+<!-- 葉の影 -->
+<g fill="#8A6540" opacity="0.12" filter="url(#jblur2)">
+  <g transform="rotate(-22 240 140)">
+    <ellipse cx="110" cy="110" rx="136" ry="26"/><ellipse cx="192" cy="168" rx="118" ry="23"/>
+    <ellipse cx="66"  cy="192" rx="106" ry="21"/><ellipse cx="248" cy="84"  rx="100" ry="20"/>
+    <ellipse cx="164" cy="34"  rx="114" ry="21"/><ellipse cx="32"  cy="62"  rx="90"  ry="18"/>
+  </g>
+  <g transform="rotate(-14 720 74)">
+    <ellipse cx="640" cy="40" rx="106" ry="20"/><ellipse cx="742" cy="94" rx="94" ry="18"/>
+  </g>
+</g>
+
+<!-- ============ 右：テラコッタの壁とアーチ ============ -->
+<g>
+  <rect x="1286" y="0" width="314" height="900" fill="url(#terra)"/>
+  <rect x="1286" y="0" width="44" height="900" fill="#7E4A31" opacity="0.22"/>
+  <path d="M1352 500 V322 a108 108 0 0 1 216 0 V500 Z" fill="url(#archG)"/>
+  <path d="M1352 500 V322 a108 108 0 0 1 216 0 V500 Z" fill="none" stroke="#8A5233" stroke-width="5" opacity="0.32"/>
+  <path d="M1352 500 V360 a108 108 0 0 1 96 -76 L1470 500 Z" fill="#FFE9C4" opacity="0.34"/>
+</g>
+
+<!-- ============ 段状の石の台 ============ -->
+<g>
+  <!-- 最上段（E） -->
+  <path d="M1060 900 V500 H1600 V900 Z" fill="url(#stoneFace)"/>
+  <path d="M1060 500 H1600 V472 H1032 Z" fill="url(#stoneTop)"/>
+  <!-- D -->
+  <path d="M810 900 V552 H1080 V900 Z" fill="url(#stoneFace)"/>
+  <path d="M810 552 H1080 V524 H784 Z" fill="url(#stoneTop)"/>
+  <!-- C -->
+  <path d="M560 900 V600 H830 V900 Z" fill="url(#stoneFace)"/>
+  <path d="M560 600 H830 V574 H536 Z" fill="url(#stoneTop)"/>
+  <!-- B -->
+  <path d="M290 900 V656 H580 V900 Z" fill="url(#stoneFace)"/>
+  <path d="M290 656 H580 V630 H266 Z" fill="url(#stoneTop)"/>
+  <!-- A -->
+  <path d="M0 900 V720 H310 V900 Z" fill="url(#stoneFace)"/>
+  <path d="M0 720 H310 V696 H0 Z" fill="url(#stoneTop)"/>
+  <!-- 石の粒感 -->
+  <g fill="#C2A87F" opacity="0.26">
+    <circle cx="90" cy="790" r="3"/><circle cx="196" cy="842" r="2.4"/><circle cx="248" cy="756" r="3"/>
+    <circle cx="360" cy="740" r="2.6"/><circle cx="470" cy="820" r="3"/><circle cx="520" cy="700" r="2.4"/>
+    <circle cx="640" cy="668" r="2.8"/><circle cx="760" cy="780" r="2.6"/><circle cx="880" cy="628" r="3"/>
+    <circle cx="1000" cy="720" r="2.5"/><circle cx="1140" cy="586" r="2.8"/><circle cx="1250" cy="680" r="2.4"/>
+  </g>
+  <!-- 段の内側の影 -->
+  <g fill="#9A7A4E" opacity="0.14">
+    <rect x="290" y="656" width="290" height="16"/><rect x="560" y="600" width="270" height="16"/>
+    <rect x="810" y="552" width="270" height="16"/><rect x="1060" y="500" width="540" height="16"/>
+  </g>
+</g>
+
+<!-- ============ 歩き出すお客様 ============ -->
+<g>
+  <ellipse cx="1442" cy="498" rx="80" ry="16" fill="#7E4A31" opacity="0.3" filter="url(#jblur2)"/>
+  <path d="M1424 496 V392" stroke="#DCC4A4" stroke-width="24" stroke-linecap="round"/>
+  <path d="M1462 496 V392" stroke="#C8AE8B" stroke-width="24" stroke-linecap="round"/>
+  <path d="M1390 410 C1390 320 1404 266 1442 254 C1480 266 1494 320 1494 410 Z" fill="url(#dress)"/>
+  <path d="M1390 410 C1390 330 1402 278 1432 260" fill="none" stroke="#FBF1DE" stroke-width="6" opacity="0.75" stroke-linecap="round"/>
+  <path d="M1398 288 C1388 336 1388 372 1394 398" stroke="url(#dress)" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <path d="M1486 288 C1496 336 1496 372 1490 398" stroke="url(#dress)" stroke-width="24" fill="none" stroke-linecap="round"/>
+  <path d="M1492 312 h62 v88 h-62 z" fill="#A9714A"/>
+  <path d="M1498 312 C1498 282 1548 282 1548 312" fill="none" stroke="#A9714A" stroke-width="6"/>
+  <rect x="1432" y="226" width="22" height="40" fill="#D3A986"/>
+  <ellipse cx="1442" cy="200" rx="38" ry="44" fill="#4E3828"/>
+  <circle cx="1410" cy="184" r="22" fill="#4E3828"/>
+  <path d="M1442 158 A38 44 0 0 1 1477 196" fill="none" stroke="#7A5A40" stroke-width="7" stroke-linecap="round" opacity="0.75"/>
+</g>
+
+<!-- ============ ① ロゴカード ============ -->
+<g filter="url(#jsoft)">
+  <rect x="86" y="520" width="152" height="200" rx="4" fill="url(#cream)"/>
+  <rect x="86" y="520" width="152" height="200" rx="4" fill="none" stroke="#DCC7A4" stroke-width="3"/>
+  <g transform="translate(168 606) scale(0.86)" stroke="url(#copper)" fill="none" stroke-linecap="round" stroke-linejoin="round">
+    <!-- 横顔（右向き） -->
+    <path d="M-4 -48 C20 -48 36 -30 36 -10 C36 0 42 4 42 8 C42 12 34 14 32 18
+             C36 28 27 36 15 36 C11 46 13 56 19 63" stroke-width="4.6"/>
+    <!-- 後頭部 -->
+    <path d="M-4 -48 C-28 -46 -42 -26 -40 -2 C-38 20 -24 34 -4 39" stroke-width="4.6"/>
+    <!-- 葉（ブランドモチーフ） -->
+    <path d="M-14 -44 C-32 -58 -54 -54 -60 -34 C-42 -24 -22 -30 -14 -44 Z" stroke-width="4.2"/>
+    <path d="M-14 -44 C-28 -38 -44 -34 -58 -33" stroke-width="2.8" opacity="0.85"/>
+    <path d="M-30 12 C-46 6 -52 -8 -44 -18" stroke-width="4.2"/>
+  </g>
+  <line x1="122" y1="682" x2="202" y2="682" stroke="#D3BC97" stroke-width="3"/>
+</g>
+
+<!-- ============ ② ノートPC（ホームページ） ============ -->
+<g filter="url(#jsoft)">
+  <path d="M316 636 L556 636 L536 486 L336 486 Z" fill="#E2D9C7"/>
+  <path d="M316 636 L556 636 L536 486 L336 486 Z" fill="none" stroke="#C3B698" stroke-width="3"/>
+  <rect x="348" y="498" width="176" height="126" fill="#FFFDF8"/>
+  <rect x="348" y="498" width="176" height="18" fill="#F2E9D8"/>
+  <g fill="#D8C7A6"><circle cx="357" cy="507" r="3"/><circle cx="367" cy="507" r="3"/><circle cx="377" cy="507" r="3"/></g>
+  <rect x="396" y="503" width="64" height="7" rx="3.5" fill="#E9DEC6"/>
+  <rect x="356" y="524" width="160" height="60" fill="#EADCC4"/>
+  <circle cx="404" cy="550" r="16" fill="#D5BE99"/>
+  <path d="M432 578 c12 -22 22 -12 32 -27 c8 -13 16 17 21 27 z" fill="#C9AE85"/>
+  <rect x="356" y="592" width="86" height="7" rx="3.5" fill="#DFD2B8"/>
+  <rect x="356" y="604" width="58" height="6" rx="3" fill="#E9DEC6"/>
+  <rect x="454" y="592" width="62" height="19" rx="9.5" fill="url(#copper)"/>
+  <path d="M300 636 H572 L584 662 C584 670 576 676 564 676 H308 C296 676 288 670 288 662 Z" fill="#D7CDB6"/>
+  <path d="M300 636 H572 L578 650 H294 Z" fill="#BFB299"/>
+</g>
+
+<!-- ============ ③ スマートフォン（Instagram） ============ -->
+<g filter="url(#jsoft)">
+  <rect x="632" y="382" width="116" height="218" rx="20" fill="#3D2F25"/>
+  <rect x="639" y="389" width="102" height="204" rx="15" fill="#FFFDF8"/>
+  <rect x="673" y="393" width="34" height="5" rx="2.5" fill="#CFC2AC"/>
+  <g>
+    <rect x="646" y="406" width="43" height="48" fill="#E7D8BE"/><rect x="691" y="406" width="43" height="48" fill="#DFCDB4"/>
+    <rect x="646" y="456" width="43" height="48" fill="#EADFC9"/><rect x="691" y="456" width="43" height="48" fill="#E2D0BC"/>
+    <ellipse cx="667" cy="428" rx="14" ry="8" fill="#6E8155" transform="rotate(-24 667 428)"/>
+    <circle cx="712" cy="430" r="12" fill="#CBB08A"/>
+    <circle cx="667" cy="480" r="11" fill="#C9AC86"/>
+    <ellipse cx="712" cy="482" rx="15" ry="8" fill="#CDB394"/>
+  </g>
+  <rect x="646" y="516" width="88" height="16" rx="8" fill="url(#copper)"/>
+  <rect x="646" y="540" width="58" height="7" rx="3.5" fill="#E4D7BC"/>
+  <rect x="646" y="556" width="42" height="7" rx="3.5" fill="#EDE3CE"/>
+</g>
+
+<!-- ============ ④ 卓上カレンダー（予約） ============ -->
+<g filter="url(#jsoft)">
+  <rect x="840" y="400" width="200" height="152" rx="4" fill="url(#cream)"/>
+  <rect x="840" y="400" width="200" height="152" rx="4" fill="none" stroke="#DCC7A4" stroke-width="3"/>
+  <g>
+    <ellipse cx="872" cy="400" rx="8" ry="13" fill="none" stroke="url(#copper)" stroke-width="4.5"/>
+    <ellipse cx="904" cy="400" rx="8" ry="13" fill="none" stroke="url(#copper)" stroke-width="4.5"/>
+    <ellipse cx="936" cy="400" rx="8" ry="13" fill="none" stroke="url(#copper)" stroke-width="4.5"/>
+    <ellipse cx="968" cy="400" rx="8" ry="13" fill="none" stroke="url(#copper)" stroke-width="4.5"/>
+    <ellipse cx="1000" cy="400" rx="8" ry="13" fill="none" stroke="url(#copper)" stroke-width="4.5"/>
+    <ellipse cx="1026" cy="400" rx="8" ry="13" fill="none" stroke="url(#copper)" stroke-width="4.5"/>
+  </g>
+  <rect x="864" y="418" width="66" height="8" rx="4" fill="#D8C29D"/>
+  <g fill="#E2D3B6">
+    <rect x="864" y="442" width="22" height="16" rx="3"/><rect x="892" y="442" width="22" height="16" rx="3"/>
+    <rect x="920" y="442" width="22" height="16" rx="3"/><rect x="948" y="442" width="22" height="16" rx="3"/>
+    <rect x="976" y="442" width="22" height="16" rx="3"/><rect x="1004" y="442" width="22" height="16" rx="3"/>
+    <rect x="864" y="464" width="22" height="16" rx="3"/><rect x="892" y="464" width="22" height="16" rx="3"/>
+    <rect x="948" y="464" width="22" height="16" rx="3"/><rect x="976" y="464" width="22" height="16" rx="3"/>
+    <rect x="1004" y="464" width="22" height="16" rx="3"/>
+    <rect x="864" y="486" width="22" height="16" rx="3"/><rect x="892" y="486" width="22" height="16" rx="3"/>
+    <rect x="920" y="486" width="22" height="16" rx="3"/><rect x="948" y="486" width="22" height="16" rx="3"/>
+    <rect x="976" y="486" width="22" height="16" rx="3"/><rect x="1004" y="486" width="22" height="16" rx="3"/>
+    <rect x="864" y="508" width="22" height="16" rx="3"/><rect x="892" y="508" width="22" height="16" rx="3"/>
+    <rect x="920" y="508" width="22" height="16" rx="3"/><rect x="948" y="508" width="22" height="16" rx="3"/>
+  </g>
+  <rect x="920" y="464" width="22" height="16" rx="3" fill="url(#copper)"/>
+</g>
+
+<!-- ============ ⑤ 口コミ（星） ============ -->
+<g filter="url(#jsoft)">
+  <rect x="1062" y="408" width="216" height="92" rx="4" fill="url(#cream)"/>
+  <rect x="1062" y="408" width="216" height="92" rx="4" fill="none" stroke="#DCC7A4" stroke-width="3"/>
+  <g fill="url(#copper)">
+    <path d="M1096 436 l8 17 19 3 -13 13 3 19 -17 -9 -17 9 3 -19 -13 -13 19 -3 z"/>
+    <path d="M1136 436 l8 17 19 3 -13 13 3 19 -17 -9 -17 9 3 -19 -13 -13 19 -3 z"/>
+    <path d="M1176 436 l8 17 19 3 -13 13 3 19 -17 -9 -17 9 3 -19 -13 -13 19 -3 z"/>
+    <path d="M1216 436 l8 17 19 3 -13 13 3 19 -17 -9 -17 9 3 -19 -13 -13 19 -3 z"/>
+    <path d="M1256 436 l8 17 19 3 -13 13 3 19 -17 -9 -17 9 3 -19 -13 -13 19 -3 z"/>
+  </g>
+</g>
+<g stroke="url(#copper)" stroke-width="5" stroke-linecap="round">
+  <path d="M1176 386 V362"/><path d="M1216 390 L1228 368"/><path d="M1124 390 L1112 368"/>
+</g>
+
+<!-- ============ 銅色の矢印 ============ -->
+<g fill="none" stroke="url(#copper)" stroke-width="8" stroke-linecap="round">
+  <path d="M262 566 C296 538 324 534 352 546"/>
+  <path d="M572 508 C602 476 626 462 650 458"/>
+  <path d="M766 436 C800 414 824 412 848 420"/>
+  <path d="M1056 434 C1082 418 1104 414 1128 416"/>
+  <path d="M1296 434 C1330 410 1360 404 1386 410"/>
+</g>
+<g fill="url(#copper)">
+  <path d="M352 546 l-24 -14 l2 25 z"/>
+  <path d="M650 458 l-20 -18 l-4 25 z"/>
+  <path d="M848 420 l-24 -13 l2 25 z"/>
+  <path d="M1128 416 l-24 -12 l1 25 z"/>
+  <path d="M1386 410 l-23 -14 l0 25 z"/>
+</g>
+
+<!-- ============ 左手前のオリーブ ============ -->
+<g>
+  <path d="M-30 900 V800 h96 l-12 100 z" fill="#E9D6B7"/>
+  <g stroke="#5F7347" stroke-width="8" fill="none" stroke-linecap="round">
+    <path d="M18 800 C18 724 -8 682 -34 650"/><path d="M18 800 C18 736 46 700 72 672"/><path d="M18 800 V678"/>
+  </g>
+  <g fill="url(#olive)">
+    <ellipse cx="-40" cy="642" rx="34" ry="15" transform="rotate(-40 -40 642)"/>
+    <ellipse cx="82" cy="662" rx="34" ry="15" transform="rotate(38 82 662)"/>
+    <ellipse cx="18" cy="666" rx="28" ry="13"/>
+    <ellipse cx="-18" cy="716" rx="28" ry="13" transform="rotate(-26 -18 716)"/>
+    <ellipse cx="62" cy="730" rx="28" ry="13" transform="rotate(24 62 730)"/>
+    <ellipse cx="18" cy="762" rx="24" ry="11"/>
+  </g>
+</g>
+
+<!-- ============ 仕上げ ============ -->
+<ellipse cx="260" cy="50" rx="620" ry="420" fill="#FFE7B6" opacity="0.16"/>
+<rect width="1600" height="900" fill="#C98F3A" opacity="0.06" style="mix-blend-mode:multiply"/>
+<rect width="1600" height="900" fill="url(#jvig)"/>
+<rect width="1600" height="900" filter="url(#jgrain)" opacity="0.055" style="mix-blend-mode:overlay"/>
+</svg>

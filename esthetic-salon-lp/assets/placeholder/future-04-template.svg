@@ -15,6 +15,19 @@
   <radialGradient id="vig" cx="0.5" cy="0.44" r="0.78">
     <stop offset="0.46" stop-color="#4A3B28" stop-opacity="0"/><stop offset="1" stop-color="#5A4830" stop-opacity="0.24"/>
   </radialGradient>
+
+  <linearGradient id="floorFall" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#7A5A2E" stop-opacity="0"/><stop offset="1" stop-color="#7A5A2E" stop-opacity="0.15"/>
+  </linearGradient>
+  <radialGradient id="bloomW" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFE7B6" stop-opacity="0.85"/><stop offset="1" stop-color="#FFE7B6" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vigW" cx="0.46" cy="0.4" r="0.82">
+    <stop offset="0.42" stop-color="#4A3418" stop-opacity="0"/><stop offset="1" stop-color="#4A3418" stop-opacity="0.3"/>
+  </radialGradient>
+  <filter id="grainW" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.85" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
+  </filter>
 </defs>
 <rect width="800" height="600" fill="url(#g4)"/><rect width="800" height="600" fill="url(#s4)"/>
 <g filter="url(#bgblur)">
@@ -26,8 +39,8 @@
 <g stroke="#E8DECE" stroke-width="2" fill="none" opacity=".65"><path d="M30 446 C130 430 180 468 270 452"/><path d="M540 434 C630 456 710 428 782 448"/></g>
 <!-- 観葉植物 -->
 <g><path d="M672 388 h72 l-10 78 h-52 z" fill="#EDE3D3"/>
-<g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round"><path d="M708 388 C708 320 682 288 660 262"/><path d="M708 388 C708 332 736 302 762 276"/></g>
-<g fill="#AEB9A2"><ellipse cx="654" cy="254" rx="28" ry="13" transform="rotate(-40 654 254)"/><ellipse cx="768" cy="268" rx="28" ry="13" transform="rotate(38 768 268)"/><ellipse cx="710" cy="272" rx="24" ry="12"/><ellipse cx="676" cy="318" rx="24" ry="11" transform="rotate(-24 676 318)"/></g></g>
+<g stroke="#5F7347" stroke-width="5" fill="none" stroke-linecap="round"><path d="M708 388 C708 320 682 288 660 262"/><path d="M708 388 C708 332 736 302 762 276"/></g>
+<g fill="#7E9463"><ellipse cx="654" cy="254" rx="28" ry="13" transform="rotate(-40 654 254)"/><ellipse cx="768" cy="268" rx="28" ry="13" transform="rotate(38 768 268)"/><ellipse cx="710" cy="272" rx="24" ry="12"/><ellipse cx="676" cy="318" rx="24" ry="11" transform="rotate(-24 676 318)"/></g></g>
 <!-- コーヒー -->
 <g><ellipse cx="116" cy="498" rx="56" ry="15" fill="#E9DFCF" opacity=".55"/>
 <path d="M78 432 C78 476 92 494 116 494 C140 494 154 476 154 432 Z" fill="#FFFFFF"/>
@@ -88,6 +101,11 @@
     <path d="M522 432 C514 426 506 428 502 434"/><path d="M494 424 C486 418 478 420 474 426"/><path d="M468 428 C460 423 452 425 448 431"/>
   </g>
 </g>
-<rect width="800" height="600" fill="url(#vig)"/>
-<rect width="800" height="600" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
+
+<!-- 暖色グレードと仕上げ -->
+<ellipse cx="160" cy="72" rx="496" ry="372" fill="url(#bloomW)" opacity="0.24"/>
+<rect width="800" height="600" fill="#C98F3A" opacity="0.08" style="mix-blend-mode:multiply"/>
+<rect x="0" y="491" width="800" height="108" fill="url(#floorFall)"/>
+<rect width="800" height="600" fill="url(#vigW)"/>
+<rect width="800" height="600" filter="url(#grainW)" opacity="0.055" style="mix-blend-mode:overlay"/>
 </svg>
