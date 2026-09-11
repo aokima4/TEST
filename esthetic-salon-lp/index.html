@@ -1,0 +1,1966 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- ============================================================
+     SEO / META
+     本番公開前に og:image, og:url, canonical を差し替えてください
+     ============================================================ -->
+<title>エステサロン開業まるごとパック｜ロゴ・HP・Instagram・LINE・予約まで</title>
+<meta name="description" content="エステサロン開業に必要なロゴ、ホームページ、Instagram、公式LINE、予約システム、Googleマップまで一括サポート。技術に集中できる“選ばれるサロン”づくりを支援します。">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://example.com/">
+<!-- 本番公開前：ブランドロゴのファビコンに差し替えてください -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%23FAF7F2'/%3E%3Ccircle cx='32' cy='32' r='22' fill='none' stroke='%23B59A70' stroke-width='2'/%3E%3Ctext x='32' y='41' font-family='Georgia,serif' font-size='24' fill='%23393532' text-anchor='middle'%3EE%3C/text%3E%3C/svg%3E">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="エステサロン開業まるごとパック｜ロゴ・HP・Instagram・LINE・予約まで">
+<meta property="og:description" content="エステサロン開業に必要なロゴ、ホームページ、Instagram、公式LINE、予約システム、Googleマップまで一括サポート。">
+<meta property="og:url" content="https://example.com/">
+<meta property="og:image" content="https://example.com/assets/ogp.jpg">
+<meta property="og:site_name" content="エステサロン開業まるごとパック">
+<meta name="twitter:card" content="summary_large_image">
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+JP:wght@300;400;500;700&family=Noto+Serif+JP:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<!-- 構造化データ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "エステサロン開業まるごとパック",
+  "serviceType": "エステサロン開業支援・ブランディング・Web制作・集客導線構築",
+  "description": "エステサロン開業に必要なロゴ、ホームページ、Instagram、公式LINE、予約システム、Googleマップまでを一括で構築する開業支援サービス。",
+  "areaServed": "JP",
+  "offers": [
+    { "@type": "Offer", "name": "START", "price": "198000", "priceCurrency": "JPY" },
+    { "@type": "Offer", "name": "STANDARD", "price": "398000", "priceCurrency": "JPY" },
+    { "@type": "Offer", "name": "PREMIUM", "price": "698000", "priceCurrency": "JPY" }
+  ]
+}
+</script>
+
+<style>
+/* ============================================================
+   00. DESIGN TOKENS / RESET
+   ============================================================ */
+:root{
+  --ivory:#FAF7F2;
+  --greige:#EDE7DF;
+  --charcoal:#393532;
+  --gold:#B59A70;
+  --gold-light:#D6C3A5;
+  --rose:#C9A3A0;
+  --white:#FFFFFF;
+  --line:rgba(57,53,50,.12);
+  --muted:rgba(57,53,50,.62);
+
+  --serif:"Noto Serif JP",'Yu Mincho',YuMincho,'Hiragino Mincho ProN','MS PMincho',serif;
+  --sans:"Noto Sans JP",'Hiragino Sans','Yu Gothic',sans-serif;
+  --en:"Cormorant Garamond","Times New Roman",serif;
+
+  --max:1140px;
+  --pad:clamp(20px,5vw,40px);
+  --sec-y:clamp(72px,10vw,140px);
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*,*::before,*::after{box-sizing:border-box}
+html{ -webkit-text-size-adjust:100%; scroll-behavior:smooth }
+body{
+  margin:0;
+  background:var(--ivory);
+  color:var(--charcoal);
+  font-family:var(--sans);
+  font-weight:400;
+  font-size:16px;
+  line-height:1.95;
+  letter-spacing:.04em;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;display:block}
+a{color:inherit;text-decoration:none}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+h1,h2,h3,h4{font-family:var(--serif);font-weight:500;line-height:1.55;letter-spacing:.06em;margin:0}
+p{margin:0}
+ul{margin:0;padding:0;list-style:none}
+
+/* ============================================================
+   01. LAYOUT UTILITIES
+   ============================================================ */
+.wrap{width:100%;max-width:var(--max);margin-inline:auto;padding-inline:var(--pad)}
+.wrap-wide{width:100%;max-width:1320px;margin-inline:auto;padding-inline:var(--pad)}
+.section{padding-block:var(--sec-y);position:relative;overflow:hidden}
+.bg-greige{background:var(--greige)}
+.bg-white{background:var(--white)}
+.bg-charcoal{background:var(--charcoal);color:#F3EFEA}
+.center{text-align:center}
+
+/* 英字ラベル */
+.eyebrow{
+  font-family:var(--en);
+  font-size:clamp(12px,1.4vw,14px);
+  letter-spacing:.42em;
+  text-transform:uppercase;
+  color:var(--gold);
+  display:flex;align-items:center;gap:14px;
+  margin-bottom:22px;
+}
+@media(max-width:599px){ .eyebrow{letter-spacing:.24em;gap:10px} }
+.eyebrow::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gold-light),transparent);max-width:120px}
+.center .eyebrow{justify-content:center}
+.center .eyebrow::after{display:none}
+.center .eyebrow::before{content:"";width:40px;height:1px;background:var(--gold-light)}
+
+/* 背景の大きな英字（エディトリアル） */
+.ghost-en{
+  position:absolute;
+  font-family:var(--en);
+  font-size:clamp(80px,16vw,240px);
+  line-height:1;
+  letter-spacing:.02em;
+  color:rgba(181,154,112,.062);
+  pointer-events:none;
+  user-select:none;
+  white-space:nowrap;
+  z-index:0;
+}
+@media(max-width:899px){ .ghost-en{display:none} }
+.section > .wrap, .section > .wrap-wide{position:relative;z-index:1}
+
+/* 見出し */
+.h2{font-size:clamp(24px,4.1vw,40px);line-height:1.6}
+.h3{font-size:clamp(19px,2.6vw,26px)}
+.lead{font-size:clamp(14.5px,1.7vw,16.5px);line-height:2.15;color:var(--muted)}
+.sec-head{margin-bottom:clamp(40px,6vw,72px)}
+
+/* 罫線 */
+.hair{height:1px;background:var(--line);border:0;margin:0}
+
+/* ============================================================
+   02. BUTTONS / CTA
+   ============================================================ */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:14px;
+  min-height:66px;
+  padding:0 40px;
+  font-family:var(--sans);
+  font-size:clamp(14.5px,1.7vw,16px);
+  font-weight:500;
+  letter-spacing:.1em;
+  border-radius:999px;
+  position:relative;
+  overflow:hidden;
+  transition:transform .5s var(--ease), box-shadow .5s var(--ease), color .4s var(--ease);
+  isolation:isolate;
+  text-align:center;
+}
+.btn .arw{
+  width:26px;height:1px;background:currentColor;position:relative;flex:none;
+  transition:width .5s var(--ease);
+}
+.btn .arw::after{
+  content:"";position:absolute;right:0;top:50%;
+  width:7px;height:7px;border-top:1px solid currentColor;border-right:1px solid currentColor;
+  transform:translateY(-50%) rotate(45deg);
+}
+.btn::before{
+  content:"";position:absolute;inset:0;z-index:-1;
+  transform:translateY(101%);
+  transition:transform .6s var(--ease);
+}
+.btn:hover{transform:translateY(-3px);box-shadow:0 18px 40px -18px rgba(57,53,50,.5)}
+.btn:hover::before{transform:translateY(0)}
+.btn:hover .arw{width:36px}
+
+.btn-primary{background:var(--charcoal);color:#FFF9F0}
+.btn-primary::before{background:var(--gold)}
+.btn-primary:hover{color:#fff}
+
+.btn-gold{background:var(--gold);color:var(--charcoal)}
+.btn-gold::before{background:var(--charcoal)}
+.btn-gold:hover{color:#FFF9F0}
+
+.btn-cream{background:#FBF8F3;color:var(--charcoal)}
+.btn-cream::before{background:var(--gold)}
+.btn-cream:hover{color:var(--charcoal)}
+
+.btn-ghost{
+  background:transparent;color:var(--charcoal);
+  box-shadow:inset 0 0 0 1px rgba(57,53,50,.28);
+}
+.btn-ghost::before{background:var(--charcoal)}
+.btn-ghost:hover{color:#FFF9F0}
+
+.btn-outline-light{background:transparent;color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.5)}
+.btn-outline-light::before{background:#fff}
+.btn-outline-light:hover{color:var(--charcoal)}
+
+.cta-notes{
+  display:flex;flex-wrap:wrap;gap:10px 26px;justify-content:center;
+  margin-top:26px;font-size:13px;color:var(--muted);letter-spacing:.06em;
+}
+.cta-notes li{display:flex;align-items:center;gap:8px}
+.cta-notes li::before{
+  content:"";width:5px;height:5px;border-radius:50%;background:var(--gold);flex:none;
+}
+
+/* ============================================================
+   03. IMAGE PLACEHOLDER
+   実画像に差し替える箇所。data-note に必要な画像の指示を記載。
+   ============================================================ */
+.ph{
+  position:relative;
+  background:
+    radial-gradient(120% 90% at 25% 15%, rgba(255,255,255,.95), transparent 60%),
+    radial-gradient(100% 80% at 85% 90%, rgba(201,163,160,.30), transparent 62%),
+    linear-gradient(148deg,#F6F1E9 0%,#EDE4D8 45%,#E3D8C8 100%);
+  overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+  isolation:isolate;
+}
+.ph::before{ /* 微細なテクスチャライン */
+  content:"";position:absolute;inset:0;
+  background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.5) 0 1px,transparent 1px 14px);
+  opacity:.5;
+}
+.ph::after{ /* 中央のモノグラム */
+  content:"";position:absolute;
+  width:34%;aspect-ratio:1;max-width:140px;
+  border:1px solid rgba(181,154,112,.42);
+  border-radius:50%;
+}
+.ph-note{
+  position:relative;z-index:2;
+  font-size:11.5px;line-height:1.85;letter-spacing:.09em;
+  color:rgba(57,53,50,.58);
+  text-align:center;
+  padding:18px 20px;
+  max-width:88%;
+  background:rgba(255,255,255,.7);
+  backdrop-filter:blur(2px);
+  border:1px solid rgba(181,154,112,.32);
+}
+.ph-note b{
+  display:block;font-family:var(--en);font-size:11px;letter-spacing:.32em;
+  color:var(--gold);margin-bottom:6px;font-weight:500;
+}
+.ph-zoom{transition:transform 1.6s var(--ease)}
+.ph-zoom:hover{transform:scale(1.045)}
+
+/* ============================================================
+   04. HEADER
+   ============================================================ */
+.site-header{
+  position:fixed;inset:0 0 auto 0;z-index:100;
+  padding-block:18px;
+  transition:background .5s var(--ease), box-shadow .5s var(--ease), padding .5s var(--ease);
+}
+.site-header.is-stuck{
+  background:rgba(250,247,242,.93);
+  backdrop-filter:blur(14px);
+  box-shadow:0 1px 0 var(--line);
+  padding-block:12px;
+}
+.header-inner{display:flex;align-items:center;justify-content:space-between;gap:20px}
+.logo{display:flex;flex-direction:column;line-height:1.25}
+.logo .ja{font-family:var(--serif);font-size:15px;letter-spacing:.14em}
+.logo .en{font-family:var(--en);font-size:10.5px;letter-spacing:.3em;color:var(--gold)}
+.nav{display:flex;align-items:center;gap:clamp(16px,2.2vw,30px)}
+.nav a{font-size:13px;letter-spacing:.1em;position:relative;padding-block:6px;color:var(--muted);transition:color .4s}
+.nav a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);transition:width .45s var(--ease)}
+.nav a:hover{color:var(--charcoal)}
+.nav a:hover::after{width:100%}
+.header-cta{
+  min-height:46px;padding:0 24px;font-size:13px;border-radius:999px;
+  background:var(--charcoal);color:#FFF9F0;display:inline-flex;align-items:center;
+  letter-spacing:.08em;transition:background .45s var(--ease),transform .45s var(--ease);
+}
+.header-cta:hover{background:var(--gold);transform:translateY(-2px)}
+@media(max-width:1023px){ .nav,.header-cta{display:none} }
+
+/* ============================================================
+   05. SECTION 01 : HERO
+   ============================================================ */
+.hero{position:relative;padding-top:clamp(110px,14vw,150px);padding-bottom:clamp(60px,8vw,96px)}
+.hero::before{
+  content:"";position:absolute;top:0;right:0;width:56%;height:100%;
+  background:linear-gradient(200deg,rgba(237,231,223,.62),rgba(237,231,223,0) 72%);
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 22%);
+  mask-image:linear-gradient(90deg,transparent,#000 22%);
+  z-index:0;
+}
+@media(max-width:899px){ .hero::before{width:100%;height:56%} }
+.hero-grid{
+  position:relative;z-index:1;
+  display:grid;grid-template-columns:1.08fr .92fr;
+  gap:clamp(32px,5vw,64px);align-items:center;
+}
+.hero-copy{max-width:640px}
+.hero h1{
+  font-size:clamp(26px,4.2vw,41px);
+  line-height:1.62;
+  letter-spacing:.045em;
+  font-weight:500;
+  margin-bottom:26px;
+}
+.hero h1 .accent{
+  position:relative;display:inline-block;color:var(--gold);
+}
+.hero h1 .accent::after{
+  content:"";position:absolute;left:0;right:0;bottom:.08em;height:7px;
+  background:rgba(201,163,160,.3);z-index:-1;
+  transform:scaleX(0);transform-origin:left;
+  animation:swipe 1.3s .9s var(--ease) forwards;
+}
+@keyframes swipe{to{transform:scaleX(1)}}
+.hero-sub{font-size:clamp(14px,1.75vw,16px);line-height:2.15;color:rgba(57,53,50,.78);margin-bottom:18px}
+.hero-target{
+  display:inline-block;font-size:12.5px;line-height:1.95;color:var(--muted);
+  padding:10px 18px;background:rgba(255,255,255,.72);
+  border-left:2px solid var(--gold);margin-bottom:34px;
+}
+.sp-br{display:none}
+.pc-br{display:inline}
+@media(max-width:899px){.pc-br{display:none}}
+@media(max-width:599px){.sp-br{display:inline}}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-actions .btn{flex:1 1 auto;min-width:250px}
+.hero-notes{margin-top:24px;justify-content:flex-start}
+.hero-visual{position:relative}
+.hero-visual .ph{aspect-ratio:4/3.35;border-radius:2px}
+.hero-badge{
+  position:absolute;left:-26px;bottom:-26px;
+  background:var(--white);padding:20px 26px;
+  box-shadow:0 24px 50px -28px rgba(57,53,50,.42);
+  max-width:230px;
+}
+.hero-badge .num{font-family:var(--en);font-size:40px;line-height:1;color:var(--gold)}
+.hero-badge .lbl{font-size:11.5px;letter-spacing:.09em;color:var(--muted);margin-top:6px}
+.hero-ghost{top:auto;bottom:-4%;left:-2%}
+@media(max-width:899px){
+  .hero-grid{grid-template-columns:1fr}
+  .hero-copy{max-width:none;order:1}
+  .hero-visual{order:2}
+  .hero-badge{
+    position:static;max-width:none;margin-top:16px;padding:18px 22px;
+    display:flex;align-items:center;gap:16px;box-shadow:none;border:1px solid var(--line);
+  }
+  .hero-badge .num{font-size:34px;flex:none}
+  .hero-badge .lbl{margin-top:0}
+  .hero-actions .btn{min-width:100%}
+  .hero-visual .ph{aspect-ratio:4/3}
+  .hero-notes{margin-top:20px}
+}
+
+/* スクロールインジケータ */
+.scroll-hint{
+  display:flex;align-items:center;gap:12px;margin-top:clamp(40px,6vw,70px);
+  font-family:var(--en);font-size:11px;letter-spacing:.3em;color:var(--muted);
+}
+.scroll-hint .bar{width:56px;height:1px;background:var(--gold-light);position:relative;overflow:hidden}
+.scroll-hint .bar::after{
+  content:"";position:absolute;inset:0;background:var(--gold);
+  animation:slide 2.4s infinite var(--ease);
+}
+@keyframes slide{0%{transform:translateX(-100%)}60%,100%{transform:translateX(100%)}}
+@media(max-width:899px){.scroll-hint{display:none}}
+
+/* ============================================================
+   06. SECTION 02 : 共感・問題提起
+   ============================================================ */
+.problem-body{max-width:720px;margin-inline:auto}
+.problem-body p{margin-bottom:1.4em;font-size:clamp(14.5px,1.7vw,16px);line-height:2.2}
+.q-list{display:flex;flex-direction:column;gap:12px;margin:28px 0 0}
+.q-list li{
+  font-family:var(--serif);font-size:clamp(15px,2vw,18px);
+  color:var(--charcoal);padding-left:26px;position:relative;line-height:1.9;
+}
+.q-list li::before{content:"“";position:absolute;left:0;top:-2px;font-family:var(--en);font-size:26px;color:var(--gold)}
+
+.check-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));
+  margin-top:clamp(40px,6vw,64px);
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+}
+.check-item{
+  padding:20px 22px;display:flex;gap:14px;align-items:flex-start;
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  font-size:14px;line-height:1.85;transition:background .5s var(--ease);
+}
+.check-item:hover{background:var(--white)}
+.check-box{
+  flex:none;width:19px;height:19px;margin-top:4px;
+  border:1px solid var(--gold);position:relative;
+}
+.check-box::after{
+  content:"";position:absolute;left:5px;top:1px;width:6px;height:11px;
+  border-right:1.6px solid var(--gold);border-bottom:1.6px solid var(--gold);
+  transform:rotate(42deg) scale(0);transform-origin:center;
+  transition:transform .45s var(--ease);
+}
+.check-item.in .check-box::after{transform:rotate(42deg) scale(1)}
+
+.problem-conclusion{
+  margin-top:clamp(48px,7vw,80px);text-align:center;position:relative;
+}
+.problem-conclusion .h2{line-height:1.75}
+.problem-conclusion .mark{
+  color:var(--gold);
+  border-bottom:1px solid var(--gold-light);
+  padding-bottom:2px;
+}
+
+/* ============================================================
+   07. SECTION 03 : サービス紹介 + 相関図
+   ============================================================ */
+.service-name{
+  display:inline-block;font-family:var(--serif);
+  font-size:clamp(20px,3.2vw,30px);letter-spacing:.1em;
+  padding:14px 30px;border:1px solid var(--gold);
+  background:rgba(255,255,255,.6);margin-block:20px 30px;
+}
+.orbit{
+  position:relative;width:min(520px,92vw);aspect-ratio:1;margin:clamp(40px,6vw,64px) auto 0;
+}
+.orbit-ring{
+  position:absolute;inset:14%;border:1px dashed rgba(181,154,112,.5);border-radius:50%;
+  animation:spin 70s linear infinite;
+}
+.orbit-ring.r2{inset:4%;border-style:solid;border-color:rgba(181,154,112,.22);animation-duration:100s;animation-direction:reverse}
+@keyframes spin{to{transform:rotate(360deg)}}
+.orbit-core{
+  position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);
+  width:42%;aspect-ratio:1;border-radius:50%;
+  background:var(--white);
+  box-shadow:0 20px 50px -24px rgba(57,53,50,.34);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;
+  padding:10px;
+}
+.orbit-core .en{font-family:var(--en);font-size:12px;letter-spacing:.26em;color:var(--gold)}
+.orbit-core .ja{font-family:var(--serif);font-size:clamp(13px,2.3vw,17px);line-height:1.65;margin-top:6px}
+.orbit-node{
+  position:absolute;left:50%;top:50%;
+  width:clamp(80px,16vw,100px);aspect-ratio:1;border-radius:50%;
+  background:var(--ivory);border:1px solid var(--gold-light);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-size:clamp(11px,1.8vw,12.5px);letter-spacing:.06em;text-align:center;line-height:1.5;
+  transition:transform .6s var(--ease),box-shadow .6s var(--ease),background .6s var(--ease);
+}
+.orbit-node .en{font-family:var(--en);font-size:clamp(10.5px,1.5vw,11.5px);letter-spacing:.2em;color:var(--gold);display:block;margin-bottom:2px}
+.orbit-node:hover{background:var(--white);box-shadow:0 14px 30px -16px rgba(57,53,50,.4)}
+.bg-greige .orbit-node{background:var(--white)}
+
+/* ============================================================
+   08. SECTION 04 : 集客導線フロー
+   ============================================================ */
+.flow{
+  display:grid;grid-template-columns:repeat(7,1fr);gap:10px;align-items:stretch;
+  margin-top:clamp(36px,5vw,56px);
+}
+.flow-step{
+  position:relative;background:var(--white);border:1px solid var(--line);
+  padding:24px 12px;text-align:center;
+  transition:transform .6s var(--ease),border-color .6s var(--ease),box-shadow .6s var(--ease);
+}
+.flow-step:hover{transform:translateY(-6px);border-color:var(--gold);box-shadow:0 18px 36px -22px rgba(57,53,50,.4)}
+.flow-step .no{font-family:var(--en);font-size:12px;letter-spacing:.2em;color:var(--gold)}
+.flow-step .ttl{font-family:var(--serif);font-size:clamp(12.5px,1.5vw,15px);margin-top:10px;line-height:1.6}
+.flow-step .psy{
+  margin-top:14px;padding-top:12px;border-top:1px dashed rgba(181,154,112,.5);
+  font-size:11.5px;color:var(--rose);letter-spacing:.08em;
+}
+.flow-step::after{
+  content:"";position:absolute;right:-9px;top:50%;width:8px;height:8px;
+  border-top:1px solid var(--gold);border-right:1px solid var(--gold);
+  transform:translateY(-50%) rotate(45deg);z-index:2;
+}
+.flow-step:last-child::after{display:none}
+.flow-label{
+  display:flex;gap:16px;align-items:center;justify-content:center;
+  font-size:12px;color:var(--muted);margin-top:26px;flex-wrap:wrap;
+}
+.flow-label span{display:flex;align-items:center;gap:8px}
+.flow-label i{width:22px;height:1px;background:var(--gold);display:block}
+.flow-label i.rose{background:var(--rose)}
+@media(max-width:1023px){
+  .flow{grid-template-columns:1fr;gap:0}
+  .flow-step{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:16px;text-align:left;padding:18px 20px;border-bottom:none}
+  .flow-step:last-child{border-bottom:1px solid var(--line)}
+  .flow-step .ttl{margin-top:0}
+  .flow-step .psy{margin-top:0;padding-top:0;border-top:none;border-left:1px dashed rgba(181,154,112,.5);padding-left:14px;white-space:nowrap}
+  .flow-step::after{right:auto;left:50%;top:auto;bottom:-5px;transform:translateX(-50%) rotate(135deg);background:var(--ivory)}
+}
+
+/* ============================================================
+   09. SECTION 05 : サービス内容 8カード
+   ============================================================ */
+.card-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+  gap:clamp(16px,2vw,24px);
+}
+.s-card{
+  background:var(--white);padding:clamp(26px,3.4vw,36px);
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  border:1px solid var(--line);
+  transition:transform .65s var(--ease),box-shadow .65s var(--ease),border-color .65s var(--ease);
+}
+.s-card::before{
+  content:"";position:absolute;left:0;top:0;width:100%;height:2px;
+  background:linear-gradient(90deg,var(--gold),var(--rose));
+  transform:scaleX(0);transform-origin:left;transition:transform .7s var(--ease);
+}
+.s-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -34px rgba(57,53,50,.42);border-color:transparent}
+.s-card:hover::before{transform:scaleX(1)}
+.s-card .no{
+  font-family:var(--en);font-size:clamp(34px,4.4vw,48px);line-height:1;
+  color:rgba(181,154,112,.34);position:absolute;right:22px;top:16px;
+}
+.s-card .en{font-family:var(--en);font-size:12px;letter-spacing:.3em;color:var(--gold);display:block}
+.s-card h3{font-size:clamp(17px,2.1vw,21px);margin:8px 0 18px}
+.s-card ul{display:flex;flex-wrap:wrap;align-content:flex-start;gap:7px;margin-bottom:16px;flex:1}
+.s-card ul li{
+  font-size:12px;letter-spacing:.05em;color:var(--muted);
+  padding:5px 12px;background:var(--ivory);border-radius:999px;line-height:1.6;
+}
+.s-card .cc{
+  font-family:var(--serif);font-size:14px;line-height:1.9;
+  padding-top:16px;border-top:1px solid var(--line);color:var(--charcoal);
+}
+
+/* ============================================================
+   10. SECTION 06 : 導入後の未来
+   ============================================================ */
+.future-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:clamp(18px,2.4vw,28px)}
+.future-card{background:var(--white);overflow:hidden;border:1px solid var(--line)}
+.future-card .ph{aspect-ratio:4/3}
+.future-card .body{padding:24px}
+.future-card .no{font-family:var(--en);font-size:12px;letter-spacing:.26em;color:var(--gold)}
+.future-card h3{font-size:clamp(15.5px,1.9vw,18px);margin-top:10px;line-height:1.8}
+.future-conclusion{
+  margin-top:clamp(48px,7vw,80px);padding:clamp(36px,5vw,60px);
+  background:var(--white);text-align:center;border:1px solid var(--gold-light);
+  position:relative;
+}
+.future-conclusion::before,.future-conclusion::after{
+  content:"";position:absolute;width:22px;height:22px;border:1px solid var(--gold);
+}
+.future-conclusion::before{left:-1px;top:-1px;border-right:0;border-bottom:0}
+.future-conclusion::after{right:-1px;bottom:-1px;border-left:0;border-top:0}
+
+/* ============================================================
+   11. SECTION 07 : Before / After
+   ============================================================ */
+.ba-table{border-top:1px solid var(--line)}
+.ba-row{
+  display:grid;grid-template-columns:1fr 76px 1fr;align-items:center;gap:10px;
+  padding:20px 8px;border-bottom:1px solid var(--line);
+  transition:background .5s var(--ease);
+}
+.ba-row:hover{background:var(--white)}
+.ba-head{
+  font-family:var(--en);font-size:12px;letter-spacing:.28em;color:var(--gold);
+  padding-bottom:12px;border-bottom:1px solid var(--gold-light);
+}
+.ba-headrow{display:grid;grid-template-columns:1fr 76px 1fr;gap:10px;padding-inline:8px}
+.ba-before{color:var(--muted);font-size:14.5px;line-height:1.8}
+.ba-after{font-family:var(--serif);font-size:clamp(15px,1.9vw,17px);line-height:1.8}
+.ba-arrow{
+  justify-self:center;width:44px;height:1px;background:var(--gold);position:relative;
+}
+.ba-arrow::after{
+  content:"";position:absolute;right:0;top:50%;width:7px;height:7px;
+  border-top:1px solid var(--gold);border-right:1px solid var(--gold);
+  transform:translateY(-50%) rotate(45deg);
+}
+@media(max-width:767px){
+  .ba-headrow{display:none}
+  .ba-row{grid-template-columns:1fr;gap:12px;padding:22px 4px}
+  .ba-before::before{content:"BEFORE";display:block;font-family:var(--en);font-size:10.5px;letter-spacing:.26em;color:rgba(57,53,50,.42);margin-bottom:4px}
+  .ba-after::before{content:"AFTER";display:block;font-family:var(--en);font-size:10.5px;letter-spacing:.26em;color:var(--gold);margin-bottom:4px}
+  .ba-arrow{justify-self:start;width:1px;height:20px;margin-left:6px}
+  .ba-arrow::after{right:auto;left:50%;top:auto;bottom:0;transform:translateX(-50%) rotate(135deg)}
+}
+
+/* ============================================================
+   12. SECTION 08 : 対象ユーザー
+   ============================================================ */
+.target-grid{
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  border-top:1px solid var(--line);border-left:1px solid var(--line);
+}
+.target-card{
+  padding:clamp(28px,3.4vw,40px);
+  border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transition:background .6s var(--ease),transform .6s var(--ease);
+}
+.target-card:hover{background:var(--white)}
+.target-card .no{font-family:var(--en);font-size:30px;color:var(--gold-light);line-height:1}
+.target-card h3{font-size:clamp(16px,2vw,19px);margin:14px 0 14px;line-height:1.75}
+.target-card .voice{
+  font-size:13.5px;line-height:2;color:var(--muted);
+  padding-left:16px;border-left:2px solid var(--rose);
+}
+
+/* ============================================================
+   13. SECTION 09 : 料金プラン
+   ============================================================ */
+.plan-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:clamp(18px,2.4vw,26px);align-items:stretch}
+.plan{
+  background:var(--white);border:1px solid var(--line);
+  padding:clamp(30px,3.6vw,44px) clamp(24px,3vw,34px);
+  display:flex;flex-direction:column;position:relative;
+  transition:transform .65s var(--ease),box-shadow .65s var(--ease);
+}
+.plan:hover{transform:translateY(-8px);box-shadow:0 34px 66px -38px rgba(57,53,50,.45)}
+.plan.featured{
+  border-color:var(--gold);
+  background:linear-gradient(180deg,#fff,#FCF8F1);
+  box-shadow:0 30px 60px -38px rgba(181,154,112,.7);
+}
+.plan-badge{
+  position:absolute;top:-15px;left:50%;transform:translateX(-50%);
+  background:var(--gold);color:#fff;font-size:11.5px;letter-spacing:.2em;
+  padding:8px 22px;white-space:nowrap;
+}
+.plan .en{font-family:var(--en);font-size:clamp(24px,3vw,30px);letter-spacing:.22em;color:var(--charcoal)}
+.plan .for{font-size:13px;color:var(--muted);margin-top:10px;letter-spacing:.05em}
+.plan .price{
+  margin:22px 0 24px;padding-bottom:22px;border-bottom:1px solid var(--line);
+  font-family:var(--serif);font-size:clamp(26px,3.6vw,36px);letter-spacing:.03em;line-height:1.2;
+}
+.plan .price .cur{font-size:.46em;margin-right:2px}
+.plan .price .tilde{font-size:.44em;color:var(--muted);margin-left:4px}
+.plan .price small{display:block;font-family:var(--sans);font-size:11.5px;color:var(--muted);letter-spacing:.06em;margin-top:10px;line-height:1.7}
+.plan ul{display:flex;flex-direction:column;gap:11px;margin-bottom:28px;flex:1}
+.plan ul li{font-size:13.8px;line-height:1.8;padding-left:22px;position:relative;color:rgba(57,53,50,.86)}
+.plan ul li::before{
+  content:"";position:absolute;left:2px;top:.62em;width:5px;height:9px;
+  border-right:1.4px solid var(--gold);border-bottom:1.4px solid var(--gold);
+  transform:rotate(42deg);
+}
+.plan ul li.inherit{font-weight:500;color:var(--charcoal)}
+.plan .btn{width:100%}
+@media(max-width:1023px){ .plan.featured{margin-top:22px} }
+.plan-note{margin-top:26px;font-size:12.5px;color:var(--muted);text-align:center;line-height:2}
+
+/* ============================================================
+   14. SECTION 10 : Canvaテンプレート
+   ============================================================ */
+.tpl-layout{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media(max-width:899px){.tpl-layout{grid-template-columns:1fr}}
+.tpl-tags{display:flex;flex-wrap:wrap;gap:9px;margin:26px 0 28px}
+.tpl-tags li{
+  font-size:12.5px;padding:8px 16px;border:1px solid var(--gold-light);
+  color:var(--charcoal);letter-spacing:.05em;background:rgba(255,255,255,.6);
+  transition:background .5s var(--ease),color .5s var(--ease);
+}
+.tpl-tags li:hover{background:var(--gold);color:#fff;border-color:var(--gold)}
+.tpl-quote{
+  font-family:var(--serif);font-size:clamp(15px,2vw,18px);line-height:2;
+  padding:22px 26px;background:var(--white);border-left:2px solid var(--gold);
+}
+/* モックアップ */
+.mock{position:relative;padding-bottom:56px}
+.mock-pc{
+  background:var(--charcoal);border-radius:10px 10px 4px 4px;padding:9px 9px 0;
+  box-shadow:0 30px 60px -34px rgba(57,53,50,.55);
+}
+.mock-pc .screen{aspect-ratio:16/10;border-radius:3px;overflow:hidden;background:var(--white);display:flex;flex-direction:column}
+.mock-bar{
+  height:22px;flex:none;background:#F4F0E9;border-bottom:1px solid rgba(57,53,50,.09);
+  display:flex;align-items:center;gap:5px;padding-inline:10px;
+}
+.mock-bar i{width:6px;height:6px;border-radius:50%;background:rgba(57,53,50,.18);display:block}
+.mock-bar span{
+  margin-left:8px;flex:1;max-width:210px;height:11px;border-radius:999px;background:rgba(57,53,50,.07);
+}
+.mock-pc .stage{flex:1;padding:14px;display:flex;align-items:center;justify-content:center}
+.mock-pc .base{
+  height:12px;background:linear-gradient(180deg,#2b2826,#4a4542);
+  border-radius:0 0 10px 10px;margin:0 -22px;position:relative;
+}
+.mock-sp{
+  position:absolute;right:-34px;bottom:-6px;width:23%;min-width:108px;max-width:152px;
+  background:var(--charcoal);border-radius:22px;padding:8px;
+  box-shadow:0 26px 50px -26px rgba(57,53,50,.6);
+}
+.mock-sp .screen{aspect-ratio:9/16.4;border-radius:16px;overflow:hidden;background:var(--white);display:flex;flex-direction:column;padding:6px 4px 4px}
+.mock-profile{display:flex;align-items:center;gap:6px;padding:2px 4px 8px;flex:none}
+.mock-profile .av{width:20px;height:20px;border-radius:50%;background:linear-gradient(140deg,#E8DCCB,#D8C3BF);flex:none}
+.mock-profile .ln{flex:1;display:flex;flex-direction:column;gap:3px}
+.mock-profile .ln i{height:4px;border-radius:2px;background:rgba(57,53,50,.12);display:block}
+.mock-profile .ln i:last-child{width:60%;background:rgba(181,154,112,.3)}
+/* 投稿グリッド */
+.post-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;width:100%}
+.post-grid.sp{grid-template-columns:repeat(3,1fr);gap:3px;align-content:start;flex:1}
+.post-grid .cell{
+  aspect-ratio:1;
+  background:linear-gradient(150deg,#F4EEE5,#E6DACB);
+  display:flex;align-items:center;justify-content:center;
+  font-family:var(--en);font-size:clamp(7px,.75vw,10px);letter-spacing:.14em;color:rgba(57,53,50,.45);
+}
+.post-grid .cell:nth-child(3n+2){background:linear-gradient(150deg,#EFE6E4,#DCC8C5)}
+.post-grid .cell:nth-child(4n){background:linear-gradient(150deg,#EDEAE2,#D9D2C4)}
+
+/* ============================================================
+   15. SECTION 11 : 制作の流れ（タイムライン）
+   ============================================================ */
+.timeline{position:relative;margin-top:clamp(36px,5vw,56px)}
+.timeline::before{
+  content:"";position:absolute;left:0;right:0;top:38px;height:1px;background:var(--line);
+}
+.timeline-track{
+  position:absolute;left:0;top:38px;height:1px;background:var(--gold);
+  width:0;transition:width 2.4s var(--ease);
+}
+.timeline.in .timeline-track{width:100%}
+.tl-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:12px;position:relative}
+.tl-item{text-align:center;padding-top:0}
+.tl-dot{
+  display:block;
+  width:15px;height:15px;border-radius:50%;background:var(--ivory);
+  border:1px solid var(--gold);margin:31px auto 22px;position:relative;
+}
+.bg-white .tl-dot{background:var(--white)}
+.tl-dot::after{
+  content:"";position:absolute;inset:3px;border-radius:50%;background:var(--gold);
+  transform:scale(0);transition:transform .6s var(--ease);
+}
+.tl-item.in .tl-dot::after{transform:scale(1)}
+.tl-item .no{font-family:var(--en);font-size:11.5px;letter-spacing:.26em;color:var(--gold)}
+.tl-item h3{font-size:clamp(13.5px,1.6vw,16px);margin-top:8px;line-height:1.7}
+.tl-item p{font-size:12px;color:var(--muted);margin-top:8px;line-height:1.85}
+@media(max-width:899px){
+  .timeline::before,.timeline-track{left:7px;right:auto;top:8px;bottom:8px;width:1px;height:auto}
+  .timeline::before{height:auto}
+  .timeline-track{height:0;width:1px}
+  .timeline.in .timeline-track{width:1px;height:calc(100% - 16px);transition:height 2.4s var(--ease)}
+  .tl-grid{grid-template-columns:1fr;gap:0}
+  .tl-item{text-align:left;display:flex;align-items:flex-start;gap:22px;padding:14px 0}
+  .tl-dot{margin:7px 0 0;flex:none}
+  .tl-body{flex:1}
+  .tl-item h3{margin-top:4px}
+}
+
+/* ============================================================
+   16. SECTION 12 : 制作スケジュール
+   ============================================================ */
+.sched{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:clamp(36px,5vw,56px)}
+.sched-item{
+  background:var(--white);border:1px solid var(--line);padding:26px 18px;text-align:center;
+  position:relative;transition:border-color .6s var(--ease),transform .6s var(--ease);
+}
+.sched-item:hover{border-color:var(--gold);transform:translateY(-5px)}
+.sched-item.open{background:var(--charcoal);color:#F5F0E9;border-color:var(--charcoal)}
+.sched-item .when{font-family:var(--en);font-size:clamp(17px,2.4vw,22px);color:var(--gold);letter-spacing:.08em}
+.sched-item.open .when{color:var(--gold-light)}
+.sched-item .what{font-family:var(--serif);font-size:clamp(13px,1.5vw,15px);margin-top:12px;line-height:1.7}
+.sched-item::after{
+  content:"";position:absolute;right:-8px;top:50%;width:7px;height:7px;
+  border-top:1px solid var(--gold);border-right:1px solid var(--gold);
+  transform:translateY(-50%) rotate(45deg);z-index:2;
+}
+.sched-item:last-child::after{display:none}
+@media(max-width:899px){
+  .sched{grid-template-columns:1fr;gap:0}
+  .sched-item{display:flex;align-items:center;justify-content:space-between;gap:16px;text-align:left;border-bottom:none;padding:18px 22px}
+  .sched-item:last-child{border-bottom:1px solid var(--line)}
+  .sched-item.open:last-child{border-bottom-color:var(--charcoal)}
+  .sched-item .what{margin-top:0}
+  .sched-item::after{right:auto;left:34px;top:auto;bottom:-5px;transform:rotate(135deg);background:var(--ivory)}
+}
+
+/* ============================================================
+   17. SECTION 13 : FAQ
+   ============================================================ */
+.faq{max-width:840px;margin-inline:auto;border-top:1px solid var(--line)}
+.faq-item{border-bottom:1px solid var(--line)}
+.faq-q{
+  width:100%;display:flex;align-items:flex-start;gap:16px;
+  padding:24px 8px;text-align:left;font-size:clamp(14.5px,1.8vw,16.5px);
+  font-family:var(--serif);line-height:1.8;transition:color .4s var(--ease);
+}
+.faq-q:hover{color:var(--gold)}
+.faq-q .qmark{font-family:var(--en);font-size:17px;color:var(--gold);flex:none;line-height:1.6}
+.faq-q .txt{flex:1}
+.faq-icon{flex:none;width:17px;height:17px;position:relative;margin-top:7px}
+.faq-icon::before,.faq-icon::after{
+  content:"";position:absolute;left:50%;top:50%;background:var(--gold);
+  transition:transform .5s var(--ease),opacity .5s var(--ease);
+}
+.faq-icon::before{width:15px;height:1px;transform:translate(-50%,-50%)}
+.faq-icon::after{width:1px;height:15px;transform:translate(-50%,-50%)}
+.faq-item.open .faq-icon::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0}
+.faq-a{
+  display:grid;grid-template-rows:0fr;
+  transition:grid-template-rows .6s var(--ease);
+}
+.faq-item.open .faq-a{grid-template-rows:1fr}
+.faq-a-inner{overflow:hidden}
+.faq-a-body{
+  display:flex;gap:16px;padding:0 8px 26px;
+  font-size:14px;line-height:2.05;color:var(--muted);
+}
+.faq-a-body .amark{font-family:var(--en);font-size:17px;color:var(--rose);flex:none;line-height:1.6}
+
+/* ============================================================
+   18. SECTION 14 : 運営会社・強み
+   ============================================================ */
+.strength-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:clamp(18px,2.4vw,28px);margin-top:clamp(40px,5vw,60px)}
+.strength{
+  padding:clamp(30px,3.6vw,42px);background:rgba(255,255,255,.06);
+  border:1px solid rgba(255,255,255,.16);text-align:center;
+  transition:background .6s var(--ease),transform .6s var(--ease);
+}
+.bg-charcoal .strength:hover{background:rgba(255,255,255,.11);transform:translateY(-6px)}
+.strength .en{font-family:var(--en);font-size:clamp(22px,3vw,28px);letter-spacing:.24em;color:var(--gold-light)}
+.strength h3{font-size:clamp(15px,1.9vw,18px);margin-top:16px;color:#F5F0E9;line-height:1.75}
+.strength p{font-size:13px;line-height:2;color:rgba(243,239,234,.66);margin-top:12px}
+.bg-charcoal .eyebrow{color:var(--gold-light)}
+.bg-charcoal .eyebrow::after{background:linear-gradient(90deg,rgba(214,195,165,.6),transparent)}
+.bg-charcoal .lead{color:rgba(243,239,234,.72)}
+.bg-charcoal .ghost-en{color:rgba(255,255,255,.028)}
+
+/* 数字 */
+.stat-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:22px;margin-top:clamp(40px,5vw,60px);text-align:center}
+.stat .num{font-family:var(--en);font-size:clamp(38px,5.5vw,58px);line-height:1;color:var(--gold-light)}
+.stat .num .unit{font-size:.42em;letter-spacing:.1em;margin-left:3px}
+.stat .lbl{font-size:12px;letter-spacing:.08em;color:rgba(243,239,234,.62);margin-top:12px}
+
+/* ============================================================
+   19. SECTION 15 : 代表メッセージ
+   ============================================================ */
+.msg-layout{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(32px,5vw,64px);align-items:center}
+@media(max-width:899px){.msg-layout{grid-template-columns:1fr}}
+.msg-photo .ph{aspect-ratio:4/5}
+.msg-body h2{margin-bottom:28px}
+.msg-body p{font-size:14.5px;line-height:2.25;color:rgba(57,53,50,.82);margin-bottom:1.3em}
+.msg-sign{margin-top:30px;padding-top:22px;border-top:1px solid var(--line);display:flex;align-items:baseline;gap:14px;flex-wrap:wrap}
+.msg-sign .role{font-size:12px;letter-spacing:.12em;color:var(--muted)}
+.msg-sign .name{font-family:var(--serif);font-size:20px;letter-spacing:.12em}
+.msg-sign .name-en{font-family:var(--en);font-size:13px;letter-spacing:.2em;color:var(--gold)}
+
+/* ============================================================
+   20. SECTION 16 : 最終CTA
+   ============================================================ */
+.final-cta{position:relative;padding-block:clamp(88px,12vw,150px);overflow:hidden;isolation:isolate}
+.final-bg{position:absolute;inset:0;z-index:-2}
+.final-bg .ph{width:100%;height:100%}
+.final-bg .ph-note{display:none}
+.final-bg .ph::after{display:none}
+.final-cta::after{
+  content:"";position:absolute;inset:0;z-index:-1;
+  background:linear-gradient(180deg,rgba(45,41,38,.62),rgba(45,41,38,.78));
+}
+.final-cta .inner{text-align:center;color:#fff;position:relative}
+.final-cta h2{font-size:clamp(24px,4.4vw,44px);line-height:1.65;margin-bottom:22px;color:#fff}
+.final-cta .sub{font-size:clamp(14px,1.8vw,16px);line-height:2.1;color:rgba(255,255,255,.86);margin-bottom:40px}
+.final-cta .eyebrow{color:var(--gold-light);justify-content:center}
+.final-cta .eyebrow::before{background:rgba(214,195,165,.7)}
+.final-actions{display:flex;flex-wrap:wrap;gap:14px;justify-content:center}
+.final-actions .btn{min-width:min(300px,100%)}
+.final-cta .cta-notes{color:rgba(255,255,255,.78);margin-top:30px}
+
+/* ============================================================
+   21. FOOTER
+   ============================================================ */
+.footer{background:var(--charcoal);color:rgba(243,239,234,.7);padding-block:56px 40px;font-size:13px}
+.footer-top{display:flex;flex-wrap:wrap;gap:28px;justify-content:space-between;align-items:flex-start;padding-bottom:32px;border-bottom:1px solid rgba(255,255,255,.13)}
+.footer .logo .ja{color:#F3EFEA}
+.footer-nav{display:flex;flex-wrap:wrap;gap:14px 26px}
+.footer-nav a{font-size:12.5px;letter-spacing:.08em;transition:color .4s}
+.footer-nav a:hover{color:var(--gold-light)}
+.footer-bottom{padding-top:24px;display:flex;flex-wrap:wrap;gap:12px;justify-content:space-between;font-size:11.5px;letter-spacing:.06em;color:rgba(243,239,234,.45)}
+
+/* ============================================================
+   22. SP 固定CTA
+   ============================================================ */
+.sp-cta{
+  position:fixed;left:0;right:0;bottom:0;z-index:90;
+  padding:10px 14px calc(10px + env(safe-area-inset-bottom));
+  background:rgba(250,247,242,.95);backdrop-filter:blur(12px);
+  box-shadow:0 -1px 0 var(--line),0 -12px 30px -20px rgba(57,53,50,.4);
+  display:none;gap:10px;
+  transform:translateY(110%);transition:transform .6s var(--ease);
+}
+.sp-cta.show{transform:translateY(0)}
+.sp-cta .btn{flex:1;min-height:56px;padding:0 16px;font-size:14.5px}
+.sp-cta .btn-ghost{flex:0 0 34%}
+@media(max-width:1023px){
+  .sp-cta{display:flex}
+  body{padding-bottom:82px}
+}
+
+/* ============================================================
+   23. SCROLL ANIMATION
+   ============================================================ */
+.fade{opacity:0;transform:translateY(26px);transition:opacity 1.05s var(--ease),transform 1.05s var(--ease)}
+.fade.in{opacity:1;transform:none}
+.fade[data-d="1"]{transition-delay:.1s}
+.fade[data-d="2"]{transition-delay:.2s}
+.fade[data-d="3"]{transition-delay:.3s}
+.fade[data-d="4"]{transition-delay:.4s}
+.fade[data-d="5"]{transition-delay:.5s}
+.fade[data-d="6"]{transition-delay:.6s}
+@media(prefers-reduced-motion:reduce){
+  *{animation:none!important;transition:none!important}
+  .fade{opacity:1;transform:none}
+}
+/* フォーカス可視化（アクセシビリティ） */
+a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offset:3px}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     HEADER
+     ============================================================ -->
+<header class="site-header" id="header">
+  <div class="wrap-wide header-inner">
+    <a href="#top" class="logo" aria-label="エステサロン開業まるごとパック">
+      <span class="ja">エステサロン開業まるごとパック</span>
+      <span class="en">Esthetic Salon Startup</span>
+    </a>
+    <nav class="nav" aria-label="メインナビゲーション">
+      <a href="#service">サービス</a>
+      <a href="#contents">内容</a>
+      <a href="#flow-section">集客導線</a>
+      <a href="#price">料金</a>
+      <a href="#steps">制作の流れ</a>
+      <a href="#faq">よくある質問</a>
+    </nav>
+    <a href="#contact" class="header-cta">無料で開業相談をする</a>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- ============================================================
+     SECTION 01 : ファーストビュー
+     ============================================================ -->
+<section class="hero" id="hero">
+  <div class="ghost-en hero-ghost">Salon</div>
+  <div class="wrap-wide hero-grid">
+
+    <div class="hero-copy">
+      <p class="eyebrow fade in">Esthetic Salon Startup Package</p>
+
+      <!-- H1はページ内で1つだけ -->
+      <h1 class="fade in" data-d="1">
+        エステの技術はある。<br>
+        あとは、<br class="pc-br">
+        <span class="accent">“選ばれるサロン”</span>にするだけ。
+      </h1>
+
+      <p class="hero-sub fade in" data-d="2">
+        ロゴ・ホームページ・Instagram・LINE・予約導線まで。<br>
+        エステサロン開業に必要な“集客の仕組み”を、まるごとつくります。
+      </p>
+
+      <p class="hero-target fade in" data-d="3">
+        これから独立する方／自宅サロンを始める方／<br class="sp-br">開業したけれど集客に困っている方へ
+      </p>
+
+      <div class="hero-actions fade in" data-d="4">
+        <a href="#contact" class="btn btn-primary">無料で開業相談をする<span class="arw"></span></a>
+        <a href="#service" class="btn btn-ghost">サービス内容を見る<span class="arw"></span></a>
+      </div>
+
+      <ul class="cta-notes hero-notes fade in" data-d="5">
+        <li>オンライン相談OK</li>
+        <li>開業前でもOK</li>
+        <li>相談無料</li>
+      </ul>
+
+      <div class="scroll-hint fade in" data-d="6">
+        <span class="bar"></span>SCROLL
+      </div>
+    </div>
+
+    <div class="hero-visual fade in" data-d="2">
+      <!-- 使用画像：
+           30〜40代女性サロンオーナー。ベージュ／アイボリー基調の高級感あるサロン内。
+           自然光。大理石カウンターでノートPCとスマートフォンを使い、
+           手帳・コーヒー・美容商品・グリーンが自然に写り込んでいるシーン。
+           表情は柔らかく自信のある笑顔。横幅1600px以上推奨。
+           推奨ファイル名：assets/hero-owner.jpg -->
+      <div class="ph ph-zoom">
+        <p class="ph-note">
+          <b>Hero Image</b>
+          30〜40代の女性サロンオーナー／高級感あるアイボリー基調のサロン<br>
+          自然光・ノートPC・スマホ・手帳・コーヒー・美容商品<br>
+          「この人みたいに自分のサロンを持ちたい」と感じる一枚
+        </p>
+      </div>
+      <div class="hero-badge">
+        <div class="num" data-count="8">0</div>
+        <div class="lbl">ロゴ／LP／HP／LINE／Instagram／予約／Google／販促。開業に必要な8領域をまとめて。</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 02 : 共感・問題提起
+     ============================================================ -->
+<section class="section bg-white" id="problem">
+  <div class="ghost-en" style="bottom:-2%;right:-3%">Worries</div>
+  <div class="wrap">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Common Worries</p>
+      <h2 class="h2">サロンを始めたい。<br>でも、施術以外のことが多すぎる。</h2>
+    </div>
+
+    <div class="problem-body fade" data-d="1">
+      <p>
+        エステの技術を学んだ。<br>
+        場所も決まった。<br>
+        メニューもなんとなく決まった。
+      </p>
+      <p>でも、いざ開業しようとすると、</p>
+      <ul class="q-list">
+        <li>ロゴは？</li>
+        <li>ホームページは？</li>
+        <li>Instagramって何を投稿すればいい？</li>
+        <li>LINE予約はどう作る？</li>
+        <li>価格はいくらにすればいい？</li>
+      </ul>
+      <p style="margin-top:1.6em">次から次へと、やることが出てきます。</p>
+    </div>
+
+    <!-- チェックリスト -->
+    <ul class="check-grid fade" data-d="2">
+      <li class="check-item"><span class="check-box"></span>デザインが苦手</li>
+      <li class="check-item"><span class="check-box"></span>Instagramの作り方が分からない</li>
+      <li class="check-item"><span class="check-box"></span>ホームページ制作会社を探すのが大変</li>
+      <li class="check-item"><span class="check-box"></span>LINEと予約のつなぎ方が分からない</li>
+      <li class="check-item"><span class="check-box"></span>メニュー価格に自信がない</li>
+      <li class="check-item"><span class="check-box"></span>開業して本当にお客様が来るか不安</li>
+      <li class="check-item"><span class="check-box"></span>業者を何社も探したくない</li>
+    </ul>
+
+    <div class="problem-conclusion fade" data-d="3">
+      <h2 class="h2">本当に集中したいのは、<br><span class="mark">“お客様をキレイにすること”</span>のはず。</h2>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 03 : サービス紹介（背景色チェンジ）
+     ============================================================ -->
+<section class="section bg-greige" id="service">
+  <div class="ghost-en" style="bottom:2%;left:-2%">Package</div>
+  <div class="wrap">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Our Solution</p>
+      <h2 class="h2">だから、全部まとめました。</h2>
+      <div class="service-name">エステサロン開業まるごとパック</div>
+      <p class="lead" style="max-width:720px;margin-inline:auto">
+        複数の会社に、ロゴ、Web、SNS、LINE、予約を別々に依頼する必要はありません。<br>
+        サロンのコンセプトから、「見つけてもらう」「選んでもらう」「予約してもらう」「また来てもらう」まで、
+        一つの世界観で設計します。
+      </p>
+    </div>
+
+    <!-- ブランド相関図 -->
+    <div class="orbit fade" data-d="1" aria-label="ブランド・Web・Instagram・LINE・予約・口コミが一つの世界観でつながる図">
+      <div class="orbit-ring r2"></div>
+      <div class="orbit-ring"></div>
+      <div class="orbit-core">
+        <span class="en">Concept</span>
+        <span class="ja">ひとつの<br>世界観</span>
+      </div>
+      <div class="orbit-node" data-angle="270"><span class="en">Brand</span>ブランド</div>
+      <div class="orbit-node" data-angle="330"><span class="en">Web</span>Web</div>
+      <div class="orbit-node" data-angle="30"><span class="en">SNS</span>Instagram</div>
+      <div class="orbit-node" data-angle="90"><span class="en">Line</span>LINE</div>
+      <div class="orbit-node" data-angle="150"><span class="en">Booking</span>予約</div>
+      <div class="orbit-node" data-angle="210"><span class="en">Review</span>口コミ</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 04 : 集客導線（重要セクション）
+     ============================================================ -->
+<section class="section" id="flow-section">
+  <div class="ghost-en" style="bottom:-3%;left:-2%">Journey</div>
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Customer Journey</p>
+      <h2 class="h2">“作る”だけではありません。<br>お客様が予約するまでをつなぎます。</h2>
+    </div>
+
+    <!-- 導線フロー（上段：接点／下段：顧客心理） -->
+    <div class="flow fade" data-d="1">
+      <div class="flow-step"><span class="no">01</span><p class="ttl">Instagram</p><p class="psy">知る</p></div>
+      <div class="flow-step"><span class="no">02</span><p class="ttl">LP / ホームページ</p><p class="psy">気になる</p></div>
+      <div class="flow-step"><span class="no">03</span><p class="ttl">公式LINE</p><p class="psy">安心する</p></div>
+      <div class="flow-step"><span class="no">04</span><p class="ttl">予約</p><p class="psy">予約する</p></div>
+      <div class="flow-step"><span class="no">05</span><p class="ttl">来店</p><p class="psy">体験する</p></div>
+      <div class="flow-step"><span class="no">06</span><p class="ttl">口コミ</p><p class="psy">伝えたくなる</p></div>
+      <div class="flow-step"><span class="no">07</span><p class="ttl">再来店</p><p class="psy">ファンになる</p></div>
+    </div>
+
+    <div class="flow-label fade" data-d="2">
+      <span><i></i>お客様との接点</span>
+      <span><i class="rose"></i>そのときの顧客心理</span>
+    </div>
+
+    <div class="center fade" data-d="3" style="margin-top:clamp(40px,6vw,64px)">
+      <p class="lead" style="max-width:700px;margin-inline:auto">
+        どれか一つが欠けると、お客様は途中で離れてしまいます。<br>
+        私たちは、この流れ全体が途切れないように設計します。
+      </p>
+      <a href="#contact" class="btn btn-gold" style="margin-top:30px">無料で開業相談をする<span class="arw"></span></a>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 05 : サービス内容（8カード）
+     ============================================================ -->
+<section class="section bg-greige" id="contents">
+  <div class="ghost-en" style="bottom:-3%;right:-2%">Contents</div>
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">What's Included</p>
+      <h2 class="h2">開業に必要なものを、<br>ひとつずつ準備する必要はありません。</h2>
+    </div>
+
+    <div class="card-grid">
+
+      <article class="s-card fade" data-d="1">
+        <span class="no">01</span>
+        <span class="en">Brand</span>
+        <h3>ロゴ・ブランド設計</h3>
+        <ul>
+          <li>ロゴ</li><li>ブランドカラー</li><li>フォント</li>
+          <li>コンセプト</li><li>キャッチコピー</li><li>サロンの世界観</li>
+        </ul>
+        <p class="cc">“なんとなくオシャレ”ではなく、選ばれるブランドへ。</p>
+      </article>
+
+      <article class="s-card fade" data-d="2">
+        <span class="no">02</span>
+        <span class="en">LP</span>
+        <h3>ランディングページ制作</h3>
+        <ul>
+          <li>LP制作</li><li>予約CTA</li><li>スマホ対応</li><li>問い合わせ導線</li>
+        </ul>
+        <p class="cc">スマホで見た1画面目で、「ここにお願いしたい」と思ってもらう。</p>
+      </article>
+
+      <article class="s-card fade" data-d="3">
+        <span class="no">03</span>
+        <span class="en">Website</span>
+        <h3>ホームページ制作</h3>
+        <ul>
+          <li>TOP</li><li>サロン紹介</li><li>メニュー</li><li>スタッフ</li>
+          <li>アクセス</li><li>FAQ</li><li>予約</li>
+        </ul>
+        <p class="cc">検索して調べたお客様が、安心して予約できる場所を。</p>
+      </article>
+
+      <article class="s-card fade" data-d="1">
+        <span class="no">04</span>
+        <span class="en">Line</span>
+        <h3>公式LINE構築</h3>
+        <ul>
+          <li>アカウント開設</li><li>リッチメニュー</li><li>あいさつメッセージ</li>
+          <li>予約導線</li><li>来店後フォロー</li><li>再来店促進</li>
+        </ul>
+        <p class="cc">一度きりのお客様を、通い続けるお客様に。</p>
+      </article>
+
+      <article class="s-card fade" data-d="2">
+        <span class="no">05</span>
+        <span class="en">Instagram</span>
+        <h3>Instagram開設・設計</h3>
+        <ul>
+          <li>Instagram開設</li><li>プロフィール設計</li><li>ハイライト</li>
+          <li>リールテンプレート</li><li>フィードテンプレート</li><li>ストーリーズテンプレート</li>
+        </ul>
+        <p class="cc">「何を投稿すればいいか分からない」を、型で解決。</p>
+      </article>
+
+      <article class="s-card fade" data-d="3">
+        <span class="no">06</span>
+        <span class="en">Reservation</span>
+        <h3>予約・決済</h3>
+        <ul>
+          <li>オンライン予約</li><li>LINE予約導線</li><li>決済</li>
+          <li>キャンセルポリシー</li><li>回数券導線</li>
+        </ul>
+        <p class="cc">DMのやり取りに追われる時間を、施術の時間に。</p>
+      </article>
+
+      <article class="s-card fade" data-d="1">
+        <span class="no">07</span>
+        <span class="en">Google</span>
+        <h3>Googleマップ・口コミ</h3>
+        <ul>
+          <li>Googleビジネスプロフィール</li><li>初期設定</li>
+          <li>口コミ導線</li><li>口コミ返信テンプレート</li>
+        </ul>
+        <p class="cc">「近くのエステ」で検索されたとき、見つけてもらう。</p>
+      </article>
+
+      <article class="s-card fade" data-d="2">
+        <span class="no">08</span>
+        <span class="en">Promotion</span>
+        <h3>販促ツール</h3>
+        <ul>
+          <li>名刺</li><li>メニュー表</li><li>QRカード</li>
+          <li>紹介カード</li><li>チラシ</li><li>OPEN告知画像</li>
+        </ul>
+        <p class="cc">手に取るものすべてを、同じ世界観で揃える。</p>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 06 : 導入後の未来
+     ============================================================ -->
+<section class="section bg-white" id="future">
+  <div class="ghost-en" style="bottom:6%;right:-2%">Future</div>
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">After Introduction</p>
+      <h2 class="h2">このパックで手に入るのは、<br>ロゴやホームページだけではありません。</h2>
+    </div>
+
+    <div class="future-grid">
+
+      <article class="future-card fade" data-d="1">
+        <!-- 使用画像：
+             スマートフォンでInstagramのサロンアカウントを見ている30代女性の手元。
+             アイボリー／ベージュの背景。自然光。指先まで清潔感のあるカット。
+             推奨ファイル名：assets/future-01-instagram.jpg -->
+        <div class="ph"><p class="ph-note"><b>Image 01</b>スマホでInstagramのサロンアカウントを見る手元<br>自然光・アイボリー背景</p></div>
+        <div class="body">
+          <span class="no">01</span>
+          <h3>Instagramを見たお客様が、<br>迷わず予約できる。</h3>
+        </div>
+      </article>
+
+      <article class="future-card fade" data-d="2">
+        <!-- 使用画像：
+             サロンオーナーがタブレットまたはスマホで公式LINEの管理画面を確認しているシーン。
+             木・大理石・グリーンのある明るい空間。
+             推奨ファイル名：assets/future-02-line.jpg -->
+        <div class="ph"><p class="ph-note"><b>Image 02</b>公式LINEの管理画面を確認するサロンオーナー<br>木・大理石・グリーンのある明るい空間</p></div>
+        <div class="body">
+          <span class="no">02</span>
+          <h3>LINEにお客様がたまり、<br>再来店につながる。</h3>
+        </div>
+      </article>
+
+      <article class="future-card fade" data-d="3">
+        <!-- 使用画像：
+             ロゴ入りの名刺・メニュー表・ショップカード・タオルなどが
+             統一された世界観で並んだ平置き（フラットレイ）写真。
+             推奨ファイル名：assets/future-03-branding.jpg -->
+        <div class="ph"><p class="ph-note"><b>Image 03</b>ロゴ入り名刺・メニュー表・ショップカードのフラットレイ<br>統一された世界観</p></div>
+        <div class="body">
+          <span class="no">03</span>
+          <h3>サロンの世界観が統一され、<br>“ちゃんとしているお店”に見える。</h3>
+        </div>
+      </article>
+
+      <article class="future-card fade" data-d="4">
+        <!-- 使用画像：
+             ノートPCでSNS投稿テンプレートを編集している女性オーナーの様子。
+             余白のある明るいデスク。自然光。
+             推奨ファイル名：assets/future-04-template.jpg -->
+        <div class="ph"><p class="ph-note"><b>Image 04</b>ノートPCでSNS投稿テンプレートを編集する女性オーナー<br>余白のある明るいデスク</p></div>
+        <div class="body">
+          <span class="no">04</span>
+          <h3>SNSテンプレートがあるから、<br>自分で発信を続けられる。</h3>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="future-conclusion fade" data-d="2">
+      <h2 class="h2">“お店を作る”から、<br>“お客様が来る状態を作る”へ。</h2>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 07 : Before / After
+     ============================================================ -->
+<section class="section" id="beforeafter">
+  <div class="ghost-en" style="bottom:-3%;left:-2%">Change</div>
+  <div class="wrap">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Before &amp; After</p>
+      <h2 class="h2">開業初日から、<br>“ちゃんとしたサロン”で始めよう。</h2>
+    </div>
+
+    <div class="fade" data-d="1">
+      <div class="ba-headrow">
+        <span class="ba-head">Before</span>
+        <span></span>
+        <span class="ba-head">After</span>
+      </div>
+      <div class="ba-table">
+        <div class="ba-row"><p class="ba-before">ロゴがない</p><span class="ba-arrow"></span><p class="ba-after">ブランドが完成</p></div>
+        <div class="ba-row"><p class="ba-before">Instagramが個人アカウントの延長</p><span class="ba-arrow"></span><p class="ba-after">プロらしい世界観</p></div>
+        <div class="ba-row"><p class="ba-before">LINEは連絡手段だけ</p><span class="ba-arrow"></span><p class="ba-after">予約・再来店ツール</p></div>
+        <div class="ba-row"><p class="ba-before">ホームページがない</p><span class="ba-arrow"></span><p class="ba-after">検索して安心される</p></div>
+        <div class="ba-row"><p class="ba-before">予約がDM</p><span class="ba-arrow"></span><p class="ba-after">予約システム化</p></div>
+        <div class="ba-row"><p class="ba-before">投稿を毎回ゼロから作る</p><span class="ba-arrow"></span><p class="ba-after">テンプレートで簡単</p></div>
+        <div class="ba-row"><p class="ba-before">集客方法が分からない</p><span class="ba-arrow"></span><p class="ba-after">集客導線が完成</p></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 08 : 対象ユーザー
+     ============================================================ -->
+<section class="section bg-greige" id="target">
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">For Whom</p>
+      <h2 class="h2">こんな方におすすめです。</h2>
+    </div>
+
+    <div class="target-grid fade" data-d="1">
+      <div class="target-card">
+        <span class="no">01</span>
+        <h3>独立したい<br>エステティシャン</h3>
+        <p class="voice">技術には自信がある。<br>でも集客は分からない。</p>
+      </div>
+      <div class="target-card">
+        <span class="no">02</span>
+        <h3>自宅サロンを<br>始めたい方</h3>
+        <p class="voice">小さく始めたいけど、<br>安っぽく見せたくない。</p>
+      </div>
+      <div class="target-card">
+        <span class="no">03</span>
+        <h3>副業から<br>始めたい方</h3>
+        <p class="voice">なるべく時間をかけず、<br>サロンを始めたい。</p>
+      </div>
+      <div class="target-card">
+        <span class="no">04</span>
+        <h3>すでに<br>開業している方</h3>
+        <p class="voice">Instagramはやっているけど、<br>予約につながらない。</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 09 : 料金プラン
+     ============================================================ -->
+<section class="section bg-white" id="price">
+  <div class="ghost-en" style="bottom:-3%;right:-2%">Plan</div>
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Price Plan</p>
+      <h2 class="h2">ご予算と、始め方に合わせて。</h2>
+      <p class="lead" style="max-width:640px;margin-inline:auto;margin-top:18px">
+        どのプランが合うか分からない場合も、無料相談でご提案します。
+      </p>
+    </div>
+
+    <div class="plan-grid">
+
+      <article class="plan fade" data-d="1">
+        <span class="en">Start</span>
+        <p class="for">まずは小さく始めたい方</p>
+        <p class="price"><span class="cur">¥</span>198,000<span class="tilde">〜</span>
+          <small>税別・内容により変動します</small>
+        </p>
+        <ul>
+          <li>ロゴ</li>
+          <li>LP</li>
+          <li>公式LINE</li>
+          <li>Instagram</li>
+          <li>SNSテンプレート</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">無料で相談する<span class="arw"></span></a>
+      </article>
+
+      <article class="plan featured fade" data-d="2">
+        <span class="plan-badge">人気No.1</span>
+        <span class="en">Standard</span>
+        <p class="for">しっかり集客導線まで整えたい方</p>
+        <p class="price"><span class="cur">¥</span>398,000<span class="tilde">〜</span>
+          <small>税別・内容により変動します</small>
+        </p>
+        <ul>
+          <li class="inherit">STARTすべて</li>
+          <li>ホームページ</li>
+          <li>Googleマップ</li>
+          <li>予約システム</li>
+          <li>決済</li>
+          <li>口コミ導線</li>
+          <li>販促物</li>
+        </ul>
+        <a href="#contact" class="btn btn-primary">無料で相談する<span class="arw"></span></a>
+      </article>
+
+      <article class="plan fade" data-d="3">
+        <span class="en">Premium</span>
+        <p class="for">開業から集客まで伴走してほしい方</p>
+        <p class="price"><span class="cur">¥</span>698,000<span class="tilde">〜</span>
+          <small>税別・内容により変動します</small>
+        </p>
+        <ul>
+          <li class="inherit">STANDARDすべて</li>
+          <li>コンセプト設計</li>
+          <li>メニュー設計</li>
+          <li>価格設計</li>
+          <li>集客戦略</li>
+          <li>SNS投稿設計</li>
+          <li>開業後3ヶ月サポート</li>
+        </ul>
+        <a href="#contact" class="btn btn-ghost">無料で相談する<span class="arw"></span></a>
+      </article>
+
+    </div>
+
+    <p class="plan-note fade" data-d="3">
+      表示価格は目安です。サロンの規模・ページ数・ご要望により変動します。<br>
+      ドメイン・サーバー・予約システムなど外部サービスの利用料は別途発生する場合があります。
+    </p>
+
+    <div class="center fade" data-d="4" style="margin-top:clamp(36px,5vw,52px)">
+      <a href="#contact" class="btn btn-gold">無料で開業相談をする<span class="arw"></span></a>
+      <ul class="cta-notes">
+        <li>オンライン相談OK</li>
+        <li>開業前でもOK</li>
+        <li>相談無料</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 10 : Canvaテンプレート
+     ============================================================ -->
+<section class="section bg-greige" id="template">
+  <div class="ghost-en" style="bottom:4%;left:-2%">Template</div>
+  <div class="wrap-wide tpl-layout">
+
+    <div class="fade">
+      <p class="eyebrow">Editable Template</p>
+      <h2 class="h2">納品されて終わり、<br>ではありません。</h2>
+      <p class="lead" style="margin-top:20px">自分で更新できるテンプレートをお渡しします。</p>
+
+      <ul class="tpl-tags">
+        <li>Instagramフィード</li>
+        <li>リール</li>
+        <li>ストーリーズ</li>
+        <li>キャンペーン</li>
+        <li>メニュー</li>
+        <li>営業時間</li>
+        <li>お知らせ</li>
+      </ul>
+
+      <p class="tpl-quote">
+        デザイナーに毎回お願いしなくても、<br>
+        自分でサロンの情報を発信できます。
+      </p>
+    </div>
+
+    <div class="mock fade" data-d="2">
+      <!-- 使用画像（差し替え推奨）：
+           実際に納品するCanvaテンプレートのInstagramフィード画面キャプチャ。
+           ベージュ／アイボリー基調の投稿デザイン9枚。
+           推奨ファイル名：assets/template-pc.jpg / assets/template-sp.jpg -->
+      <div class="mock-pc">
+        <div class="screen">
+          <div class="mock-bar"><i></i><i></i><i></i><span></span></div>
+          <div class="stage">
+            <div class="post-grid">
+              <div class="cell">MENU</div><div class="cell">SALON</div><div class="cell">CARE</div><div class="cell">VOICE</div>
+              <div class="cell">OPEN</div><div class="cell">FAQ</div><div class="cell">CAMPAIGN</div><div class="cell">HOURS</div>
+            </div>
+          </div>
+        </div>
+        <div class="base"></div>
+      </div>
+      <div class="mock-sp">
+        <div class="screen">
+          <div class="mock-profile"><span class="av"></span><span class="ln"><i></i><i></i></span></div>
+          <div class="post-grid sp">
+            <div class="cell">01</div><div class="cell">02</div><div class="cell">03</div>
+            <div class="cell">04</div><div class="cell">05</div><div class="cell">06</div>
+            <div class="cell">07</div><div class="cell">08</div><div class="cell">09</div>
+            <div class="cell">10</div><div class="cell">11</div><div class="cell">12</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 11 : 制作の流れ（タイムライン）
+     ============================================================ -->
+<section class="section bg-white" id="steps">
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Process</p>
+      <h2 class="h2">開業まで、いっしょに進めます。</h2>
+    </div>
+
+    <div class="timeline" id="timeline">
+      <span class="timeline-track"></span>
+      <div class="tl-grid">
+        <div class="tl-item fade" data-d="1"><span class="tl-dot"></span><div class="tl-body"><span class="no">Step 01</span><h3>無料相談</h3><p>オンラインで現状とご希望をお聞きします。</p></div></div>
+        <div class="tl-item fade" data-d="2"><span class="tl-dot"></span><div class="tl-body"><span class="no">Step 02</span><h3>ヒアリング</h3><p>ターゲット・メニュー・強みを整理します。</p></div></div>
+        <div class="tl-item fade" data-d="3"><span class="tl-dot"></span><div class="tl-body"><span class="no">Step 03</span><h3>ブランド設計</h3><p>コンセプト・ロゴ・世界観を決定します。</p></div></div>
+        <div class="tl-item fade" data-d="4"><span class="tl-dot"></span><div class="tl-body"><span class="no">Step 04</span><h3>Web・SNS制作</h3><p>HP／LP／Instagramを一つの世界観で構築。</p></div></div>
+        <div class="tl-item fade" data-d="5"><span class="tl-dot"></span><div class="tl-body"><span class="no">Step 05</span><h3>LINE・予約導線構築</h3><p>予約・決済・フォローまでをつなぎます。</p></div></div>
+        <div class="tl-item fade" data-d="6"><span class="tl-dot"></span><div class="tl-body"><span class="no">Step 06</span><h3>OPEN</h3><p>告知から集客スタートまで伴走します。</p></div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 12 : 制作スケジュール
+     ============================================================ -->
+<section class="section" id="schedule">
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Schedule</p>
+      <h2 class="h2">OPENの約2〜3ヶ月前からの<br>ご相談がおすすめです。</h2>
+      <p class="lead" style="max-width:620px;margin-inline:auto;margin-top:18px">
+        オープン直前のご相談でも対応可能ですが、告知期間を確保できると集客が安定します。
+      </p>
+    </div>
+
+    <div class="sched fade" data-d="1">
+      <div class="sched-item"><p class="when">2ヶ月前</p><p class="what">ブランド設計</p></div>
+      <div class="sched-item"><p class="when">1.5ヶ月前</p><p class="what">Web・Instagram制作</p></div>
+      <div class="sched-item"><p class="when">1ヶ月前</p><p class="what">LINE・予約システム</p></div>
+      <div class="sched-item"><p class="when">2週間前</p><p class="what">オープン告知開始</p></div>
+      <div class="sched-item open"><p class="when">OPEN</p><p class="what">予約受付スタート</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 13 : よくある質問（アコーディオン）
+     ============================================================ -->
+<section class="section bg-white" id="faq">
+  <div class="ghost-en" style="bottom:-3%;left:-2%">FAQ</div>
+  <div class="wrap">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Q &amp; A</p>
+      <h2 class="h2">よくある質問</h2>
+    </div>
+
+    <div class="faq fade" data-d="1">
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="qmark">Q.</span>
+          <span class="txt">まだ店舗が決まっていなくても相談できますか？</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-body">
+          <span class="amark">A.</span>
+          <p>はい。店舗決定前からご相談いただけます。むしろ物件やコンセプトを決める段階からご相談いただくと、内装とブランドの世界観を揃えやすくなります。</p>
+        </div></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="qmark">Q.</span>
+          <span class="txt">自宅サロンでもお願いできますか？</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-body">
+          <span class="amark">A.</span>
+          <p>もちろん可能です。自宅サロンだからこそ「安っぽく見せない」ブランド設計と、住所非公開でも安心してご予約いただける導線づくりをご提案します。</p>
+        </div></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="qmark">Q.</span>
+          <span class="txt">すでにロゴがあります。</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-body">
+          <span class="amark">A.</span>
+          <p>既存のブランド素材を活かした制作も可能です。ロゴ制作分を他の項目に振り替えるなど、ご状況に合わせて内容を調整いたします。</p>
+        </div></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="qmark">Q.</span>
+          <span class="txt">Instagramが苦手です。</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-body">
+          <span class="amark">A.</span>
+          <p>投稿テンプレートや運用方法までサポートします。「何を・どの順番で・どのくらいの頻度で投稿するか」まで設計してお渡しするので、迷わず続けられます。</p>
+        </div></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="qmark">Q.</span>
+          <span class="txt">写真がありません。</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-body">
+          <span class="amark">A.</span>
+          <p>撮影ディレクションや素材選定についてもご相談いただけます。撮影前に「どんなカットが必要か」のリストをお渡しするため、スマホ撮影でも世界観を揃えられます。</p>
+        </div></div></div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" aria-expanded="false">
+          <span class="qmark">Q.</span>
+          <span class="txt">月額費用はかかりますか？</span>
+          <span class="faq-icon" aria-hidden="true"></span>
+        </button>
+        <div class="faq-a"><div class="faq-a-inner"><div class="faq-a-body">
+          <span class="amark">A.</span>
+          <p>制作料金とは別に、ドメイン、サーバー、予約システムなどの外部サービス利用料が発生する場合があります。お見積もり時に、毎月いくらかかるかを明記してご案内します。</p>
+        </div></div></div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 14 : 運営会社・強み
+     ============================================================ -->
+<section class="section bg-charcoal" id="company">
+  <div class="ghost-en" style="bottom:2%;right:-2%">Design × Marketing × IT</div>
+  <div class="wrap-wide">
+
+    <div class="sec-head center fade">
+      <p class="eyebrow">Why Us</p>
+      <h2 class="h2" style="color:#F5F0E9">IT会社がつくる、<br>“かわいいだけじゃない”サロン開業支援。</h2>
+      <p class="lead" style="max-width:720px;margin-inline:auto;margin-top:22px">
+        私たちは、ホームページを作るだけの会社ではありません。<br>
+        Web、LINE、SNS、予約システムまでつなぎ、開業後も使える「仕組み」をつくります。
+      </p>
+    </div>
+
+    <div class="strength-grid">
+      <div class="strength fade" data-d="1">
+        <span class="en">Design</span>
+        <h3>世界観をつくる</h3>
+        <p>ロゴ・色・写真・言葉まで統一し、「ここにお願いしたい」と感じる第一印象を設計します。</p>
+      </div>
+      <div class="strength fade" data-d="2">
+        <span class="en">Marketing</span>
+        <h3>お客様が来る導線をつくる</h3>
+        <p>知る→気になる→安心する→予約する。お客様の気持ちの流れに沿って設計します。</p>
+      </div>
+      <div class="strength fade" data-d="3">
+        <span class="en">IT</span>
+        <h3>仕組みとしてつなぐ</h3>
+        <p>SNS・HP・LINE・予約・決済をバラバラにせず、ひとつの仕組みとして連携させます。</p>
+      </div>
+    </div>
+
+    <!-- 数字（本番公開前に実績値へ差し替えてください） -->
+    <div class="stat-row">
+      <div class="stat fade" data-d="1"><p class="num"><span data-count="8">0</span><span class="unit">領域</span></p><p class="lbl">開業に必要な制作をまとめて</p></div>
+      <div class="stat fade" data-d="2"><p class="num"><span data-count="1">0</span><span class="unit">社</span></p><p class="lbl">窓口はひとつだけ</p></div>
+      <div class="stat fade" data-d="3"><p class="num"><span data-count="2">0</span><span class="unit">ヶ月〜</span></p><p class="lbl">OPENまでの標準スケジュール</p></div>
+      <div class="stat fade" data-d="4"><p class="num"><span data-count="3">0</span><span class="unit">ヶ月</span></p><p class="lbl">開業後サポート（PREMIUM）</p></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 15 : 代表メッセージ
+     ============================================================ -->
+<section class="section" id="message">
+  <div class="wrap-wide msg-layout">
+
+    <div class="msg-photo fade">
+      <!-- 使用画像：
+           30〜40代の女性経営者。ベージュ／アイボリー系のジャケット。
+           明るいオフィスまたはサロン空間で、自然光。
+           腕組みポーズではなく、柔らかく知性的な表情の縦位置ポートレート（4:5）。
+           推奨ファイル名：assets/ceo-portrait.jpg -->
+      <div class="ph ph-zoom"><p class="ph-note"><b>Portrait</b>代表ポートレート（縦4:5）<br>30〜40代女性経営者・自然光<br>上品で信頼感のある表情</p></div>
+    </div>
+
+    <div class="msg-body fade" data-d="2">
+      <p class="eyebrow">Message</p>
+      <h2 class="h2">“好きな仕事で独立したい”を、<br>ITとデザインで応援したい。</h2>
+      <p>
+        独立を考える方とお話ししていると、必ず同じ言葉を聞きます。「技術には自信があるけれど、集客だけが分からない」。
+        本当はお客様と向き合う時間に集中したいのに、慣れない作業に時間を奪われてしまう。
+        その状況をなくしたくて、このサービスを始めました。
+      </p>
+      <p>
+        私たちの役割は、きれいなものを作ることではありません。あなたのサロンにお客様が訪れ、また来たいと思ってくださる。
+        その状態をつくることです。開業という大きな一歩を、いっしょに歩かせてください。
+      </p>
+      <div class="msg-sign">
+        <span class="role">代表</span>
+        <span class="name">山田 花子</span>
+        <span class="name-en">Hanako Yamada</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ============================================================
+     SECTION 16 : 最終CTA
+     ============================================================ -->
+<section class="final-cta" id="contact">
+  <div class="final-bg">
+    <!-- 使用画像：
+         大きく使うサロン空間の横位置写真。
+         アイボリー／ベージュ／木／大理石／グリーンのある広く明るいサロン。
+         自然光が差し込み、余白のある構図。人物なしでも可。
+         横幅2000px以上推奨。推奨ファイル名：assets/final-cta-salon.jpg -->
+    <div class="ph"><p class="ph-note"><b>Background</b>広く明るい高級サロン空間（横位置・2000px以上）<br>自然光・木・大理石・グリーン・余白のある構図</p></div>
+  </div>
+
+  <div class="wrap inner">
+    <p class="eyebrow fade">Free Consultation</p>
+    <h2 class="fade" data-d="1">あなたのサロンづくり、<br>一緒に始めませんか？</h2>
+    <p class="sub fade" data-d="2">まだサロン名が決まっていなくても大丈夫です。</p>
+
+    <div class="final-actions fade" data-d="3">
+      <!-- 本番公開前：href を実際のフォームURL／LINE友だち追加URLに差し替えてください -->
+      <a href="#" class="btn btn-cream">無料で開業相談する<span class="arw"></span></a>
+      <a href="#contents" class="btn btn-outline-light">サービス内容を見る<span class="arw"></span></a>
+    </div>
+
+    <ul class="cta-notes fade" data-d="4">
+      <li>無理な営業はいたしません</li>
+      <li>オンライン相談OK</li>
+      <li>開業前でも相談OK</li>
+    </ul>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<footer class="footer">
+  <div class="wrap-wide">
+    <div class="footer-top">
+      <div class="logo">
+        <span class="ja">エステサロン開業まるごとパック</span>
+        <span class="en">Esthetic Salon Startup Package</span>
+      </div>
+      <nav class="footer-nav" aria-label="フッターナビゲーション">
+        <a href="#service">サービス</a>
+        <a href="#contents">サービス内容</a>
+        <a href="#flow-section">集客導線</a>
+        <a href="#price">料金プラン</a>
+        <a href="#steps">制作の流れ</a>
+        <a href="#faq">よくある質問</a>
+        <a href="#company">運営会社</a>
+        <a href="#contact">無料相談</a>
+      </nav>
+    </div>
+    <div class="footer-bottom">
+      <span>&copy; 2026 Esthetic Salon Startup Package. All rights reserved.</span>
+      <span>Design × Marketing × IT</span>
+    </div>
+  </div>
+</footer>
+
+<!-- SP固定CTA -->
+<div class="sp-cta" id="spCta">
+  <a href="#contents" class="btn btn-ghost">内容を見る</a>
+  <a href="#contact" class="btn btn-primary">無料相談する</a>
+</div>
+
+<script>
+/* ============================================================
+   JS 01. スクロールフェードイン
+   ============================================================ */
+(function(){
+  var targets = document.querySelectorAll('.fade, .check-item, .tl-item, #timeline');
+  if(!('IntersectionObserver' in window)){
+    targets.forEach(function(el){ el.classList.add('in'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        e.target.classList.add('in');
+        io.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.12, rootMargin: '0px 0px -8% 0px' });
+  targets.forEach(function(el){ io.observe(el); });
+})();
+
+/* ============================================================
+   JS 02. チェックリストの順次チェック演出
+   ============================================================ */
+(function(){
+  var list = document.querySelector('.check-grid');
+  if(!list || !('IntersectionObserver' in window)) return;
+  var items = list.querySelectorAll('.check-item');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      items.forEach(function(el,i){ setTimeout(function(){ el.classList.add('in'); }, i*110); });
+      io.disconnect();
+    });
+  }, { threshold: 0.2 });
+  io.observe(list);
+})();
+
+/* ============================================================
+   JS 03. ヘッダー固定時のスタイル切替 ＋ SP固定CTAの表示制御
+   ============================================================ */
+(function(){
+  var header = document.getElementById('header');
+  var spCta  = document.getElementById('spCta');
+  var hero   = document.getElementById('hero');
+  var ticking = false;
+
+  function update(){
+    var y = window.pageYOffset;
+    header.classList.toggle('is-stuck', y > 40);
+    // ヒーローを通過したらSP固定CTAを表示
+    var trigger = Math.min(window.innerHeight * 0.75, hero ? hero.offsetHeight * 0.6 : 400);
+    spCta.classList.toggle('show', y > trigger);
+    ticking = false;
+  }
+  window.addEventListener('scroll', function(){
+    if(!ticking){ window.requestAnimationFrame(update); ticking = true; }
+  }, { passive:true });
+  update();
+})();
+
+/* ============================================================
+   JS 04. FAQ アコーディオン
+   ============================================================ */
+(function(){
+  document.querySelectorAll('.faq-q').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var item = btn.closest('.faq-item');
+      var open = item.classList.toggle('open');
+      btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  });
+})();
+
+/* ============================================================
+   JS 05. 数字のカウントアップ
+   ============================================================ */
+(function(){
+  var nums = document.querySelectorAll('[data-count]');
+  if(!nums.length || !('IntersectionObserver' in window)){
+    nums.forEach(function(el){ el.textContent = el.getAttribute('data-count'); });
+    return;
+  }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(!e.isIntersecting) return;
+      var el = e.target;
+      var goal = parseInt(el.getAttribute('data-count'), 10) || 0;
+      var start = null, dur = 1400;
+      function step(ts){
+        if(!start) start = ts;
+        var p = Math.min((ts - start) / dur, 1);
+        // easeOutCubic
+        var eased = 1 - Math.pow(1 - p, 3);
+        el.textContent = Math.round(goal * eased);
+        if(p < 1) requestAnimationFrame(step);
+      }
+      requestAnimationFrame(step);
+      io.unobserve(el);
+    });
+  }, { threshold: 0.6 });
+  nums.forEach(function(el){ io.observe(el); });
+})();
+
+/* ============================================================
+   JS 06. 相関図のノードを円形に配置（レスポンシブ対応）
+   ============================================================ */
+(function(){
+  var orbit = document.querySelector('.orbit');
+  if(!orbit) return;
+  var nodes = orbit.querySelectorAll('.orbit-node');
+
+  function layout(){
+    var r = orbit.clientWidth * 0.355; // 半径
+    nodes.forEach(function(n){
+      var deg = parseFloat(n.getAttribute('data-angle')) || 0;
+      var rad = deg * Math.PI / 180;
+      var x = Math.cos(rad) * r;
+      var y = Math.sin(rad) * r;
+      n.style.transform = 'translate(calc(-50% + ' + x.toFixed(1) + 'px), calc(-50% + ' + y.toFixed(1) + 'px))';
+    });
+  }
+  layout();
+  window.addEventListener('resize', layout, { passive:true });
+})();
+
+/* ============================================================
+   JS 07. アンカーリンクのオフセット付きスムーススクロール
+   ============================================================ */
+(function(){
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      var id = a.getAttribute('href');
+      if(id === '#' || id.length < 2) return;
+      var target = document.querySelector(id);
+      if(!target) return;
+      e.preventDefault();
+      var offset = window.innerWidth > 1023 ? 84 : 20;
+      var top = target.getBoundingClientRect().top + window.pageYOffset - offset;
+      window.scrollTo({ top: top, behavior: 'smooth' });
+    });
+  });
+})();
+</script>
+
+</body>
+</html>
