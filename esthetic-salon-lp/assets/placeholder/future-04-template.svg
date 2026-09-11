@@ -4,10 +4,23 @@
   <radialGradient id="s4" cx="0.3" cy="0.08" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity=".92"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
   <linearGradient id="desk4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F0E8DB"/></linearGradient>
   <linearGradient id="sk4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFD6C2"/><stop offset="1" stop-color="#E2C1A8"/></linearGradient>
+
+  <filter id="bgblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB"><feGaussianBlur stdDeviation="7"/></filter>
+  <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <filter id="softshadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+    <feDropShadow dx="0" dy="10" stdDeviation="14" flood-color="#6B5942" flood-opacity="0.18"/>
+  </filter>
+  <radialGradient id="vig" cx="0.5" cy="0.44" r="0.78">
+    <stop offset="0.46" stop-color="#4A3B28" stop-opacity="0"/><stop offset="1" stop-color="#5A4830" stop-opacity="0.24"/>
+  </radialGradient>
 </defs>
 <rect width="800" height="600" fill="url(#g4)"/><rect width="800" height="600" fill="url(#s4)"/>
+<g filter="url(#bgblur)">
 <!-- 窓の光 -->
 <g opacity=".4"><rect x="40" y="30" width="180" height="230" rx="6" fill="#FFFDF8"/><line x1="130" y1="30" x2="130" y2="260" stroke="#E8DCC8" stroke-width="4"/><line x1="40" y1="145" x2="220" y2="145" stroke="#E8DCC8" stroke-width="4"/></g>
+</g>
 <!-- デスク -->
 <path d="M0 388 H800 V600 H0 Z" fill="url(#desk4)"/><rect y="388" width="800" height="7" fill="#fff"/>
 <g stroke="#E8DECE" stroke-width="2" fill="none" opacity=".65"><path d="M30 446 C130 430 180 468 270 452"/><path d="M540 434 C630 456 710 428 782 448"/></g>
@@ -22,7 +35,7 @@
 <path d="M154 444 C176 442 178 472 156 472" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/></g>
 <!-- ノートPC -->
 <g>
-  <path d="M216 388 L640 388 L606 122 L250 122 Z" fill="#EFEAE1"/>
+  <path d="M216 388 L640 388 L606 122 L250 122 Z" fill="#EFEAE1" filter="url(#softshadow)"/>
   <path d="M216 388 L640 388 L606 122 L250 122 Z" fill="none" stroke="#CFC8BC" stroke-width="5"/>
   <rect x="262" y="136" width="332" height="238" fill="#FFFFFF"/>
   <!-- エディタUI -->
@@ -75,4 +88,6 @@
     <path d="M522 432 C514 426 506 428 502 434"/><path d="M494 424 C486 418 478 420 474 426"/><path d="M468 428 C460 423 452 425 448 431"/>
   </g>
 </g>
+<rect width="800" height="600" fill="url(#vig)"/>
+<rect width="800" height="600" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
 </svg>

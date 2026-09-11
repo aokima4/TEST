@@ -5,6 +5,30 @@
   <radialGradient id="fsun" cx="0.16" cy="0.06" r="0.7"><stop offset="0" stop-color="#FFFFFF" stop-opacity=".95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/></radialGradient>
   <linearGradient id="beam" x1="0" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#FFF6E2" stop-opacity=".9"/><stop offset="1" stop-color="#FFF6E2" stop-opacity="0"/></linearGradient>
   <linearGradient id="bed" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F0E8DB"/></linearGradient>
+
+  <!-- 写真的な奥行き（背景ボケ） -->
+  <filter id="bgblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="8"/>
+  </filter>
+  <filter id="midblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="3.5"/>
+  </filter>
+  <!-- 粒状感（フィルムグレイン） -->
+  <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <!-- やわらかい落ち影 -->
+  <filter id="softshadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+    <feDropShadow dx="0" dy="16" stdDeviation="20" flood-color="#6B5942" flood-opacity="0.16"/>
+  </filter>
+  <!-- 暖色のグロー -->
+  <radialGradient id="warmglow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFE6B4" stop-opacity="0.62"/><stop offset="1" stop-color="#FFE6B4" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig" cx="0.5" cy="0.44" r="0.78">
+    <stop offset="0.46" stop-color="#4A3B28" stop-opacity="0"/><stop offset="1" stop-color="#5A4830" stop-opacity="0.26"/>
+  </radialGradient>
 </defs>
 <rect width="2000" height="1000" fill="url(#wall)"/>
 <!-- 床 -->
@@ -12,6 +36,7 @@
 <rect y="690" width="2000" height="6" fill="#FFFFFF" opacity=".8"/>
 <rect width="2000" height="1000" fill="url(#fsun)"/>
 
+<g filter="url(#bgblur)">
 <!-- 左：大きな窓 -->
 <g>
   <rect x="86" y="60" width="420" height="630" rx="10" fill="#FFFDF8"/>
@@ -23,6 +48,7 @@
     <circle cx="180" cy="200" r="62"/><circle cx="240" cy="250" r="48"/><circle cx="140" cy="270" r="42"/>
     <circle cx="400" cy="480" r="54"/><circle cx="350" cy="540" r="40"/><circle cx="446" cy="540" r="36"/>
   </g>
+</g>
 </g>
 <!-- 光の帯（床） -->
 <path d="M110 690 L506 690 L760 1000 L250 1000 Z" fill="url(#beam)" opacity=".75"/>
@@ -42,7 +68,7 @@
 <!-- 中央：施術ベッド -->
 <g>
   <ellipse cx="1160" cy="906" rx="380" ry="46" fill="#D9CBB5" opacity=".45"/>
-  <rect x="858" y="654" width="600" height="150" rx="34" fill="url(#bed)"/>
+  <rect x="858" y="654" width="600" height="150" rx="34" fill="url(#bed)" filter="url(#softshadow)"/>
   <rect x="858" y="654" width="600" height="52" rx="26" fill="#FFFFFF"/>
   <!-- 枕 -->
   <rect x="896" y="606" width="190" height="62" rx="31" fill="#F7F2E9"/>
@@ -68,6 +94,7 @@
   <ellipse cx="790" cy="898" rx="50" ry="12" fill="#D9CBB5"/>
 </g>
 
+<g filter="url(#midblur)">
 <!-- 右：丸ミラー -->
 <g>
   <circle cx="1700" cy="300" r="164" fill="#F6E9D2" opacity=".45"/>
@@ -84,6 +111,7 @@
     <rect x="1818" y="474" width="42" height="82" rx="9"/>
   </g>
   <g fill="#C4A87C"><rect x="1586" y="458" width="28" height="14" rx="5"/><rect x="1706" y="446" width="28" height="14" rx="5"/><rect x="1826" y="462" width="26" height="13" rx="5"/></g>
+</g>
 </g>
 <!-- 右：ワゴン -->
 <g>
@@ -106,4 +134,8 @@
 <g opacity=".35" stroke="#FFFFFF" stroke-width="3" fill="none" stroke-linecap="round">
   <path d="M120 780 C300 762 420 800 600 782"/><path d="M1480 828 C1640 848 1780 816 1950 838"/>
 </g>
+
+<!-- 写真的な仕上げ：光・周辺減光・粒状感 -->
+<rect width="2000" height="1000" fill="url(#vig)"/>
+<rect width="2000" height="1000" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
 </svg>

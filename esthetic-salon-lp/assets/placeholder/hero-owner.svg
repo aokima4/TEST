@@ -27,15 +27,40 @@
   <linearGradient id="skin" x1="0.2" y1="0" x2="0.9" y2="1">
     <stop offset="0" stop-color="#EFD6C2"/><stop offset="1" stop-color="#E3C3AB"/>
   </linearGradient>
+
+  <!-- 写真的な奥行き（背景ボケ） -->
+  <filter id="bgblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="9"/>
+  </filter>
+  <filter id="midblur" x="-12%" y="-12%" width="124%" height="124%" color-interpolation-filters="sRGB">
+    <feGaussianBlur stdDeviation="4"/>
+  </filter>
+  <!-- 粒状感（フィルムグレイン） -->
+  <filter id="grain" x="0%" y="0%" width="100%" height="100%" color-interpolation-filters="sRGB">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="4" stitchTiles="stitch"/>
+    <feColorMatrix type="saturate" values="0"/>
+  </filter>
+  <!-- やわらかい落ち影 -->
+  <filter id="softshadow" x="-30%" y="-30%" width="160%" height="160%" color-interpolation-filters="sRGB">
+    <feDropShadow dx="0" dy="18" stdDeviation="22" flood-color="#6B5942" flood-opacity="0.16"/>
+  </filter>
+  <!-- 暖色のグロー -->
+  <radialGradient id="warmglow" cx="0.5" cy="0.5" r="0.5">
+    <stop offset="0" stop-color="#FFE6B4" stop-opacity="0.62"/><stop offset="1" stop-color="#FFE6B4" stop-opacity="0"/>
+  </radialGradient>
+  <radialGradient id="vig" cx="0.5" cy="0.44" r="0.78">
+    <stop offset="0.46" stop-color="#4A3B28" stop-opacity="0"/><stop offset="1" stop-color="#5A4830" stop-opacity="0.26"/>
+  </radialGradient>
 </defs>
 
 <!-- ===== 背景 ===== -->
 <rect width="1600" height="1340" fill="url(#bg)"/>
 <rect width="1600" height="1340" fill="url(#sun)"/>
 
+<g filter="url(#bgblur)">
 <!-- 右奥：木のルーバー壁 -->
 <g opacity="0.45">
-  <rect x="1150" y="0" width="450" height="990" fill="#E7DAC7"/>
+  <rect x="1150" y="-40" width="500" height="1030" fill="#E7DAC7"/>
   <g stroke="#D6C4A9" stroke-width="4">
     <line x1="1192" y1="0" x2="1192" y2="990"/><line x1="1244" y1="0" x2="1244" y2="990"/>
     <line x1="1296" y1="0" x2="1296" y2="990"/><line x1="1348" y1="0" x2="1348" y2="990"/>
@@ -91,6 +116,7 @@
   </g>
 </g>
 
+</g>
 <!-- ===== 女性（サロンオーナー） ===== -->
 <g>
   <!-- お団子ヘア（後ろ） -->
@@ -167,7 +193,7 @@
 
 <!-- ===== ノートPC ===== -->
 <g>
-  <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="url(#lap)"/>
+  <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="url(#lap)" filter="url(#softshadow)"/>
   <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="none" stroke="#BEB8AE" stroke-width="4"/>
   <path d="M1106 736 L1386 736 L1416 934 L1076 934 Z" fill="#F0ECE5" opacity="0.45"/>
   <circle cx="1245" cy="832" r="26" fill="none" stroke="#BEB8AE" stroke-width="3"/>
@@ -223,4 +249,8 @@
 
 <!-- 前景の光 -->
 <rect x="0" y="950" width="1600" height="130" fill="url(#glow)" opacity="0.45"/>
+
+<!-- 写真的な仕上げ：光・周辺減光・粒状感 -->
+<rect width="1600" height="1340" fill="url(#vig)"/>
+<rect width="1600" height="1340" filter="url(#grain)" opacity="0.05" style="mix-blend-mode:overlay"/>
 </svg>
