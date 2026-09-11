@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="スマートフォンでサロンのInstagramアカウントを見ている手元">
+<defs>
+  <linearGradient id="g1" x1="0.1" y1="0" x2="0.7" y2="1"><stop offset="0" stop-color="#FDFAF6"/><stop offset="1" stop-color="#EADFD0"/></linearGradient>
+  <radialGradient id="s1" cx="0.25" cy="0.12" r="0.7"><stop offset="0" stop-color="#fff" stop-opacity=".9"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="sk1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFD6C2"/><stop offset="1" stop-color="#E0BFA6"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#g1)"/><rect width="800" height="600" fill="url(#s1)"/>
+<!-- 背景のやわらかい影 -->
+<ellipse cx="400" cy="530" rx="290" ry="56" fill="#E2D5C2" opacity="0.45"/>
+<!-- 葉（左上） -->
+<g stroke="#9CA992" stroke-width="4" fill="none" stroke-linecap="round" opacity=".9">
+  <path d="M-10 96 C70 96 118 66 160 30"/><path d="M-10 150 C64 158 112 138 152 110"/>
+</g>
+<g fill="#AEB9A2" opacity=".9">
+  <ellipse cx="58" cy="74" rx="30" ry="14" transform="rotate(-26 58 74)"/>
+  <ellipse cx="132" cy="44" rx="26" ry="12" transform="rotate(-34 132 44)"/>
+  <ellipse cx="52" cy="160" rx="28" ry="13" transform="rotate(14 52 160)"/>
+  <ellipse cx="126" cy="128" rx="24" ry="11" transform="rotate(-18 126 128)"/>
+</g>
+<!-- 手：手のひら（スマホの後ろ） -->
+<g>
+  <path d="M286 600 C280 512 300 446 340 404" stroke="url(#sk1)" stroke-width="96" fill="none" stroke-linecap="round"/>
+  <ellipse cx="356" cy="392" rx="62" ry="72" fill="url(#sk1)" transform="rotate(-12 356 392)"/>
+</g>
+<!-- スマートフォン -->
+<g transform="rotate(-7 450 300)">
+  <rect x="332" y="74" width="236" height="452" rx="34" fill="#F9F5EF" stroke="#DBD4C8" stroke-width="4"/>
+  <rect x="346" y="90" width="208" height="420" rx="24" fill="#FFFFFF"/>
+  <rect x="424" y="80" width="52" height="8" rx="4" fill="#DED7CC"/>
+  <!-- プロフィール -->
+  <circle cx="386" cy="140" r="24" fill="#EFE2CE"/><circle cx="386" cy="140" r="24" fill="none" stroke="#C4A87C" stroke-width="2.5"/>
+  <rect x="422" y="126" width="96" height="9" rx="4.5" fill="#E4D9C7"/>
+  <rect x="422" y="144" width="66" height="8" rx="4" fill="#EDE5D7"/>
+  <rect x="362" y="178" width="176" height="26" rx="13" fill="#B59A70"/>
+  <!-- ハイライト -->
+  <g fill="#F2E9DA" stroke="#DFD2BC" stroke-width="2">
+    <circle cx="378" cy="238" r="17"/><circle cx="422" cy="238" r="17"/><circle cx="466" cy="238" r="17"/><circle cx="510" cy="238" r="17"/>
+  </g>
+  <!-- フィードグリッド -->
+  <g>
+    <rect x="352" y="272" width="64" height="64" fill="#F1E7D9"/><rect x="420" y="272" width="64" height="64" fill="#EDE0DE"/><rect x="488" y="272" width="64" height="64" fill="#EFEADF"/>
+    <rect x="352" y="340" width="64" height="64" fill="#EEE6DA"/><rect x="420" y="340" width="64" height="64" fill="#F2E9DB"/><rect x="488" y="340" width="64" height="64" fill="#E9E3D6"/>
+    <rect x="352" y="408" width="64" height="64" fill="#EDE1DF"/><rect x="420" y="408" width="64" height="64" fill="#F0E8DA"/><rect x="488" y="408" width="64" height="64" fill="#EDE7DA"/>
+    <circle cx="384" cy="304" r="14" fill="#DCC8AE"/><ellipse cx="452" cy="308" rx="18" ry="10" fill="#D9BFBC"/>
+    <path d="M508 324 l16-22 12 16 8-10 12 16 z" fill="#D6D0BE"/>
+    <circle cx="452" cy="372" r="13" fill="#DDC9AF"/><rect x="366" y="362" width="36" height="20" rx="10" fill="#DDD3C2"/>
+    <ellipse cx="520" cy="372" rx="17" ry="10" fill="#D5CFBD"/>
+    <ellipse cx="384" cy="440" rx="16" ry="10" fill="#D9BFBC"/><circle cx="452" cy="440" r="13" fill="#DCC8AE"/>
+    <rect x="504" y="430" width="32" height="20" rx="10" fill="#D8D0BE"/>
+  </g>
+</g>
+<!-- 手：スマホを支える指（前面） -->
+<g>
+  <g fill="url(#sk1)">
+    <rect x="302" y="268" width="66" height="36" rx="18" transform="rotate(-7 335 286)"/>
+    <rect x="300" y="314" width="70" height="37" rx="18.5" transform="rotate(-7 335 332)"/>
+    <rect x="302" y="362" width="66" height="36" rx="18" transform="rotate(-7 335 380)"/>
+    <rect x="308" y="410" width="58" height="34" rx="17" transform="rotate(-7 337 427)"/>
+  </g>
+  <g stroke="#DCB69C" stroke-width="3" fill="none" stroke-linecap="round" opacity=".65">
+    <path d="M352 272 C362 280 364 292 356 300"/><path d="M352 318 C364 327 366 340 356 348"/>
+    <path d="M352 366 C362 374 364 386 356 394"/>
+  </g>
+  <!-- 親指 -->
+  <path d="M330 512 C368 492 404 470 432 446" stroke="url(#sk1)" stroke-width="46" fill="none" stroke-linecap="round"/>
+  <ellipse cx="440" cy="440" rx="24" ry="20" fill="url(#sk1)" transform="rotate(-38 440 440)"/>
+  <path d="M428 424 C436 432 440 442 436 452" stroke="#DCB69C" stroke-width="3.5" fill="none" stroke-linecap="round" opacity=".7"/>
+</g>
+</svg>

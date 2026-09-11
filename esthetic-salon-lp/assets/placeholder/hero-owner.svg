@@ -1,0 +1,226 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1340" width="1600" height="1340" role="img" aria-label="サロンオーナーの女性が、大理石のカウンターでノートパソコンとスマートフォンを使っている様子">
+<defs>
+  <linearGradient id="bg" x1="0.1" y1="0" x2="0.4" y2="1">
+    <stop offset="0" stop-color="#FCF9F5"/><stop offset="0.5" stop-color="#F3ECE2"/><stop offset="1" stop-color="#EADFD0"/>
+  </linearGradient>
+  <radialGradient id="sun" cx="0.2" cy="0.08" r="0.62">
+    <stop offset="0" stop-color="#FFFFFF" stop-opacity="0.95"/><stop offset="1" stop-color="#FFFFFF" stop-opacity="0"/>
+  </radialGradient>
+  <linearGradient id="mirror" x1="0.2" y1="0" x2="0.8" y2="1">
+    <stop offset="0" stop-color="#FFFDFA"/><stop offset="0.55" stop-color="#F4EBDD"/><stop offset="1" stop-color="#E8DAC6"/>
+  </linearGradient>
+  <linearGradient id="counter" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#FFFFFF"/><stop offset="0.3" stop-color="#FBF7F2"/><stop offset="1" stop-color="#EFE7DB"/>
+  </linearGradient>
+  <linearGradient id="blazer" x1="0.1" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#F0E7DA"/><stop offset="1" stop-color="#DDCEB8"/>
+  </linearGradient>
+  <linearGradient id="sleeveL" x1="0" y1="0" x2="1" y2="0.6">
+    <stop offset="0" stop-color="#E9DECE"/><stop offset="1" stop-color="#DCCCB5"/>
+  </linearGradient>
+  <linearGradient id="lap" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#EDE8DE"/><stop offset="1" stop-color="#D2CBBD"/>
+  </linearGradient>
+  <linearGradient id="glow" x1="0" y1="0" x2="0" y2="1">
+    <stop offset="0" stop-color="#F7E9CC" stop-opacity="0.75"/><stop offset="1" stop-color="#F7E9CC" stop-opacity="0"/>
+  </linearGradient>
+  <linearGradient id="skin" x1="0.2" y1="0" x2="0.9" y2="1">
+    <stop offset="0" stop-color="#EFD6C2"/><stop offset="1" stop-color="#E3C3AB"/>
+  </linearGradient>
+</defs>
+
+<!-- ===== 背景 ===== -->
+<rect width="1600" height="1340" fill="url(#bg)"/>
+<rect width="1600" height="1340" fill="url(#sun)"/>
+
+<!-- 右奥：木のルーバー壁 -->
+<g opacity="0.45">
+  <rect x="1150" y="0" width="450" height="990" fill="#E7DAC7"/>
+  <g stroke="#D6C4A9" stroke-width="4">
+    <line x1="1192" y1="0" x2="1192" y2="990"/><line x1="1244" y1="0" x2="1244" y2="990"/>
+    <line x1="1296" y1="0" x2="1296" y2="990"/><line x1="1348" y1="0" x2="1348" y2="990"/>
+    <line x1="1400" y1="0" x2="1400" y2="990"/><line x1="1452" y1="0" x2="1452" y2="990"/>
+    <line x1="1504" y1="0" x2="1504" y2="990"/><line x1="1556" y1="0" x2="1556" y2="990"/>
+  </g>
+</g>
+
+<!-- ===== 背景：丸ミラーと間接照明 ===== -->
+<circle cx="326" cy="436" r="268" fill="#F6E9D2" opacity="0.45"/>
+<circle cx="326" cy="436" r="236" fill="url(#mirror)"/>
+<path d="M326 200 A236 236 0 0 1 562 436" fill="none" stroke="#FFFFFF" stroke-width="16" opacity="0.75" stroke-linecap="round"/>
+<circle cx="326" cy="436" r="236" fill="none" stroke="#C7AB80" stroke-width="6"/>
+
+<!-- 壁のアートフレーム -->
+<g opacity="0.55">
+  <rect x="982" y="206" width="152" height="198" fill="none" stroke="#CBB893" stroke-width="4"/>
+  <path d="M1006 370 C1036 302 1058 326 1082 288 C1100 260 1110 326 1110 370 Z" fill="#DCCDB6"/>
+  <circle cx="1030" cy="264" r="16" fill="#E4D6BE"/>
+</g>
+
+<!-- ===== 右：シェルフと美容ボトル ===== -->
+<g>
+  <rect x="1196" y="356" width="360" height="8" rx="4" fill="#D5C1A0"/>
+  <rect x="1196" y="600" width="360" height="8" rx="4" fill="#D5C1A0"/>
+  <g fill="#FAF4EA" stroke="#DED0B6" stroke-width="2.5">
+    <rect x="1226" y="268" width="44" height="88" rx="9"/>
+    <rect x="1292" y="292" width="34" height="64" rx="8"/>
+    <rect x="1348" y="256" width="48" height="100" rx="10"/>
+    <rect x="1418" y="288" width="32" height="68" rx="8"/>
+    <rect x="1472" y="272" width="42" height="84" rx="9"/>
+    <rect x="1234" y="520" width="38" height="80" rx="9"/>
+    <rect x="1292" y="534" width="48" height="66" rx="9"/>
+    <rect x="1360" y="510" width="34" height="90" rx="8"/>
+    <rect x="1414" y="532" width="46" height="68" rx="9"/>
+    <rect x="1480" y="516" width="32" height="84" rx="8"/>
+  </g>
+  <g fill="#C4A87C">
+    <rect x="1234" y="256" width="28" height="14" rx="5"/><rect x="1358" y="244" width="28" height="14" rx="5"/>
+    <rect x="1480" y="260" width="26" height="13" rx="5"/><rect x="1368" y="498" width="20" height="13" rx="5"/>
+    <rect x="1300" y="522" width="30" height="13" rx="5"/>
+  </g>
+  <!-- 棚のグリーン -->
+  <g>
+    <path d="M1536 356 h60 v-1 z" fill="none"/>
+    <rect x="1524" y="300" width="58" height="56" rx="10" fill="#EDE2D0"/>
+    <g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round">
+      <path d="M1553 300 C1553 254 1530 234 1512 216"/><path d="M1553 300 C1553 262 1576 240 1596 222"/>
+    </g>
+    <ellipse cx="1508" cy="210" rx="26" ry="13" fill="#A9B59D" transform="rotate(-40 1508 210)"/>
+    <ellipse cx="1598" cy="218" rx="26" ry="13" fill="#A9B59D" transform="rotate(38 1598 218)"/>
+    <ellipse cx="1552" cy="242" rx="24" ry="12" fill="#A9B59D"/>
+  </g>
+</g>
+
+<!-- ===== 女性（サロンオーナー） ===== -->
+<g>
+  <!-- お団子ヘア（後ろ） -->
+  <circle cx="598" cy="424" r="50" fill="#5C483A"/>
+  <path d="M598 380 A50 50 0 0 1 640 400" fill="none" stroke="#7C6552" stroke-width="9" stroke-linecap="round"/>
+  <!-- 首 -->
+  <path d="M660 526 h60 v104 h-60 z" fill="#D9B79E"/>
+  <!-- 上腕（胴の後ろ） -->
+  <path d="M586 720 C556 806 560 884 590 926" stroke="url(#sleeveL)" stroke-width="82" fill="none" stroke-linecap="round"/>
+  <path d="M800 720 C844 778 864 818 872 852" stroke="url(#sleeveL)" stroke-width="82" fill="none" stroke-linecap="round"/>
+  <!-- 肩・胴（ジャケット本体） -->
+  <path d="M546 962 C546 800 578 702 636 664 L690 636 L744 664 C802 702 834 800 834 962 Z" fill="url(#blazer)"/>
+  <!-- インナー（キャミソール） -->
+  <path d="M652 656 C666 722 690 772 690 816 C690 772 714 722 728 656 Z" fill="#E3D6C2"/>
+  <!-- 襟（ノッチドラペル） -->
+  <path d="M626 678 L660 650 L690 816 L646 752 Z" fill="#F6EFE4"/>
+  <path d="M754 678 L720 650 L690 816 L734 752 Z" fill="#F6EFE4"/>
+  <path d="M626 678 L660 650 L690 816 L646 752 Z" fill="none" stroke="#E0D2BB" stroke-width="2.5"/>
+  <path d="M754 678 L720 650 L690 816 L734 752 Z" fill="none" stroke="#E0D2BB" stroke-width="2.5"/>
+  <!-- 右前腕（カウンターに置く・胴の前） -->
+  <path d="M596 892 C654 918 706 926 756 922" stroke="url(#skin)" stroke-width="52" fill="none" stroke-linecap="round"/>
+  <ellipse cx="778" cy="921" rx="34" ry="25" fill="url(#skin)"/>
+  <path d="M756 938 C772 944 792 942 806 934" stroke="#DDB9A0" stroke-width="4" fill="none" stroke-linecap="round"/>
+  <!-- 左前腕（スマホを持つ） -->
+  <path d="M874 848 C874 760 872 660 870 602" stroke="url(#skin)" stroke-width="52" fill="none" stroke-linecap="round"/>
+  <path d="M857 700 A28 22 0 0 0 891 700" fill="none" stroke="#C4A87C" stroke-width="6"/>
+  <ellipse cx="868" cy="574" rx="35" ry="29" fill="url(#skin)"/>
+  <!-- 顔 -->
+  <ellipse cx="690" cy="466" rx="69" ry="85" fill="url(#skin)"/>
+  <!-- 耳＋フープピアス -->
+  <ellipse cx="758" cy="478" rx="13" ry="19" fill="#E3C3AB"/>
+  <circle cx="759" cy="506" r="12" fill="none" stroke="#C4A87C" stroke-width="5"/>
+  <!-- 前髪・髪 -->
+  <path d="M620 476 C612 392 644 350 694 350 C748 350 766 396 762 460 C752 428 732 402 696 398 C656 394 630 430 620 476 Z" fill="#5C483A"/>
+  <path d="M624 468 C634 428 658 400 694 400 C716 400 734 408 746 422 C722 408 690 410 666 426 C646 439 632 452 624 468 Z" fill="#7C6552" opacity="0.55"/>
+  <!-- 後れ毛 -->
+  <path d="M626 462 C616 520 620 560 630 588" stroke="#5C483A" stroke-width="10" fill="none" stroke-linecap="round"/>
+  <!-- 表情（やわらかい微笑み） -->
+  <g stroke="#6E5748" fill="none" stroke-linecap="round">
+    <path d="M646 438 Q664 428 682 436" stroke-width="5"/>
+    <path d="M700 436 Q718 428 734 438" stroke-width="5"/>
+    <path d="M650 466 Q664 478 678 466" stroke-width="4.5"/>
+    <path d="M702 466 Q716 478 730 466" stroke-width="4.5"/>
+  </g>
+  <path d="M678 512 Q692 524 706 511" stroke="#C98F89" stroke-width="5" fill="none" stroke-linecap="round"/>
+  <ellipse cx="652" cy="492" rx="17" ry="9" fill="#D8998F" opacity="0.3"/>
+  <ellipse cx="730" cy="492" rx="17" ry="9" fill="#D8998F" opacity="0.3"/>
+</g>
+
+<!-- スマートフォン -->
+<g transform="rotate(-10 878 452)">
+  <rect x="818" y="340" width="120" height="226" rx="19" fill="#F8F4EE" stroke="#D6D0C6" stroke-width="3"/>
+  <rect x="829" y="355" width="98" height="184" rx="10" fill="#FFFFFF"/>
+  <rect x="838" y="366" width="80" height="60" rx="7" fill="#F0E4D3"/>
+  <circle cx="878" cy="396" r="15" fill="#E0CDB2"/>
+  <rect x="838" y="436" width="80" height="8" rx="4" fill="#E8DDCB"/>
+  <rect x="838" y="452" width="56" height="8" rx="4" fill="#EEE5D7"/>
+  <rect x="838" y="478" width="80" height="28" rx="14" fill="#B59A70"/>
+  <rect x="860" y="347" width="36" height="6" rx="3" fill="#DCD6CC"/>
+</g>
+
+<!-- ===== カウンター（大理石） ===== -->
+<path d="M0 950 H1600 V1340 H0 Z" fill="url(#counter)"/>
+<path d="M0 950 H1600 V966 H0 Z" fill="#FFFFFF"/>
+<g stroke="#E4DACA" stroke-width="2.5" fill="none" opacity="0.7" stroke-linecap="round">
+  <path d="M80 1076 C230 1044 300 1128 448 1100"/>
+  <path d="M940 1024 C1064 1058 1172 1010 1300 1042"/>
+  <path d="M300 1246 C430 1216 520 1276 660 1252"/>
+</g>
+<g stroke="#F0E7D9" stroke-width="9" fill="none" opacity="0.8" stroke-linecap="round">
+  <path d="M140 1164 C300 1126 380 1212 536 1182"/>
+  <path d="M1020 1130 C1160 1164 1300 1114 1450 1150"/>
+</g>
+
+<!-- ===== ノートPC ===== -->
+<g>
+  <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="url(#lap)"/>
+  <path d="M1052 950 L1436 950 L1400 716 L1092 716 Z" fill="none" stroke="#BEB8AE" stroke-width="4"/>
+  <path d="M1106 736 L1386 736 L1416 934 L1076 934 Z" fill="#F0ECE5" opacity="0.45"/>
+  <circle cx="1245" cy="832" r="26" fill="none" stroke="#BEB8AE" stroke-width="3"/>
+  <path d="M1022 950 H1466 L1482 986 C1482 996 1472 1004 1458 1004 H1030 C1016 1004 1006 996 1006 986 Z" fill="#DEDAD3"/>
+  <path d="M1022 950 H1466 L1474 968 H1014 Z" fill="#C9C4BB"/>
+  <rect x="1190" y="980" width="110" height="8" rx="4" fill="#C9C4BB"/>
+</g>
+
+<!-- ===== コーヒーカップ ===== -->
+<g>
+  <ellipse cx="330" cy="1166" rx="98" ry="26" fill="#F1E9DC" opacity="0.9"/>
+  <path d="M262 1044 C262 1122 288 1156 330 1156 C372 1156 398 1122 398 1044 Z" fill="#FFFFFF"/>
+  <ellipse cx="330" cy="1044" rx="68" ry="21" fill="#F7F1E7"/>
+  <ellipse cx="330" cy="1044" rx="51" ry="14" fill="#C7A57A"/>
+  <ellipse cx="316" cy="1040" rx="18" ry="6" fill="#DCC3A0" opacity="0.8"/>
+  <path d="M398 1066 C438 1062 442 1114 400 1114" fill="none" stroke="#FFFFFF" stroke-width="15" stroke-linecap="round"/>
+</g>
+
+<!-- ===== ノート＆ペン ===== -->
+<g transform="rotate(-5 700 1234)">
+  <rect x="536" y="1172" width="330" height="128" rx="8" fill="#FFFFFF"/>
+  <rect x="536" y="1172" width="330" height="128" rx="8" fill="none" stroke="#E9E1D4" stroke-width="3"/>
+  <g stroke="#EBE3D6" stroke-width="4" stroke-linecap="round">
+    <line x1="572" y1="1212" x2="828" y2="1212"/><line x1="572" y1="1242" x2="828" y2="1242"/><line x1="572" y1="1272" x2="756" y2="1272"/>
+  </g>
+  <rect x="610" y="1148" width="230" height="14" rx="7" fill="#C4A87C"/>
+  <circle cx="616" cy="1155" r="8" fill="#8E7752"/>
+</g>
+
+<!-- ===== 花（左手前） ===== -->
+<g>
+  <path d="M88 1086 C88 1194 112 1244 160 1244 C208 1244 232 1194 232 1086 Z" fill="#F8F3EC" opacity="0.96"/>
+  <path d="M88 1086 h144" stroke="#E8DECD" stroke-width="4"/>
+  <g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round">
+    <path d="M160 1086 C160 1006 128 964 100 930"/>
+    <path d="M160 1086 C160 1014 192 972 224 940"/>
+    <path d="M160 1086 C160 1020 160 976 160 920"/>
+  </g>
+  <ellipse cx="120" cy="1004" rx="30" ry="14" fill="#A9B59D" transform="rotate(-36 120 1004)"/>
+  <ellipse cx="210" cy="1012" rx="30" ry="14" fill="#A9B59D" transform="rotate(32 210 1012)"/>
+  <circle cx="98" cy="922" r="33" fill="#F8F3EC"/><circle cx="98" cy="922" r="16" fill="#EEE3D4"/>
+  <circle cx="228" cy="932" r="29" fill="#F5EBE9"/><circle cx="228" cy="932" r="14" fill="#E2CBC8"/>
+  <circle cx="160" cy="906" r="37" fill="#FFFCF8"/><circle cx="160" cy="906" r="18" fill="#F1E7DA"/>
+</g>
+
+<!-- ===== 美容アイテム（右手前） ===== -->
+<g>
+  <rect x="1452" y="1064" width="82" height="152" rx="17" fill="#FCF8F2" stroke="#E6DDCD" stroke-width="3"/>
+  <rect x="1470" y="1032" width="46" height="36" rx="9" fill="#C4A87C"/>
+  <rect x="1344" y="1112" width="64" height="104" rx="15" fill="#F5EEE4" stroke="#E6DDCD" stroke-width="3"/>
+  <rect x="1358" y="1086" width="36" height="28" rx="7" fill="#D6C3A5"/>
+</g>
+
+<!-- 前景の光 -->
+<rect x="0" y="950" width="1600" height="130" fill="url(#glow)" opacity="0.45"/>
+</svg>

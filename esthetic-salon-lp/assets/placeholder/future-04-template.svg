@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="ノートパソコンでSNS投稿テンプレートを編集している様子">
+<defs>
+  <linearGradient id="g4" x1="0.2" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#FCF9F5"/><stop offset="1" stop-color="#E9DFD1"/></linearGradient>
+  <radialGradient id="s4" cx="0.3" cy="0.08" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity=".92"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="desk4" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#FFFFFF"/><stop offset="1" stop-color="#F0E8DB"/></linearGradient>
+  <linearGradient id="sk4" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EFD6C2"/><stop offset="1" stop-color="#E2C1A8"/></linearGradient>
+</defs>
+<rect width="800" height="600" fill="url(#g4)"/><rect width="800" height="600" fill="url(#s4)"/>
+<!-- 窓の光 -->
+<g opacity=".4"><rect x="40" y="30" width="180" height="230" rx="6" fill="#FFFDF8"/><line x1="130" y1="30" x2="130" y2="260" stroke="#E8DCC8" stroke-width="4"/><line x1="40" y1="145" x2="220" y2="145" stroke="#E8DCC8" stroke-width="4"/></g>
+<!-- デスク -->
+<path d="M0 388 H800 V600 H0 Z" fill="url(#desk4)"/><rect y="388" width="800" height="7" fill="#fff"/>
+<g stroke="#E8DECE" stroke-width="2" fill="none" opacity=".65"><path d="M30 446 C130 430 180 468 270 452"/><path d="M540 434 C630 456 710 428 782 448"/></g>
+<!-- 観葉植物 -->
+<g><path d="M672 388 h72 l-10 78 h-52 z" fill="#EDE3D3"/>
+<g stroke="#9CA992" stroke-width="5" fill="none" stroke-linecap="round"><path d="M708 388 C708 320 682 288 660 262"/><path d="M708 388 C708 332 736 302 762 276"/></g>
+<g fill="#AEB9A2"><ellipse cx="654" cy="254" rx="28" ry="13" transform="rotate(-40 654 254)"/><ellipse cx="768" cy="268" rx="28" ry="13" transform="rotate(38 768 268)"/><ellipse cx="710" cy="272" rx="24" ry="12"/><ellipse cx="676" cy="318" rx="24" ry="11" transform="rotate(-24 676 318)"/></g></g>
+<!-- コーヒー -->
+<g><ellipse cx="116" cy="498" rx="56" ry="15" fill="#E9DFCF" opacity=".55"/>
+<path d="M78 432 C78 476 92 494 116 494 C140 494 154 476 154 432 Z" fill="#FFFFFF"/>
+<ellipse cx="116" cy="432" rx="38" ry="12" fill="#F7F1E7"/><ellipse cx="116" cy="432" rx="28" ry="8" fill="#C7A57A"/>
+<path d="M154 444 C176 442 178 472 156 472" fill="none" stroke="#FFFFFF" stroke-width="9" stroke-linecap="round"/></g>
+<!-- ノートPC -->
+<g>
+  <path d="M216 388 L640 388 L606 122 L250 122 Z" fill="#EFEAE1"/>
+  <path d="M216 388 L640 388 L606 122 L250 122 Z" fill="none" stroke="#CFC8BC" stroke-width="5"/>
+  <rect x="262" y="136" width="332" height="238" fill="#FFFFFF"/>
+  <!-- エディタUI -->
+  <rect x="262" y="136" width="332" height="26" fill="#F4EFE5"/>
+  <g fill="#D8CCB4"><circle cx="276" cy="149" r="5"/><circle cx="292" cy="149" r="5"/><circle cx="308" cy="149" r="5"/></g>
+  <rect x="330" y="144" width="120" height="10" rx="5" fill="#E9E0CE"/>
+  <!-- 左パネル：テンプレート一覧 -->
+  <rect x="262" y="162" width="76" height="212" fill="#F8F4EB"/>
+  <g fill="#EAE0CD"><rect x="274" y="176" width="52" height="36" rx="4"/><rect x="274" y="220" width="52" height="36" rx="4"/><rect x="274" y="264" width="52" height="36" rx="4"/><rect x="274" y="308" width="52" height="36" rx="4"/></g>
+  <rect x="274" y="176" width="52" height="36" rx="4" fill="none" stroke="#B59A70" stroke-width="2.5"/>
+  <!-- キャンバス：投稿デザイン -->
+  <rect x="356" y="180" width="176" height="176" fill="#F3EADC"/>
+  <rect x="356" y="180" width="176" height="176" fill="none" stroke="#DCCEB6" stroke-width="2"/>
+  <circle cx="444" cy="244" r="34" fill="#E3D2B6"/>
+  <rect x="392" y="296" width="104" height="9" rx="4.5" fill="#CBB693"/>
+  <rect x="410" y="314" width="68" height="7" rx="3.5" fill="#DBCCB0"/>
+  <g stroke="#B59A70" stroke-width="2" fill="#fff"><rect x="350" y="174" width="10" height="10"/><rect x="528" y="174" width="10" height="10"/><rect x="350" y="352" width="10" height="10"/><rect x="528" y="352" width="10" height="10"/></g>
+  <!-- 右パネル -->
+  <rect x="548" y="162" width="46" height="212" fill="#F8F4EB"/>
+  <g fill="#E4D9C4"><rect x="558" y="180" width="26" height="8" rx="4"/><rect x="558" y="198" width="26" height="8" rx="4"/><rect x="558" y="224" width="26" height="26" rx="13"/><rect x="558" y="262" width="26" height="8" rx="4"/></g>
+  <!-- 本体下部 -->
+  <path d="M182 388 H674 L692 428 C692 440 682 448 666 448 H190 C174 448 164 440 164 428 Z" fill="#E3DFD7"/>
+  <path d="M182 388 H674 L684 408 H172 Z" fill="#CFC9BE"/>
+  <rect x="368" y="422" width="120" height="8" rx="4" fill="#CFC9BE"/>
+</g>
+<!-- 手（キーボード上） -->
+<g>
+  <!-- 左手 -->
+  <path d="M268 600 C266 546 286 502 320 474" stroke="url(#sk4)" stroke-width="72" fill="none" stroke-linecap="round"/>
+  <ellipse cx="336" cy="462" rx="46" ry="32" fill="url(#sk4)" transform="rotate(-18 336 462)"/>
+  <g fill="url(#sk4)">
+    <rect x="296" y="418" width="24" height="42" rx="12" transform="rotate(-26 308 439)"/>
+    <rect x="322" y="410" width="24" height="46" rx="12" transform="rotate(-16 334 433)"/>
+    <rect x="348" y="414" width="24" height="44" rx="12" transform="rotate(-6 360 436)"/>
+    <rect x="372" y="426" width="22" height="38" rx="11" transform="rotate(4 383 445)"/>
+  </g>
+  <g stroke="#DCB69C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".6">
+    <path d="M300 432 C308 426 316 428 320 434"/><path d="M328 424 C336 418 344 420 348 426"/><path d="M354 428 C362 423 370 425 374 431"/>
+  </g>
+  <!-- 右手 -->
+  <path d="M554 600 C556 546 536 502 502 474" stroke="url(#sk4)" stroke-width="72" fill="none" stroke-linecap="round"/>
+  <ellipse cx="486" cy="462" rx="46" ry="32" fill="url(#sk4)" transform="rotate(18 486 462)"/>
+  <g fill="url(#sk4)">
+    <rect x="502" y="418" width="24" height="42" rx="12" transform="rotate(26 514 439)"/>
+    <rect x="476" y="410" width="24" height="46" rx="12" transform="rotate(16 488 433)"/>
+    <rect x="450" y="414" width="24" height="44" rx="12" transform="rotate(6 462 436)"/>
+    <rect x="428" y="426" width="22" height="38" rx="11" transform="rotate(-4 439 445)"/>
+  </g>
+  <g stroke="#DCB69C" stroke-width="2.5" fill="none" stroke-linecap="round" opacity=".6">
+    <path d="M522 432 C514 426 506 428 502 434"/><path d="M494 424 C486 418 478 420 474 426"/><path d="M468 428 C460 423 452 425 448 431"/>
+  </g>
+</g>
+</svg>

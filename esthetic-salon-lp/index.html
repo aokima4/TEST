@@ -20,6 +20,7 @@
 <meta property="og:description" content="エステサロン開業に必要なロゴ、ホームページ、Instagram、公式LINE、予約システム、Googleマップまで一括サポート。">
 <meta property="og:url" content="https://example.com/">
 <meta property="og:image" content="https://example.com/assets/ogp.jpg">
+<!-- OGP画像の仮データ：assets/placeholder/ogp.svg（本番はJPG/PNG 1200×630で書き出して差し替え） -->
 <meta property="og:site_name" content="エステサロン開業まるごとパック">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -216,42 +217,17 @@ ul{margin:0;padding:0;list-style:none}
    ============================================================ */
 .ph{
   position:relative;
-  background:
-    radial-gradient(120% 90% at 25% 15%, rgba(255,255,255,.95), transparent 60%),
-    radial-gradient(100% 80% at 85% 90%, rgba(201,163,160,.30), transparent 62%),
-    linear-gradient(148deg,#F6F1E9 0%,#EDE4D8 45%,#E3D8C8 100%);
   overflow:hidden;
-  display:flex;align-items:center;justify-content:center;
-  isolation:isolate;
+  background:linear-gradient(148deg,#F6F1E9 0%,#EDE4D8 45%,#E3D8C8 100%);
 }
-.ph::before{ /* 微細なテクスチャライン */
-  content:"";position:absolute;inset:0;
-  background-image:repeating-linear-gradient(115deg,rgba(255,255,255,.5) 0 1px,transparent 1px 14px);
-  opacity:.5;
+.ph img{
+  width:100%;height:100%;
+  object-fit:cover;object-position:center;
+  display:block;
 }
-.ph::after{ /* 中央のモノグラム */
-  content:"";position:absolute;
-  width:34%;aspect-ratio:1;max-width:140px;
-  border:1px solid rgba(181,154,112,.42);
-  border-radius:50%;
-}
-.ph-note{
-  position:relative;z-index:2;
-  font-size:11.5px;line-height:1.85;letter-spacing:.09em;
-  color:rgba(57,53,50,.58);
-  text-align:center;
-  padding:18px 20px;
-  max-width:88%;
-  background:rgba(255,255,255,.7);
-  backdrop-filter:blur(2px);
-  border:1px solid rgba(181,154,112,.32);
-}
-.ph-note b{
-  display:block;font-family:var(--en);font-size:11px;letter-spacing:.32em;
-  color:var(--gold);margin-bottom:6px;font-weight:500;
-}
-.ph-zoom{transition:transform 1.6s var(--ease)}
-.ph-zoom:hover{transform:scale(1.045)}
+/* 写真のごく微細なズーム（上品な動き） */
+.ph-zoom img{transition:transform 2s var(--ease)}
+.ph-zoom:hover img{transform:scale(1.04)}
 
 /* ============================================================
    04. HEADER
@@ -334,6 +310,7 @@ ul{margin:0;padding:0;list-style:none}
 .hero-notes{margin-top:24px;justify-content:flex-start}
 .hero-visual{position:relative}
 .hero-visual .ph{aspect-ratio:4/3.35;border-radius:2px}
+.hero-visual .ph img{object-position:center 44%}
 .hero-badge{
   position:absolute;left:-26px;bottom:-26px;
   background:var(--white);padding:20px 26px;
@@ -354,7 +331,7 @@ ul{margin:0;padding:0;list-style:none}
   .hero-badge .num{font-size:34px;flex:none}
   .hero-badge .lbl{margin-top:0}
   .hero-actions .btn{min-width:100%}
-  .hero-visual .ph{aspect-ratio:4/3}
+  .hero-visual .ph{aspect-ratio:4/3.35}
   .hero-notes{margin-top:20px}
 }
 
@@ -542,7 +519,7 @@ ul{margin:0;padding:0;list-style:none}
 .future-card .ph{aspect-ratio:4/3}
 .future-card .body{padding:24px}
 .future-card .no{font-family:var(--en);font-size:12px;letter-spacing:.26em;color:var(--gold)}
-.future-card h3{font-size:clamp(15.5px,1.9vw,18px);margin-top:10px;line-height:1.8}
+.future-card h3{font-size:clamp(14.5px,1.6vw,16.5px);margin-top:10px;line-height:1.85;letter-spacing:.03em}
 .future-conclusion{
   margin-top:clamp(48px,7vw,80px);padding:clamp(36px,5vw,60px);
   background:var(--white);text-align:center;border:1px solid var(--gold-light);
@@ -853,11 +830,10 @@ ul{margin:0;padding:0;list-style:none}
 .final-cta{position:relative;padding-block:clamp(88px,12vw,150px);overflow:hidden;isolation:isolate}
 .final-bg{position:absolute;inset:0;z-index:-2}
 .final-bg .ph{width:100%;height:100%}
-.final-bg .ph-note{display:none}
-.final-bg .ph::after{display:none}
+.final-bg img{opacity:.96}
 .final-cta::after{
   content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(180deg,rgba(45,41,38,.62),rgba(45,41,38,.78));
+  background:linear-gradient(180deg,rgba(48,40,32,.56),rgba(44,36,29,.76));
 }
 .final-cta .inner{text-align:center;color:#fff;position:relative}
 .final-cta h2{font-size:clamp(24px,4.4vw,44px);line-height:1.65;margin-bottom:22px;color:#fff}
@@ -992,12 +968,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
            表情は柔らかく自信のある笑顔。横幅1600px以上推奨。
            推奨ファイル名：assets/hero-owner.jpg -->
       <div class="ph ph-zoom">
-        <p class="ph-note">
-          <b>Hero Image</b>
-          30〜40代の女性サロンオーナー／高級感あるアイボリー基調のサロン<br>
-          自然光・ノートPC・スマホ・手帳・コーヒー・美容商品<br>
-          「この人みたいに自分のサロンを持ちたい」と感じる一枚
-        </p>
+        <img src="assets/placeholder/hero-owner.svg" width="1600" height="1340"
+             alt="サロンオーナーの女性が、大理石のカウンターでノートパソコンとスマートフォンを使っている様子">
       </div>
       <div class="hero-badge">
         <div class="num" data-count="8">0</div>
@@ -1255,7 +1227,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
              スマートフォンでInstagramのサロンアカウントを見ている30代女性の手元。
              アイボリー／ベージュの背景。自然光。指先まで清潔感のあるカット。
              推奨ファイル名：assets/future-01-instagram.jpg -->
-        <div class="ph"><p class="ph-note"><b>Image 01</b>スマホでInstagramのサロンアカウントを見る手元<br>自然光・アイボリー背景</p></div>
+        <div class="ph ph-zoom"><img src="assets/placeholder/future-01-instagram.svg" width="800" height="600" loading="lazy"
+             alt="スマートフォンでサロンのInstagramアカウントを見ている手元"></div>
         <div class="body">
           <span class="no">01</span>
           <h3>Instagramを見たお客様が、<br>迷わず予約できる。</h3>
@@ -1267,7 +1240,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
              サロンオーナーがタブレットまたはスマホで公式LINEの管理画面を確認しているシーン。
              木・大理石・グリーンのある明るい空間。
              推奨ファイル名：assets/future-02-line.jpg -->
-        <div class="ph"><p class="ph-note"><b>Image 02</b>公式LINEの管理画面を確認するサロンオーナー<br>木・大理石・グリーンのある明るい空間</p></div>
+        <div class="ph ph-zoom"><img src="assets/placeholder/future-02-line.svg" width="800" height="600" loading="lazy"
+             alt="公式LINEの予約メッセージとリッチメニューが表示されたスマートフォン"></div>
         <div class="body">
           <span class="no">02</span>
           <h3>LINEにお客様がたまり、<br>再来店につながる。</h3>
@@ -1279,7 +1253,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
              ロゴ入りの名刺・メニュー表・ショップカード・タオルなどが
              統一された世界観で並んだ平置き（フラットレイ）写真。
              推奨ファイル名：assets/future-03-branding.jpg -->
-        <div class="ph"><p class="ph-note"><b>Image 03</b>ロゴ入り名刺・メニュー表・ショップカードのフラットレイ<br>統一された世界観</p></div>
+        <div class="ph ph-zoom"><img src="assets/placeholder/future-03-branding.svg" width="800" height="600" loading="lazy"
+             alt="ロゴ入りの名刺・メニュー表・ショップカードを並べたフラットレイ"></div>
         <div class="body">
           <span class="no">03</span>
           <h3>サロンの世界観が統一され、<br>“ちゃんとしているお店”に見える。</h3>
@@ -1291,7 +1266,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
              ノートPCでSNS投稿テンプレートを編集している女性オーナーの様子。
              余白のある明るいデスク。自然光。
              推奨ファイル名：assets/future-04-template.jpg -->
-        <div class="ph"><p class="ph-note"><b>Image 04</b>ノートPCでSNS投稿テンプレートを編集する女性オーナー<br>余白のある明るいデスク</p></div>
+        <div class="ph ph-zoom"><img src="assets/placeholder/future-04-template.svg" width="800" height="600" loading="lazy"
+             alt="ノートパソコンでSNS投稿テンプレートを編集している様子"></div>
         <div class="body">
           <span class="no">04</span>
           <h3>SNSテンプレートがあるから、<br>自分で発信を続けられる。</h3>
@@ -1724,7 +1700,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
            明るいオフィスまたはサロン空間で、自然光。
            腕組みポーズではなく、柔らかく知性的な表情の縦位置ポートレート（4:5）。
            推奨ファイル名：assets/ceo-portrait.jpg -->
-      <div class="ph ph-zoom"><p class="ph-note"><b>Portrait</b>代表ポートレート（縦4:5）<br>30〜40代女性経営者・自然光<br>上品で信頼感のある表情</p></div>
+      <div class="ph ph-zoom"><img src="assets/placeholder/ceo-portrait.svg" width="800" height="1000" loading="lazy"
+           alt="代表者のポートレート。ジャケットを着た女性が明るい室内で微笑んでいる"></div>
     </div>
 
     <div class="msg-body fade" data-d="2">
@@ -1759,7 +1736,8 @@ a:focus-visible,button:focus-visible{outline:2px solid var(--gold);outline-offse
          アイボリー／ベージュ／木／大理石／グリーンのある広く明るいサロン。
          自然光が差し込み、余白のある構図。人物なしでも可。
          横幅2000px以上推奨。推奨ファイル名：assets/final-cta-salon.jpg -->
-    <div class="ph"><p class="ph-note"><b>Background</b>広く明るい高級サロン空間（横位置・2000px以上）<br>自然光・木・大理石・グリーン・余白のある構図</p></div>
+    <div class="ph"><img src="assets/placeholder/final-cta-salon.svg" width="2000" height="1000" loading="lazy"
+         alt=""></div>
   </div>
 
   <div class="wrap inner">

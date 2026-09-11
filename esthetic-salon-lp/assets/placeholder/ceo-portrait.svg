@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" width="800" height="1000" role="img" aria-label="代表者のポートレート。ジャケットを着た女性が明るい室内で微笑んでいる">
+<defs>
+  <linearGradient id="pbg" x1="0.15" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#FDFAF6"/><stop offset="0.55" stop-color="#F3ECE2"/><stop offset="1" stop-color="#E8DCCC"/></linearGradient>
+  <radialGradient id="psun" cx="0.25" cy="0.1" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+  <linearGradient id="pskin" x1="0.2" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#F0D8C4"/><stop offset="1" stop-color="#E2C3AA"/></linearGradient>
+  <linearGradient id="pblazer" x1="0.1" y1="0" x2="0.9" y2="1"><stop offset="0" stop-color="#F1E8DC"/><stop offset="1" stop-color="#DACAB3"/></linearGradient>
+</defs>
+<rect width="800" height="1000" fill="url(#pbg)"/><rect width="800" height="1000" fill="url(#psun)"/>
+
+<!-- 背景：アーチ -->
+<path d="M150 1000 V420 A170 170 0 0 1 490 420 V1000 Z" fill="#F6EFE4" opacity=".55"/>
+<!-- 窓の光 -->
+<g opacity=".45"><rect x="556" y="92" width="200" height="300" rx="8" fill="#FFFDF8"/>
+<line x1="656" y1="92" x2="656" y2="392" stroke="#E8DCC8" stroke-width="5"/><line x1="556" y1="242" x2="756" y2="242" stroke="#E8DCC8" stroke-width="5"/></g>
+<!-- 観葉植物（右） -->
+<g><path d="M636 792 h96 l-13 118 h-70 z" fill="#EDE3D3"/>
+<g stroke="#9CA992" stroke-width="6" fill="none" stroke-linecap="round">
+  <path d="M684 792 C684 682 646 630 612 584"/><path d="M684 792 C684 700 726 652 764 610"/><path d="M684 792 C684 714 684 660 684 606"/></g>
+<g fill="#AEB9A2">
+  <ellipse cx="604" cy="572" rx="36" ry="17" transform="rotate(-40 604 572)"/><ellipse cx="772" cy="598" rx="36" ry="17" transform="rotate(38 772 598)"/>
+  <ellipse cx="684" cy="592" rx="32" ry="15"/><ellipse cx="638" cy="664" rx="32" ry="15" transform="rotate(-26 638 664)"/><ellipse cx="734" cy="678" rx="32" ry="15" transform="rotate(24 734 678)"/></g></g>
+<!-- 左：スツールとボトル -->
+<g opacity=".85">
+  <rect x="34" y="806" width="150" height="14" rx="7" fill="#EDE3D3"/>
+  <rect x="52" y="820" width="10" height="180" fill="#E6DBC8"/><rect x="156" y="820" width="10" height="180" fill="#E6DBC8"/>
+  <rect x="78" y="716" width="56" height="92" rx="14" fill="#FBF7F1" stroke="#E6DDCD" stroke-width="3"/>
+  <rect x="92" y="692" width="30" height="26" rx="7" fill="#C4A87C"/>
+</g>
+
+<!-- ===== 人物 ===== -->
+<g>
+  <!-- お団子 -->
+  <circle cx="312" cy="252" r="58" fill="#5C483A"/>
+  <path d="M312 202 A58 58 0 0 1 360 228" fill="none" stroke="#7C6552" stroke-width="11" stroke-linecap="round"/>
+  <!-- 首 -->
+  <path d="M352 392 C352 452 358 506 368 560 h64 C442 506 448 452 448 392 Z" fill="#D6B49B"/>
+  <path d="M354 400 C376 440 424 440 446 400 Z" fill="#C9A48B" opacity=".55"/>
+  <!-- 上腕（胴の後ろ） -->
+  <path d="M256 664 C218 782 216 906 238 1000" stroke="#E6DACA" stroke-width="92" fill="none" stroke-linecap="round"/>
+  <path d="M544 664 C582 782 584 906 562 1000" stroke="#E6DACA" stroke-width="92" fill="none" stroke-linecap="round"/>
+  <!-- 胴（ジャケット） -->
+  <path d="M210 1000 C210 752 252 636 322 586 L400 542 L478 586 C548 636 590 752 590 1000 Z" fill="url(#pblazer)"/>
+  <!-- インナー -->
+  <path d="M356 558 C372 650 400 712 400 770 C400 712 428 650 444 558 Z" fill="#E2D4C0"/>
+  <!-- 襟 -->
+  <path d="M316 602 L364 556 L400 770 L346 678 Z" fill="#F7F1E7"/>
+  <path d="M484 602 L436 556 L400 770 L454 678 Z" fill="#F7F1E7"/>
+  <path d="M316 602 L364 556 L400 770 L346 678 Z" fill="none" stroke="#E1D3BC" stroke-width="3"/>
+  <path d="M484 602 L436 556 L400 770 L454 678 Z" fill="none" stroke="#E1D3BC" stroke-width="3"/>
+  <!-- 耳・ピアス -->
+  <ellipse cx="492" cy="330" rx="17" ry="26" fill="#E2C3AA"/>
+  <!-- 顔 -->
+  <ellipse cx="400" cy="308" rx="96" ry="116" fill="url(#pskin)"/>
+  <circle cx="494" cy="372" r="16" fill="none" stroke="#C4A87C" stroke-width="7"/>
+  <!-- 髪 -->
+  <path d="M302 320 C290 196 342 136 404 136 C474 136 498 198 492 288 C482 232 454 200 408 196 C350 190 314 244 302 320 Z" fill="#5C483A"/>
+  <path d="M404 136 C446 138 472 166 484 210 C462 178 432 162 400 164 Z" fill="#7C6552" opacity=".38"/>
+  <path d="M308 300 C294 388 300 448 314 488" stroke="#5C483A" stroke-width="13" fill="none" stroke-linecap="round"/>
+  <!-- 表情 -->
+  <g stroke="#6E5748" fill="none" stroke-linecap="round">
+    <path d="M330 280 Q353 266 376 278" stroke-width="7"/>
+    <path d="M424 278 Q447 266 470 280" stroke-width="7"/>
+    <path d="M334 320 Q354 338 374 320" stroke-width="6.5"/>
+    <path d="M426 320 Q446 338 466 320" stroke-width="6.5"/>
+  </g>
+  <path d="M378 384 Q400 400 422 383" stroke="#C98F89" stroke-width="7" fill="none" stroke-linecap="round"/>
+  <ellipse cx="346" cy="352" rx="24" ry="13" fill="#D8998F" opacity=".28"/>
+  <ellipse cx="454" cy="352" rx="24" ry="13" fill="#D8998F" opacity=".28"/>
+  <!-- ネックレス -->
+  <path d="M368 490 C381 524 419 524 432 490" fill="none" stroke="#C4A87C" stroke-width="4"/>
+  <circle cx="400" cy="514" r="7" fill="#C4A87C"/>
+</g>
+</svg>

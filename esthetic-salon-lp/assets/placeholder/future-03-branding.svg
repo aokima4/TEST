@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600" role="img" aria-label="ロゴ入りの名刺・メニュー表・ショップカードなどを並べたフラットレイ">
+<defs>
+  <linearGradient id="g3" x1="0.15" y1="0" x2="0.8" y2="1"><stop offset="0" stop-color="#FCF9F4"/><stop offset="0.6" stop-color="#F2EBE1"/><stop offset="1" stop-color="#E7DCCC"/></linearGradient>
+  <radialGradient id="s3" cx="0.2" cy="0.1" r="0.75"><stop offset="0" stop-color="#fff" stop-opacity=".92"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
+</defs>
+<rect width="800" height="600" fill="url(#g3)"/><rect width="800" height="600" fill="url(#s3)"/>
+<!-- 布のたたみタオル -->
+<g transform="rotate(-4 150 470)">
+  <rect x="34" y="418" width="240" height="104" rx="10" fill="#FBF7F1"/>
+  <rect x="34" y="418" width="240" height="104" rx="10" fill="none" stroke="#E9E0D2" stroke-width="3"/>
+  <line x1="34" y1="454" x2="274" y2="454" stroke="#EEE6DA" stroke-width="3"/>
+  <line x1="34" y1="488" x2="274" y2="488" stroke="#EEE6DA" stroke-width="3"/>
+  <rect x="118" y="400" width="70" height="140" rx="6" fill="#F3EADD" opacity=".7"/>
+</g>
+<!-- メニュー表 -->
+<g transform="rotate(6 470 320)">
+  <rect x="352" y="120" width="238" height="330" rx="6" fill="#FFFFFF"/>
+  <rect x="352" y="120" width="238" height="330" rx="6" fill="none" stroke="#EAE1D2" stroke-width="3"/>
+  <text x="471" y="184" font-family="Georgia,serif" font-size="19" letter-spacing="6" fill="#B59A70" text-anchor="middle">MENU</text>
+  <line x1="424" y1="202" x2="518" y2="202" stroke="#D9C6A6" stroke-width="2"/>
+  <g stroke="#E6DCCB" stroke-width="4" stroke-linecap="round">
+    <line x1="388" y1="238" x2="500" y2="238"/><line x1="388" y1="262" x2="452" y2="262"/>
+    <line x1="388" y1="300" x2="512" y2="300"/><line x1="388" y1="324" x2="446" y2="324"/>
+    <line x1="388" y1="362" x2="494" y2="362"/><line x1="388" y1="386" x2="458" y2="386"/>
+  </g>
+  <g stroke="#D9C6A6" stroke-width="4" stroke-linecap="round">
+    <line x1="528" y1="238" x2="556" y2="238"/><line x1="528" y1="300" x2="556" y2="300"/><line x1="528" y1="362" x2="556" y2="362"/>
+  </g>
+</g>
+<!-- 名刺（重ね置き） -->
+<g transform="rotate(-8 210 220)">
+  <rect x="104" y="146" width="212" height="126" rx="6" fill="#F4EDE2"/>
+  <rect x="94" y="132" width="212" height="126" rx="6" fill="#FFFFFF"/>
+  <rect x="94" y="132" width="212" height="126" rx="6" fill="none" stroke="#EAE1D2" stroke-width="2.5"/>
+  <!-- ロゴマーク -->
+  <g transform="translate(200 176)">
+    <circle r="21" fill="none" stroke="#B59A70" stroke-width="2.5"/>
+    <path d="M-9 7 C-9 -6 0 -13 9 -10 C4 -4 4 4 -2 9 Z" fill="#B59A70"/>
+  </g>
+  <line x1="164" y1="214" x2="236" y2="214" stroke="#D9C6A6" stroke-width="2"/>
+  <rect x="152" y="228" width="96" height="7" rx="3.5" fill="#E4DAC9"/>
+</g>
+<!-- QR / 紹介カード -->
+<g transform="rotate(10 618 458)">
+  <rect x="530" y="392" width="176" height="130" rx="6" fill="#FFFFFF"/>
+  <rect x="530" y="392" width="176" height="130" rx="6" fill="none" stroke="#EAE1D2" stroke-width="2.5"/>
+  <g fill="#C6B08B">
+    <rect x="556" y="418" width="16" height="16"/><rect x="578" y="418" width="8" height="8"/><rect x="596" y="418" width="16" height="16"/>
+    <rect x="556" y="440" width="8" height="8"/><rect x="578" y="440" width="16" height="16"/><rect x="602" y="444" width="8" height="8"/>
+    <rect x="556" y="464" width="16" height="16"/><rect x="582" y="468" width="8" height="8"/><rect x="596" y="464" width="16" height="16"/>
+  </g>
+  <rect x="632" y="424" width="52" height="7" rx="3.5" fill="#E4DAC9"/>
+  <rect x="632" y="440" width="38" height="7" rx="3.5" fill="#EDE4D6"/>
+  <rect x="632" y="468" width="52" height="14" rx="7" fill="#B59A70"/>
+</g>
+<!-- 化粧品ボトル -->
+<g>
+  <ellipse cx="654" cy="292" rx="62" ry="14" fill="#E4D7C4" opacity=".5"/>
+  <rect x="612" y="164" width="84" height="126" rx="16" fill="#FCF9F4" stroke="#E6DDCD" stroke-width="3"/>
+  <rect x="632" y="132" width="44" height="36" rx="9" fill="#C4A87C"/>
+  <rect x="630" y="204" width="48" height="7" rx="3.5" fill="#E4DAC9"/>
+  <rect x="638" y="220" width="32" height="6" rx="3" fill="#EDE4D6"/>
+</g>
+<!-- ユーカリ -->
+<g stroke="#9CA992" stroke-width="4" fill="none" stroke-linecap="round">
+  <path d="M290 560 C360 540 420 498 470 470"/>
+</g>
+<g fill="#AEB9A2">
+  <ellipse cx="312" cy="548" rx="24" ry="12" transform="rotate(-18 312 548)"/>
+  <ellipse cx="358" cy="534" rx="22" ry="11" transform="rotate(-24 358 534)"/>
+  <ellipse cx="404" cy="512" rx="22" ry="11" transform="rotate(-28 404 512)"/>
+  <ellipse cx="448" cy="486" rx="20" ry="10" transform="rotate(-32 448 486)"/>
+  <ellipse cx="336" cy="576" rx="20" ry="10" transform="rotate(16 336 576)"/>
+  <ellipse cx="386" cy="556" rx="19" ry="9" transform="rotate(12 386 556)"/>
+</g>
+<!-- ゴールドのトレー -->
+<g opacity=".5"><ellipse cx="640" cy="556" rx="96" ry="30" fill="none" stroke="#C4A87C" stroke-width="4"/><ellipse cx="640" cy="556" rx="78" ry="24" fill="#F6F0E5" opacity=".55"/></g>
+</svg>
