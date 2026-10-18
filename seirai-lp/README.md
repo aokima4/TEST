@@ -1,6 +1,6 @@
 # SEIRAI 募集LP
 
-BUSINESS × AI × COMMUNITY ／ 女性起業家・女性経営者のための実践型ビジネスコミュニティ「SEIRAI」の募集ランディングページです。
+BUSINESS × AI × COMMUNITY ／ AIを武器に事業を育てたい経営者・起業家のための実践型ビジネスコミュニティ「SEIRAI」の募集ランディングページです。
 
 ## 中身
 
@@ -44,7 +44,7 @@ seirai-lp/
 8. 3か月集中プログラム AI Business Accelerator（200,000円）
 9. 2人の代表（青木真弓／田中結子）
 10. TECHNOLOGY × CHOICE — 2人の想いが交わる場所
-11. どんな女性に来てほしいか
+11. どんな方に来てほしいか
 12. SEIRAIで生まれてほしいこと（6つの価値）
 13. Community Membership（月額5,500円想定／創設メンバー募集）
 14. 料金比較（Community と Accelerator）
