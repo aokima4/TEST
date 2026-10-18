@@ -18,6 +18,10 @@
       "destination": "/seirai-lp/thanks/index.html"
     },
     {
+      "source": "/accelerator",
+      "destination": "/seirai-lp/accelerator/index.html"
+    },
+    {
       "source": "/:path*",
       "destination": "/seirai-lp/:path*"
     }

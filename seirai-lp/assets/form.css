@@ -142,6 +142,7 @@
 /* ol の既定の連番は枠の外に出てしまうため消す */
 .steps,.agenda{list-style:none;margin:0;padding:0}
 .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(11,37,69,.1);margin-top:52px}
+.steps--4{grid-template-columns:repeat(4,1fr)}
 .steps li{background:var(--ivory);padding:26px 22px}
 .steps__no{font-family:var(--serif-en);font-size:12px;letter-spacing:.22em;color:var(--gold-deep);margin-bottom:10px}
 .steps h3{font-size:16px;color:var(--navy);margin-bottom:8px;line-height:1.6}
@@ -185,9 +186,77 @@
   .recap__list{grid-template-columns:1fr;padding-top:20px}
   .form{padding:24px 20px}
   .field{margin-bottom:22px}
-  .steps{grid-template-columns:1fr}
+  .steps,.steps--4{grid-template-columns:1fr}
   .agenda{grid-template-columns:1fr}
   .eventmeta{flex-direction:column}
   .faq summary{padding:18px 40px 18px 18px;font-size:14.5px}
   .faq .faq__a{padding:0 18px 20px;font-size:13.8px}
+}
+
+/* ============================================================
+   Accelerator 詳細ページ（/accelerator）
+   ============================================================ */
+
+/* 3か月の各月 */
+.plan-month{
+  background:var(--white);border-left:3px solid var(--gold);
+  padding:clamp(26px,3.6vw,42px);margin-bottom:20px;
+  box-shadow:0 30px 60px -56px rgba(11,37,69,.75);
+}
+.plan-month:last-child{margin-bottom:0}
+.plan-month__head{display:flex;align-items:baseline;gap:16px;flex-wrap:wrap;margin-bottom:6px}
+.plan-month__no{font-family:var(--serif-en);font-size:12.5px;letter-spacing:.24em;color:var(--gold-deep)}
+.plan-month__en{font-family:var(--serif-en);font-size:clamp(16px,2.2vw,21px);letter-spacing:.1em;color:var(--navy)}
+.plan-month h3{font-size:clamp(19px,2.6vw,25px);color:var(--navy);margin:8px 0 18px;line-height:1.55}
+.plan-month p{font-size:14.8px;line-height:2.1;color:var(--ink-sub);margin:0 0 1.1em}
+.plan-month p:last-of-type{margin-bottom:0}
+.plan-month__out{
+  margin-top:24px;padding-top:20px;border-top:1px solid rgba(11,37,69,.1);
+  display:flex;flex-wrap:wrap;gap:8px;align-items:center;
+}
+.plan-month__out .ttl{font-size:12.5px;letter-spacing:.1em;color:var(--navy);margin-right:4px}
+.plan-month__out li{
+  font-size:12.8px;letter-spacing:.04em;padding:6px 14px;border-radius:999px;
+  background:var(--ivory-warm);color:var(--navy-soft);border:1px solid rgba(11,37,69,.08);
+}
+
+/* 向き・不向き */
+.fit{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.6vw,30px);margin-top:40px}
+.fit__box{background:var(--white);padding:clamp(24px,3vw,34px);border-top:2px solid var(--gold)}
+.fit__box--no{border-top-color:var(--mist)}
+.fit__box h3{font-size:17px;color:var(--navy);margin-bottom:18px;line-height:1.6}
+.fit__box li{
+  font-size:14.2px;line-height:1.95;color:var(--ink-sub);
+  display:flex;gap:11px;align-items:flex-start;margin-bottom:11px;
+}
+.fit__box li:last-child{margin-bottom:0}
+.fit__box li::before{content:"○";flex:none;color:var(--gold-deep);font-size:12px;margin-top:4px}
+.fit__box--no li::before{content:"×";color:var(--mist)}
+
+/* 成果物の一覧 */
+.deliver{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(11,37,69,.1);margin-top:36px}
+.deliver li{
+  background:var(--white);padding:22px 18px;font-size:13.8px;letter-spacing:.04em;
+  color:var(--navy);display:flex;align-items:center;gap:10px;line-height:1.7;
+}
+.deliver li::before{content:"◆";color:var(--gold);font-size:9px;flex:none}
+
+/* 下部CTA */
+.pagecta{
+  background:linear-gradient(160deg,var(--navy) 0%,var(--navy-deep) 100%);
+  color:var(--ivory);text-align:center;padding-block:clamp(56px,8vw,92px);
+}
+.pagecta h2{font-size:clamp(20px,3.2vw,30px);line-height:1.7;margin-bottom:20px}
+.pagecta p{max-width:32em;margin:0 auto 36px;color:var(--mist-light);font-size:15px;line-height:2.1}
+.pagecta__buttons{display:flex;flex-direction:column;align-items:center;gap:16px}
+.pagecta__buttons .btn{min-width:min(360px,100%)}
+
+@media (max-width:860px){
+  .fit{grid-template-columns:1fr}
+  .deliver{grid-template-columns:repeat(2,1fr)}
+  .plan-month{padding:24px 20px}
+  .pagecta__buttons .btn{width:100%}
+}
+@media (max-width:480px){
+  .deliver{grid-template-columns:1fr}
 }
