@@ -45,8 +45,67 @@
     });
   }
 
-  /* --- 通常のフォーム送信：ブラウザに任せる --- */
-  if (cfg.mode !== 'fetch') {
+  function showThanks() {
+    form.style.display = 'none';
+    if (thanks) {
+      thanks.classList.add('is-shown');
+      thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+  function showError(label) {
+    submit.removeAttribute('disabled');
+    submit.textContent = label;
+    if (status) {
+      status.textContent =
+        '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
+      status.classList.add('form__status--error');
+    }
+  }
+
+  /* --- 既定：見えない枠に送信し、ページを移動させずに完了画面を出す ---
+     フォームサービス側がCORSに対応していなくても使える方法。
+     送信先の応答は別ドメインのため読み取れないので、「応答が返ってきた＝送信完了」
+     とみなしている。 */
+  if (cfg.mode !== 'fetch' && cfg.mode !== 'post') {
+    var frameName = 'seiraiFormTarget';
+    var frame = document.createElement('iframe');
+    frame.name = frameName;
+    frame.title = '送信用';
+    frame.setAttribute('aria-hidden', 'true');
+    frame.style.cssText = 'position:absolute;width:0;height:0;border:0;opacity:0;pointer-events:none';
+    document.body.appendChild(frame);
+    form.setAttribute('target', frameName);
+
+    var sending = false;
+    var timer = null;
+    var label0 = submit.textContent;
+
+    frame.addEventListener('load', function () {
+      if (!sending) return;              // 生成直後の空読み込みは無視する
+      sending = false;
+      clearTimeout(timer);
+      showThanks();
+    });
+
+    form.addEventListener('submit', function () {
+      if (!form.checkValidity()) return;
+      sending = true;
+      submit.setAttribute('disabled', '');
+      submit.textContent = '送信中…';
+      if (status) { status.textContent = ''; status.classList.remove('form__status--error'); }
+      /* 応答が返らないときに押せないままにならないようにする */
+      timer = setTimeout(function () {
+        if (!sending) return;
+        sending = false;
+        showError(label0);
+      }, 20000);
+    });
+    return;
+  }
+
+  /* --- mode:'post' 通常のフォーム送信：ブラウザに任せる --- */
+  if (cfg.mode === 'post') {
     form.addEventListener('submit', function () {
       if (!form.checkValidity()) return;
       submit.setAttribute('disabled', '');
@@ -72,20 +131,8 @@
     })
       .then(function (res) {
         if (!res.ok) throw new Error('status ' + res.status);
-        form.style.display = 'none';
-        if (thanks) {
-          thanks.classList.add('is-shown');
-          thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        }
+        showThanks();
       })
-      .catch(function () {
-        submit.removeAttribute('disabled');
-        submit.textContent = label;
-        if (status) {
-          status.textContent =
-            '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
-          status.classList.add('form__status--error');
-        }
-      });
+      .catch(function () { showError(label); });
   });
 })();
