@@ -1,8 +1,8 @@
 /* ============================================================
    申込みフォームの送信処理
    - 送信先が未設定のときは、押せない状態＋案内を表示する
-   - 送信は fetch で行い、ページ遷移せずに完了メッセージを出す
-   - JavaScriptが動かない環境では、通常のフォーム送信にそのまま任せる
+   - mode:'post'  … 通常のフォーム送信（サービス側の仕様に左右されない）
+   - mode:'fetch' … ページ遷移せずに送信し、完了メッセージをその場に出す
    ============================================================ */
 (function () {
   'use strict';
@@ -10,8 +10,9 @@
   var form = document.getElementById('applyForm');
   if (!form) return;
 
-  var kind = form.getAttribute('data-form');               // 'join' | 'event'
-  var endpoint = (window.SEIRAI_FORM && window.SEIRAI_FORM[kind]) || '';
+  var cfg = window.SEIRAI_FORM || {};
+  var conf = cfg[form.getAttribute('data-form')] || {};   // 'join' | 'event'
+  var endpoint = conf.endpoint || '';
   var submit = form.querySelector('[type=submit]');
   var status = form.querySelector('.form__status');
   var thanks = document.getElementById('thanks');
@@ -33,21 +34,36 @@
   form.setAttribute('action', endpoint);
   form.setAttribute('method', 'POST');
 
-  function setStatus(message, isError) {
-    if (!status) return;
-    status.textContent = message || '';
-    status.classList.toggle('form__status--error', !!isError);
+  /* 送信完了後の戻り先。フォームサービス側の設定欄が使えない場合に備え、
+     よく使われる名前の隠しフィールドでも渡しておく（無視されても害はない） */
+  if (conf.redirect) {
+    ['_redirect', '_next', 'redirect_to'].forEach(function (name) {
+      if (form.querySelector('[name="' + name + '"]')) return;
+      var i = document.createElement('input');
+      i.type = 'hidden'; i.name = name; i.value = conf.redirect;
+      form.appendChild(i);
+    });
   }
 
-  form.addEventListener('submit', function (e) {
-    /* ブラウザの必須チェックに任せる */
-    if (!form.checkValidity()) return;
+  /* --- 通常のフォーム送信：ブラウザに任せる --- */
+  if (cfg.mode !== 'fetch') {
+    form.addEventListener('submit', function () {
+      if (!form.checkValidity()) return;
+      submit.setAttribute('disabled', '');
+      submit.textContent = '送信中…';
+    });
+    return;
+  }
 
+  /* --- ページ遷移せずに送信する場合 --- */
+  form.addEventListener('submit', function (e) {
+    if (!form.checkValidity()) return;
     e.preventDefault();
-    submit.setAttribute('disabled', '');
+
     var label = submit.textContent;
+    submit.setAttribute('disabled', '');
     submit.textContent = '送信中…';
-    setStatus('');
+    if (status) { status.textContent = ''; status.classList.remove('form__status--error'); }
 
     fetch(endpoint, {
       method: 'POST',
@@ -60,18 +76,16 @@
         if (thanks) {
           thanks.classList.add('is-shown');
           thanks.scrollIntoView({ behavior: 'smooth', block: 'start' });
-          thanks.setAttribute('tabindex', '-1');
-          thanks.focus({ preventScroll: true });
         }
       })
       .catch(function () {
         submit.removeAttribute('disabled');
         submit.textContent = label;
-        setStatus(
-          '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。' +
-          '繰り返し失敗する場合は、お手数ですがメールにてご連絡ください。',
-          true
-        );
+        if (status) {
+          status.textContent =
+            '送信できませんでした。通信環境をご確認のうえ、もう一度お試しください。';
+          status.classList.add('form__status--error');
+        }
       });
   });
 })();

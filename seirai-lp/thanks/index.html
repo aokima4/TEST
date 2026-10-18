@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>お申し込みありがとうございます｜SEIRAI</title>
+<meta name="theme-color" content="#0B2545">
+<meta name="robots" content="noindex">
+<link rel="icon" href="../assets/images/favicon.png" type="image/png">
+<link rel="apple-touch-icon" href="../assets/images/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Noto+Serif+JP:wght@400;500;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../assets/style.css">
+<link rel="stylesheet" href="../assets/form.css">
+<style>
+  .done{
+    min-height:100svh;display:flex;align-items:center;justify-content:center;text-align:center;
+    background:
+      radial-gradient(90% 70% at 50% 0%,rgba(23,58,99,.85),transparent 65%),
+      linear-gradient(180deg,var(--navy) 0%,var(--navy-deep) 100%);
+    color:var(--ivory);padding-block:clamp(64px,10vw,110px);
+  }
+  .done__logo{width:min(250px,62%);height:auto;margin:0 auto 38px}
+  .done h1{font-size:clamp(22px,4vw,34px);line-height:1.6;margin-bottom:30px}
+  .done__body{max-width:30em;margin:0 auto;font-family:var(--serif-jp);
+    font-size:clamp(14.5px,1.7vw,16.5px);line-height:2.3;color:var(--mist-light)}
+  .done__body p{margin:0 0 1.4em}
+  .done__body p:last-child{margin-bottom:0}
+  .done__steps{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:rgba(212,175,124,.22);
+    max-width:760px;margin:46px auto 0;text-align:left;
+    list-style:none;padding:0;   /* ol の連番は枠の外に出るため消す */
+  }
+  .done__steps li{background:var(--navy-deep);padding:22px 20px}
+  .done__steps .steps__no{font-family:var(--serif-en);font-size:11.5px;letter-spacing:.22em;color:var(--gold);margin-bottom:8px}
+  .done__steps h2{font-size:15px;color:var(--ivory);margin-bottom:6px;line-height:1.6}
+  .done__steps p{margin:0;font-size:13px;color:var(--mist-light);line-height:1.85}
+  .done .btn{margin-top:44px}
+  @media (max-width:860px){
+    .done__steps{grid-template-columns:1fr}
+    .done .btn{width:100%;max-width:360px}
+  }
+</style>
+</head>
+<body>
+
+<section class="done">
+  <div class="wrap">
+    <img class="done__logo" src="../assets/images/logo-stack-ivory.png" alt="SEIRAI BUSINESS × AI × COMMUNITY">
+
+    <h1 id="headline">お申し込みありがとうございます。</h1>
+
+    <div class="done__body" id="body">
+      <p>ご入力いただいた内容を受け付けました。<br>事務局より、3営業日以内にご連絡いたします。</p>
+      <p>しばらく経っても連絡が届かない場合は、<br>迷惑メールフォルダをご確認ください。</p>
+    </div>
+
+    <ol class="done__steps" id="steps">
+      <li>
+        <p class="steps__no">STEP 01</p>
+        <h2>受付のご連絡</h2>
+        <p>3営業日以内に事務局よりメールをお送りします。</p>
+      </li>
+      <li>
+        <p class="steps__no">STEP 02</p>
+        <h2>お支払いのご案内</h2>
+        <p>会費のお支払い方法をご案内します。</p>
+      </li>
+      <li>
+        <p class="steps__no">STEP 03</p>
+        <h2>コミュニティへご招待</h2>
+        <p>オンラインコミュニティへご招待します。</p>
+      </li>
+    </ol>
+
+    <a href="/" class="btn btn--ghost btn--lg">SEIRAIのページへ戻る</a>
+  </div>
+</section>
+
+<script>
+/* 申込みの種類に応じて文面を切り替える。
+   /thanks?t=join（入会） /thanks?t=event（説明会） */
+(function () {
+  var t = new URLSearchParams(location.search).get('t');
+  if (t !== 'event') return;
+
+  document.getElementById('headline').textContent = 'お申し込みありがとうございます。';
+  document.getElementById('body').innerHTML =
+    '<p>開催日程が決まり次第、ご入力いただいたメールアドレスへ<br>ご案内をお送りします。</p>' +
+    '<p>当日お会いできることを楽しみにしています。</p>';
+  document.getElementById('steps').remove();
+})();
+</script>
+</body>
+</html>
