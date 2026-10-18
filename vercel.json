@@ -2,6 +2,8 @@
   "$schema": "https://openapi.vercel.sh/vercel.json",
   "rewrites": [
     { "source": "/", "destination": "/seirai-lp/index.html" },
+    { "source": "/join", "destination": "/seirai-lp/join/index.html" },
+    { "source": "/event", "destination": "/seirai-lp/event/index.html" },
     { "source": "/:path*", "destination": "/seirai-lp/:path*" }
   ]
 }
