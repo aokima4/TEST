@@ -13,12 +13,12 @@ window.SEIRAI_FORM = {
   mode: 'post',
 
   join: {
-    endpoint: '',                                        // 入会申込みの送信先URL
+    endpoint: 'https://ssgform.com/s/If5r3TcPbF6N',      // 入会申込みの送信先URL
     redirect: 'https://seirai-lp.vercel.app/thanks?t=join'
   },
 
   event: {
-    endpoint: '',                                        // 説明会申込みの送信先URL
+    endpoint: 'https://ssgform.com/s/ucyQxvc8KtCN',      // 説明会申込みの送信先URL
     redirect: 'https://seirai-lp.vercel.app/thanks?t=event'
   }
 };
