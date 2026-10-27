@@ -50,7 +50,7 @@ def pair(r, k, v):
     b.font = F(10)
     b.alignment = Alignment(vertical="center", wrap_text=True)
 
-ws["B2"] = "のぼり旗の外注パートナー（新ページ）ご確認事項シート"
+ws["B2"] = "のぼり旗の量産・外注パートナー（新ページ）ご確認事項シート"
 ws["B2"].font = Font(name=JP, size=16, bold=True, color=NAVY)
 ws.merge_cells("B2:C2"); ws.row_dimensions[2].height = 26
 ws["B3"] = "株式会社後藤染工 御中"
