@@ -24,20 +24,27 @@ BtoB向けサービスページ「のぼり旗の量産・外注パートナー�
 | `build-deploy.py` | 公開用ファイルを書き出すスクリプト |
 | `dist/` | 公開用に書き出された完成ファイル一式。Vercelはこのフォルダを自動で公開します |
 
-## 現在の公開状態：停止中（2026-11-01〜）
+## 現在の公開状態：限定公開（2026-11-01〜）
 
-`dist/` には「準備中」ページと、すべてのクローラーを拒否する robots.txt だけを置いています。
-ページ本体は `index.html`（このフォルダ直下）に残っているため、いつでも元に戻せます。
+URLを知っている人は見られますが、**Googleなどの検索結果には出ません**。
 
-**公開を再開するとき**
+仕組みは2つです。
+
+1. ページに `noindex`（＝検索結果に載せないでください、という指示）を入れている
+2. すべてのファイルに HTTP ヘッダー `X-Robots-Tag: noindex` を付けている（`vercel.json`）
+
+robots.txt の巡回許可は**わざと元のまま**にしています。
+robots.txt で「読むな」と拒否すると、クローラーがページを読みに来ないため
+`noindex` の指示に気づけず、URLだけが検索結果に残ってしまうためです。
+
+**本番として検索結果に出したくなったら**
 
 ```
-python3 build-deploy.py https://nobori-aeo.vercel.app dist
-git add -A && git commit -m "公開を再開" && git push
+python3 build-deploy.py <公開先のURL> dist
+git add -A && git commit -m "検索結果に出す設定に変更" && git push
 ```
 
-これで `dist/` に index.html・robots.txt・sitemap.xml・llms.txt・Google所有権確認ファイルの
-5点が書き戻され、Vercel が自動で公開します。
+`--noindex` を付けずに実行すると、`noindex` と `vercel.json` が外れて通常公開になります。
 
 ## 公開用ファイルの作り方
 

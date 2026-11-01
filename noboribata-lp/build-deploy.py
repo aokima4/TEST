@@ -2,8 +2,11 @@
 """検証用URL向けのビルドスクリプト。
 
 使い方:
-    python3 build-deploy.py <公開先のURL> <出力先フォルダ>
-    例) python3 build-deploy.py https://nobori-aeo-test.vercel.app dist
+    python3 build-deploy.py <公開先のURL> <出力先フォルダ> [--noindex]
+    例) python3 build-deploy.py https://nobori-aeo.vercel.app dist --noindex
+
+    --noindex を付けると「URLを知っていれば見られるが、検索結果には出ない」
+    状態で書き出します（検証用URL向け）。本番公開のときは付けません。
 
 やっていること:
   1. サイト内に書かれた本番ドメインを、指定した公開先URLに置き換える
@@ -19,6 +22,24 @@ import re, sys, os, shutil
 
 REAL = "https://www.noboribata-gaityuu-partner.com"
 
+INDEX_META = '<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">'
+NOINDEX_META = '<meta name="robots" content="noindex,nofollow">'
+
+# クローラーは「robots.txt で拒否されたページ」を読みに来ないため、
+# 拒否と noindex を同時に指定すると noindex が読まれず、URL だけが検索結果に
+# 残ることがある。noindex のときは robots.txt の巡回許可はそのままにしておく。
+VERCEL_JSON = """{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        { "key": "X-Robots-Tag", "value": "noindex, nofollow" }
+      ]
+    }
+  ]
+}
+"""
+
 def strip_editor_notes(html):
     """編集者向けのメモを取り除く（公開版には不要）。"""
     # 仮データの目印（画面上は見た目が変わらないタグ）を外す
@@ -33,9 +54,12 @@ def strip_editor_notes(html):
 
 
 def main():
-    if len(sys.argv) != 3:
+    args = [a for a in sys.argv[1:] if not a.startswith("--")]
+    flags = {a for a in sys.argv[1:] if a.startswith("--")}
+    if len(args) != 2 or flags - {"--noindex"}:
         sys.exit(__doc__)
-    base, out = sys.argv[1].rstrip("/"), sys.argv[2]
+    noindex = "--noindex" in flags
+    base, out = args[0].rstrip("/"), args[1]
     src = os.path.dirname(os.path.abspath(__file__))
     os.makedirs(out, exist_ok=True)
 
@@ -49,9 +73,22 @@ def main():
         text = open(os.path.join(src, name), encoding="utf-8").read().replace(REAL, base)
         if name == "index.html":
             text = strip_editor_notes(text)
+            if noindex:
+                assert INDEX_META in text, "robots メタタグが見つかりません"
+                text = text.replace(INDEX_META, NOINDEX_META)
         open(os.path.join(out, name), "w", encoding="utf-8").write(text)
         print(f"  {name}")
+    # HTML 以外（llms.txt など）も検索結果に出さないよう、HTTP ヘッダーでも指定する
+    vj = os.path.join(out, "vercel.json")
+    if noindex:
+        open(vj, "w", encoding="utf-8").write(VERCEL_JSON)
+        print("  vercel.json（X-Robots-Tag: noindex）")
+    elif os.path.exists(vj):
+        os.remove(vj)
+        print("  vercel.json を削除（検索結果に出る設定に戻しました）")
+
     print(f"\n{base} 向けのファイルを {out}/ に書き出しました。")
+    print("検索結果: " + ("出ません（noindex）" if noindex else "出ます（通常公開）"))
 
 if __name__ == "__main__":
     main()
