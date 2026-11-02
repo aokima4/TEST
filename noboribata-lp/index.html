@@ -252,21 +252,14 @@ ol.steps p{margin:0; color:var(--ink-2); font-size:15px; line-height:1.88}
 .cbox a:hover{text-decoration:underline}
 .cbox p{margin:6px 0 0; font-size:13.5px; color:var(--ink-2); line-height:1.8}
 
-/* フォーム */
-.form{background:var(--paper); border:1px solid var(--line); border-radius:var(--r); padding:32px 32px 28px; margin-top:26px}
-.form .row{margin-bottom:20px}
-.form label{font-family:var(--jp); display:block; font-weight:700; margin-bottom:8px; font-size:14.5px; color:var(--blue-deep)}
-.req{font-family:var(--jp); background:var(--red); color:#fff; font-size:11px; font-weight:700;
-  padding:3px 8px; border-radius:2px; margin-left:9px; vertical-align:2px}
-.form input,.form textarea{width:100%; padding:13px 15px; border:1px solid var(--line); border-radius:var(--r);
-  font-family:var(--jp); font-size:16px; background:var(--paper); color:var(--sumi); line-height:1.6}
-.form textarea{line-height:1.85; resize:vertical}
-.form input::placeholder,.form textarea::placeholder{color:#9aabbd}
-.form input:focus,.form textarea:focus{outline:3px solid rgba(0,102,204,.25); border-color:var(--blue)}
-.form .two{display:grid; gap:20px; grid-template-columns:1fr 1fr}
-.form .sent{font-family:var(--jp); margin:18px 0 0; padding:14px 17px; background:#e9f6f0;
-  border:1px solid #9cd3bb; border-radius:var(--r); color:var(--ok); font-weight:700; font-size:15px}
-@media(max-width:640px){ .form{padding:22px 18px} .form .two{grid-template-columns:1fr; gap:0} .form .two .row{margin-bottom:20px} }
+/* WEB自動見積りボックス */
+.quote{background:var(--paper); border:1px solid var(--line); border-top:5px solid var(--blue);
+  border-radius:var(--r); padding:34px 36px 32px; margin:26px 0 0; text-align:center;
+  box-shadow:0 2px 20px rgba(0,64,111,.07)}
+.quote h3{font-family:var(--jp); margin:0 0 12px; font-size:21px; font-weight:900; color:var(--blue-deep)}
+.quote p{font-family:var(--jp); margin:0 0 22px; font-size:15.5px; line-height:1.9; color:var(--ink-2)}
+.quote .q-note{font-size:13px; margin:20px 0 0; line-height:1.85}
+@media(max-width:640px){ .quote{padding:26px 20px 24px} }
 
 /* フッター */
 footer{background:var(--blue-hero); color:#a3c4de; padding:52px 0 42px; font-family:var(--jp); font-size:14px; line-height:1.9}
@@ -701,6 +694,10 @@ footer p{margin:0 0 10px}
         <div class="fa"><p>商談自体が私達にとって非常に参考になります。何でもお気軽にご相談ください。</p></div>
       </details>
       <details>
+        <summary>見積りはどこから依頼できますか？</summary>
+        <div class="fa"><p>WEB自動見積り（https://www.gotosenko.co.jp/mitsumori/）からご依頼ください。サイズ・枚数・素材・加工を選ぶと、その場で概算金額をご確認いただけます。</p><p>自動見積りにない仕様や、仕様自体のご相談は、お電話（0568-35-6651／平日 9:00〜12:00・13:00〜17:00）またはお見積もり専用アドレス（mitsumori@gotosenko.co.jp）で承ります。</p></div>
+      </details>
+      <details>
         <summary>代理発送はどのように依頼すればよいですか？</summary>
         <div class="fa"><p>ご注文時に送り先・荷主情報を専用のエクセルにご入力いただき、ご注文と同時にご依頼ください。費用はかかりません。</p><p>同梱物をご希望の場合は別途手数料を申し受けます。</p></div>
       </details>
@@ -783,8 +780,17 @@ footer p{margin:0 0 10px}
 
 <section id="contact">
   <div class="wrap">
-    <h2 class="sec">お問い合わせ</h2>
-    <p class="sec-sub">お見積り・ご相談はお電話、メール、WEB自動見積りのいずれでも承ります。</p>
+    <h2 class="sec"><span class="q">Q.</span>見積りはどこから依頼できますか？</h2>
+    <p class="a1">「WEB自動見積り」からご依頼ください。サイズ・枚数・素材・加工を選ぶと、その場で概算金額をご確認いただけます。自動見積りにない仕様や、仕様自体のご相談は、お電話またはメールで承ります。</p>
+
+    <div class="quote">
+      <h3>WEB自動見積り</h3>
+      <p>24時間いつでもご利用いただけます。サイズ・枚数・素材・加工を選ぶだけで概算金額が表示されます。</p>
+      <a class="btn btn-lg" href="https://www.gotosenko.co.jp/mitsumori/">WEB自動見積りへ進む</a>
+      <p class="q-note">自動見積りにない仕様（変形のぼり・ジャンボのぼり・のぼり以外の製品など）は、下記の「お見積もり専用」アドレスまたはお電話でご相談ください。</p>
+    </div>
+
+    <h3>お電話・メールでのご相談</h3>
 
     <div class="contacts">
       <div class="cbox">
@@ -795,11 +801,12 @@ footer p{margin:0 0 10px}
       <div class="cbox">
         <h3>お見積もり専用</h3>
         <a href="mailto:mitsumori@gotosenko.co.jp">mitsumori@gotosenko.co.jp</a>
-        <p>下のフォームもこちら宛に届きます。</p>
+        <p>自動見積りにない仕様のお見積りはこちらへ。</p>
       </div>
       <div class="cbox">
         <h3>お問い合わせ専用</h3>
         <a href="mailto:info@gotosenko.co.jp">info@gotosenko.co.jp</a>
+        <p>お取引条件・納期などのご相談はこちらへ。</p>
       </div>
       <div class="cbox">
         <h3>ご注文・ご入稿専用</h3>
@@ -808,35 +815,6 @@ footer p{margin:0 0 10px}
       </div>
     </div>
 
-    <form class="form" id="cform" novalidate>
-      <div class="two">
-        <div class="row">
-          <label for="f-company">会社名</label>
-          <input id="f-company" name="company" type="text" autocomplete="organization" placeholder="株式会社○○">
-        </div>
-        <div class="row">
-          <label for="f-name">担当者名<span class="req">必須</span></label>
-          <input id="f-name" name="name" type="text" required autocomplete="name" placeholder="ご担当者名">
-        </div>
-      </div>
-      <div class="two">
-        <div class="row">
-          <label for="f-tel">電話番号<span class="req">必須</span></label>
-          <input id="f-tel" name="tel" type="tel" required autocomplete="tel" placeholder="0568-35-6651">
-        </div>
-        <div class="row">
-          <label for="f-mail">メールアドレス<span class="req">必須</span></label>
-          <input id="f-mail" name="email" type="email" required autocomplete="email" placeholder="your@example.co.jp">
-        </div>
-      </div>
-      <div class="row">
-        <label for="f-body">お問い合わせ内容<span class="req">必須</span></label>
-        <textarea id="f-body" name="body" rows="7" required placeholder="サイズ・枚数・ご希望の納期・用途などをご記入ください。&#10;例）450×1500mm ポンジ チチ付き 100枚"></textarea>
-      </div>
-      <button class="btn btn-lg" type="submit">お問い合わせ内容を送信する</button>
-      <p class="t-note">送信ボタンを押すと、ご利用中のメールソフトが起動し、お見積もり専用アドレス（mitsumori@gotosenko.co.jp）宛のメールが作成されます。内容をご確認のうえ送信してください。</p>
-      <p class="sent" id="sent" hidden>メール作成画面を開きました。内容をご確認のうえ送信してください。</p>
-    </form>
 
     <div class="faq" style="margin-top:26px">
       <details>
@@ -852,7 +830,7 @@ footer p{margin:0 0 10px}
       </details>
     </div>
 
-    <p class="updated">最終更新日：2026年11月1日</p>
+    <p class="updated">最終更新日：2026年11月2日</p>
   </div>
 </section>
 
@@ -882,30 +860,9 @@ footer p{margin:0 0 10px}
 
 <div class="sticky">
   <a class="btn" href="tel:0568-35-6651">電話で相談</a>
-  <a class="btn btn-ghost" href="#contact">無料見積 / 相談</a>
+  <a class="btn btn-ghost" href="https://www.gotosenko.co.jp/mitsumori/">WEB自動見積り</a>
 </div>
 
-<script>
-document.getElementById('cform').addEventListener('submit', function (e) {
-  e.preventDefault();
-  var f = e.target;
-  if (!f.checkValidity()) { f.reportValidity(); return; }
-  var v = function (n) { return f.elements[n].value.trim(); };
-  var lines = [
-    '会社名：' + v('company'),
-    '担当者名：' + v('name'),
-    '電話番号：' + v('tel'),
-    'メールアドレス：' + v('email'),
-    '',
-    'お問い合わせ内容：',
-    v('body')
-  ].join('\n');
-  var subject = 'のぼり旗の外注についてのお問い合わせ（' + (v('company') || v('name')) + '）';
-  window.location.href = 'mailto:mitsumori@gotosenko.co.jp?subject=' +
-    encodeURIComponent(subject) + '&body=' + encodeURIComponent(lines);
-  document.getElementById('sent').hidden = false;
-});
-</script>
 
 <script type="application/ld+json">
 {
@@ -949,6 +906,11 @@ document.getElementById('cform').addEventListener('submit', function (e) {
         { "@type": "OpeningHoursSpecification", "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"], "opens": "13:00", "closes": "17:00" }
       ],
       "knowsAbout": ["のぼり旗", "布製広告物", "デジタル染色", "縫製加工", "チチ付け加工", "袋縫い加工", "ヒートカット加工", "三巻加工", "ハトメ加工", "横断幕", "はっぴ", "のれん", "タペストリー"],
+      "contactPoint": [
+        { "@type": "ContactPoint", "contactType": "sales", "name": "お見積もり専用", "email": "mitsumori@gotosenko.co.jp", "telephone": "+81-568-35-6651", "availableLanguage": ["Japanese"], "areaServed": "JP" },
+        { "@type": "ContactPoint", "contactType": "customer support", "name": "お問い合わせ専用", "email": "info@gotosenko.co.jp", "telephone": "+81-568-35-6651", "availableLanguage": ["Japanese"], "areaServed": "JP" },
+        { "@type": "ContactPoint", "contactType": "technical support", "name": "ご注文・ご入稿専用", "email": "chumon@gotosenko.co.jp", "availableLanguage": ["Japanese"], "areaServed": "JP" }
+      ],
       "sameAs": ["https://www.gotosenko.co.jp/"]
     },
     {
@@ -968,7 +930,12 @@ document.getElementById('cform').addEventListener('submit', function (e) {
       "inLanguage": "ja",
       "isPartOf": { "@id": "https://www.noboribata-gaityuu-partner.com/#website" },
       "about": { "@id": "https://www.noboribata-gaityuu-partner.com/#organization" },
-      "dateModified": "2026-11-01",
+      "dateModified": "2026-11-02",
+      "potentialAction": {
+        "@type": "Action",
+        "name": "WEB自動見積り",
+        "target": "https://www.gotosenko.co.jp/mitsumori/"
+      },
       "speakable": {
         "@type": "SpeakableSpecification",
         "cssSelector": [".answer .lead-answer", ".a1"]
@@ -1043,6 +1010,7 @@ document.getElementById('cform').addEventListener('submit', function (e) {
         { "@type": "Question", "name": "デザインの制作やデータの修正は頼めますか？", "acceptedAnswer": { "@type": "Answer", "text": "完全データでのご入稿が原則です。デザイン内容をお伺いさせていただいたうえで、別途お見積りにて対応可能です。入稿テンプレートは https://www.gotosenko.co.jp/download-template/ からご利用いただけます。" } },
         { "@type": "Question", "name": "印刷不良や誤納品があった場合はどうなりますか？", "acceptedAnswer": { "@type": "Answer", "text": "ご指摘いただいた不良商品の画像をメールでお送りください。判断がしづらい場合は現物をお送りいただきます。すぐに状況を確認したうえで、対応のご報告をさせていただきます。" } },
         { "@type": "Question", "name": "個人でも注文できますか？", "acceptedAnswer": { "@type": "Answer", "text": "個人・個人事業主さまとは原則としてお取引しておりません。法人さま向けのサービスです。" } },
+        { "@type": "Question", "name": "見積りはどこから依頼できますか？", "acceptedAnswer": { "@type": "Answer", "text": "WEB自動見積り（https://www.gotosenko.co.jp/mitsumori/）からご依頼ください。サイズ・枚数・素材・加工を選ぶと、その場で概算金額をご確認いただけます。自動見積りにない仕様や、仕様自体のご相談は、お電話（0568-35-6651／平日 9:00〜12:00・13:00〜17:00）またはお見積もり専用アドレス（mitsumori@gotosenko.co.jp）で承ります。" } },
         { "@type": "Question", "name": "代理発送はどのように依頼すればよいですか？", "acceptedAnswer": { "@type": "Answer", "text": "ご注文時に送り先・荷主情報を専用のエクセルにご入力いただき、ご注文と同時にご依頼ください。費用はかかりません。同梱物をご希望の場合は別途手数料を申し受けます。" } }
       ]
     }
