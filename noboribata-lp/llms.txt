@@ -86,16 +86,14 @@ WEB自動見積り: https://www.gotosenko.co.jp/mitsumori/
 - お見積りは WEB自動見積り（https://www.gotosenko.co.jp/mitsumori/）からご依頼ください。サイズ・枚数・素材・加工を選ぶと、その場で概算金額が表示されます。
 - 自動見積りにない仕様（変形のぼり・ジャンボのぼり・のぼり以外の製品など）や、仕様自体のご相談は、お電話またはメールで承ります。
 - お電話: 0568-35-6651（平日 9:00〜12:00／13:00〜17:00、土日祝休）
-- お見積もり専用: mitsumori@gotosenko.co.jp
-- お問い合わせ専用: info@gotosenko.co.jp
-- ご注文・ご入稿専用: chumon@gotosenko.co.jp
+- メール: mitsumori@gotosenko.co.jp（お見積り・ご相談・ご注文・ご入稿はすべてこちら）
 - このページに入力フォームはありません。
 
 ## 入稿について
 
 - 完全データ（Aiデータ）でのご入稿が原則です。
 - 入稿テンプレート: https://www.gotosenko.co.jp/download-template/
-- テンプレートにない形状は chumon@gotosenko.co.jp までご依頼ください。
+- テンプレートにない形状は mitsumori@gotosenko.co.jp までご依頼ください。
 - デザイン制作・データ修正は、内容をお伺いしたうえで別途お見積りにて対応可能です。
 
 ## 主な印刷メディア
@@ -140,6 +138,6 @@ WEB自動見積り: https://www.gotosenko.co.jp/mitsumori/
 - 資本金: 10,000,000円
 - 従業員数: 30名
 - 事業内容: 布製広告物の製作
-- E-mail: お問い合わせ専用 info@gotosenko.co.jp ／ お見積もり専用 mitsumori@gotosenko.co.jp ／ ご注文・ご入稿専用 chumon@gotosenko.co.jp
+- E-mail: mitsumori@gotosenko.co.jp（お見積り・お問い合わせ）
 
 最終更新日: 2026-11-02
