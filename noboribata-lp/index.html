@@ -11,7 +11,7 @@
 
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ja_JP">
-<meta property="og:site_name" content="のぼり旗の量産・外注パートナー｜株式会社後藤染工">
+<meta property="og:site_name" content="のぼり旗の量産・外注メーカー｜株式会社後藤染工">
 <meta property="og:title" content="のぼり旗の量産・外注メーカー｜100枚＠259円〜・1枚から対応｜株式会社後藤染工">
 <meta property="og:description" content="低コストなのぼり旗の外注メーカーをお探しならお任せください。業界最安値水準、100枚＠259円〜。相見積もり大歓迎、同業者さまの下請けも歓迎します。">
 <meta property="og:url" content="https://www.noboribata-gaityuu-partner.com/">
@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:wght@400;600;700&family=Zen+Kaku+Gothic+New:wght@400;500;700;900&display=swap">
 <style>
 /* =========================================================
-   のぼり旗の量産・外注パートナー ／ 株式会社後藤染工
+   のぼり旗の量産・外注メーカー ／ 株式会社後藤染工
    色は実サイトのブランドカラー：青 #0066cc ／ 赤 #fc2400
    書体：和文 Zen Kaku Gothic New ／ 欧文・数字 IBM Plex Sans
    ========================================================= */
@@ -96,8 +96,8 @@ a{color:var(--blue-deep)}
   border-bottom:5px solid var(--red); padding:62px 0 58px}
 .hero::before{content:""; position:absolute; inset:0; pointer-events:none;
   background:repeating-linear-gradient(90deg, rgba(255,255,255,.055) 0 1px, transparent 1px 8px)}
-.hero .wrap{position:relative; display:grid; grid-template-columns:minmax(0,1fr) auto; gap:54px; align-items:center}
-.hero-main{min-width:0}
+.hero .wrap{position:relative}
+.hero-main{min-width:0; max-width:50em}
 .eyebrow{display:inline-block; font-family:var(--jp); font-size:12.5px; font-weight:700; letter-spacing:.1em;
   color:#a8cdf0; border:1px solid rgba(168,205,240,.45); padding:6px 14px; border-radius:100px; margin-bottom:22px}
 h1{font-family:var(--jp); font-size:clamp(27px,4.4vw,44px); line-height:1.42; font-weight:900;
@@ -110,21 +110,7 @@ h1 .hl{color:var(--yellow)}
 .hero .btn-ghost:hover{background:#fff; color:var(--blue-hero); border-color:#fff}
 .hero-note{font-family:var(--jp); font-size:13px; color:#93b5d5; margin:16px 0 0}
 
-/* のぼり旗 */
-.hero-flag{display:flex; align-items:flex-start; padding-top:4px}
-.pole{width:6px; align-self:stretch; border-radius:3px; background:linear-gradient(90deg,#d9c49a,#a98755 60%,#8a6c40); flex:0 0 auto}
-.nobori{position:relative; background:#fff; color:var(--blue-hero); width:192px; min-height:338px;
-  margin-left:12px; padding:26px 18px 22px; display:flex; flex-direction:row-reverse;
-  justify-content:center; align-items:center; gap:6px; box-shadow:0 12px 34px rgba(0,0,0,.3)}
-.nobori::after{content:""; position:absolute; left:0; right:0; top:0; height:6px; background:var(--red)}
-.chichi{position:absolute; left:-12px; width:12px; height:13px; background:#fff; border-radius:2px 0 0 2px}
-.chichi:nth-of-type(1){top:30px} .chichi:nth-of-type(2){top:calc(50% - 6px)} .chichi:nth-of-type(3){bottom:30px}
-@media(max-width:880px){
-  .hero{padding:46px 0 42px}
-  .hero .wrap{grid-template-columns:1fr; gap:36px}
-  .hero-flag{justify-self:center}
-  .nobori{width:162px; min-height:276px}
-}
+@media(max-width:880px){ .hero{padding:46px 0 42px} }
 
 /* 特徴バッジ */
 .feats{display:grid; grid-template-columns:repeat(auto-fit,minmax(246px,1fr)); gap:12px; margin:40px 0 0}
@@ -286,7 +272,7 @@ footer p{margin:0 0 10px}
 
 <header class="hd">
   <div class="hd-in">
-    <a class="logo" href="#main">のぼり旗の量産・外注パートナー<small>株式会社後藤染工</small></a>
+    <a class="logo" href="#main">のぼり旗の量産・外注メーカー<small>株式会社後藤染工</small></a>
     <div class="hd-cta">
       <a class="hd-tel" href="tel:0568-35-6651">0568-35-6651<span>平日 9:00〜12:00／13:00〜17:00</span></a>
       <a class="btn" href="#contact">お見積り<span class="pc-only">＆お問い合わせ</span></a>
@@ -307,12 +293,6 @@ footer p{margin:0 0 10px}
         <a class="btn btn-lg btn-ghost" href="https://www.gotosenko.co.jp/mitsumori/">WEB自動見積り</a>
       </div>
       <p class="hero-note">全国対応!!　WEB会議も!!　／　相見積もり大歓迎・同業者様の下請けも歓迎</p>
-    </div>
-    <div class="hero-flag" aria-hidden="true">
-      <div class="pole"></div>
-      <div class="nobori">
-        <span class="chichi"></span><span class="chichi"></span><span class="chichi"></span>
-      </div>
     </div>
   </div>
 </div>
@@ -751,7 +731,6 @@ footer p{margin:0 0 10px}
         <tbody>
           <tr><th scope="row">会社名</th><td>株式会社後藤染工</td></tr>
           <tr><th scope="row">本社所在地</th><td>〒486-0953　愛知県春日井市御幸町二丁目2番地18<br>TEL 0568-35-6651／FAX 0568-35-6652</td></tr>
-          <tr><th scope="row">第一工場</th><td>〒462-0013　愛知県名古屋市北区東味鋺三丁目309番地</td></tr>
           <tr><th scope="row">創業</th><td>1956年1月</td></tr>
           <tr><th scope="row">設立</th><td>1974年1月</td></tr>
           <tr><th scope="row">代表者</th><td>代表取締役　後藤 希利人</td></tr>
@@ -825,7 +804,7 @@ footer p{margin:0 0 10px}
       </details>
     </div>
 
-    <p class="updated">最終更新日：2026年11月2日</p>
+    <p class="updated">最終更新日：2026年11月6日</p>
   </div>
 </section>
 
@@ -867,7 +846,7 @@ footer p{margin:0 0 10px}
       "@type": ["Organization", "LocalBusiness"],
       "@id": "https://www.noboribata-gaityuu-partner.com/#organization",
       "name": "株式会社後藤染工",
-      "alternateName": "のぼり旗の量産・外注パートナー",
+      "alternateName": "のぼり旗の量産・外注メーカー",
       "url": "https://www.gotosenko.co.jp/",
       "foundingDate": "1956-01",
       "description": "後藤染工は「のぼり旗業界」のデジタル化を追求する布メディアの染色メーカーです。「オリジナルのぼり旗」の印刷から「縫製加工」まで、日本全国のBtoBのお客様へ出荷しています。",
@@ -882,18 +861,6 @@ footer p{margin:0 0 10px}
         "addressRegion": "愛知県",
         "addressLocality": "春日井市",
         "streetAddress": "御幸町二丁目2番地18"
-      },
-      "location": {
-        "@type": "Place",
-        "name": "第一工場",
-        "address": {
-          "@type": "PostalAddress",
-          "postalCode": "462-0013",
-          "addressCountry": "JP",
-          "addressRegion": "愛知県",
-          "addressLocality": "名古屋市北区",
-          "streetAddress": "東味鋺三丁目309番地"
-        }
       },
       "areaServed": { "@type": "Country", "name": "日本" },
       "openingHoursSpecification": [
@@ -910,7 +877,7 @@ footer p{margin:0 0 10px}
       "@type": "WebSite",
       "@id": "https://www.noboribata-gaityuu-partner.com/#website",
       "url": "https://www.noboribata-gaityuu-partner.com/",
-      "name": "のぼり旗の量産・外注パートナー｜株式会社後藤染工",
+      "name": "のぼり旗の量産・外注メーカー｜株式会社後藤染工",
       "inLanguage": "ja",
       "publisher": { "@id": "https://www.noboribata-gaityuu-partner.com/#organization" }
     },
@@ -923,7 +890,7 @@ footer p{margin:0 0 10px}
       "inLanguage": "ja",
       "isPartOf": { "@id": "https://www.noboribata-gaityuu-partner.com/#website" },
       "about": { "@id": "https://www.noboribata-gaityuu-partner.com/#organization" },
-      "dateModified": "2026-11-02",
+      "dateModified": "2026-11-06",
       "potentialAction": {
         "@type": "Action",
         "name": "WEB自動見積り",
